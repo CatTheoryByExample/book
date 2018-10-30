@@ -1,0 +1,335 @@
+%% -*- coding:utf-8 -*- 
+\documentclass[12pt,a4paper]{book}
+\usepackage[toc,page]{appendix}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{xparse} %to make Mac OSX compilation happy
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{imakeidx}
+\usepackage{scrbase}
+\usepackage{physics}
+\usepackage{adjustbox}
+\usepackage{nomencl}
+\makenomenclature
+
+% http://tex.stackexchange.com/questions/42343/how-to-add-a-navigation-window-to-a-latex-generated-pdf-document
+\usepackage{hyperref}
+\hypersetup{
+  pdftex,
+  allcolors=blue,
+  bookmarksnumbered=true,     
+  bookmarksopen=true,         
+  bookmarksopenlevel=1,       
+  colorlinks=true,            
+  pdfstartview=Fit,           
+  pdfpagemode=UseOutlines,  
+  pdfpagelayout=TwoPageRight,
+  pdftitle={Category Theory by Example},
+  pdfsubject={Category Theory},
+  pdfauthor={Ivan Murashko},
+  pdfkeywords={category theory, Haskell, quantum mechanics}
+}
+\usepackage{hypcap}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,trees,positioning,arrows,fit,shapes,matrix}
+\usepackage{mathtools}
+
+% https://stackoverflow.com/questions/1673942/latex-table-positioning
+\usepackage{float}
+\restylefloat{table}
+
+\DeclareMathOperator{\Ima}{Im}
+\newcommand{\eqdef}{\overset{\mathrm{def}}{=\joinrel=}}
+
+%
+% https://tex.stackexchange.com/questions/187388/amsthm-with-shared-counters-messes-up-autoref-references
+%
+\usepackage{aliascnt}
+\usepackage{cleveref}
+
+\theoremstyle{theorem}
+%\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{xtheorem}{Theorem}[chapter]
+\providecommand*{\xtheoremautorefname}{Theorem}
+\NewDocumentEnvironment{theorem}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to theorem
+                         {\begin{xtheorem}}
+                         {\begin{xtheorem}[#1]\index{#1 theorem!declaration}}
+                       }%
+                       {\end{xtheorem}}
+
+%
+% https://tex.stackexchange.com/questions/98626/automatically-add-theorems-to-index-and-label-them/98634
+%
+\theoremstyle{definition}
+\newaliascnt{definition}{xtheorem}
+\newtheorem{xdefinition}[definition]{Definition}
+\aliascntresetthe{definition}
+\providecommand*{\definitionautorefname}{Definition}
+\NewDocumentEnvironment{definition}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to definition
+                         {\begin{xdefinition}}
+                         {\begin{xdefinition}[#1]\index{#1!definition}}
+                       }%
+                       {\end{xdefinition}}
+
+\theoremstyle{remark}
+\newaliascnt{example}{xtheorem}
+\newtheorem{xexample}[example]{Example}
+\aliascntresetthe{example}
+\providecommand*{\exampleautorefname}{Example}
+\NewDocumentEnvironment{example}{oo}
+                       {\IfNoValueTF{#2}
+                         {\IfNoValueTF{#1}
+                           % no optional argument to example
+                           {\begin{xexample}}
+                           {\begin{xexample}[#1]\index{#1!example}}
+                         }%
+                         {\begin{xexample}[#1][#2]\index{#1!#2 example}}
+                       }%
+                       {\end{xexample}}
+
+
+
+\theoremstyle{myremark}
+\newaliascnt{myremark}{xtheorem}
+\newtheorem{xmyremark}[myremark]{Remark}
+\aliascntresetthe{myremark}
+\providecommand*{\myremarkautorefname}{Remark}
+\NewDocumentEnvironment{myremark}{oo}
+                       {\begin{xmyremark}
+                         \footnote{
+                           The remark is not a part of the lectures
+                           but it is important to understand the below
+                           content. 
+                         }                             
+                       }
+                       {\end{xmyremark}}
+
+\theoremstyle{myaxiom}
+\newaliascnt{myaxiom}{xtheorem}
+\newtheorem{xmyaxiom}[myaxiom]{Axiom}
+\aliascntresetthe{myaxiom}
+\providecommand*{\myaxiomautorefname}{Axiom}
+\NewDocumentEnvironment{myaxiom}{oo}
+                       {\begin{xmyaxiom}
+                         \footnote{
+                           The axiom is not a part of the lectures
+                           but it is important to understand the below
+                           content. 
+                         }                             
+                       }
+                       {\end{xmyaxiom}}
+
+
+%
+% https://tex.stackexchange.com/questions/250035/transform-output-theoremstyleremark-from-italics-to-bold
+%
+\makeatletter
+\def\th@remark{%
+  \thm@headfont{\bfseries}%
+  \normalfont % body font
+  \thm@preskip\topsep \divide\thm@preskip\tw@
+  \thm@postskip\thm@preskip
+}
+\makeatother
+                       
+\theoremstyle{remark}
+\newaliascnt{remark}{xtheorem}
+\newtheorem{xremark}[remark]{Remark}
+\aliascntresetthe{remark}
+\providecommand*{\remarkautorefname}{Remark}
+\NewDocumentEnvironment{remark}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to remark
+                         {\begin{xremark}}
+                         {\begin{xremark}[#1]\index{#1!remark}}
+                       }%
+                       {\end{xremark}}
+                       
+\theoremstyle{lemma}
+\newaliascnt{lemma}{xtheorem}
+\newtheorem{xlemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\providecommand*{\lemmaautorefname}{Lemma}
+\NewDocumentEnvironment{lemma}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to lemma
+                         {\begin{xlemma}}
+                         {\begin{xlemma}[#1]
+                             \index{#1 lemma!declaration}
+                         }
+                       }%
+                       {\end{xlemma}}
+
+                       
+\newtheorem{claim}[xtheorem]{Claim}
+\newtheorem{proposition}[xtheorem]{Proposition}
+\newtheorem{corollary}[xtheorem]{Corollary}
+
+\theoremstyle{property}
+\newaliascnt{property}{xtheorem}
+\newtheorem{xproperty}[property]{Property}
+\aliascntresetthe{property}
+\providecommand*{\propertyautorefname}{Property}
+\NewDocumentEnvironment{property}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to property
+                         {\begin{xproperty}}
+                         {\begin{xproperty}[#1]
+                             \index{#1 property!declaration}
+                         }
+                       }%
+                       {\end{xproperty}}
+
+\theoremstyle{axiom}
+\newaliascnt{axiom}{xtheorem}
+\newtheorem{xaxiom}[axiom]{Axiom}
+\aliascntresetthe{axiom}
+\providecommand*{\axiomautorefname}{Axiom}
+\NewDocumentEnvironment{axiom}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to axiom
+                         {\begin{xaxiom}}
+                         {\begin{xaxiom}[#1]
+                             \index{#1 axiom!declaration}
+                         }
+                       }%
+                       {\end{xaxiom}}
+
+
+%
+% https://tex.stackexchange.com/questions/357118/expand-nameref-before-creating-index
+%
+
+\makeatletter
+\newcommand{\getnamereftext}[1]{%
+  \@ifundefined{r@#1}{}{%
+    \unexpanded\expandafter\expandafter\expandafter{%
+      \expandafter\expandafter\expandafter\@thirdoffive\csname r@#1\endcsname
+    }%
+  }%
+}
+
+\newcommand{\mynameref}[1]{%
+  {\nameref{#1}}%
+  \ifstrstart{#1}{def:}%
+  {\expandafter\index{{\getnamereftext{#1}}}}%
+  {
+    \def\makeidx
+        {\ifstrstart{#1}{lem:}
+          {
+            \index{{\getnamereftext{#1} lemma}}
+          }
+          {\ifstrstart{#1}{thm:}
+            {
+              \index{{\getnamereftext{#1} theorem}}
+            }
+            {\ifstrstart{#1}{rem:}
+              {
+                \index{{\getnamereftext{#1} remark}}
+              }
+              {\ifstrstart{#1}{ex:}
+                {
+                  \index{{\getnamereftext{#1} example}}
+                }
+                {\ifstrstart{#1}{prop:}
+                  {
+                    \index{{\getnamereftext{#1} property}}
+                  }
+                  {\ifstrstart{#1}{axm:}
+                    {
+                      \index{{\getnamereftext{#1} axiom}}
+                    }
+                    {
+                      \index{{\getnamereftext{#1} \namecref{#1}}}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    \makeidx
+    (\autoref{#1})
+  }%
+}
+
+% took from 
+% http://www.andrew.cmu.edu/user/jonasf/80-413-713/documents/LaTeX_howto.pdf
+\newcommand {\cat}{%
+  \mathbf%
+}
+\newcommand {\domain} [1] {%
+  \mathrm{dom}(#1)%
+}
+\newcommand {\codomain} [1] {%
+  \mathrm{ cod }(#1)%
+}
+\newcommand {\idm} [1] {%
+  \mathbf{1}_{ #1 \to #1 }%
+}
+
+\newcommand {\tof}  {%
+  \Rightarrow%
+}
+
+\newcommand {\idf} [1] {%
+  \mathbf{1}_{ \cat{#1} \tof \cat{#1} }%
+}
+
+\newcommand {\tont}  {%
+  \xrightarrow{.}%
+}
+
+
+\newcommand {\idnt} [1] {%
+  \mathbf{1}_{ #1 \tont #1 }%
+}
+
+\newcommand {\catob} [1] {%
+  \mathrm{ob}(\cat{#1})%
+}
+
+\newcommand {\cathom} [1] {%
+  \mathrm{hom}(\cat{#1})%
+}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+
+\makeindex[intoc]
+
+\title{Category Theory by Example}
+\author{Ivan Murashko}
+%\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\input ./notations.tex
+\input ./introduction.tex
+\input ./basedefinitions.tex
+\input ./objectsmorphisms.tex
+%\input ./monoidalobject.tex
+\input ./functors.tex 
+\input ./nt.tex 
+\input ./monads.tex 
+\input ./yoneda.tex
+
+\printindex
+\bibliographystyle{gost780s}
+\bibliography{cattheory}
+\input ./license.tex
+
+\end{document}

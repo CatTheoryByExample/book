@@ -1,0 +1,302 @@
+%% -*- coding:utf-8 -*-
+\chapter{Functors}
+
+\section{Definitions}
+
+\begin{definition}[Functor]
+  \label{def:functor}
+  Let $\cat{C}$ and $\cat{D}$ are 2 categories. A mapping $F: \cat{C}
+  \tof \cat{D}$ between the categories is called \textit{functor} if it
+  preserves the internal structure (see \cref{fig:functor}): 
+  \begin{itemize}
+  \item $\forall a_C \in \catob{C}, \exists a_D \in \catob{D}$ such that
+    $a_D = F( a_C )$
+  \item $\forall f_C \in \cathom{C}, \exists f_D \in \cathom{D}$ such
+    that $\dom f_D = F (\dom f_C), \cod f_D = F (\cod f_C)$. We will use
+    the following notation later: $f_D = F(f_C)$.
+  \item $\forall f_C, g_C$ the following equation holds: 
+    \[
+    F\left(f_C \circ
+    g_C\right) = F\left(f_C\right) \circ F\left(g_C\right) = f_D \circ
+    g_D.
+    \]
+  \item $\forall x \in \catob{C}: F(\idm{x}) = \idm{F(x)}$.
+  \end{itemize}  
+
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,3) {$C$};        
+      \node at (4,3) {$D$};        
+
+      \node[ele,label=above:$a_C$] (ac) at (0,2) {};    
+      \node[ele,label=below:$b_C$] (bc) at (0,0) {};    
+      \node[ele,label=above:$a_D$] (ad) at (4,2) {};
+      \node[ele,label=below:$b_D$] (bd) at (4,0) {};
+
+      \node[draw,fit= (ac) (bc),minimum width=2cm, minimum
+        height=3.5cm] {} ;
+      \node[draw,fit= (ad) (bd),minimum width=2cm, minimum
+        height=3.5cm] {} ;
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[left]{$f_C$} (bc);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
+      node[right]{$f_D$} (bd);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[sloped,above]{$a_D = F(a_C)$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
+      node[sloped,above]{$b_D = F(b_C)$} (bd);
+    \end{tikzpicture}
+    \caption{Functor $F: \cat{C} \tof \cat{D}$ definition}
+    \label{fig:functor}
+  \end{figure}
+\end{definition}
+
+\begin{remark}[Functor]
+  When we say that functor preserve internal structure we assume that
+  the functor is not just mapping between \mynameref{def:object}s but
+  also between \mynameref{def:morphism}s.  
+
+  Thus functor is something that allows map one category into another.
+  The initial category can be considered as a pattern thus the mapping
+  is some kind of searching of the pattern inside another category.
+\end{remark}
+
+Programming languages can be considered as a good platform for the
+functor examples. 
+The functor can be defined in Haskell as follows
+\footnote{the real definition is quite different from the current one}
+\begin{example}[Functor][\textbf{Hask}]
+  \label{ex:functor_haskell}
+  \begin{minted}{haskell}
+    class Functor f where
+    fmap :: (a -> b) -> f a -> f b
+  \end{minted} 
+\end{example}
+
+In Scala it can be defined in the same way
+\begin{example}[Functor][\textbf{Scala}]
+  \label{ex:functor_scala}
+  \begin{minted}{scala}
+    trait Functor[F[_]] {
+      def fmap[A, B](f: A => B): F[A] => F[B]
+  }\end{minted} 
+\end{example}
+
+In C++ the definition differs
+\begin{example}[Functor][\textbf{C++}]
+  \label{ex:functor_cpp}
+  In C++ templates can be considered as type constructors in Haskell
+  and therefore can convert one type for another. For instance the
+  list of strings can be got with the following construction:
+
+  \begin{minted}{c++}
+    using StringList = std::list<std::string>;
+    StringList a = {"1", "2", "3"};
+  \end{minted} 
+  i.e. we have \mynameref{def:object}s mapping out of the box.
+  Therefore we need to define fmap
+  operation for \mynameref{def:morphism}s mapping to complete the
+  \mynameref{def:functor} definition. It can be declared as 
+  follows 
+  \begin{minted}{c++}
+    template < template< class ...> class F, class A, class B> 
+    F<B> fmap(std::function<B(A)>, F<A>);
+  \end{minted}
+  The template specialization for the \mintinline{c++}{std::list} can be
+  written as follows
+  \begin{minted}{c++}
+    // file: functor.h
+    template <class A, class B>
+    std::list<B> fmap(std::function<B(A)> f, std::list<A> a) {
+      std::list<B> res;
+      std::transform(a.begin(), a.end(), back_inserter(res), f);
+      return res;
+    }
+  \end{minted} 
+
+  The simple usage example is the following
+  \begin{minted}{c++}
+    StringList a = {"1", "2", "3"};
+    std::function<int(std::string)> f = [](std::string s) {
+      return 2 * atoi(s.c_str());
+    };
+    auto res = fmap<>(f, a);
+  \end{minted}
+\end{example}
+
+
+\begin{definition}[Endofunctor]
+  \label{def:endofunctor}
+  Let $\cat{C}$ is a \mynameref{def:category}. The
+  \mynameref{def:functor} $E: \cat{C} \tof \cat{C}$ i.e. 
+  the functor from a category to the same category is called
+  \textit{endofunctor}. 
+\end{definition}
+
+\begin{definition}[Identity functor]
+  \label{def:idfunctor}
+  Let $\cat{C}$ is a \mynameref{def:category}. The
+  \mynameref{def:functor} $\idf{C}: \cat{C} \tof \cat{C}$ is called \textit{identity
+    functor} if for every object $a \in \catob{C}$
+  \[
+  \idf{C}(a) = a
+  \]
+  and for every \mynameref{def:morphism} $f \in \cathom{C}$
+  \[
+  \idf{C}(f) = f
+  \] 
+\end{definition}
+
+\begin{remark}[Identity functor]
+  \label{rem:idfunctor}
+  First of all notice that \mynameref{def:idfunctor} is an
+  \mynameref{def:endofunctor}.
+
+  There is difference between identity functor and \mynameref{def:id}
+  because the first one has deal with both \mynameref{def:object}s and
+  \mynameref{def:morphism}s while the second one with the objects
+  only. 
+\end{remark}
+
+\begin{definition}[Functor composition]
+  \label{def:functor_composition}
+  If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$ and 2 functors
+  between them: $F: \cat{C} \tof \cat{D}$ and $G: \cat{D} \tof \cat{E}$
+  then we can construct a new functor $H: \cat{C} \tof \cat{E}$ that is
+  called \textit{functor composition} and denoted as $H = G \circ F$.
+  TBD
+\end{definition}
+
+\section{\textbf{Cat} category}
+The \mynameref{def:functor_composition} is associative by definition.
+Therefore \mynameref{def:idfunctor} with the associative composition
+allow us to define a category where other categories are considered as
+objects and functors as morphisms: 
+\begin{definition}[\textbf{Cat} category]
+  \label{def:cat_category}
+  The category of small categories (see \mynameref{def:small_category})
+  denoted as \textbf{Cat} is the \mynameref{def:category} where objects
+  are small categories and morphisms are \mynameref{def:functor}s
+  between them.
+\end{definition}
+
+We can construct an extension of Cartesian product as follows
+\begin{definition}[Category Product]
+  \label{def:category_product}
+  If we have 2 categories $\cat{C}$ and $\cat{D}$ then we can construct
+  a new category $\cat{C} \times \cat{D}$ with the following components:
+  \begin{itemize}
+  \item \mynameref{def:object}s are the pairs $(c,d)$ where $c \in
+    \catob{C}$ and $d \in \catob{D}$
+  \item \mynameref{def:morphism}s are the pair $(f,g)$ where $f \in
+    \cathom{C}$ and $g \in \cathom{D}$
+  \item \mynameref{axm:composition} is defined as follows 
+    \(
+    (f_1, g_1) \circ (f_2, g_2) = (f_1 \circ f_2, g_1 \circ g_2)
+    \)
+  \item Identity is defined as follows: $\idm{C \times D} = 
+    \left(\idm{C}, \idm{D}\right)$
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[Terminal object in \textbf{Cat} category]
+  \label{def:terminal_object_cat}
+  \index{Terminal object!\textbf{Cat} category}
+  Let consider $\Delta_c$ is a trivial functor from \mynameref{def:category}
+  $\cat{A}$ to category $\cat{C}$ such that $\forall a \in \catob{A}:
+  \Delta_c a = c$ -fixed object in $\cat{C}$ and 
+  $\forall f \in \cathom{A}: \Delta_c f = \idm{c}$.
+\end{definition}
+
+The good example can be found in $\cat{Hask}$ category.
+\begin{example}[Terminal object in \textbf{Cat} category][\textbf{Hask}]
+  \label{ex:terminal_object_cat_hask}
+  \begin{minted}{haskell}
+    data Const c a = Const c
+    fmap :: (a -> b) -> Const c a -> Const c b
+    fmap f (Const c a) = Const c
+  \end{minted}
+\end{example}
+
+\section{Bifunctors}
+
+\begin{definition}[Bifunctor]
+  \label{def:bifunctor}
+  Bifunctor is a \mynameref{def:functor} whose \mynameref{def:domain} is
+  a \mynameref{def:category_product}. I.e. if $\cat{C_1}, \cat{C_2},
+  \cat{D}$ are 3 categories then the \mynameref{def:functor} 
+  \(
+  F: \cat{C_1} \times \cat{C_2} \tof \cat{D}
+  \) is called \textit{bifunctor}.
+\end{definition}
+
+\begin{example}[Bifunctor][\textbf{Set}]
+  \label{ex:product_bifunctor}
+  Lets $A,B,C$ and $D$ are sets and $f: A \to C, g: B \to D$ are two
+  \mynameref{def:function}s. Then the \mynameref{def:cartesian_product}
+  with \mynameref{def:product_of_morphisms} form a
+  \mynameref{def:bifunctor} $\times$.
+\end{example}
+
+\begin{example}[Maybe as a bifunctor][\textbf{Hask}]
+  \label{ex:maybe_functor}
+  Lets show how the \mintinline{haskell}{Maybe a} type can be
+  constructed from different 
+  \mynameref{def:functor}s and as result show that the
+  \mintinline{haskell}{Maybe a} is also a
+  \mynameref{def:functor}. 
+  \begin{minted}{haskell}
+    data Maybe a = Nothing | Just a
+    -- This is equivalent to
+    data Maybe a = Either () (Identity a)
+    -- Either is a bifunctor and () == Const () a 
+    -- Thus Maybe is a composition of 2 functors 
+  \end{minted}
+\end{example}
+
+
+\begin{definition}[Contravariant functor]
+  \label{def:contravariant_functor}
+  If we have categories $\cat{C}$ and $\cat{D}$ then the
+  \mynameref{def:functor} $\cat{C^{op}} \tof \cat{D}$ is called
+  \textit{contravariant functor}. 
+\end{definition}
+
+\begin{example}[Contravariant functor][\textbf{Hask}]
+  \label{ex:contravariant_functor_hask}
+  TBD
+  \begin{minted}{haskell}
+    class Contravariant f where
+    contramap :: (a -> b) -> f b -> f a
+  \end{minted}
+\end{example}
+
+\begin{definition}[Profunctor]
+  \label{def:profunctor}
+  If we have a category $\cat{C}$ then the \mynameref{def:bifunctor}
+  $\cat{C^{op}} \times \cat{C} \tof \cat{C}$ is called
+  \textit{profunctor}. 
+\end{definition}
+
+\begin{example}[Profunctor][\textbf{Hask}]
+  \label{ex:contravariant_functor_hask}
+  TBD
+  \begin{minted}{haskell}
+    class Profunctor p where
+    dimap :: (a' -> a) -> ( b -> b' ) -> p a b -> p a' b'
+    -- p a b == a -> b
+    dimap f g h = g . h . f
+  \end{minted}
+\end{example}
+
+
+
+
+

@@ -1,0 +1,899 @@
+%% -*- coding:utf-8 -*-
+\chapter{Monads}
+
+Monads are very important for pure functional programming languages
+such as Haskell. We will start with \mynameref{def:monoid}
+consideration, continue with the formal mathematical definition for
+monad and
+will finish with programming languages examples later.
+
+\section{Monoid in \textbf{Set} category}
+We are going to consider \mynameref{def:monoid} in the terms of Set theory and
+will try to give the definition that is based rather on morphisms then
+on internal set structure i.e. we will use
+\mynameref{def:categorical_approach}. Let $M$ is a set and by the
+monoid 
+definition (\cref{def:monoid})
+$\forall m_1, m_2 \in M$ we can define a new element of the set
+$\mu(m_1, m_2) \in M$. Later we will use the following notation for
+the $\mu$:
+\[
+\mu(m_1, m_2) \equiv m_1 \cdot m_2.
+\]
+If the $(M, \cdot)$ is monoid then the following 2 conditions have to
+be satisfied. The first one (associativity) declares that $\forall
+m_1, m_2, m_3 \in M$ 
+\[
+m_1 \cdot ( m_2 \cdot m_3) = ( m_1 \cdot
+m_2 ) \cdot m_3.
+\]
+The second one (identity presence) says that
+\(
+\exists e \in M
+\) such that $\forall m \in M$:
+\begin{equation}
+m \cdot e = e \cdot m = m.
+\label{eq:monoid2}
+\end{equation}
+
+With the first one we can define $\mu$ as a
+\mynameref{def:morphism} in the following way 
+\[
+\mu: M\times M \to M,
+\]
+where $M \times M$ is the \mynameref{ex:set_product} in the
+\mynameref{def:setcategory}. I.e. $M \times M, M \in \catob{Set}$ and
+$\mu \in \cathom{Set}$.  Consider other objects of $\cat{Set}$: $A =
+M \times \left( M \times M \right)$ and $A' = \left( M \times M \right)
+\times M$. They are not the same but there is a trivial
+\mynameref{def:isomorphism} between them $A \cong_\alpha A'$, where
+the isomorphism $\alpha$ defined as
+\[
+\alpha(x,(y,z)) = ((x,y),z).
+\]
+Consider the action of \mynameref{def:product_of_morphisms} 
+$\idm{M} \times \mu$ on $A$:
+\[
+\idm{M} \times \mu \left(x,\left(y,z\right)\right) = 
+\left(\idm{M}(x),\mu\left(y,z\right)\right) = 
+\left(x, y \cdot z\right) \in M \times M
+\]
+i.e. $\idm{M} \times \mu: M \times \left( M \times M \right) \to M
+\times M$. If we act $\mu$ on the result then we can obtain:
+\begin{eqnarray}
+\mu \left(\idm{M} \times \mu \left(x,\left(y,z\right)\right)\right) = 
+\left(\idm{M}(x),\mu\left(y,z\right)\right) = 
+\nonumber \\
+=
+\mu\left(x, y \cdot z\right) = x \cdot (y\cdot z) \in M,
+\nonumber
+\end{eqnarray}
+i.e. 
+$\mu \circ \left(\idm{M} \times \mu\right): M \times \left( M \times M
+\right) \to M$.
+
+For $A'$ we have the following one:
+\begin{eqnarray}
+\mu\circ\left(\mu \times \idm{M}\right)\left(\left(x,y\right),z\right)
+= \mu\left(x \cdot y, z\right) = (x \cdot y) \cdot z.
+\nonumber
+\end{eqnarray}
+Monoid associativity requires 
+\[
+x \cdot (y\cdot z) = 
+(x \cdot y) \cdot z
+\]
+i.e. the morphisms is shown in \cref{fig:monoid_mu_alpha} commute:
+\begin{equation}
+\label{eq:monad_monoid_mu}
+\mu\circ\left(\mu \times \idm{M}\right) =
+\mu \circ \left(\idm{M} \times \mu\right) \circ \alpha.
+\end{equation}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=above:$M\times\left(M \times M\right)$] (M31) at (0,3) {};    
+    \node[ele,label=above:$\left(M \times M\right)\times M$] (M32) at (6,3) {};    
+    \node[ele,label=below:$M \times M$] (M21) at (0,0) {};    
+    \node[ele,label=below:$M \times M$] (M22) at (6,0) {};    
+    \node[ele,label=below:$M$] (M) at (3,0) {};    
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M31) to
+    node[sloped,above]{$\cong_\alpha$} (M32);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M31) to
+    node[sloped,below]{$\idm{M} \times \mu$} (M21);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M32) to
+    node[sloped,below]{$\mu \times \idm{M}$} (M22);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M22) to
+    node[sloped,above]{$\mu$} (M);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M21) to
+    node[sloped,above]{$\mu$} (M);
+  \end{tikzpicture}
+  \caption{Commutative diagram for $\mu\circ\left(\mu \times
+    \idm{M}\right) = \mu \circ \left(\idm{M} \times \mu\right) \circ
+    \alpha$.} 
+  \label{fig:monoid_mu_alpha}
+\end{figure}
+Very often the isomorphism $\alpha$ is omitted i.e. 
+\[
+M\times\left(M \times M\right)
+= \left(M \times M\right)\times M = M^3
+\]
+and the morphism
+equality \eqref{eq:monad_monoid_mu} is written as follow
+\[
+\mu\circ\left(\mu \times \idm{M}\right) =
+\mu \circ \left(\idm{M} \times \mu\right).
+\]
+The corresponding commutative diagram is shown in
+\cref{fig:monoid_mu}.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=above:$M^3$] (M3) at (0,3) {};    
+    \node[ele,label=above:$M \times M$] (M21) at (3,3) {};    
+    \node[ele,label=below:$M \times M$] (M22) at (0,0) {};    
+    \node[ele,label=below:$M$] (M) at (3,0) {};    
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M3) to
+    node[sloped,below]{$\idm{M} \times \mu$} (M21);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M3) to
+    node[sloped,above]{$\mu \times \idm{M}$} (M22);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M22) to
+    node[sloped,above]{$\mu$} (M);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M21) to
+    node[sloped,above]{$\mu$} (M);
+  \end{tikzpicture}
+  \caption{Commutative diagram for $\mu\circ\left(\mu \times
+    \idm{M}\right) = \mu \circ \left(\idm{M} \times \mu\right)$.}
+  \label{fig:monoid_mu}
+\end{figure}
+
+For \eqref{eq:monoid2} consider a morphism $\eta$ from
+\mynameref{def:singleton_set} 
+\footnote{
+ It also is called \cite{bib:maclane98} as a one point set
+}
+$I = \{0\}$ to the special element $e \in M$ such that
+$\forall m \in M: e \cdot m = m \cdot e = m$. I.e. $\eta: I \to M$ and
+$e = \eta(0)$. Consider 2 sets $B = I \times M$ and $B' = M \times I$. 
+We have 2 \mynameref{def:isomorphism}s: $B \cong_\lambda M$ and $B'
+\cong_\rho M$ such that
+\[
+\lambda(m) = 0 \times m
+\] 
+and
+\[
+\rho(m) = m \times 0.
+\] 
+
+If we apply the products (see \mynameref{def:product_of_morphisms}) $\eta \times \mu$ and
+$\mu \times \eta$ on $B$ and $B'$ respectively then we get
+\begin{eqnarray}
+\eta \times \idm{M} \left(0 \times m\right) = e \times m,
+\nonumber \\
+\idm{M} \times \eta \left(m \times 0\right) = m \times e.
+\nonumber
+\end{eqnarray}
+After the application of $\mu$ on the result we obtain
+\begin{eqnarray}
+\mu \left(\eta \times \idm{M} \left(0 \times m\right) \right) 
+= \mu \left( e \times m \right) = e \cdot m,
+\nonumber \\
+\mu \left( \idm{M} \times \eta \left(m \times 0\right) \right) = 
+\mu \left(m \times e \right) = m \cdot e.
+\nonumber
+\end{eqnarray}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=above:$M$] (M') at (0,3) {};    
+    \node[ele,label=above:$M \times M$] (M21) at (3,3) {};    
+    \node[ele,label=below:$M \times M$] (M22) at (0,0) {};    
+    \node[ele,label=below:$M$] (M) at (3,0) {};    
+
+    \draw [double equal sign distance] (M') to (M);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M') to
+    node[sloped,below]{$\lambda$} (M21);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M') to
+    node[sloped,above]{$\rho$} (M22);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M22) to
+    node[sloped,above]{$\mu$} (M);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (M21) to
+    node[sloped,above]{$\mu$} (M);
+  \end{tikzpicture}
+  \caption{Commutative diagram for $\mu \circ (\eta \times \idm{M})
+    \circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
+    \idm{M}$ .} 
+  \label{fig:monoid_eta_lambda_rho}
+\end{figure}
+The \eqref{eq:monoid2} leads to the following equation for morphisms
+\[
+\mu \circ (\eta \times \idm{M}) \circ \rho = 
+\mu \circ (\idm{M} \times \mu) \circ \lambda = 
+\idm{M}
+\]
+or the commutative diagram show on \cref{fig:monoid_eta_lambda_rho}.
+
+Before given a formal definition lets look at the operations were used
+for the construction. The first one is the product of 2 objects:
+\[
+M \times M.
+\]
+We also have 2 pairs of morphisms:
+\begin{eqnarray}
+\mu: M \times M \to M,
+\nonumber \\
+\idm{M}: M \to M.
+\nonumber
+\end{eqnarray}
+and
+\begin{eqnarray}
+\eta: I \to M, 
+\nonumber \\
+\idm{M}: M \to M.
+\nonumber
+\end{eqnarray}
+The pairs can be combined into one using
+\mynameref{def:product_of_morphisms} as follows:
+\begin{eqnarray}
+\mu \times \idm{M}: \left(M \times M\right) \times M \to M \times M,
+\nonumber \\
+\idm{M} \times \mu: M \times \left(M \times M\right) \to M \times M
+\nonumber
+\end{eqnarray}
+and
+\begin{eqnarray}
+\eta \times \idm{M}: I \times M \to M \times M,
+\nonumber \\
+\idm{M} \times \eta: M \times I \to M \times M.
+\nonumber
+\end{eqnarray}
+The same structure 
+\footnote{not only objects mapping but also morphisms mapping}
+is used by
+\mynameref{def:functor} 
+and
+especially by \mynameref{ex:product_bifunctor}.  
+
+%% If we take into consideration that one-point set is
+%% \mynameref{ex:set_terminal_object} then we can conclude that the
+%% monoid can be defined for instance in a \mynameref{def:cartesian_closed_category}
+%% as follow
+Now we are ready to provide the monoid definition in the terms of morphisms.
+\begin{definition}[Monoid]
+\label{def:monoid_category}
+Consider \mynameref{def:setcategory} $\cat{C}$ with a
+\mynameref{def:singleton_set} $t \in \catob{C}$. The \mynameref{def:cartesian_product}
+with \mynameref{def:product_of_morphisms} forms a
+\mynameref{def:bifunctor} $\times$ (see \cref{ex:product_bifunctor}).
+The object $m \in
+\catob{C}$ is called \textit{monoid} if the following
+conditions satisfied:
+\begin{enumerate}
+\item there is a \mynameref{def:morphism} $\mu: m \times m \to m$ in
+  the category
+\item there is another morphism $\eta: t \to m$ in the category
+\item the morphisms satisfy the following conditions:
+\begin{equation}
+\mu\circ\left(\mu \times
+    \idm{M}\right) = \mu \circ \left(\idm{M} \times \mu\right) \circ
+    \alpha,
+\label{eq:monoid_def_mu}
+\end{equation}
+\begin{equation}
+\mu \circ (\eta \times \idm{M})
+\circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
+\idm{M}
+\label{eq:monoid_def_eta}
+\end{equation}
+where $\alpha$ (associator) is an \mynameref{def:isomorphism} between
+$m \times (m \times m)$ and $(m \times m) \times m$. $\lambda, \rho$
+are other isomorphisms:  
+\[
+m \cong_\lambda t \times m
+\]
+and
+\[
+m \cong_\rho m \times t 
+\]
+\end{enumerate}
+\end{definition}
+
+\section{Monoidal category}
+As we saw in the categorical definition for monoid (see
+\cref{def:monoid_category}) the category $\cat{C}$ should satisfy
+several conditions to have an object as monoid. Lets formalise the conditions.
+\begin{definition}[Monoidal category]
+\label{def:monoidal_category}
+A category $\cat{C}$ is called \textit{monoidal category} if it is
+equipped with a \mynameref{def:monoid} structure i.e. there are
+\begin{itemize}
+\item \mynameref{def:bifunctor} $\otimes: \cat{C} \times \cat{C} \tof
+  \cat{C}$ called \textit{monoidal product} \index{Monoidal
+    product!definition} 
+\item an \mynameref{def:object} $e$ called unit object or identity object
+\end{itemize}
+
+The elements should satisfy (up to \mynameref{def:isomorphism})
+several conditions. The first one:
+associativity: 
+\begin{equation}
+a \otimes \left( b \otimes c \right) \cong_\alpha
+  \left( a \otimes b \right) \otimes c,
+\nonumber
+\end{equation}
+where $\alpha$ is called associator. \index{Associator!definition}
+The second condition says that
+$e$ can be treated as left and right identity: 
+\begin{eqnarray}
+a \cong_\lambda e \otimes a, 
+\nonumber \\
+a \cong_\rho a \otimes e,
+\nonumber
+\end{eqnarray}
+where $\lambda, \rho$ are called as left and right unitors respectively. \index{Left unitor!definition} \index{Right unitor!definition}
+\end{definition}
+
+In the \mynameref{def:setcategory} we have $\times$ as the monoidal
+product (see \cref{ex:product_bifunctor}). There is also a
+morphism $\eta$ from terminal object $t$ to $e$
+\cite{bib:stackexchange:terminalinmonoid} (see \cref{def:monoid_category}). 
+
+\begin{definition}[Strict monoidal category]
+\label{def:strict_monoidal_category}
+\index{Associator}
+A \mynameref{def:monoidal_category} $\cat{C}$ is said to be \textit{strict} if the
+associator, left and right unitors are all identity morphisms i.e.
+\[
+\alpha = \lambda = \rho = \idm{C}.
+\]
+\index{Left unitor} \index{Right unitor}
+\end{definition}
+
+\begin{remark}[Monoidal product]
+\label{rem:monoidal_product}
+The monoidal product is a binary operation that specifies the exact
+monoidal structure. Often it is called as \textit{tensor product} but
+we will avoid the naming because it is not always the same as the
+\mynameref{def:tensor_product} introduced for
+\mynameref{def:hilbert_space}s. We also note that the monoidal product is
+a \mynameref{def:bifunctor}. 
+\end{remark}
+
+\section{Category of endofunctors}
+
+The \mynameref{ex:fun_category} is an example of a category. We can
+apply additional limitation and consider only
+\mynameref{def:endofunctor}s i.e. we will look at the category
+$[\cat{C}, \cat{C}]$ - the category of functors from category $\cat{C}$ to
+the same category. One of the most popular math definition of a monad
+is the following: 
+``All told, a monad in X is just a monoid in the category of
+endofunctors of X''\cite{bib:maclane98}.
+Later we will give an explanation for that one.
+
+We start with the formal definition of category of endofunctors and a
+tensor product in the category
+\begin{definition}[Category of endofunctors]
+\label{def:category_of_endofunctors}
+Let $\cat{C}$ is a category, then  the category $[\cat{C}, \cat{C}]$ of
+functors from category $\cat{C}$ to the same category is called the
+category of endofunctors. The monoidal product in the category is the
+functor composition. 
+\end{definition}
+
+\begin{definition}[Monad]
+  \label{def:monad}
+  The monad $M$ is an \mynameref{def:endofunctor} with 2
+  \mynameref{def:nt}s:
+  \begin{equation}
+    \label{eq:monad_mu}
+    \mu: M \circ M \tont M
+  \end{equation}
+  and
+  \begin{equation}
+    \label{eq:monad_eta}
+    \eta: \idf{C} \tont M,
+  \end{equation}
+  where $\idf{C}$ is \mynameref{def:idfunctor}.
+
+  The $\eta, \mu$ should satisfy the following conditions:
+  \begin{eqnarray}
+    \mu \circ M \mu = \mu \circ \mu M, 
+    \nonumber \\
+    \mu \circ M \eta = \mu \circ \eta M = \idnt{M},
+    \label{eq:monad}
+  \end{eqnarray}
+  where $M \mu, M \eta$ - \mynameref{def:rw}s, $\mu M, \eta M$ -
+  \mynameref{def:lw}s, $\idnt{M}$ - \mynameref{def:idnt} for $M$.
+  \mynameref{def:vertical_composition} is used in the equations.
+
+  The monad will be denoted later as $\left<M, \mu, \eta\right>$.
+\end{definition}
+
+Lets look at the requirements \eqref{eq:monad} more closely. Notice
+that the functor composition is associative:
+\[
+M \circ ( M \circ M ) = (M \circ M) \circ M = M^3.
+\]
+Secondly 
+all rewrite it with \eqref{eq:lw} and \eqref{eq:rw} as follows
+\begin{eqnarray}
+  \mu \circ \left( \idnt{M} \star \mu \right) = 
+  \mu \circ \left( \mu \star \idnt{M} \right), 
+  \nonumber \\
+  \mu \circ \left( \idnt{M} \star \eta \right) = 
+  \mu \circ \left( \eta \star \idnt{M} \right) = \idnt{M}.
+  \label{eq:monad_p1}
+\end{eqnarray}
+Thus we can notice that the pair of operations (composition $\circ$
+and \mynameref{def:horizontal_composition} $\star$) forms the bifunctor (see
+\mynameref{rem:bifunctor_fun_cat}). 
+
+The morphism $\idnt{M} \star \mu$ acts on $M \circ ( M \circ M )$ as
+\[
+\idnt{M} \star \mu : M \circ ( M \circ M ) \tont M \circ (M \otimes M)
+\]
+thus
+\[
+\mu \circ (\idnt{M} \star \mu) : M \circ ( M \circ M ) \tont M \otimes (M \otimes M).
+\]
+Similarly 
+\[
+\mu \circ (\mu \star \idnt{M}) : (M \circ  M) \circ M  \tont ( M \otimes M) \otimes M.
+\]
+I.e. the both morphisms start at the same object $M^3$ and finish also
+at the same point. The equality 
+\begin{equation}
+\mu \circ (\idnt{M} \star \mu) = 
+\mu \circ (\mu \star \idnt{M})
+\label{eq:monoidalobject1}
+\end{equation}
+is similar to the conditions on the \cref{fig:monoid_mu} and can be
+written as \cref{fig:monad_monoid1}. Thus if we compare
+\eqref{eq:monoidalobject1} and \eqref{eq:monoid_def_mu} then we can say
+that they are same if we replace $\star$ sign with $\times$ one. I.e.
+in the case we can say that the monad looks like a
+\mynameref{def:monoid_category}. 
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=left:$M^3$] (m3) at (0,4) {};    
+    \node[ele,label=left:$M^2$] (m21) at (0,0) {};    
+    \node[ele,label=right:$M^2$] (m22) at (4,4) {};
+    \node[ele,label=right:$M$] (m) at (4,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (m3) to
+    node[sloped,above]{$\idnt{M} \star \mu$} (m21);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (m3) to
+    node[sloped,above]{$\mu \star \idnt{M}$} (m22); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (m21) to
+    node[sloped,above]{$\mu$} (m); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (m22) to
+    node[sloped,above]{$\mu$} (m); 
+  \end{tikzpicture}
+  \caption{Monad as monoid in the category of endofunctors.}
+  \label{fig:monad_monoid1}
+\end{figure}
+
+For the identity element consider the same trick: replace in
+\eqref{eq:monoid_def_eta} tensor
+product $\times$ with \mynameref{def:horizontal_composition} $\star$ and
+morphisms $\idm{M}, \rho, \lambda$ with identity natural transformation
+$\idnt{M}$. Thus the equation
+\[
+\mu \circ (\eta \times \idm{M})
+\circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
+\idm{M}
+\]
+will be replaced with
+\[
+\mu \circ (\eta \star \idnt{M}) = \mu \circ (\idnt{M} \star \mu) =
+\idnt{M}
+\]
+that is the exact we want to get (see second equation of
+\eqref{eq:monad_p1}). 
+
+%% There should be an identity element for each \mynameref{def:monoid}.
+%% Lets show that the second equation of  \eqref{eq:monad_p1} provides us
+%% the required element. Lets $U =
+%% \eta\left(\idf{C}\right)$. 
+%% We want to show that 
+%% \begin{equation}
+%% U \otimes M = M \otimes U = M, 
+%% \nonumber
+%% \end{equation}
+%% that is exactly required as identity presence in the
+%% \mynameref{def:monoid} definition.
+%% Consider the action of the left part of second equation
+%% \eqref{eq:monad_p1} on $M = M \circ \idf{C}$:
+%% \begin{eqnarray}
+%% \mu \circ \left( \idnt{M} \star \eta \right) \left[M \circ \idf{C}\right] = 
+%% \nonumber \\
+%% =
+%% \mu \left[M \circ U\right] = M \otimes U
+%% \nonumber
+%% \end{eqnarray}
+%% For the middle part of  of second equation
+%% \eqref{eq:monad_p1}
+%% \begin{eqnarray}
+%% \mu \circ \left( \eta \star \idnt{M} \right) \left[M\right] = 
+%% \mu \circ \left( \eta \star \idnt{M} \right) \left[\idf{C} \circ M\right] = 
+%% \nonumber \\
+%% =
+%% \mu \left[U \circ M\right] = U \otimes M.
+%% \nonumber
+%% \end{eqnarray}
+%% Thus
+%% finally
+%% \[
+%% M \otimes U = U \otimes M = M
+%% \]
+%% that finals the proof of monoidal structure.
+
+\section{Monads in programming languages}
+There are several examples of \mynameref{def:monad} implementation in
+different programming languages:
+
+\subsection{Haskell}
+
+\begin{example}[Monad][\textbf{Hask}]
+\label{ex:monad_haskell}
+In Haskell monad can be defined from \mynameref{ex:functor_haskell} as follows 
+\footnote{real definition is quite different from the presented one}
+\begin{minted}{haskell}
+    class Functor m => Monad m where
+        return :: a -> m a
+        (>>=)  :: m a -> (a -> m b) -> m b
+\end{minted} 
+
+To show how this one can be get we can start from a definition that is
+similar to the math definition:
+\begin{minted}{haskell}
+    class Functor m => Monad m where
+        return :: a -> m a
+        join  :: m (m a) -> m a
+\end{minted} 
+where \mintinline{haskell}{return} can be treated as $\eta$
+\eqref{eq:monad_eta} and 
+\mintinline{haskell}{join} as $\mu$ \eqref{eq:monad_mu}. In the case
+the bind operator \mintinline{haskell}{>>=} can be implemented as follows
+\begin{minted}{haskell}
+(>>=)  :: m a -> (a -> m b) -> m b
+ma >>= f = join ( fmap f ma )
+\end{minted} 
+
+\end{example}
+
+\subsection{C++}
+The monad in C++ use the functor definition from \mynameref{ex:functor_cpp}
+\begin{minted}{c++}
+// from functor.h
+template < template< class ...> class M, class A, class B> 
+M<B> fmap(std::function<B(A)>, M<A>);
+
+// file: monad.h
+template < template< class ...> class M, class A> 
+M<A> pure(A);
+
+template < template< class ...> class M, class A> 
+M<A> join(M< M<A> >);
+\end{minted}
+where \mintinline{c++}{pure} can be treated as $\eta$
+\eqref{eq:monad_eta} and 
+\mintinline{haskell}{join} as $\mu$ \eqref{eq:monad_mu}. In the case
+the bind operator can be implemented as follows
+\begin{minted}{c++}
+template < template< class ...> class M, class A, class B> 
+M<B> bind(std::function< M<B> (A) > f, M<A> a) {
+  return join( fmap<>(f, a) );
+};
+\end{minted}
+
+\subsection{Scala}
+
+\begin{example}[Monad][\textbf{Scala}]
+The monad concept is Scala is more close to formal math definition for
+\mynameref{def:monad}. It can be defined as follows 
+\footnote{real definition is quite different from the presented one}
+\label{ex:monad_scala}
+\begin{minted}{scala}
+trait M[A] {
+  def flatMap[B](f: A => M[B]): M[B]
+}
+  
+def unit[A](x: A): M[A]
+\end{minted} 
+I.e. \mintinline{scala}{flatMap} can be considered as $\mu$ and
+\mintinline{scala}{unit} as $\eta$. 
+\end{example}
+
+TBD
+
+\section{Kleisli category}
+
+\begin{definition}[Kleisli category]
+\label{def:kleisli_category}
+Let $\cat{C}$ is a category, $M$ is an \mynameref{def:endofunctor} and
+$\left<M, \mu, \eta\right>$ is a \mynameref{def:monad}. Then we can
+construct a new category $\cat{C_M}$ as follows:
+\begin{eqnarray}
+\catob{C_M} = \catob{C},
+\nonumber \\
+\hom_{\cat{C_M}}\left(a, b\right) = 
+\hom_{\cat{C}}\left(a, M(b)\right)
+\nonumber
+\end{eqnarray}
+i.e. objects of categories $\cat{C}$ and $\cat{C_M}$ are the same but
+morphisms from $\cat{C_M}$ form a subset of morphisms $\cat{C}$:
+$\cathom{C_M} \subset \cathom{C}$. The category is called as
+\textit{Kleisli category}. 
+
+The identity morphism in the Kleisli category is the
+\mynameref{def:nt} $\eta$ \eqref{eq:monad_eta} defined by the monad
+$\left<M, \mu, \eta\right>$: 
+\[
+\idm{C_M} = \eta
+\]
+\end{definition}
+
+\begin{remark}[Kleisli category composition]
+\mynameref{def:kleisli_category} has a non trivial composition rules.
+If we have 2 \mynameref{def:morphism}s from $\cathom{C_M}$:
+\[
+f_M: a \to b
+\]
+and
+\[
+g_M: b \to c.
+\]
+The morphisms have correspondent ones in $\cat{C}$:
+\[
+f: a \to M(b)
+\]
+and
+\[
+g: b \to M(c).
+\]
+The composition $g_M \circ f_M$ gives a new morphism
+\[
+h_M = g_M \circ f_M: a \to c.
+\]
+The corresponding one from $\cat{C}$ is
+\[
+h: a \to M(c).
+\]
+It has to be pointed that the compositions in $\cat{C}$ and
+$\cat{C_M}$ are not the same:
+\[
+g_M \circ f_M \ne g \circ f.
+\]
+\end{remark}
+
+\mynameref{def:kleisli_category} widely spread in programming
+especially it provides good description for different types of
+computations, for instance \cite{bib:Moggi91, bib:milewski2018category} 
+\begin{itemize}
+\item \textbf{Partiality} i.e. then a function not defined for each input, for
+  instance the following expression is undefined (or partially
+  defined) for $x = 0$: $f(x) = \frac{1}{x}$
+\item \textbf{Non-Determinism} i.e. then multiply output are possible
+\item \textbf{Side-effects} i.e. then a function communicates with
+  an environment
+\item \textbf{Exception} i.e. when some input is incorrect and can
+  produce an abnormal result. Therefore it is the same as
+  \textbf{Partiality} and will be considered below as the same type of
+  computation. 
+\item \textbf{Continuation} i.e. when we need to save the current
+  state of the computation and be able to restore it on demand later
+\item \textbf{Interactive input} i.e. a function that reads data from
+  an input device (keyboard, mouse, etc.)
+\item \textbf{Interactive output} i.e. a function that writes data to
+an output device (monitor etc.)
+\end{itemize}
+
+\subsection{Partiality and Exception}
+
+Partial functions and exceptions can be processed via monad be called
+as Maybe. There will be implementations in different languages below.
+And the usage example for the following function implementation
+\[
+h(x) = \frac{1}{2 \sqrt{x}}.
+\]
+The function is a composition of 3 functions:
+\begin{eqnarray}
+f_1(x) = \sqrt{x},
+\nonumber \\
+f_2(x) = 2 \cdot x,
+\nonumber \\
+f_3(x) = \frac{1}{x}
+\label{eq:monadmaybe_ex_f}
+\end{eqnarray}
+and as result the goal can be implemented as the following
+composition:
+\begin{equation}
+h = f_3 \circ f_2 \circ f_1.
+\label{eq:monadmaybe_ex_h}
+\end{equation}
+$f_2$ is a \mynameref{def:pure_function} and defined $\forall x \in \mathbb{R}$. The
+functions $f_1, f_3$ are partially defined.
+
+\begin{example}[Maybe monad][\textbf{Hask}]
+\label{ex:maybe_monad_haskell}
+The Maybe monad can be implemented as follows
+\begin{minted}{haskell}
+  instance Monad Maybe where
+    return = Just
+    join Just( Just x) = Just x
+    join _ = Nothing
+\end{minted} 
+
+Our functions \eqref{eq:monadmaybe_ex_f} can be implemented as follows
+\begin{minted}{haskell}
+f1 :: (Ord a, Floating a) => a -> Maybe a
+f1 x = if x >= 0 then Just(sqrt x) else Nothing 
+
+f2 :: Num a => a -> Maybe a
+f2 x = Just (2*x)
+
+f3 :: (Eq a, Fractional a) => a -> Maybe a
+f3 x = if x /= 0 then Just(1/x) else Nothing
+\end{minted}
+
+The $h$ \eqref{eq:monadmaybe_ex_h} is the composition via bind
+operator:
+\begin{minted}{haskell}
+h :: (Ord a, Floating a) => a -> Maybe a
+h x = (return x) >>= f1 >>= f2 >>= f3
+\end{minted}
+
+The usage example is the following:
+\begin{minted}{bash}
+*Main> h 4
+Just 0.25
+*Main> h 1
+Just 0.5
+*Main> h 0
+Nothing
+*Main> h (-1)
+Nothing
+\end{minted}
+
+\end{example}
+
+\begin{example}[Maybe monad][\textbf{C++}]
+\label{ex:maybe_monad_cpp}
+The Maybe monad can be implemented as follows
+\begin{minted}{c++}
+template <class A> using Maybe = std::optional<A>;
+
+template < class A, class B> 
+Maybe<B> fmap(std::function<B(A)> f, Maybe<A> a) {
+  if (a) {
+    return f(a.value());
+  }
+  return {};
+}
+
+template < class A> 
+Maybe<A> pure(A a) {
+  return a;
+}
+
+template < class A> 
+Maybe<A> join(Maybe< Maybe<A> > a){
+  if (a) {
+    return a.value();
+  }
+  return {};
+}
+\end{minted} 
+
+Our functions \eqref{eq:monadmaybe_ex_f} can be implemented as follows
+\begin{minted}{c++}
+std::function<Maybe<float>(float)> f1 =
+    [](float x) {
+      if (x >= 0) {
+        return Maybe<float>(sqrt(x));
+      }
+      return Maybe<float>();
+    };
+
+std::function<Maybe<float>(float)> f2 = [](float x) { return 2 * x; };
+
+std::function<Maybe<float>(float)> f3 =
+    [](float x) {
+      if (x != 0) {
+        return Maybe<float>(1 / x);
+      }
+      return Maybe<float>();
+    };
+}
+\end{minted}
+
+The $h$ \eqref{eq:monadmaybe_ex_h} is the composition via bind
+operator:
+\begin{minted}{c++}
+auto h(float x) {
+  Maybe<float> a = pure(x);
+  return bind(f3,bind(f2,bind(f1, a)));
+};
+\end{minted}
+
+\end{example}
+
+\subsection{Non-Determinism}
+
+TBD
+
+\subsection{Side effects and interactive input/output}
+
+TBD
+
+\subsection{Continuation}
+
+TBD
+
+
+\section{Examples}
+
+\subsection{Quantum mechanics}
+
+\begin{definition}[Tensor product]
+  \label{def:tensor_product}
+  TBD
+\end{definition}
+
+The tensor product in quantum mechanics is used for
+representing a system that consists of multiple systems. For instance
+if we have an interaction between an 2 level atom ($a$ is excited
+state $b$ as a ground state) and one mode light then the
+atom has its own Hilber space $\mathcal{H}_{at}$ with $\ket{a}$ and
+$\ket{b}$ as basis 
+vectors.  Light also has its own Hilber space $\mathcal{H}_f$ with Fock state
+$\{\ket{n}\}$ as the basis.
+\footnote{
+  Really the $\mathcal{H}_f$ is infinite dimensional Hilber space and
+  seems to be out of our assumption about \textbf{FdHilb} category as
+  a collection of finite dimensional Hilber spaces only.
+}
+The result system that describes both atom
+and light is represented as the tensor product $\mathcal{H}_{at}
+\otimes \mathcal{H}_f$.
+
+The morphisms of \textbf{FdHilb} category have a connection with
+\mynameref{def:tensor_product}. Consider the so called Hilbert-Schmidt
+correspondence for finite dimensional Hilbert spaces i.e. for given
+$\mathcal{A}$ and $\mathcal{B}$ there is a natural isomorphism between
+the tensor product and linear maps (aka morphisms) between
+$\mathcal{A}$ and $\mathcal{B}$:
+\[
+\mathcal{A}^\ast \otimes \mathcal{B} \cong \hom(\mathcal{A}, \mathcal{B})
+\]
+where $\mathcal{A}^\ast$ - \mynameref{def:dual_space}.
+
+
+TBD
