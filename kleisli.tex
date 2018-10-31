@@ -1,0 +1,229 @@
+%% -*- coding:utf-8 -*-
+\chapter{Kleisli category}
+
+\begin{definition}[Kleisli category]
+\label{def:kleisli_category}
+Let $\cat{C}$ is a category, $M$ is an \mynameref{def:endofunctor} and
+$\left<M, \mu, \eta\right>$ is a \mynameref{def:monad}. Then we can
+construct a new category $\cat{C_M}$ as follows:
+\begin{eqnarray}
+\catob{C_M} = \catob{C},
+\nonumber \\
+\hom_{\cat{C_M}}\left(a, b\right) = 
+\hom_{\cat{C}}\left(a, M(b)\right)
+\nonumber
+\end{eqnarray}
+i.e. objects of categories $\cat{C}$ and $\cat{C_M}$ are the same but
+morphisms from $\cat{C_M}$ form a subset of morphisms $\cat{C}$:
+$\cathom{C_M} \subset \cathom{C}$. The category is called as
+\textit{Kleisli category}. 
+
+The identity morphism in the Kleisli category is the
+\mynameref{def:nt} $\eta$ \eqref{eq:monad_eta} defined by the monad
+$\left<M, \mu, \eta\right>$: 
+\[
+\idm{C_M} = \eta
+\]
+\end{definition}
+
+\begin{remark}[Kleisli category composition]
+\mynameref{def:kleisli_category} has a non trivial composition rules.
+If we have 2 \mynameref{def:morphism}s from $\cathom{C_M}$:
+\[
+f_M: a \to b
+\]
+and
+\[
+g_M: b \to c.
+\]
+The morphisms have correspondent ones in $\cat{C}$:
+\[
+f: a \to M(b)
+\]
+and
+\[
+g: b \to M(c).
+\]
+The composition $g_M \circ f_M$ gives a new morphism
+\[
+h_M = g_M \circ f_M: a \to c.
+\]
+The corresponding one from $\cat{C}$ is
+\[
+h: a \to M(c).
+\]
+It has to be pointed that the compositions in $\cat{C}$ and
+$\cat{C_M}$ are not the same:
+\[
+g_M \circ f_M \ne g \circ f.
+\]
+\end{remark}
+
+\mynameref{def:kleisli_category} widely spread in programming
+especially it provides good description for different types of
+computations, for instance \cite{bib:Moggi91, bib:milewski2018category} 
+\begin{itemize}
+\item \textbf{Partiality} i.e. then a function not defined for each input, for
+  instance the following expression is undefined (or partially
+  defined) for $x = 0$: $f(x) = \frac{1}{x}$
+\item \textbf{Non-Determinism} i.e. then multiply output are possible
+\item \textbf{Side-effects} i.e. then a function communicates with
+  an environment
+\item \textbf{Exception} i.e. when some input is incorrect and can
+  produce an abnormal result. Therefore it is the same as
+  \textbf{Partiality} and will be considered below as the same type of
+  computation. 
+\item \textbf{Continuation} i.e. when we need to save the current
+  state of the computation and be able to restore it on demand later
+\item \textbf{Interactive input} i.e. a function that reads data from
+  an input device (keyboard, mouse, etc.)
+\item \textbf{Interactive output} i.e. a function that writes data to
+an output device (monitor etc.)
+\end{itemize}
+
+\section{Partiality and Exception}
+
+Partial functions and exceptions can be processed via monad be called
+as Maybe. There will be implementations in different languages below.
+And the usage example for the following function implementation
+\[
+h(x) = \frac{1}{2 \sqrt{x}}.
+\]
+The function is a composition of 3 functions:
+\begin{eqnarray}
+f_1(x) = \sqrt{x},
+\nonumber \\
+f_2(x) = 2 \cdot x,
+\nonumber \\
+f_3(x) = \frac{1}{x}
+\label{eq:monadmaybe_ex_f}
+\end{eqnarray}
+and as result the goal can be implemented as the following
+composition:
+\begin{equation}
+h = f_3 \circ f_2 \circ f_1.
+\label{eq:monadmaybe_ex_h}
+\end{equation}
+$f_2$ is a \mynameref{def:pure_function} and defined $\forall x \in \mathbb{R}$. The
+functions $f_1, f_3$ are partially defined.
+
+\subsection{Haskell example}
+
+\begin{example}[Maybe monad][\textbf{Hask}]
+\label{ex:maybe_monad_haskell}
+The Maybe monad can be implemented as follows
+\begin{minted}{haskell}
+  instance Monad Maybe where
+    return = Just
+    join Just( Just x) = Just x
+    join _ = Nothing
+\end{minted} 
+
+Our functions \eqref{eq:monadmaybe_ex_f} can be implemented as follows
+\begin{minted}{haskell}
+f1 :: (Ord a, Floating a) => a -> Maybe a
+f1 x = if x >= 0 then Just(sqrt x) else Nothing 
+
+f2 :: Num a => a -> Maybe a
+f2 x = Just (2*x)
+
+f3 :: (Eq a, Fractional a) => a -> Maybe a
+f3 x = if x /= 0 then Just(1/x) else Nothing
+\end{minted}
+
+The $h$ \eqref{eq:monadmaybe_ex_h} is the composition via bind
+operator:
+\begin{minted}{haskell}
+h :: (Ord a, Floating a) => a -> Maybe a
+h x = (return x) >>= f1 >>= f2 >>= f3
+\end{minted}
+
+The usage example is the following:
+\begin{minted}{bash}
+*Main> h 4
+Just 0.25
+*Main> h 1
+Just 0.5
+*Main> h 0
+Nothing
+*Main> h (-1)
+Nothing
+\end{minted}
+
+\end{example}
+
+\subsection{C++ example}
+
+\begin{example}[Maybe monad][\textbf{C++}]
+\label{ex:maybe_monad_cpp}
+The Maybe monad can be implemented as follows
+\begin{minted}{c++}
+template <class A> using Maybe = std::optional<A>;
+
+template < class A, class B> 
+Maybe<B> fmap(std::function<B(A)> f, Maybe<A> a) {
+  if (a) {
+    return f(a.value());
+  }
+  return {};
+}
+
+template < class A> 
+Maybe<A> pure(A a) {
+  return a;
+}
+
+template < class A> 
+Maybe<A> join(Maybe< Maybe<A> > a){
+  if (a) {
+    return a.value();
+  }
+  return {};
+}
+\end{minted} 
+
+Our functions \eqref{eq:monadmaybe_ex_f} can be implemented as follows
+\begin{minted}{c++}
+std::function<Maybe<float>(float)> f1 =
+    [](float x) {
+      if (x >= 0) {
+        return Maybe<float>(sqrt(x));
+      }
+      return Maybe<float>();
+    };
+
+std::function<Maybe<float>(float)> f2 = [](float x) { return 2 * x; };
+
+std::function<Maybe<float>(float)> f3 =
+    [](float x) {
+      if (x != 0) {
+        return Maybe<float>(1 / x);
+      }
+      return Maybe<float>();
+    };
+}
+\end{minted}
+
+The $h$ \eqref{eq:monadmaybe_ex_h} is the composition via bind
+operator:
+\begin{minted}{c++}
+auto h(float x) {
+  Maybe<float> a = pure(x);
+  return bind(f3,bind(f2,bind(f1, a)));
+};
+\end{minted}
+
+\end{example}
+
+\section{Non-Determinism}
+
+TBD
+
+\section{Side effects and interactive input/output}
+
+TBD
+
+\section{Continuation}
+
+TBD
+
