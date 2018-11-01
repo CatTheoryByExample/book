@@ -322,50 +322,50 @@ functors $F$ and $G$: $\alpha: F \tont G$.
 %% is called \textit{vertical composition}.
 %% \end{definition}
 
-\begin{definition}[Horizontal composition]
-\label{def:horizontal_composition}
-\index{Natural transformation!Horizontal composition}
-If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
-\cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. We also have a
-natural transformation between each pair: $\alpha : F \tont
-G$ for the first one and $\beta : J \tont
-K$ for the second one. We can create a new transformation
-\[
-\alpha \star \beta: F \circ J \tont G \circ K
-\] 
-that is called \textit{horizontal composition}. Note that we use a
-special symbol $\star$ for the composition.
-\end{definition}
+%% \begin{definition}[Horizontal composition]
+%% \label{def:horizontal_composition}
+%% \index{Natural transformation!Horizontal composition}
+%% If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
+%% \cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. We also have a
+%% natural transformation between each pair: $\alpha : F \tont
+%% G$ for the first one and $\beta : J \tont
+%% K$ for the second one. We can create a new transformation
+%% \[
+%% \alpha \star \beta: F \circ J \tont G \circ K
+%% \] 
+%% that is called \textit{horizontal composition}. Note that we use a
+%% special symbol $\star$ for the composition.
+%% \end{definition}
 
-\begin{remark}[Bifunctor in category of functors]
- \label{rem:bifunctor_fun_cat}
-If we have the same pair of functors as in
-\cref{def:horizontal_composition} then we can consider the functors as
-objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
-  \cat{D}\right], \cat{\mathcal{B}} = \left[\cat{D},
-  \cat{E}\right]$ and $\cat{\mathcal{C}} = \left[\cat{C},
-  \cat{E}\right]$ 
+%% \begin{remark}[Bifunctor in category of functors]
+%%  \label{rem:bifunctor_fun_cat}
+%% If we have the same pair of functors as in
+%% \cref{def:horizontal_composition} then we can consider the functors as
+%% objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
+%%   \cat{D}\right], \cat{\mathcal{B}} = \left[\cat{D},
+%%   \cat{E}\right]$ and $\cat{\mathcal{C}} = \left[\cat{C},
+%%   \cat{E}\right]$ 
 
-  Next we want to construct a \mynameref{def:bifunctor} 
-  $\otimes: \cat{\mathcal{A}} \times \cat{\mathcal{B}} \tof \cat{\mathcal{C}}$
-  where for each pair of objects $F \in \catob{\mathcal{A}}, J \in
-  \catob{\mathcal{B}}$ we got another object from $\cat{\mathcal{C}}$.
-  The used operation is an ordinary functor's composition.
-  I.e.
-  \[
-  \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
-  \]
+%%   Next we want to construct a \mynameref{def:bifunctor} 
+%%   $\otimes: \cat{\mathcal{A}} \times \cat{\mathcal{B}} \tof \cat{\mathcal{C}}$
+%%   where for each pair of objects $F \in \catob{\mathcal{A}}, J \in
+%%   \catob{\mathcal{B}}$ we got another object from $\cat{\mathcal{C}}$.
+%%   The used operation is an ordinary functor's composition.
+%%   I.e.
+%%   \[
+%%   \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
+%%   \]
   
-  The bifunctor is not just a map for objects. There is also a map
-  between morphisms. Thus if we have 2 \mynameref{def:morphism}s:
-  $\alpha : F \to G$ and $\beta : J \to K$ then we can construct the
-  following mapping 
-  \[
-  \otimes: \alpha \times \beta \to \alpha \star \beta \in \cathom{\mathcal{C}}.
-  \]
+%%   The bifunctor is not just a map for objects. There is also a map
+%%   between morphisms. Thus if we have 2 \mynameref{def:morphism}s:
+%%   $\alpha : F \to G$ and $\beta : J \to K$ then we can construct the
+%%   following mapping 
+%%   \[
+%%   \otimes: \alpha \times \beta \to \alpha \star \beta \in \cathom{\mathcal{C}}.
+%%   \]
   
-  As result we have the introduced mapping $\otimes$ as a bifunctor.
-\end{remark}
+%%   As result we have the introduced mapping $\otimes$ as a bifunctor.
+%% \end{remark}
 
 \begin{definition}[Left whiskering]
 \label{def:lw}
