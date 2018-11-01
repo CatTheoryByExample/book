@@ -725,11 +725,11 @@ absurd :: Void -> a
 The function is called absurd because it does absurd action. Nobody
 can proof that it does not exist. For the existence proof the
 following absurd argument can be used: ``Just provide me an object type
-\mintinline{haskell}{Void} and I will provide you the result of
+\textbf{Void} and I will provide you the result of
 evaluation''.  
 
 There is no function in opposite direction because it would had been
-used for the \mintinline{haskell}{Void} object creation. 
+used for the \textbf{Void} object creation. 
 \end{example}
 
 \begin{example}[Terminal object][\textbf{Hask}]
@@ -796,7 +796,7 @@ Either (a, b) (a, c)
 \label{ex:exponential_hask}
 It's not surprisingly that the \mynameref{def:exponential} in
 $\cat{Hask}$ is a function object i.e. $b^a$ can be written as  
-\mintinline{haskell}{a -> b}.
+\textbf{a -> b}.
 \end{example}
 
 \begin{example}[Type algebra]
@@ -806,7 +806,7 @@ manipulations. For instance the type $a^{b+c}$ can be written as
 Either b c -> a
 \end{minted}
 for the function we should have both functions 
-\mintinline{haskell}{b -> a} and \mintinline{haskell}{b -> c}. I.e.
+\textbf{b -> a} and \textbf{b -> c}. I.e.
 the code is equivalent to the following one
 \begin{minted}{haskell}
 (b -> a, c -> a)
@@ -823,7 +823,7 @@ This is also called as \textit{type algebra}.
 \begin{example}[Initial object][\textbf{C++}]
 \label{ex:cpp_initial_object}
 In C++ exists a special type that does not hold any values and as
-result cannot be created: \mintinline{c++}{void}.
+result cannot be created: \textbf{void}.
 You cannot create an object of that type i.e. you will get a compiler
 error if you try.
 \end{example}
@@ -831,7 +831,7 @@ error if you try.
 \begin{example}[Terminal object][\textbf{C++}]
 \label{ex:cpp_terminal_object}
 C++ 17 introduced a special type that keeps only one value -
-\mintinline{c++}{std::monostate}:  
+\textbf{std::monostate}:  
 \begin{minted}{c++}
 namespace std {
   struct monostate {};
@@ -860,7 +860,7 @@ There is a simple usage example
   std::cout << "Second projector: " << p.second << std::endl;
 
 \end{minted}
-Really any \mintinline{c++}{struct} or \mintinline{c++}{class} can be
+Really any \textbf{struct} or \textbf{class} can be
 considered as a product. 
 \end{example}
 
@@ -869,9 +869,9 @@ considered as a product.
   If we consider \mynameref{def:object}s as types then
   \mynameref{def:sum} is an object that can be either one or another
   type. The corresponding C/C++ construction that provides an ability
-  to keep one of two types is \mintinline{c++}{union}. 
+  to keep one of two types is \textbf{union}. 
 
-  %% There is an \mintinline{haskell}{Either} implementation from
+  %% There is an \textbf{Either} implementation from
   %% \mynameref{ex:hask_sum} 
   %% \begin{minted}{c++}
   %%   template <typename A, typename B> class Either
@@ -943,8 +943,8 @@ considered as a product.
   %%   factor<>(stringLength, id, i) << std::endl;
   %% \end{minted}
 
-  C++17 suggests \mintinline{c++}{std:variant} as a safe replacement
-  for \mintinline{c++}{union}. The example of the \mintinline{c++}{factor}
+  C++17 suggests \textbf{std:variant} as a safe replacement
+  for \textbf{union}. The example of the \textbf{factor}
   function is below
   \begin{minted}{c++}
     template <typename A, typename B, typename C, typename D>

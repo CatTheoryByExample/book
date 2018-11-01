@@ -514,10 +514,10 @@ The function is parametricaly polymorphic and by
 
 Therefore from the definition of the natural transformation
 \eqref{eq:nt_definition} we have 
-\mintinline{haskell}{fmap f . safeHead = safeHead . fmap f}. I.e. it
-does not matter if we initially apply \mintinline{haskell}{fmap f} and
-then \mintinline{haskell}{safeHead} to the result or initially
-\mintinline{haskell}{safeHead} and then \mintinline{haskell}{fmap f}.
+\textbf{fmap f . safeHead = safeHead . fmap f}. I.e. it
+does not matter if we initially apply \textbf{fmap f} and
+then \textbf{safeHead} to the result or initially
+\textbf{safeHead} and then \textbf{fmap f}.
 
 The statement can be verified directly. For empty list we have
 \begin{minted}{haskell}
@@ -553,7 +553,7 @@ safeHead (f x: fmap f xs )
 Just ( f x )
 \end{minted}
 
-Using the fact that \mintinline{haskell}{fmap f} is an expensive
+Using the fact that \textbf{fmap f} is an expensive
 operation if it is applied to the list we can conclude that the second
 approach is more productive. Such transformation allows compiler to
 optimize the code.
