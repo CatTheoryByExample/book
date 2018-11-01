@@ -109,7 +109,7 @@ In C++ the definition differs
     template < template< class ...> class F, class A, class B> 
     F<B> fmap(std::function<B(A)>, F<A>);
   \end{minted}
-  The template specialization for the \mintinline{c++}{std::list} can be
+  The template specialization for the \mint{c++}{std::list} can be
   written as follows
   \begin{minted}{c++}
     // file: functor.h
@@ -247,10 +247,10 @@ The good example can be found in $\cat{Hask}$ category.
 
 \begin{example}[Maybe as a bifunctor][\textbf{Hask}]
   \label{ex:maybe_functor}
-  Lets show how the \mintinline{haskell}{Maybe a} type can be
+  Lets show how the \mint{haskell}{Maybe a} type can be
   constructed from different 
   \mynameref{def:functor}s and as result show that the
-  \mintinline{haskell}{Maybe a} is also a
+  \mint{haskell}{Maybe a} is also a
   \mynameref{def:functor}. 
   \begin{minted}{haskell}
     data Maybe a = Nothing | Just a
