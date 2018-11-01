@@ -2,8 +2,7 @@ before_install:
 - gem install bundler
 - sudo apt-get update && sudo apt-get install texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng texlive-science python-pygments texlive-lang-cyrillic
 script:
-- make pdf
-- make pdf
+- make
 deploy:
   provider: releases
   api_key:
