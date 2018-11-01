@@ -191,151 +191,151 @@ functors $F$ and $G$: $\alpha: F \tont G$.
 
 \section{Operations with natural transformations}
 
-%% \begin{example}[\textbf{Fun} category]
-%% \label{ex:fun_category}
-%% \index{Object!\textbf{Fun} example}
-%% \index{Morphism!\textbf{Fun} example}
-%% \index{Category!\textbf{Fun} example}
+\begin{example}[\textbf{Fun} category]
+\label{ex:fun_category}
+\index{Object!\textbf{Fun} example}
+\index{Morphism!\textbf{Fun} example}
+\index{Category!\textbf{Fun} example}
 
-%% The functors can be considered as objects in a special category
-%% \textbf{Fun}. The morphisms in the category are \mynameref{def:nt}s.
+The functors can be considered as objects in a special category
+\textbf{Fun}. The morphisms in the category are \mynameref{def:nt}s.
 
-%% To define a category we need to define composition operation that
-%% satisfied \mynameref{axm:composition}, identity
-%% morphism and verify \mynameref{axm:associativity}. 
+To define a category we need to define composition operation that
+satisfied \mynameref{axm:composition}, identity
+morphism and verify \mynameref{axm:associativity}. 
 
-%% \begin{figure}
-%%   \centering
-%%   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
-%%         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
-%%         sep=-2pt}]
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
 
-%%     % the texts
+    % the texts
 
-%%     \node at (0,3) {$C$};        
-%%     \node at (4,5) {$D$};        
+    \node at (0,3) {$C$};        
+    \node at (4,5) {$D$};        
 
-%%     \node[ele,label=above:$a$] (a) at (0,2) {};    
-%%     \node[ele,label=above:$a_F$] (af) at (4,4) {};
-%%     \node[ele,label=right:$a_G$] (ag) at (4,2) {};
-%%     \node[ele,label=below:$a_H$] (ah) at (4,0) {};
+    \node[ele,label=above:$a$] (a) at (0,2) {};    
+    \node[ele,label=above:$a_F$] (af) at (4,4) {};
+    \node[ele,label=right:$a_G$] (ag) at (4,2) {};
+    \node[ele,label=below:$a_H$] (ah) at (4,0) {};
 
-%%     \node[draw,fit= (a),minimum width=2cm, minimum
-%%       height=3.5cm] {} ;
-%%     \node[draw,fit= (af) (ag) (ah),minimum width=5cm, minimum
-%%       height=5cm] {} ;
+    \node[draw,fit= (a),minimum width=2cm, minimum
+      height=3.5cm] {} ;
+    \node[draw,fit= (af) (ag) (ah),minimum width=5cm, minimum
+      height=5cm] {} ;
 
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-%%     node[above]{$F$} (af);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-%%     node[above]{$G$} (ag);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-%%     node[above]{$H$} (ah);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
-%%     node[right]{$\alpha_a$} (ag);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
-%%     node[right]{$\beta_a$} (ah);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
-%%      [out=-45,in=45,looseness=1] node[right]{$\beta_a \circ \alpha_a$} (ah);
-%%   \end{tikzpicture}
-%%   \caption{Natural transformation vertical composition: object mapping}
-%%   \label{fig:nt_objects_mapping_composition}
-%% \end{figure}
-
-
-%% For the composition consider 2 \mynameref{def:nt}s $\alpha, \beta$ and
-%% consider how they act on an object $a \in \catob{C}$ (see
-%% \cref{fig:nt_objects_mapping_composition}). We always can construct
-%% the composition $\beta_a \circ \alpha_a$ i.e. we can define the
-%% composition of natural transformations $\alpha, \beta$ as 
-%% \(
-%% \beta \circ \alpha = \left\{
-%% \beta_a \circ \alpha_a | a \in \catob{C}
-%% \right\}
-%% \). 
-
-%% \begin{figure}
-%%   \centering
-%%   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
-%%         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
-%%         sep=-2pt}]
-
-%%     % the texts
-
-%%     \node[ele,label=above:$a_F$] (af) at (0,4) {};
-%%     \node[ele,label=left:$a_G$] (ag) at (0,2) {};
-%%     \node[ele,label=below:$a_H$] (ah) at (0,0) {};
-%%     \node[ele,label=above:$b_F$] (bf) at (3,4) {};
-%%     \node[ele,label=right:$b_G$] (bg) at (3,2) {};
-%%     \node[ele,label=below:$b_H$] (bh) at (3,0) {};
-
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
-%%     node[above]{$f_F$} (bf);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
-%%     node[above]{$f_G$} (bg);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (ah) to
-%%     node[above]{$f_H$} (bh);
-
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
-%%     node[right]{$\alpha_a$} (ag);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
-%%     node[right]{$\beta_a$} (ah);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
-%%      [out=-135,in=135,looseness=1] node[left]{$\beta_a \circ
-%%        \alpha_a$} (ah);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
-%%     node[right]{$\alpha_b$} (bg);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bg) to
-%%     node[right]{$\beta_b$} (bh);
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
-%%      [out=-45,in=45,looseness=1] node[right]{$\beta_b \circ \alpha_b$}
-%%      (bh); 
-%%   \end{tikzpicture}
-%%   \caption{Natural transformation vertical composition: morphism mapping -
-%%     commutative diagram}
-%%   \label{fig:nt_morphism_mapping_composition}
-%% \end{figure}
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$F$} (af);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$G$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$H$} (ah);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[right]{$\alpha_a$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
+    node[right]{$\beta_a$} (ah);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+     [out=-45,in=45,looseness=1] node[right]{$\beta_a \circ \alpha_a$} (ah);
+  \end{tikzpicture}
+  \caption{Natural transformation vertical composition: object mapping}
+  \label{fig:nt_objects_mapping_composition}
+\end{figure}
 
 
-%% The natural transformation is not just object mapping but also
-%% morphism mapping. We will require that all morphisms shown on
-%% \cref{fig:nt_morphism_mapping_composition} commute. 
-%% The composition 
-%% defined in such way is called \mynameref{def:vertical_composition}.  
+For the composition consider 2 \mynameref{def:nt}s $\alpha, \beta$ and
+consider how they act on an object $a \in \catob{C}$ (see
+\cref{fig:nt_objects_mapping_composition}). We always can construct
+the composition $\beta_a \circ \alpha_a$ i.e. we can define the
+composition of natural transformations $\alpha, \beta$ as 
+\(
+\beta \circ \alpha = \left\{
+\beta_a \circ \alpha_a | a \in \catob{C}
+\right\}
+\). 
 
-%% The functor category between categories $\cat{C}$ and $\cat{D}$ is
-%% denoted as $[\cat{C}, \cat{D}]$.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
 
-%% \end{example}
+    % the texts
 
-%% \begin{definition}[Vertical composition]
-%% \label{def:vertical_composition}
-%% \index{Natural transformation!Vertical composition}
-%% Let $F,G,H$ are functors between categories $\cat{C}$ and $\cat{D}$.
-%% Also we have $\alpha : F \tont G, \beta: G \tont
-%% H$ - natural transformations. We can compose the $\alpha$ and $\beta$
-%% as follows 
-%% \[
-%% \alpha \circ \beta: F \tont H.
-%% \]
-%% This composition
-%% is called \textit{vertical composition}.
-%% \end{definition}
+    \node[ele,label=above:$a_F$] (af) at (0,4) {};
+    \node[ele,label=left:$a_G$] (ag) at (0,2) {};
+    \node[ele,label=below:$a_H$] (ah) at (0,0) {};
+    \node[ele,label=above:$b_F$] (bf) at (3,4) {};
+    \node[ele,label=right:$b_G$] (bg) at (3,2) {};
+    \node[ele,label=below:$b_H$] (bh) at (3,0) {};
 
-%% \begin{definition}[Horizontal composition]
-%% \label{def:horizontal_composition}
-%% \index{Natural transformation!Horizontal composition}
-%% If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
-%% \cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. We also have a
-%% natural transformation between each pair: $\alpha : F \tont
-%% G$ for the first one and $\beta : J \tont
-%% K$ for the second one. We can create a new transformation
-%% \[
-%% \alpha \star \beta: F \circ J \tont G \circ K
-%% \] 
-%% that is called \textit{horizontal composition}. Note that we use a
-%% special symbol $\star$ for the composition.
-%% \end{definition}
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[above]{$f_F$} (bf);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
+    node[above]{$f_G$} (bg);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ah) to
+    node[above]{$f_H$} (bh);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[right]{$\alpha_a$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
+    node[right]{$\beta_a$} (ah);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+     [out=-135,in=135,looseness=1] node[left]{$\beta_a \circ
+       \alpha_a$} (ah);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
+    node[right]{$\alpha_b$} (bg);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bg) to
+    node[right]{$\beta_b$} (bh);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
+     [out=-45,in=45,looseness=1] node[right]{$\beta_b \circ \alpha_b$}
+     (bh); 
+  \end{tikzpicture}
+  \caption{Natural transformation vertical composition: morphism mapping -
+    commutative diagram}
+  \label{fig:nt_morphism_mapping_composition}
+\end{figure}
+
+
+The natural transformation is not just object mapping but also
+morphism mapping. We will require that all morphisms shown on
+\cref{fig:nt_morphism_mapping_composition} commute. 
+The composition 
+defined in such way is called \mynameref{def:vertical_composition}.  
+
+The functor category between categories $\cat{C}$ and $\cat{D}$ is
+denoted as $[\cat{C}, \cat{D}]$.
+
+\end{example}
+
+\begin{definition}[Vertical composition]
+\label{def:vertical_composition}
+\index{Natural transformation!Vertical composition}
+Let $F,G,H$ are functors between categories $\cat{C}$ and $\cat{D}$.
+Also we have $\alpha : F \tont G, \beta: G \tont
+H$ - natural transformations. We can compose the $\alpha$ and $\beta$
+as follows 
+\[
+\alpha \circ \beta: F \tont H.
+\]
+This composition
+is called \textit{vertical composition}.
+\end{definition}
+
+\begin{definition}[Horizontal composition]
+\label{def:horizontal_composition}
+\index{Natural transformation!Horizontal composition}
+If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
+\cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. We also have a
+natural transformation between each pair: $\alpha : F \tont
+G$ for the first one and $\beta : J \tont
+K$ for the second one. We can create a new transformation
+\[
+\alpha \star \beta: F \circ J \tont G \circ K
+\] 
+that is called \textit{horizontal composition}. Note that we use a
+special symbol $\star$ for the composition.
+\end{definition}
 
 \begin{remark}[Bifunctor in category of functors]
  \label{rem:bifunctor_fun_cat}
