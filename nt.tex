@@ -395,31 +395,31 @@ functors $F$ and $G$: $\alpha: F \tont G$.
 %% transformation \cite{nlab:whiskering}. 
 %% \end{definition}
 
-%% \begin{definition}[Identity natural transformation]
-%% \label{def:idnt}
-%% If $F: \cat{C} \tof \cat{D}$ is a \mynameref{def:functor} then we can
-%% define \textit{identity natural transformation}
-%% $\idnt{F}$ that maps any \mynameref{def:object} 
-%% $a \in \catob{C}$ into \mynameref{def:id} $\idm{F(a)} \in \cathom{D}$.
-%% \end{definition}
+\begin{definition}[Identity natural transformation]
+\label{def:idnt}
+If $F: \cat{C} \tof \cat{D}$ is a \mynameref{def:functor} then we can
+define \textit{identity natural transformation}
+$\idnt{F}$ that maps any \mynameref{def:object} 
+$a \in \catob{C}$ into \mynameref{def:id} $\idm{F(a)} \in \cathom{D}$.
+\end{definition}
 
-%% \begin{remark}[Whiskering]
-%% \label{rem:whiskering}
-%% With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
-%% \mynameref{def:rw} via \mynameref{def:horizontal_composition} as follows.
+\begin{remark}[Whiskering]
+\label{rem:whiskering}
+With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
+\mynameref{def:rw} via \mynameref{def:horizontal_composition} as follows.
 
-%% For left whiskering:
-%% \begin{equation}
-%% \label{eq:lw}
-%% \alpha H = \alpha \star \idnt{H}
-%% \end{equation}
+For left whiskering:
+\begin{equation}
+\label{eq:lw}
+\alpha H = \alpha \star \idnt{H}
+\end{equation}
 
-%% For right whiskering:
-%% \begin{equation}
-%% \label{eq:rw}
-%% H \alpha = \idnt{H} \star \alpha
-%% \end{equation}
-%% \end{remark}
+For right whiskering:
+\begin{equation}
+\label{eq:rw}
+H \alpha = \idnt{H} \star \alpha
+\end{equation}
+\end{remark}
 
 
 \section{Polymorphism and natural transformation}
