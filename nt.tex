@@ -307,147 +307,147 @@ functors $F$ and $G$: $\alpha: F \tont G$.
 
 %% \end{example}
 
-%% \begin{definition}[Vertical composition]
-%% \label{def:vertical_composition}
-%% \index{Natural transformation!Vertical composition}
-%% Let $F,G,H$ are functors between categories $\cat{C}$ and $\cat{D}$.
-%% Also we have $\alpha : F \tont G, \beta: G \tont
-%% H$ - natural transformations. We can compose the $\alpha$ and $\beta$
-%% as follows 
-%% \[
-%% \alpha \circ \beta: F \tont H.
-%% \]
-%% This composition
-%% is called \textit{vertical composition}.
-%% \end{definition}
+\begin{definition}[Vertical composition]
+\label{def:vertical_composition}
+\index{Natural transformation!Vertical composition}
+Let $F,G,H$ are functors between categories $\cat{C}$ and $\cat{D}$.
+Also we have $\alpha : F \tont G, \beta: G \tont
+H$ - natural transformations. We can compose the $\alpha$ and $\beta$
+as follows 
+\[
+\alpha \circ \beta: F \tont H.
+\]
+This composition
+is called \textit{vertical composition}.
+\end{definition}
 
-%% \begin{definition}[Horizontal composition]
-%% \label{def:horizontal_composition}
-%% \index{Natural transformation!Horizontal composition}
-%% If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
-%% \cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. We also have a
-%% natural transformation between each pair: $\alpha : F \tont
-%% G$ for the first one and $\beta : J \tont
-%% K$ for the second one. We can create a new transformation
-%% \[
-%% \alpha \star \beta: F \circ J \tont G \circ K
-%% \] 
-%% that is called \textit{horizontal composition}. Note that we use a
-%% special symbol $\star$ for the composition.
-%% \end{definition}
+\begin{definition}[Horizontal composition]
+\label{def:horizontal_composition}
+\index{Natural transformation!Horizontal composition}
+If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
+\cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. We also have a
+natural transformation between each pair: $\alpha : F \tont
+G$ for the first one and $\beta : J \tont
+K$ for the second one. We can create a new transformation
+\[
+\alpha \star \beta: F \circ J \tont G \circ K
+\] 
+that is called \textit{horizontal composition}. Note that we use a
+special symbol $\star$ for the composition.
+\end{definition}
 
-%% \begin{remark}[Bifunctor in category of functors]
-%%  \label{rem:bifunctor_fun_cat}
-%% If we have the same pair of functors as in
-%% \cref{def:horizontal_composition} then we can consider the functors as
-%% objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
-%%   \cat{D}\right], \cat{\mathcal{B}} = \left[\cat{D},
-%%   \cat{E}\right]$ and $\cat{\mathcal{C}} = \left[\cat{C},
-%%   \cat{E}\right]$ 
+\begin{remark}[Bifunctor in category of functors]
+ \label{rem:bifunctor_fun_cat}
+If we have the same pair of functors as in
+\cref{def:horizontal_composition} then we can consider the functors as
+objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
+  \cat{D}\right], \cat{\mathcal{B}} = \left[\cat{D},
+  \cat{E}\right]$ and $\cat{\mathcal{C}} = \left[\cat{C},
+  \cat{E}\right]$ 
 
-%%   Next we want to construct a \mynameref{def:bifunctor} 
-%%   $\otimes: \cat{\mathcal{A}} \times \cat{\mathcal{B}} \tof \cat{\mathcal{C}}$
-%%   where for each pair of objects $F \in \catob{\mathcal{A}}, J \in
-%%   \catob{\mathcal{B}}$ we got another object from $\cat{\mathcal{C}}$.
-%%   The used operation is an ordinary functor's composition.
-%%   I.e.
-%%   \[
-%%   \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
-%%   \]
+  Next we want to construct a \mynameref{def:bifunctor} 
+  $\otimes: \cat{\mathcal{A}} \times \cat{\mathcal{B}} \tof \cat{\mathcal{C}}$
+  where for each pair of objects $F \in \catob{\mathcal{A}}, J \in
+  \catob{\mathcal{B}}$ we got another object from $\cat{\mathcal{C}}$.
+  The used operation is an ordinary functor's composition.
+  I.e.
+  \[
+  \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
+  \]
   
-%%   The bifunctor is not just a map for objects. There is also a map
-%%   between morphisms. Thus if we have 2 \mynameref{def:morphism}s:
-%%   $\alpha : F \to G$ and $\beta : J \to K$ then we can construct the
-%%   following mapping 
-%%   \[
-%%   \otimes: \alpha \times \beta \to \alpha \star \beta \in \cathom{\mathcal{C}}.
-%%   \]
+  The bifunctor is not just a map for objects. There is also a map
+  between morphisms. Thus if we have 2 \mynameref{def:morphism}s:
+  $\alpha : F \to G$ and $\beta : J \to K$ then we can construct the
+  following mapping 
+  \[
+  \otimes: \alpha \times \beta \to \alpha \star \beta \in \cathom{\mathcal{C}}.
+  \]
   
-%%   As result we have the introduced mapping $\otimes$ as a bifunctor.
-%% \end{remark}
+  As result we have the introduced mapping $\otimes$ as a bifunctor.
+\end{remark}
 
-%% \begin{definition}[Left whiskering]
-%% \label{def:lw}
-%% If we have 3 categories $\cat{B}, \cat{C}, \cat{D}$, 
-%% \mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{B} \to
-%% \cat{C}$ and \mynameref{def:nt} 
-%% $\alpha: F \tont G$ then we can construct a new natural
-%% transformations:
-%% \[
-%% \alpha H : F \circ H \tont G \circ H
-%% \]
-%% that is called \textit{left whiskering} of functor and natural
-%% transformation \cite{nlab:whiskering}. 
-%% \end{definition}
+\begin{definition}[Left whiskering]
+\label{def:lw}
+If we have 3 categories $\cat{B}, \cat{C}, \cat{D}$, 
+\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{B} \to
+\cat{C}$ and \mynameref{def:nt} 
+$\alpha: F \tont G$ then we can construct a new natural
+transformations:
+\[
+\alpha H : F \circ H \tont G \circ H
+\]
+that is called \textit{left whiskering} of functor and natural
+transformation \cite{nlab:whiskering}. 
+\end{definition}
 
-%% \begin{definition}[Right whiskering]
-%% \label{def:rw}
-%% If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
-%% \mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
-%% \cat{E}$ and \mynameref{def:nt} 
-%% $\alpha: F \tont G$ then we can construct a new natural 
-%% transformations: 
-%% \[
-%% H \alpha : H \circ F \tont H \circ G
-%% \]
-%% that is called \textit{right whiskering} of functor and natural
-%% transformation \cite{nlab:whiskering}. 
-%% \end{definition}
+\begin{definition}[Right whiskering]
+\label{def:rw}
+If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
+\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
+\cat{E}$ and \mynameref{def:nt} 
+$\alpha: F \tont G$ then we can construct a new natural 
+transformations: 
+\[
+H \alpha : H \circ F \tont H \circ G
+\]
+that is called \textit{right whiskering} of functor and natural
+transformation \cite{nlab:whiskering}. 
+\end{definition}
 
-%% \begin{definition}[Identity natural transformation]
-%% \label{def:idnt}
-%% If $F: \cat{C} \tof \cat{D}$ is a \mynameref{def:functor} then we can
-%% define \textit{identity natural transformation}
-%% $\idnt{F}$ that maps any \mynameref{def:object} 
-%% $a \in \catob{C}$ into \mynameref{def:id} $\idm{F(a)} \in \cathom{D}$.
-%% \end{definition}
+\begin{definition}[Identity natural transformation]
+\label{def:idnt}
+If $F: \cat{C} \tof \cat{D}$ is a \mynameref{def:functor} then we can
+define \textit{identity natural transformation}
+$\idnt{F}$ that maps any \mynameref{def:object} 
+$a \in \catob{C}$ into \mynameref{def:id} $\idm{F(a)} \in \cathom{D}$.
+\end{definition}
 
-%% \begin{remark}[Whiskering]
-%% \label{rem:whiskering}
-%% With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
-%% \mynameref{def:rw} via \mynameref{def:horizontal_composition} as follows.
+\begin{remark}[Whiskering]
+\label{rem:whiskering}
+With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
+\mynameref{def:rw} via \mynameref{def:horizontal_composition} as follows.
 
-%% For left whiskering:
-%% \begin{equation}
-%% \label{eq:lw}
-%% \alpha H = \alpha \star \idnt{H}
-%% \end{equation}
+For left whiskering:
+\begin{equation}
+\label{eq:lw}
+\alpha H = \alpha \star \idnt{H}
+\end{equation}
 
-%% For right whiskering:
-%% \begin{equation}
-%% \label{eq:rw}
-%% H \alpha = \idnt{H} \star \alpha
-%% \end{equation}
-%% \end{remark}
+For right whiskering:
+\begin{equation}
+\label{eq:rw}
+H \alpha = \idnt{H} \star \alpha
+\end{equation}
+\end{remark}
 
 
-%% \section{Polymorphism and natural transformation}
+\section{Polymorphism and natural transformation}
 
-%% Polymorphism plays a certain role in programming languages. Category
-%% theory provides several facts about polymorphic functions which are
-%% very important.
+Polymorphism plays a certain role in programming languages. Category
+theory provides several facts about polymorphic functions which are
+very important.
 
-%% \begin{definition}[Parametrically polymorphic function]
-%% \index{Parametric polymorphism}
-%% \label{def:pp_function}
-%% Polymorphism is parametric if all function instances behave uniformly
-%% i.e. have the same realization. The functions which satisfy the
-%% parametric polymorphism requirements are parametrically polymorphic.
-%% \end{definition}
+\begin{definition}[Parametrically polymorphic function]
+\index{Parametric polymorphism}
+\label{def:pp_function}
+Polymorphism is parametric if all function instances behave uniformly
+i.e. have the same realization. The functions which satisfy the
+parametric polymorphism requirements are parametrically polymorphic.
+\end{definition}
 
-%% \begin{definition}[Ad-hoc polymorphism]
-%% \label{def:ad_hoc_polymorphism}
-%% Polymorphism is parametric if the function instances can behave
-%% differently dependently on the type they are being instantiated with. 
-%% \end{definition}
+\begin{definition}[Ad-hoc polymorphism]
+\label{def:ad_hoc_polymorphism}
+Polymorphism is parametric if the function instances can behave
+differently dependently on the type they are being instantiated with. 
+\end{definition}
 
-%% \begin{theorem}[Reynolds]
-%% \label{thm:reynolds}
-%% \mynameref{def:pp_function}s are \mynameref{def:nt}s 
-%% \begin{proof}
-%% TBD
-%% \end{proof}
-%% \end{theorem}
+\begin{theorem}[Reynolds]
+\label{thm:reynolds}
+\mynameref{def:pp_function}s are \mynameref{def:nt}s 
+\begin{proof}
+TBD
+\end{proof}
+\end{theorem}
 
 \subsection{\textbf{Hask} category}
 
