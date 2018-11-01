@@ -614,10 +614,10 @@ similar to the math definition:
         return :: a -> m a
         join  :: m (m a) -> m a
 \end{minted} 
-where \mint{haskell}{return} can be treated as $\eta$
+where \mintinline{haskell}{return} can be treated as $\eta$
 \eqref{eq:monad_eta} and 
-\mint{haskell}{join} as $\mu$ \eqref{eq:monad_mu}. In the case
-the bind operator \mint{haskell}{>>=} can be implemented as follows
+\mintinline{haskell}{join} as $\mu$ \eqref{eq:monad_mu}. In the case
+the bind operator \mintinline{haskell}{>>=} can be implemented as follows
 \begin{minted}{haskell}
 (>>=)  :: m a -> (a -> m b) -> m b
 ma >>= f = join ( fmap f ma )
@@ -639,9 +639,9 @@ M<A> pure(A);
 template < template< class ...> class M, class A> 
 M<A> join(M< M<A> >);
 \end{minted}
-where \mint{c++}{pure} can be treated as $\eta$
+where \mintinline{c++}{pure} can be treated as $\eta$
 \eqref{eq:monad_eta} and 
-\mint{haskell}{join} as $\mu$ \eqref{eq:monad_mu}. In the case
+\mintinline{haskell}{join} as $\mu$ \eqref{eq:monad_mu}. In the case
 the bind operator can be implemented as follows
 \begin{minted}{c++}
 template < template< class ...> class M, class A, class B> 
@@ -664,8 +664,8 @@ trait M[A] {
   
 def unit[A](x: A): M[A]
 \end{minted} 
-I.e. \mint{scala}{flatMap} can be considered as $\mu$ and
-\mint{scala}{unit} as $\eta$. 
+I.e. \mintinline{scala}{flatMap} can be considered as $\mu$ and
+\mintinline{scala}{unit} as $\eta$. 
 \end{example}
 
 TBD
