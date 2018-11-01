@@ -337,62 +337,62 @@ functors $F$ and $G$: $\alpha: F \tont G$.
 %% special symbol $\star$ for the composition.
 %% \end{definition}
 
-%% \begin{remark}[Bifunctor in category of functors]
-%%  \label{rem:bifunctor_fun_cat}
-%% If we have the same pair of functors as in
-%% \cref{def:horizontal_composition} then we can consider the functors as
-%% objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
-%%   \cat{D}\right], \cat{\mathcal{B}} = \left[\cat{D},
-%%   \cat{E}\right]$ and $\cat{\mathcal{C}} = \left[\cat{C},
-%%   \cat{E}\right]$ 
+\begin{remark}[Bifunctor in category of functors]
+ \label{rem:bifunctor_fun_cat}
+If we have the same pair of functors as in
+\cref{def:horizontal_composition} then we can consider the functors as
+objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
+  \cat{D}\right], \cat{\mathcal{B}} = \left[\cat{D},
+  \cat{E}\right]$ and $\cat{\mathcal{C}} = \left[\cat{C},
+  \cat{E}\right]$ 
 
-%%   Next we want to construct a \mynameref{def:bifunctor} 
-%%   $\otimes: \cat{\mathcal{A}} \times \cat{\mathcal{B}} \tof \cat{\mathcal{C}}$
-%%   where for each pair of objects $F \in \catob{\mathcal{A}}, J \in
-%%   \catob{\mathcal{B}}$ we got another object from $\cat{\mathcal{C}}$.
-%%   The used operation is an ordinary functor's composition.
-%%   I.e.
-%%   \[
-%%   \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
-%%   \]
+  Next we want to construct a \mynameref{def:bifunctor} 
+  $\otimes: \cat{\mathcal{A}} \times \cat{\mathcal{B}} \tof \cat{\mathcal{C}}$
+  where for each pair of objects $F \in \catob{\mathcal{A}}, J \in
+  \catob{\mathcal{B}}$ we got another object from $\cat{\mathcal{C}}$.
+  The used operation is an ordinary functor's composition.
+  I.e.
+  \[
+  \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
+  \]
   
-%%   The bifunctor is not just a map for objects. There is also a map
-%%   between morphisms. Thus if we have 2 \mynameref{def:morphism}s:
-%%   $\alpha : F \to G$ and $\beta : J \to K$ then we can construct the
-%%   following mapping 
-%%   \[
-%%   \otimes: \alpha \times \beta \to \alpha \star \beta \in \cathom{\mathcal{C}}.
-%%   \]
+  The bifunctor is not just a map for objects. There is also a map
+  between morphisms. Thus if we have 2 \mynameref{def:morphism}s:
+  $\alpha : F \to G$ and $\beta : J \to K$ then we can construct the
+  following mapping 
+  \[
+  \otimes: \alpha \times \beta \to \alpha \star \beta \in \cathom{\mathcal{C}}.
+  \]
   
-%%   As result we have the introduced mapping $\otimes$ as a bifunctor.
-%% \end{remark}
+  As result we have the introduced mapping $\otimes$ as a bifunctor.
+\end{remark}
 
-\begin{definition}[Left whiskering]
-\label{def:lw}
-If we have 3 categories $\cat{B}, \cat{C}, \cat{D}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{B} \to
-\cat{C}$ and \mynameref{def:nt} 
-$\alpha: F \tont G$ then we can construct a new natural
-transformations:
-\[
-\alpha H : F \circ H \tont G \circ H
-\]
-that is called \textit{left whiskering} of functor and natural
-transformation \cite{nlab:whiskering}. 
-\end{definition}
+%% \begin{definition}[Left whiskering]
+%% \label{def:lw}
+%% If we have 3 categories $\cat{B}, \cat{C}, \cat{D}$, 
+%% \mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{B} \to
+%% \cat{C}$ and \mynameref{def:nt} 
+%% $\alpha: F \tont G$ then we can construct a new natural
+%% transformations:
+%% \[
+%% \alpha H : F \circ H \tont G \circ H
+%% \]
+%% that is called \textit{left whiskering} of functor and natural
+%% transformation \cite{nlab:whiskering}. 
+%% \end{definition}
 
-\begin{definition}[Right whiskering]
-\label{def:rw}
-If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
-\cat{E}$ and \mynameref{def:nt} 
-$\alpha: F \tont G$ then we can construct a new natural 
-transformations: 
-\[
-H \alpha : H \circ F \tont H \circ G
-\]
-that is called \textit{right whiskering} of functor and natural
-transformation \cite{nlab:whiskering}. 
+%% \begin{definition}[Right whiskering]
+%% \label{def:rw}
+%% If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
+%% \mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
+%% \cat{E}$ and \mynameref{def:nt} 
+%% $\alpha: F \tont G$ then we can construct a new natural 
+%% transformations: 
+%% \[
+%% H \alpha : H \circ F \tont H \circ G
+%% \]
+%% that is called \textit{right whiskering} of functor and natural
+%% transformation \cite{nlab:whiskering}. 
 %% \end{definition}
 
 \begin{definition}[Identity natural transformation]
