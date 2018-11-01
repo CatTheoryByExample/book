@@ -8,6 +8,7 @@ deploy:
   api_key:
     secure: hZ+u5Dz+i76HMT9UXa33gpHIr+u+Vct8UeSNsIwtMTPxtCO15w26iZ645WBh2doC53/CPLUzAwN5qnkMepYMUGNWyTWWLGsziPnRElVXGi1nHcAHG7PlrcvJ6xRfin0iBRh58XilPBQN+59X6t18TAzW96rZMbo12t2MZcJxYc1VoV3YbxCHlmjrdX+SxnwqxcQgar4pP1BOOrRGb0LDwLBiaf66oH5ix8SrO8KjD1ibdhWc+8EkUjay9cPN3agn2CtfTm5jQkXmPO8G7ONLq6PYGag3QZcSAAWgUQeKdMCSP6glO71/1T2P2fQNbrEEw8fEhu1beyuBbOC8h0wDkis0xvRLyyWLcrFhSRibT8cXjj5jinb9nAbdbQ3rm2Za1qvD9KYAs9Fr/40/kNc5tRGJHcYzfG0+XC+du1T5hQHtoGAC2VFaUHYBPGVSCK+VPYck3dtIflxnnLrhM9PxIFIJltCGIQ9ChrWLowliC6TLnZPjNFRoBJPEYBb/S5eHKVfsVj3LhN1HiOGvowSwtBFVyT5y6h9jdlCY6ed9CJN8zWiEgA1/LB5ZbMwIyqNODt5x1XjVmJ37Xb7F9ShNajY3N4CMC/msBYB7knbN01LbAyaxJ9gE9DinToq0frtFAHNxOE8NlDMYhHWgJ2rJp5JPITnYJIKR3ZGZaKPZsmQ=
   file: cattheory.pdf
-  name: build
+  name: Build $(date +'%d.%m.%Y %R')
+  skip-cleanup: true
   on:
     repo: CatTheoryByExample/book
