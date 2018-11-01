@@ -449,114 +449,114 @@ TBD
 \end{proof}
 \end{theorem}
 
-\subsection{\textbf{Hask} category}
+%% \subsection{\textbf{Hask} category}
 
-In Haskell most of functions are \mynameref{def:pp_function}s 
-\footnote{really in the run-time the functions are not
-  \mynameref{def:pp_function}s}.  
+%% In Haskell most of functions are \mynameref{def:pp_function}s 
+%% \footnote{really in the run-time the functions are not
+%%   \mynameref{def:pp_function}s}.  
 
-\begin{example}[Parametrically polymorphic function][\textbf{Hask}]
-\label{ex:nt_hask}
-Consider the following function
-\begin{minted}{haskell}
-safeHead :: [a] -> Maybe a
-safeHead [] = Nothing
-safeHead (x:xs) = Just x
-\end{minted}
-The function is parametricaly polymorphic and by
-\mynameref{thm:reynolds} is \mynameref{def:nt} (see \cref{fig:nt_pp_hask}).
+%% \begin{example}[Parametrically polymorphic function][\textbf{Hask}]
+%% \label{ex:nt_hask}
+%% Consider the following function
+%% \begin{minted}{haskell}
+%% safeHead :: [a] -> Maybe a
+%% safeHead [] = Nothing
+%% safeHead (x:xs) = Just x
+%% \end{minted}
+%% The function is parametricaly polymorphic and by
+%% \mynameref{thm:reynolds} is \mynameref{def:nt} (see \cref{fig:nt_pp_hask}).
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
-        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
-        sep=-2pt}]
+%% \begin{figure}
+%%   \centering
+%%   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+%%         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+%%         sep=-2pt}]
 
-    % the texts
+%%     % the texts
 
-    \node[ele,label=above:$a$] (a) at (0,2) {};    
-    \node[ele,label=below:$b$] (b) at (0,0) {};    
-    \node[ele,label=above:$\mbox{[a]}$] (af) at (5,2) {};
-    \node[ele,label=below:$\mbox{Maybe a}$] (ag) at (5,0) {};
-    \node[ele,label=above:$\mbox{[b]}$] (bf) at (7.5,2) {};
-    \node[ele,label=below:$\mbox{Maybe b}$] (bg) at (7.5,0) {};
+%%     \node[ele,label=above:$a$] (a) at (0,2) {};    
+%%     \node[ele,label=below:$b$] (b) at (0,0) {};    
+%%     \node[ele,label=above:$\mbox{[a]}$] (af) at (5,2) {};
+%%     \node[ele,label=below:$\mbox{Maybe a}$] (ag) at (5,0) {};
+%%     \node[ele,label=above:$\mbox{[b]}$] (bf) at (7.5,2) {};
+%%     \node[ele,label=below:$\mbox{Maybe b}$] (bg) at (7.5,0) {};
 
-    \node[draw,fit= (a) (b),minimum width=2cm, minimum
-      height=3.5cm] {} ;
-    \node[draw,fit= (af) (ag) (bf) (bg),minimum width=6.5cm, minimum
-      height=5.5cm] {} ;
+%%     \node[draw,fit= (a) (b),minimum width=2cm, minimum
+%%       height=3.5cm] {} ;
+%%     \node[draw,fit= (af) (ag) (bf) (bg),minimum width=6.5cm, minimum
+%%       height=5.5cm] {} ;
 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-    node[left]{$f$} (b);
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+%%     node[left]{$f$} (b);
 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
-    node[below]{$\mbox{fmap}_{[]}$} (bf);
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+%%     node[below]{$\mbox{fmap}_{[]}$} (bf);
 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
-    node[above]{$\mbox{fmap}_{Maybe}$} (bg);
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
+%%     node[above]{$\mbox{fmap}_{Maybe}$} (bg);
 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-    node[above]{$$} (af);
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
-    [out=45,in=135,looseness=1] node[above]{$$} (bf);
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-    node[above]{$$} (ag);
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
-    [out=-45,in=-135,looseness=1] node[above]{$$} (bg);
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
-    node[left]{$\mbox{safeHead}_a$} (ag);
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
-    node[right]{$\mbox{safeHead}_b$} (bg);
-  \end{tikzpicture}
-  \caption{Haskell parametric polymorphism as a natural transformation}
-  \label{fig:nt_pp_hask}
-\end{figure}
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+%%     node[above]{$$} (af);
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+%%     [out=45,in=135,looseness=1] node[above]{$$} (bf);
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+%%     node[above]{$$} (ag);
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+%%     [out=-45,in=-135,looseness=1] node[above]{$$} (bg);
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+%%     node[left]{$\mbox{safeHead}_a$} (ag);
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
+%%     node[right]{$\mbox{safeHead}_b$} (bg);
+%%   \end{tikzpicture}
+%%   \caption{Haskell parametric polymorphism as a natural transformation}
+%%   \label{fig:nt_pp_hask}
+%% \end{figure}
 
-Therefore from the definition of the natural transformation
-\eqref{eq:nt_definition} we have 
-\textbf{fmap f . safeHead = safeHead . fmap f}. I.e. it
-does not matter if we initially apply \textbf{fmap f} and
-then \textbf{safeHead} to the result or initially
-\textbf{safeHead} and then \textbf{fmap f}.
+%% Therefore from the definition of the natural transformation
+%% \eqref{eq:nt_definition} we have 
+%% \textbf{fmap f . safeHead = safeHead . fmap f}. I.e. it
+%% does not matter if we initially apply \textbf{fmap f} and
+%% then \textbf{safeHead} to the result or initially
+%% \textbf{safeHead} and then \textbf{fmap f}.
 
-The statement can be verified directly. For empty list we have
-\begin{minted}{haskell}
-fmap f . safeHead []
--- equivalent to
-fmap f Nothing 
--- equivalent to
-Nothing
-\end{minted}
-from other side
-\begin{minted}{haskell}
-safeHead . fmap f []
--- equivalent to
-safeHead [] 
--- equivalent to
-Nothing
-\end{minted}
+%% The statement can be verified directly. For empty list we have
+%% \begin{minted}{haskell}
+%% fmap f . safeHead []
+%% -- equivalent to
+%% fmap f Nothing 
+%% -- equivalent to
+%% Nothing
+%% \end{minted}
+%% from other side
+%% \begin{minted}{haskell}
+%% safeHead . fmap f []
+%% -- equivalent to
+%% safeHead [] 
+%% -- equivalent to
+%% Nothing
+%% \end{minted}
 
-For a non empty list we have
-\begin{minted}{haskell}
-fmap f . safeHead (x:xs)
--- equivalent to
-fmap f (Just x) 
--- equivalent to
-Just (f x)
-\end{minted}
-from other side
-\begin{minted}{haskell}
-safeHead . fmap f (x:xs)
--- equivalent to
-safeHead (f x: fmap f xs ) 
--- equivalent to
-Just ( f x )
-\end{minted}
+%% For a non empty list we have
+%% \begin{minted}{haskell}
+%% fmap f . safeHead (x:xs)
+%% -- equivalent to
+%% fmap f (Just x) 
+%% -- equivalent to
+%% Just (f x)
+%% \end{minted}
+%% from other side
+%% \begin{minted}{haskell}
+%% safeHead . fmap f (x:xs)
+%% -- equivalent to
+%% safeHead (f x: fmap f xs ) 
+%% -- equivalent to
+%% Just ( f x )
+%% \end{minted}
 
-Using the fact that \textbf{fmap f} is an expensive
-operation if it is applied to the list we can conclude that the second
-approach is more productive. Such transformation allows compiler to
-optimize the code.
-\footnote{It is not directly applied to Haskell because it has lazy
-  evaluation that can perform optimization before that one}
-\end{example}
+%% Using the fact that \textbf{fmap f} is an expensive
+%% operation if it is applied to the list we can conclude that the second
+%% approach is more productive. Such transformation allows compiler to
+%% optimize the code.
+%% \footnote{It is not directly applied to Haskell because it has lazy
+%%   evaluation that can perform optimization before that one}
+%% \end{example}
