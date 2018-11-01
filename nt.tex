@@ -381,74 +381,74 @@ functors $F$ and $G$: $\alpha: F \tont G$.
 %% transformation \cite{nlab:whiskering}. 
 %% \end{definition}
 
-\begin{definition}[Right whiskering]
-\label{def:rw}
-If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
-\cat{E}$ and \mynameref{def:nt} 
-$\alpha: F \tont G$ then we can construct a new natural 
-transformations: 
-\[
-H \alpha : H \circ F \tont H \circ G
-\]
-that is called \textit{right whiskering} of functor and natural
-transformation \cite{nlab:whiskering}. 
-\end{definition}
+%% \begin{definition}[Right whiskering]
+%% \label{def:rw}
+%% If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
+%% \mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
+%% \cat{E}$ and \mynameref{def:nt} 
+%% $\alpha: F \tont G$ then we can construct a new natural 
+%% transformations: 
+%% \[
+%% H \alpha : H \circ F \tont H \circ G
+%% \]
+%% that is called \textit{right whiskering} of functor and natural
+%% transformation \cite{nlab:whiskering}. 
+%% \end{definition}
 
-\begin{definition}[Identity natural transformation]
-\label{def:idnt}
-If $F: \cat{C} \tof \cat{D}$ is a \mynameref{def:functor} then we can
-define \textit{identity natural transformation}
-$\idnt{F}$ that maps any \mynameref{def:object} 
-$a \in \catob{C}$ into \mynameref{def:id} $\idm{F(a)} \in \cathom{D}$.
-\end{definition}
+%% \begin{definition}[Identity natural transformation]
+%% \label{def:idnt}
+%% If $F: \cat{C} \tof \cat{D}$ is a \mynameref{def:functor} then we can
+%% define \textit{identity natural transformation}
+%% $\idnt{F}$ that maps any \mynameref{def:object} 
+%% $a \in \catob{C}$ into \mynameref{def:id} $\idm{F(a)} \in \cathom{D}$.
+%% \end{definition}
 
-\begin{remark}[Whiskering]
-\label{rem:whiskering}
-With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
-\mynameref{def:rw} via \mynameref{def:horizontal_composition} as follows.
+%% \begin{remark}[Whiskering]
+%% \label{rem:whiskering}
+%% With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
+%% \mynameref{def:rw} via \mynameref{def:horizontal_composition} as follows.
 
-For left whiskering:
-\begin{equation}
-\label{eq:lw}
-\alpha H = \alpha \star \idnt{H}
-\end{equation}
+%% For left whiskering:
+%% \begin{equation}
+%% \label{eq:lw}
+%% \alpha H = \alpha \star \idnt{H}
+%% \end{equation}
 
-For right whiskering:
-\begin{equation}
-\label{eq:rw}
-H \alpha = \idnt{H} \star \alpha
-\end{equation}
-\end{remark}
+%% For right whiskering:
+%% \begin{equation}
+%% \label{eq:rw}
+%% H \alpha = \idnt{H} \star \alpha
+%% \end{equation}
+%% \end{remark}
 
 
-\section{Polymorphism and natural transformation}
+%% \section{Polymorphism and natural transformation}
 
-Polymorphism plays a certain role in programming languages. Category
-theory provides several facts about polymorphic functions which are
-very important.
+%% Polymorphism plays a certain role in programming languages. Category
+%% theory provides several facts about polymorphic functions which are
+%% very important.
 
-\begin{definition}[Parametrically polymorphic function]
-\index{Parametric polymorphism}
-\label{def:pp_function}
-Polymorphism is parametric if all function instances behave uniformly
-i.e. have the same realization. The functions which satisfy the
-parametric polymorphism requirements are parametrically polymorphic.
-\end{definition}
+%% \begin{definition}[Parametrically polymorphic function]
+%% \index{Parametric polymorphism}
+%% \label{def:pp_function}
+%% Polymorphism is parametric if all function instances behave uniformly
+%% i.e. have the same realization. The functions which satisfy the
+%% parametric polymorphism requirements are parametrically polymorphic.
+%% \end{definition}
 
-\begin{definition}[Ad-hoc polymorphism]
-\label{def:ad_hoc_polymorphism}
-Polymorphism is parametric if the function instances can behave
-differently dependently on the type they are being instantiated with. 
-\end{definition}
+%% \begin{definition}[Ad-hoc polymorphism]
+%% \label{def:ad_hoc_polymorphism}
+%% Polymorphism is parametric if the function instances can behave
+%% differently dependently on the type they are being instantiated with. 
+%% \end{definition}
 
-\begin{theorem}[Reynolds]
-\label{thm:reynolds}
-\mynameref{def:pp_function}s are \mynameref{def:nt}s 
-\begin{proof}
-TBD
-\end{proof}
-\end{theorem}
+%% \begin{theorem}[Reynolds]
+%% \label{thm:reynolds}
+%% \mynameref{def:pp_function}s are \mynameref{def:nt}s 
+%% \begin{proof}
+%% TBD
+%% \end{proof}
+%% \end{theorem}
 
 \subsection{\textbf{Hask} category}
 
