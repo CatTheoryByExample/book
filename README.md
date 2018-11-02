@@ -1,6 +1,8 @@
-# The Category Theory by Example book
+The Category Theory by Example
+==============================
 
-Category Theory by Example (in English) [![pdf](https://img.shields.io/badge/cattheory.pdf-orange.svg)](https://nbviewer.jupyter.org/github/CatTheoryByExample/book/blob/master/cattheory.pdf)
+[![Build Status](https://travis-ci.org/CatTheoryByExample/book.svg?branch=master)](https://travis-ci.org/CatTheoryByExample/book)
+[![Release](https://img.shields.io/badge/release-orange.svg)](https://img.shields.io/badge/cattheory.pdf-orange.svg)](https://nbviewer.jupyter.org/github/CatTheoryByExample/book/blob/master/cattheory.pdf)
 
 Info about the content:
 - Makefile - build scripts
