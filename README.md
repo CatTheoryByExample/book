@@ -8,3 +8,7 @@ Info about the content:
 - Makefile - build scripts
 - cattheory.tex - the main latex file with macro and all includes
 - cattheory.bib - the bibliography
+
+Branches:
+- master - the main upstream
+- release - the latest stable release be build with the builder
