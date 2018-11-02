@@ -12,4 +12,5 @@ deploy:
   skip-cleanup: true
   on:
     branch: release
+    tags: true
     repo: CatTheoryByExample/book
