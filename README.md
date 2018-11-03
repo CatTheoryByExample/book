@@ -11,3 +11,9 @@ Info about the content:
 
 Branches:
 - master - the main upstream
+
+To start release publishing:
+- commit and push your changes
+- set release tag: for instance git tag release-0.0.123
+- push the tags: git push --tags
+- wait for awile and see a new published release on https://github.com/CatTheoryByExample/book/releases 
