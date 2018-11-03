@@ -11,6 +11,7 @@ deploy:
   name: Build $(date +'%d.%m.%Y %R')
   skip-cleanup: true
   on:
-    branch: release
+    all_branches: true
     tags: true
     repo: CatTheoryByExample/book
+    condition: "$TRAVIS_TAG =~ ^release.*$"
