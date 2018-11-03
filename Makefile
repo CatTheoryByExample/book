@@ -5,6 +5,7 @@ pdf: cattheory.tex
 	bibtex cattheory
 	makeindex cattheory.nlo -s nomencl.ist -o cattheory.nls
 	pdflatex  -interaction=nonstopmode -shell-escape cattheory.tex
+	pdflatex  -interaction=nonstopmode -shell-escape cattheory.tex
 
 clean:
 	rm -rf *.aux cattheory.bbl *.dvi *.blg *.toc *.out *.idx *.nlo *.ist *.nls
