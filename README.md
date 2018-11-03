@@ -2,7 +2,7 @@ The Category Theory by Example
 ==============================
 
 [![Build Status](https://travis-ci.org/CatTheoryByExample/book.svg?branch=master)](https://travis-ci.org/CatTheoryByExample/book)
-[![Release](https://img.shields.io/badge/release-orange.svg)](https://nbviewer.jupyter.org/github/CatTheoryByExample/book/blob/master/cattheory.pdf)
+[![Release](https://img.shields.io/badge/release-orange.svg)](https://github.com/CatTheoryByExample/book/releases/download/release-0.0.2/cattheory.pdf)
 
 Info about the content:
 - Makefile - build scripts
@@ -11,4 +11,3 @@ Info about the content:
 
 Branches:
 - master - the main upstream
-- release - the latest stable release be build with the builder
