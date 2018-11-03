@@ -15,6 +15,6 @@ Branches:
 To start release publishing:
 - commit and push your changes
 - set release tag: for instance git tag release-0.0.123
-- push the tags: git push --tags
+- push the tags: git push origin release-0.0.123
 - check the build progress: https://travis-ci.org/CatTheoryByExample/book/builds
 - see a new published release on https://github.com/CatTheoryByExample/book/releases 
