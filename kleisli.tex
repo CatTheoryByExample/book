@@ -227,7 +227,12 @@ for it.
 \subsection{Haskell example}
 
 \begin{example}[List monad][\textbf{Hask}]
-TBD
+\label{ex:list_monad_haskell}
+\begin{minted}{haskell}
+  instance Monad [] where
+    return x = [x]
+    join = concat
+\end{minted}
 \end{example}
 
 \section{Side effects and interactive input/output}
