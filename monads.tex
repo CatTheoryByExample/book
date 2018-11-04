@@ -381,8 +381,51 @@ a \mynameref{def:bifunctor}.
 
 \begin{definition}[Tensor product]
   \label{def:tensor_product}
-  TBD
+  Let $m,n \in \cat{FdHilb}$. The \textit{tensor product} $m \otimes n$ is another
+  finite dimensional \mynameref{def:hilbert_space} equipped with a
+  bilinear form
+  \[
+  \phi: m \times n \to m \otimes n
+  \]
+  such that $\forall a \in \cat{FdHilb}$ and for any (TBD verify)
+  bilinear
+  \[
+  f: m \times n \to a
+  \]
+  exists only one morphism $\tilde{f}: m \times n \to a$ such that
+  \[
+  f = \tilde{f} \circ \phi
+  \]
+  i.e. the diagram on the \cref{fig:tensor_product} commutes
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=above:$m \times n$] (mn) at (0,3) {};    
+    \node[ele,label=above:$a$] (a) at (3,3) {};    
+    \node[ele,label=below:$m \otimes n$] (mxn) at (0,0) {};    
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (mn) to
+    node[above]{$f$} (a);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (mn) to
+    node[left]{$\phi$} (mxn);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (mxn) to
+    node[below]{$\tilde{f}$} (a);
+  \end{tikzpicture}
+  \caption{Commutative diagram for tensor product definition.} 
+  \label{fig:tensor_product}
+\end{figure}
 \end{definition}
+
+\begin{remark}[Tensor product]
+Using the fact that \mynameref{def:linear_map}s are
+\mynameref{def:morphism}s in $\cat{FdHilb}$ we can conclude that 
+\mynameref{def:tensor_product} is a \mynameref{def:bifunctor}.
+\end{remark}
 
 The tensor product in quantum mechanics is used for
 representing a system that consists of multiple systems. For instance
@@ -394,7 +437,7 @@ vectors.  Light also has its own Hilber space $\mathcal{H}_f$ with Fock state
 $\{\ket{n}\}$ as the basis.
 \footnote{
   Really the $\mathcal{H}_f$ is infinite dimensional Hilber space and
-  seems to be out of our assumption about \textbf{FdHilb} category as
+  seems to be out of our assumption about $\cat{FdHilb}$ category as
   a collection of finite dimensional Hilber spaces only.
 }
 The result system that describes both atom
