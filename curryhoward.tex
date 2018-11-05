@@ -2,7 +2,9 @@
 \chapter{Curry-Howard-Lambek correspondence}
 \label{sec:curry_howard_lambek}
 There is an interesting correspondence between computer programs and
-mathematical proofs. First of all consider a category of proofs
+mathematical proofs. Different types of logic correspond to different
+computational models. This allows to build a theory of computation on
+the base of math logic. First of all consider a category of proofs
 \section{\textbf{Proof} category}
 \begin{definition}[Proposition]
 \label{def:proposition}
@@ -174,6 +176,16 @@ also between programming languages.
   \end{adjustbox}
 \end{table}
 
+
+\section{Linear logic and Linear types}
+Linear logic \cite{stanford:linear_logic} is one of refinements of
+classical logic in the logic the \mynameref{def:implication} has been
+modified. In the classical logic the both statements $P$ and $Q$ are
+valid after implication $P \implies Q$. But in linear logic we have
+another situation when the statement $P$ can be used only once and
+become invalid after usage. The situation then a resource can be used
+only once is useful in different types of computations especially in
+concurrency. TBD
 
 \section{Quantum logic and quantum computation}
 
