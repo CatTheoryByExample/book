@@ -4,6 +4,10 @@ The Category Theory by Example
 [![Build Status](https://travis-ci.org/CatTheoryByExample/book.svg?branch=master)](https://travis-ci.org/CatTheoryByExample/book)
 [![Release (0.0.4)](https://img.shields.io/badge/Latest-release-orange.svg)](https://github.com/CatTheoryByExample/book/releases/download/release-0.0.4/cattheory.pdf)
 
+Build:
+- build cattheory.pdf file: make
+- cleanup: make clean
+
 Info about the content:
 - Makefile - build scripts
 - cattheory.tex - the main latex file with macro and all includes

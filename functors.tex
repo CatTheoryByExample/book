@@ -225,6 +225,30 @@ The good example can be found in $\cat{Hask}$ category.
   \end{minted}
 \end{example}
 
+\section{Contravariant functor}
+\begin{definition}[Contravariant functor]
+  \label{def:contravariant_functor}
+  If we have categories $\cat{C}$ and $\cat{D}$ then the
+  \mynameref{def:functor} $\cat{C^{op}} \tof \cat{D}$ is called
+  \textit{contravariant functor}. 
+\end{definition}
+
+\begin{example}[Contravariant functor][\textbf{Hask}]
+  \label{ex:contravariant_functor_hask}
+  Function mapping inside a functor is made via \textbf{fmap} (see
+  \cref{ex:functor_haskell}) but sometimes the function that has to be
+  mapped is \textbf{a -> b} but the result mapping has an inverse
+  order: \textbf{f b -> f a}. In the case the contravariant functor
+  can help
+  \begin{minted}{haskell}
+    class Contravariant f where
+    contramap :: (a -> b) -> f b -> f a
+  \end{minted}
+
+  TBD
+\end{example}
+
+
 \section{Bifunctors}
 
 \begin{definition}[Bifunctor]
@@ -258,23 +282,6 @@ The good example can be found in $\cat{Hask}$ category.
     data Maybe a = Either () (Identity a)
     -- Either is a bifunctor and () == Const () a 
     -- Thus Maybe is a composition of 2 functors 
-  \end{minted}
-\end{example}
-
-
-\begin{definition}[Contravariant functor]
-  \label{def:contravariant_functor}
-  If we have categories $\cat{C}$ and $\cat{D}$ then the
-  \mynameref{def:functor} $\cat{C^{op}} \tof \cat{D}$ is called
-  \textit{contravariant functor}. 
-\end{definition}
-
-\begin{example}[Contravariant functor][\textbf{Hask}]
-  \label{ex:contravariant_functor_hask}
-  TBD
-  \begin{minted}{haskell}
-    class Contravariant f where
-    contramap :: (a -> b) -> f b -> f a
   \end{minted}
 \end{example}
 
