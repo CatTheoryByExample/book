@@ -245,7 +245,36 @@ The good example can be found in $\cat{Hask}$ category.
     contramap :: (a -> b) -> f b -> f a
   \end{minted}
 
-  TBD
+  The contravariant functor should follow the following laws
+  \begin{minted}{haskell}
+    contramap id = id
+    contramap f . contramap g = contramap (g . f)
+  \end{minted}
+
+  Consider the following task. We have a predicate for \textbf{Int}
+  type that returns \textbf{True} if the number is greater than
+  \textbf{10} otherwise it returns \textbf{False}:
+  \begin{minted}{haskell}
+    newtype Predicate a = Predicate { runPredicate :: a -> Bool}
+
+    intgt10 :: Predicate Int
+    intgt10 = Predicate ( \i -> i > 10 )
+  \end{minted}
+  Now we want to create a predicate that accepts a string and
+  verify it length greater than 10 or not.
+  I.e. we want to have something of the following type:
+  \begin{minted}{haskell}
+    strgt10 :: Predicate String
+  \end{minted}
+  In the case the \mynameref{def:contravariant_functor} helps.
+
+  \begin{minted}{haskell}
+    instance Contravariant Predicate where
+    contramap f (Predicate p) = Predicate ( p . f )
+
+    strgt10 :: Predicate [Char]
+    strgt10 = contramap length intgt10
+  \end{minted}
 \end{example}
 
 
