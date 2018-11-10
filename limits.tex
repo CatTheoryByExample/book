@@ -13,13 +13,13 @@
 
       % the texts
 
-      \node at (0,0) {$C$};        
-      \node at (0,3) {$D$};        
+      \node at (0,0) {$B$};        
+      \node at (0,3) {$C$};        
 
-      \node[ele,label=below:$a_i^{(C)}$] (ac) at (1,0) {};    
-      \node[ele,label=below:$a_j^{(C)}$] (bc) at (3,0) {};    
-      \node[ele,label=above:$a_i^{(D)}$] (ad) at (1,3) {};
-      \node[ele,label=above:$a_j^{(D)}$] (bd) at (3,3) {};
+      \node[ele,label=below:$a_i^{(B)}$] (ac) at (1,0) {};    
+      \node[ele,label=below:$a_j^{(B)}$] (bc) at (3,0) {};    
+      \node[ele,label=above:$a_i^{(C)}$] (ad) at (1,3) {};
+      \node[ele,label=above:$a_j^{(C)}$] (bd) at (3,3) {};
 
       \node[draw,fit= (ac) (bc),minimum width=3.5cm, minimum
         height=2cm] {} ;
@@ -27,26 +27,26 @@
         height=2cm] {} ;
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[below]{$g_{ij}^{(C)}$} (bc);
+      node[below]{$g_{ij}^{(B)}$} (bc);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
-      node[above]{$g_{ij}^{(D)}$} (bd);
+      node[above]{$g_{ij}^{(C)}$} (bd);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[left]{$g_i^{(D)} = F(a_i^{(C)})$} (ad);
+      node[left]{$g_i^{(C)} = F(a_i^{(B)})$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
-      node[right]{$g_j^{(D)} = F(a_j^{(C)})$} (bd);
+      node[right]{$g_j^{(C)} = F(a_j^{(B)})$} (bd);
   \end{tikzpicture}
-  \caption{Diagram of shape $F: \cat{C} \tof \cat{D}$. Objects
-    $a_{i,j}^{(C)} \in \catob{C}$ are mapped to $a_{i,j}^{(D)} \in
-    \catob{D}$. Morphisms $g_{ij}^{(C)} \in \cathom{C}$ are mapped to
-    $g_{ij}^{(D)} \in \cathom{D}$}  
+  \caption{Diagram of shape $F: \cat{B} \tof \cat{C}$. Objects
+    $a_{i,j}^{(B)} \in \catob{B}$ are mapped to $a_{i,j}^{(C)} \in
+    \catob{C}$. Morphisms $g_{ij}^{(B)} \in \cathom{B}$ are mapped to
+    $g_{ij}^{(C)} \in \cathom{C}$}  
   \label{fig:diagram_of_shape}
 \end{figure}
 
-Let $\cat{C}$ and $\cat{D}$ are 2 categories. The \textit{diagram of
-  shape} $\cat{C}$ in $\cat{D}$ is a \mynameref{def:functor}
+Let $\cat{B}$ and $\cat{C}$ are 2 categories. The \textit{diagram of
+  shape} $\cat{B}$ in $\cat{C}$ is a \mynameref{def:functor}
 (see \cref{fig:diagram_of_shape})
 \[
-F: \cat{C} \tof \cat{D}
+F: \cat{B} \tof \cat{C}
 \]
 \end{definition}
 
@@ -60,14 +60,14 @@ F: \cat{C} \tof \cat{D}
 
       % the texts
 
-      \node at (0,0) {$C$};        
-      \node at (0,3) {$D$};        
+      \node at (0,0) {$B$};        
+      \node at (0,3) {$C$};        
 
-      \node[ele,label=left:$a_i^{(C)}$] (ac) at (1.5,0) {};    
-      \node[ele,label=right:$a_j^{(C)}$] (bc) at (3.5,0) {};    
-      \node[ele,label=left:$a_i^{(D)}$] (ad) at (1.5,3) {};
-      \node[ele,label=right:$a_j^{(D)}$] (bd) at (3.5,3) {};
-      \node[ele,label=above:$d$] (d) at (2.5,5) {};
+      \node[ele,label=left:$a_i^{(B)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$a_j^{(B)}$] (bc) at (3.5,0) {};    
+      \node[ele,label=left:$a_i^{(C)}$] (ad) at (1.5,3) {};
+      \node[ele,label=right:$a_j^{(C)}$] (bd) at (3.5,3) {};
+      \node[ele,label=above:$c$] (d) at (2.5,5) {};
 
       \node[draw,fit= (ac) (bc),minimum width=4cm, minimum
         height=2cm] {} ;
@@ -75,30 +75,30 @@ F: \cat{C} \tof \cat{D}
         height=4cm] {} ;
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
-      node[left]{$f^{(d)}_i$} (ad);
+      node[left]{$f^{(c)}_i$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
-      node[right]{$f^{(d)}_j$} (bd);
+      node[right]{$f^{(c)}_j$} (bd);
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[below]{$g_{ij}^{(C)}$} (bc);
+      node[below]{$g_{ij}^{(B)}$} (bc);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
-      node[above]{$g_{ij}^{(D)}$} (bd);
+      node[above]{$g_{ij}^{(C)}$} (bd);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[left]{$a_i^{(D)} = F(a_i^{(C)})$} (ad);
+      node[left]{$a_i^{(C)} = F(a_i^{(B)})$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
-      node[right]{$a_j^{(D)} = F(a_j^{(C)})$} (bd);
+      node[right]{$a_j^{(C)} = F(a_j^{(B)})$} (bd);
   \end{tikzpicture}
-  \caption{Cone $cone(d, f^{(d)})$} 
+  \caption{Cone $cone(c, f^{(c)})$} 
   \label{fig:cone}
 \end{figure}
 
 
-Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{C}$ in $\cat{D}$.
-A \textit{cone} to $F$ is an object $d \in \catob{D}$ with
-\mynameref{def:morphism}s $f^{d} = \left\{f_i^{d}: d \to
-a_i^{(D)}\right\}$, where $a_i^{(D)} = F(a_i^{(C)})$ 
+Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{B}$ in $\cat{C}$.
+A \textit{cone} to $F$ is an object $d \in \catob{C}$ with
+\mynameref{def:morphism}s $f^{c} = \left\{f_i^{c}: c \to
+a_i^{(C)}\right\}$, where $a_i^{(C)} = F(a_i^{(B)})$ 
 indexed by objects from 
-$\cat{C}$. The cone is denoted as $cone(d, f)$.
+$\cat{B}$. The cone is denoted as $cone(c, f^{(c)})$.
 \end{definition}
 
 \begin{definition}[Limit]
@@ -111,14 +111,14 @@ $\cat{C}$. The cone is denoted as $cone(d, f)$.
 
       % the texts
 
-      \node at (0,0) {$C$};        
-      \node at (0,7) {$D$};        
+      \node at (0,0) {$B$};        
+      \node at (0,7) {$C$};        
 
-      \node[ele,label=left:$a_i^{(C)}$] (ac) at (1.5,0) {};    
-      \node[ele,label=right:$a_j^{(C)}$] (bc) at (5.5,0) {};    
-      \node[ele,label=left:$a_i^{(D)}$] (ad) at (1.5,3) {};
-      \node[ele,label=right:$a_j^{(D)}$] (bd) at (5.5,3) {};
-      \node[ele,label=above:$d$] (d) at (3.5,7) {};
+      \node[ele,label=left:$a_i^{(B)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$a_j^{(B)}$] (bc) at (5.5,0) {};    
+      \node[ele,label=left:$a_i^{(C)}$] (ad) at (1.5,3) {};
+      \node[ele,label=right:$a_j^{(C)}$] (bd) at (5.5,3) {};
+      \node[ele,label=above:$c$] (d) at (3.5,7) {};
       \node[ele,label=below:$l$] (l) at (3.5,5) {};
 
       \node[draw,fit= (ac) (bc),minimum width=6cm, minimum
@@ -130,31 +130,38 @@ $\cat{C}$. The cone is denoted as $cone(d, f)$.
       node[right]{$u$} (l);
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
-      node[left]{$f^{(d)}_i$} (ad);
+      node[left]{$f^{(c)}_i$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
-      node[right]{$f^{(d)}_j$} (bd);
+      node[right]{$f^{(c)}_j$} (bd);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
       node[right]{$f^{(l)}_i$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
       node[left]{$f^{(l)}_j$} (bd);
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[below]{$g_{ij}^{(C)}$} (bc);
+      node[below]{$g_{ij}^{(B)}$} (bc);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
-      node[below]{$g_{ij}^{(D)}$} (bd);
+      node[below]{$g_{ij}^{(C)}$} (bd);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[left]{$a_i^{(D)} = F(a_i^{(C)})$} (ad);
+      node[left]{$a_i^{(C)} = F(a_i^{(B)})$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
-      node[right]{$a_j^{(D)} = F(a_j^{(C)})$} (bd);
+      node[right]{$a_j^{(C)} = F(a_j^{(B)})$} (bd);
   \end{tikzpicture}
   \caption{Limit $cone(l, f^{(l)})$} 
   \label{fig:limit}
 \end{figure}
-\textit{Limit} of \mynameref{def:diagram_of_shape} $F: \cat{C} \tof
-\cat{D}$ is a \mynameref{def:cone} $cone(l, f^{(l)})$ to $F$ such that for 
-any other $cone(d, f^{(d)})$ to $F$ exists an unique morphism $u : d \to l$
-such that  $\forall a_i^{(C)} \in \catob{C}$ $f_i^{(l)} \circ u = f_i^{(d)}$.
+\textit{Limit} of \mynameref{def:diagram_of_shape} $F: \cat{B} \tof
+\cat{C}$ is a \mynameref{def:cone} $cone(l, f^{(l)})$ to $F$ such that for 
+any other $cone(c, f^{(c)})$ to $F$ exists an unique morphism $u : c \to l$
+such that  $\forall a_i^{(B)} \in \catob{B}$ $f_i^{(l)} \circ u =
+f_i^{(c)}$ i.e. diagram shown on \cref{fig:limit} commutes.
 \end{definition}
+
+\begin{definition}[Category of cones]
+\label{def:category_of_cones}
+TBD
+\end{definition}
+
 
 
 TBD
