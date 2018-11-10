@@ -95,17 +95,65 @@ F: \cat{C} \tof \cat{D}
 
 Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{C}$ in $\cat{D}$.
 A \textit{cone} to $F$ is an object $d \in \catob{D}$ with
-\mynameref{def:morphism}s $f_a: d \to a_D$, where $a_D = F(a)$
+\mynameref{def:morphism}s $f^{d} = \left\{f_i^{d}: d \to
+a_i^{(D)}\right\}$, where $a_i^{(D)} = F(a_i^{(C)})$ 
 indexed by objects from 
 $\cat{C}$. The cone is denoted as $cone(d, f)$.
 \end{definition}
 
 \begin{definition}[Limit]
 \label{def:limit}
-\textit{Limit} of \mynameref{def:diagram_of_shape} $F: \cat{A} \tof
-\cat{B}$ is a \mynameref{def:cone} $cone(l, f)$ to $F$ such that for 
-any other $cone(m, g)$ to $F$ exists an unique morphism $u : m \to l$
-such that  $\forall a \in A$ $f(a) \circ u = g(a)$.
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,0) {$C$};        
+      \node at (0,7) {$D$};        
+
+      \node[ele,label=left:$a_i^{(C)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$a_j^{(C)}$] (bc) at (5.5,0) {};    
+      \node[ele,label=left:$a_i^{(D)}$] (ad) at (1.5,3) {};
+      \node[ele,label=right:$a_j^{(D)}$] (bd) at (5.5,3) {};
+      \node[ele,label=above:$d$] (d) at (3.5,7) {};
+      \node[ele,label=below:$l$] (l) at (3.5,5) {};
+
+      \node[draw,fit= (ac) (bc),minimum width=6cm, minimum
+        height=2.5cm] {} ;
+      \node[draw,fit= (ad) (bd) (d) (l),minimum width=5cm, minimum
+        height=5cm] {} ;
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[right]{$u$} (l);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[left]{$f^{(d)}_i$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[right]{$f^{(d)}_j$} (bd);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[right]{$f^{(l)}_i$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[left]{$f^{(l)}_j$} (bd);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[below]{$g_{ij}^{(C)}$} (bc);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
+      node[below]{$g_{ij}^{(D)}$} (bd);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[left]{$a_i^{(D)} = F(a_i^{(C)})$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
+      node[right]{$a_j^{(D)} = F(a_j^{(C)})$} (bd);
+  \end{tikzpicture}
+  \caption{Limit $cone(l, f^{(l)})$} 
+  \label{fig:limit}
+\end{figure}
+\textit{Limit} of \mynameref{def:diagram_of_shape} $F: \cat{C} \tof
+\cat{D}$ is a \mynameref{def:cone} $cone(l, f^{(l)})$ to $F$ such that for 
+any other $cone(d, f^{(d)})$ to $F$ exists an unique morphism $u : d \to l$
+such that  $\forall a_i^{(C)} \in \catob{C}$ $f_i^{(l)} \circ u = f_i^{(d)}$.
 \end{definition}
 
 
