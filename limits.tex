@@ -88,7 +88,7 @@ F: \cat{B} \tof \cat{C}
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
       node[right]{$a_j^{(C)} = F(a_j^{(B)})$} (bd);
   \end{tikzpicture}
-  \caption{Cone $cone(c, f^{(c)})$} 
+  \caption{Cone $\catcone{c}{f}$} 
   \label{fig:cone}
 \end{figure}
 Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{B}$ in $\cat{C}$.
@@ -96,7 +96,7 @@ A \textit{cone} to $F$ is an object $d \in \catob{C}$ with
 \mynameref{def:morphism}s $f^{c} = \left\{f_i^{c}: c \to
 a_i^{(C)}\right\}$, where $a_i^{(C)} = F(a_i^{(B)})$ 
 indexed by objects from 
-$\cat{B}$. The cone is denoted as $cone(c, f^{(c)})$.
+$\cat{B}$. The cone is denoted as $\catcone{c}{f}$.
 \end{definition}
 
 \begin{definition}[Limit]
@@ -145,12 +145,12 @@ $\cat{B}$. The cone is denoted as $cone(c, f^{(c)})$.
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
       node[right]{$a_j^{(C)} = F(a_j^{(B)})$} (bd);
   \end{tikzpicture}
-  \caption{Limit $cone(l, f^{(l)})$} 
+  \caption{Limit $\catcone{l}{f}$} 
   \label{fig:limit}
 \end{figure}
 \textit{Limit} of \mynameref{def:diagram_of_shape} $F: \cat{B} \tof
-\cat{C}$ is a \mynameref{def:cone} $cone(l, f^{(l)})$ to $F$ such that for 
-any other $cone(c, f^{(c)})$ to $F$ exists an unique morphism $u : c \to l$
+\cat{C}$ is a \mynameref{def:cone} $\catcone{l}{f}$ to $F$ such that for 
+any other $\catcone{c}{f}$ to $F$ exists an unique morphism $u : c \to l$
 such that  $\forall a_i^{(B)} \in \catob{B}$ $f_i^{(l)} \circ u =
 f_i^{(c)}$ i.e. diagram shown on \cref{fig:limit} commutes.
 \end{definition}
