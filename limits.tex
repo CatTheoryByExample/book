@@ -167,8 +167,66 @@ such that  $\forall a_i^{(B)} \in \catob{B}$ $f_i^{(l)} \circ u =
 f_i^{(c)}$ i.e. diagram shown on \cref{fig:limit} commutes.
 \end{definition}
 
+If we have 2 objects from $\cat{C}$ ($c_1, c_2 \in \catob{C}$) then we can have a lot of
+morphisms between the objects which form a set: $\hom_{\cat{C}}(c_1,
+c_2)$. There is a subset of $\hom_{\cat{C}}(c_1, c_2)$ that can be
+called as cone's morphisms.
 \begin{definition}[Morphisms of cones]
-TBD
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,0) {$B$};        
+      \node at (0,7) {$C$};        
+
+      \node[ele,label=left:$a_i^{(B)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$a_j^{(B)}$] (bc) at (5.5,0) {};    
+      \node[ele,label=left:$a_i^{(C)}$] (ad) at (1.5,3) {};
+      \node[ele,label=right:$a_j^{(C)}$] (bd) at (5.5,3) {};
+      \node[ele,label=above:$c_1$] (d) at (3.5,7) {};
+      \node[ele,label=below:$c_2$] (l) at (3.5,5) {};
+
+      \node[draw,fit= (ac) (bc),minimum width=6cm, minimum
+        height=2.5cm] {} ;
+      \node[draw,fit= (ad) (bd) (d) (l),minimum width=5cm, minimum
+        height=5cm] {} ;
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[right]{$m$} (l);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[left]{$f^{(c_1)}_i$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[right]{$f^{(c_1)}_j$} (bd);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[right]{$f^{(c_2)}_i$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[left]{$f^{(c_2)}_j$} (bd);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[below]{$g_{ij}^{(B)}$} (bc);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
+      node[below]{$g_{ij}^{(C)}$} (bd);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[left]{$a_i^{(C)} = F(a_i^{(B)})$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
+      node[right]{$a_j^{(C)} = F(a_j^{(B)})$} (bd);
+  \end{tikzpicture}
+  \caption{Morphism $m$ between 2 cones $\catcone{c_1}{f}$ and $\catcone{c_2}{f}$} 
+  \label{fig:conesmorphism}
+\end{figure}
+Let $c_1, c_2 \in \catob{C}$ are 2 objects from category $\cat{C}$ and 
+$\catcone{c_1}{f}, \catcone{c_2}{f}$ are 2 \mynameref{def:cone}s.
+The morphism $m \in \hom_{\cat{C}}(c_1, c_2)$ is called as morphism of
+cones if $\forall i$
+\[
+f_i^{(c_1)} = f_i^{(c_2)} \circ m, 
+\]
+i.e. the morphisms in \cref{fig:conesmorphism} commute.
 \end{definition}
 
 \begin{definition}[Category of cones]
