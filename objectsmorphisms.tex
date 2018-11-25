@@ -646,8 +646,8 @@ a^{b+c} = a^b a^c.
 This is also called as \textit{type algebra}.
 \end{example}
 
-\subsection{\textbf{C++} category}
-\begin{example}[Initial object][\textbf{C++}]
+\subsection{$\cat{C++}$ category}
+\begin{example}[Initial object][$\cat{C++}$]
 \label{ex:cpp_initial_object}
 In C++ exists a special type that does not hold any values and as
 result cannot be created: \textbf{void}.
@@ -655,7 +655,7 @@ You cannot create an object of that type i.e. you will get a compiler
 error if you try.
 \end{example}
 
-\begin{example}[Terminal object][\textbf{C++}]
+\begin{example}[Terminal object][$\cat{C++}$]
 \label{ex:cpp_terminal_object}
 C++ 17 introduced a special type that keeps only one value -
 \textbf{std::monostate}:  
@@ -666,7 +666,7 @@ namespace std {
 \end{minted}
 \end{example}
 
-\begin{example}[Product][\textbf{C++}]
+\begin{example}[Product][$\cat{C++}$]
 \label{ex:cpp_product}
 The \mynameref{def:product} in \mynameref{def:cppcategory} keeps a
 pair and the constructor defined as follows
@@ -691,7 +691,7 @@ Really any \textbf{struct} or \textbf{class} can be
 considered as a product. 
 \end{example}
 
-\begin{example}[Sum][\textbf{C++}]
+\begin{example}[Sum][$\cat{C++}$]
   \label{ex:cpp_sum}
   If we consider \mynameref{def:object}s as types then
   \mynameref{def:sum} is an object that can be either one or another
@@ -796,8 +796,8 @@ considered as a product.
 
 \end{example}
 TBD
-\subsection{\textbf{Scala} category}
-\begin{example}[Initial object][\textbf{Scala}]
+\subsection{$\cat{Scala}$ category}
+\begin{example}[Initial object][$\cat{Scala}$]
 \label{ex:scala_initial_object}
 We used a same trick as for \mynameref{ex:hask_initial_object} in
 \mynameref{def:haskcategory} and define
@@ -809,7 +809,7 @@ sealed trait Void
 i.e. you cannot construct a object of the type.
 \end{example}
 
-\begin{example}[Terminal object][\textbf{Scala}]
+\begin{example}[Terminal object][$\cat{Scala}$]
 \label{ex:scala_terminal_object}
 We used a same trick as for \mynameref{ex:hask_terminal_object}
 in \mynameref{def:haskcategory} and define
