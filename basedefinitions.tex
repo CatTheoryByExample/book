@@ -407,7 +407,7 @@ called \textit{large}. The example of large category is
 \mynameref{def:setcategory} 
 \end{definition}
 
-\section{\textbf{Set} category example}
+\section{$\cat{Set}$ category example}
 
 There are several examples of categories that will also be used later
 
@@ -440,11 +440,11 @@ There are several examples of categories that will also be used later
 \end{definition}
 
 
-\begin{definition}[\textbf{Set} category]
+\begin{definition}[$\cat{Set}$ category]
   \label{def:setcategory}
-  \index{Object!\textbf{Set} category}
-  \index{Morphism!\textbf{Set} category}
-  \index{Category!\textbf{Set}}
+  \index{Object!$\cat{Set}$ category}
+  \index{Morphism!$\cat{Set}$ category}
+  \index{Category!$\cat{Set}$}
   In the set category we consider a \mynameref{def:set} of
   \mynameref{def:set}s where 
   \mynameref{def:object}s are the \mynameref{def:set}s and
@@ -454,13 +454,13 @@ There are several examples of categories that will also be used later
   The \mynameref{def:id} is trivial function such that $\forall x \in
   X: \idm{X}(x) = x$.
 
-  In general case when we say \textbf{Set} category we assume the set
+  In general case when we say $\cat{Set}$ category we assume the set
   of all sets. But the result is inconsistent because famous Russell's
   paradox \cite{wiki:russell_paradox} can be applied. To avoid such
   situations we consider a limitation that is applied on our
   construction, for instance 
   ZFC \cite{wiki:zfc}. If we apply the limitation we have that set of
-  all sets is not a set itself and as result the  \textbf{Set}
+  all sets is not a set itself and as result the  $\cat{Set}$
   category is a \mynameref{def:large_category}
   \index{Category!large}
 \end{definition}
@@ -560,7 +560,7 @@ The \textit{singleton} is a \mynameref{def:set} with only one element.
   $g_1(f(X)) = g_2(F(X))$.
   
   As result we can say that an \mynameref{def:surjection} is a
-  \mynameref{def:epimorphism} in the \textbf{Set} category. Moreover
+  \mynameref{def:epimorphism} in the $\cat{Set}$ category. Moreover
   there is a proof 
   \cite{bib:proofwiki:Surjection_iff_Epimorphism_in_Category_of_Sets}
   of that fact.
@@ -661,7 +661,7 @@ The \textit{singleton} is a \mynameref{def:set} with only one element.
   that $g_1 \ne g_2$ and $f(g_1(a_1)) = y_3 = f(g_2(b_1))$.
 
   As result we can say that an \mynameref{def:injection} is a
-  \mynameref{def:monomorphism} in \textbf{Set} category. Moreover
+  \mynameref{def:monomorphism} in $\cat{Set}$ category. Moreover
   there is a proof 
   \cite{bib:proofwiki:Injection_iff_Monomorphism_in_Category_of_Sets}
   of that fact.
@@ -788,9 +788,9 @@ category if we avoid to use functions with side effects (mainly for
 Scala) and use strict (for both Haskell and Scala) evaluations. Take
 the fact into consideration and define categories for 3 languages
 
-\begin{definition}[\textbf{Hask} category]
+\begin{definition}[$\cat{Hask}$ category]
 \label{def:haskcategory}
-The objects in the \textbf{Hask} category are Haskell types and
+The objects in the $\cat{Hask}$ category are Haskell types and
 morphisms are functions
 \end{definition}
 
@@ -851,11 +851,11 @@ several functions between them (see \cref{fig:pl_example}).
 \end{figure}
 
 
-\subsection{\textbf{Hask} toy category}
-\begin{example}[\textbf{Hask} toy category]
+\subsection{$\cat{Hask}$ toy category}
+\begin{example}[$\cat{Hask}$ toy category]
   \label{ex:haskcategory}
-  \index{Object!\textbf{Hask} example}
-  \index{Morphism!\textbf{Hask} example}
+  \index{Object!$\cat{Hask}$ example}
+  \index{Morphism!$\cat{Hask}$ example}
   Types in Haskell are considered as \mynameref{def:object}s.
   Functions are considered as \mynameref{def:morphism}s.
   We are going to implement \mynameref{def:category} from
@@ -1029,19 +1029,19 @@ several functions between them (see \cref{fig:pl_example}).
 The most critical property of quantum system is the superposition
 principle. The \mynameref{def:setcategory} cannot be used for it
 because it does not satisfy the principle. but a simple modification
-of the \textbf{Set} category does. 
-\begin{definition}[\textbf{Rel} category]
+of the $\cat{Set}$ category does. 
+\begin{definition}[$\cat{Rel}$ category]
   \label{def:relcategory}
-  \index{Object!\textbf{Rel} category}
-  \index{Morphism!\textbf{Rel} category}
+  \index{Object!$\cat{Rel}$ category}
+  \index{Morphism!$\cat{Rel}$ category}
   We will consider a set of sets (same as \mynameref{def:setcategory})
   i.e. \mynameref{def:set}s as \mynameref{def:object}s. Instead of
   \mynameref{def:function}s we will use \mynameref{def:binary_relation}s as
   \mynameref{def:morphism}s. 
 
-  The \textbf{Rel} category is similar to the finite dimensional
+  The $\cat{Rel}$ category is similar to the finite dimensional
   Hilber space especially because it assumes some kind of superposition.
-  Really consider $\cat{Rel}$ - the \textbf{Rel} category. $X, Y \in
+  Really consider $\cat{Rel}$ - the $\cat{Rel}$ category. $X, Y \in
   \catob{Rel}$ - 2 sets which consists of different elements. Let $f: X
   \to X$ - \mynameref{def:morphism}. Each element $x \in X$ is
   mapped to a subset $Y' \subset Y$. The $Y'$ can be
@@ -1125,7 +1125,7 @@ direct sum.
   \]
 \end{definition}
 
-\begin{definition}[\textbf{FdHilb} category]
+\begin{definition}[$\cat{FdHilb}$ category]
   \label{def:fdhilbcategory}
   \index{Object!\textbf{FdHilb} category}
   \index{Morphism!\textbf{FdHilb} category}
@@ -1136,18 +1136,18 @@ direct sum.
   \mynameref{def:object}s in the category are finite dimensional
   \mynameref{def:hilbert_space}s and \mynameref{def:morphism}s are
   \mynameref{def:linear_map}s. The category is denoted as
-  \textbf{FdHilb}. It is very similar to   \mynameref{def:relcategory}.
+  $\cat{FdHilb}$. It is very similar to   \mynameref{def:relcategory}.
   The brief relation is   described in the
   \cref{tab:set_vs_rel_vs_fdhilb}.  
   \begin{table}
     \centering
-    \caption{Relations between \textbf{Set}, \textbf{Rel} and \textbf{FdHilb} categories}
+    \caption{Relations between $\cat{Set}$, $\cat{Rel}$ and $\cat{FdHilb}$ categories}
     \label{tab:set_vs_rel_vs_fdhilb}
     \begin{adjustbox}{width=1\textwidth}
       \small
       \begin{tabular}{l|l|l|l}
         \toprule
-        & \textbf{Set} & \textbf{Rel} & \textbf{FdHilb}\\
+        & $\cat{Set}$ & $\cat{Rel}$ & $\cat{FdHilb}$\\
         \midrule
         \mynameref{def:object} & \mynameref{def:set} &
         \mynameref{def:set} &

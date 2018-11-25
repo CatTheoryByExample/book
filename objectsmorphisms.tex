@@ -80,7 +80,7 @@ Let $\cat{C}$ is a \mynameref{def:category}, the
 \exists! f_x: i \to x \in \cathom{C}$.
 \end{definition}
 
-\begin{example}[Initial object][\textbf{Set}]
+\begin{example}[Initial object][$\cat{Set}$]
 \label{ex:set_initial_object}
 Note that there is only one function from empty set to any other sets
 \cite{bib:proofwiki:Empty_Mapping_is_Unique} that makes the empty set
@@ -95,7 +95,7 @@ Let $\cat{C}$ is a \mynameref{def:category}, the
 \exists! g_x: x \to t \in \cathom{C}$.
 \end{definition}
 
-\begin{example}[Terminal object][\textbf{Set}]
+\begin{example}[Terminal object][$\cat{Set}$]
 \label{ex:set_terminal_object}
 \mynameref{def:terminal_object} in \mynameref{def:setcategory} is a set
 with one element i.e \mynameref{def:singleton_set}. 
@@ -244,7 +244,7 @@ commutes, i.e. $\pi'_1 = \pi_1 \circ h, \pi'_2 = \pi_2 \circ h$.
 In other words $h$ factorizes $\pi'_{1,2}$.
 \end{definition}
 
-\begin{example}[Product][\textbf{Set}]
+\begin{example}[Product][$\cat{Set}$]
 \label{ex:set_product}
 The \mynameref{def:product} of two sets $A$ and $B$ in
 \mynameref{def:setcategory} is defined 
@@ -312,7 +312,7 @@ In other words $h$ factorizes $i'_{1,2}$.
   came from.
 \end{definition}
 
-\begin{example}[Sum][\textbf{Set}]
+\begin{example}[Sum][$\cat{Set}$]
   \label{ex:set_sum}
   The \mynameref{def:sum} of two sets $A$ and $B$ in
   \mynameref{def:setcategory} is defined as
@@ -442,7 +442,7 @@ form a new set that is called as \textit{Hom-set} and denoted as $A
 
 The construction of \mynameref{ex:homset} is applied to
 \mynameref{def:setcategory} but not to an arbitrary category because
-the Hom-set is a set and therefore the object in the \textbf{Set}
+the Hom-set is a set and therefore the object in the $\cat{Set}$
 category. I.e. if $\cat{C}$ is a category and $a, b \in \catob{C}$
 then the Hom-set $a \to b \in \catob{Set}$ but we now want to
 construct something like to the Home-set but that is an object in
@@ -491,7 +491,7 @@ e' = e \circ \left(h \times \idm{y} \right)
 \]
 \end{definition}
 
-\begin{example}[Exponential][\textbf{Set}]
+\begin{example}[Exponential][$\cat{Set}$]
 \label{ex:exponential_set}
 Lets look at the \mynameref{def:exponential} in $\cat{Set}$. We want
 to show that the object corresponds to the function. Really if we want
@@ -532,8 +532,8 @@ TBD
 
 \section{Programming language examples. Type algebra}
 
-\subsection{\textbf{Hask} category}
-\begin{example}[Initial object][\textbf{Hask}]
+\subsection{$\cat{Hask}$ category}
+\begin{example}[Initial object][$\cat{Hask}$]
 If we avoid lazy evaluations in Haskell (see
 \mynameref{rem:hask_lazy_eval}) then we can found several types
 as candidates for initial and terminal object in Haskell. 
@@ -559,7 +559,7 @@ There is no function in opposite direction because it would had been
 used for the \textbf{Void} object creation. 
 \end{example}
 
-\begin{example}[Terminal object][\textbf{Hask}]
+\begin{example}[Terminal object][$\cat{Hask}$]
 \label{ex:hask_terminal_object}
 Terminal object (unit) in \mynameref{def:haskcategory} keeps only one element
 \begin{minted}{haskell}
@@ -573,7 +573,7 @@ unit _ = ()
 \end{minted}
 \end{example}
 
-\begin{example}[Product][\textbf{Hask}]
+\begin{example}[Product][$\cat{Hask}$]
 \label{ex:hask_product}
 The \mynameref{def:product} in \mynameref{def:haskcategory} keeps a
 pair and the constructor defined as follows
@@ -590,7 +590,7 @@ snd (_, y) = y
 \end{minted}
 \end{example}
 
-\begin{example}[Sum][\textbf{Hask}]
+\begin{example}[Sum][$\cat{Hask}$]
 \label{ex:hask_sum}
 The \mynameref{def:sum} in \mynameref{def:haskcategory} defined as
 follows 
@@ -606,7 +606,7 @@ factor _ g (Right y) = g y
 \end{minted}
 \end{example}
 
-\begin{example}[Distributive category][\textbf{Hask}]
+\begin{example}[Distributive category][$\cat{Hask}$]
 As soon as $\cat{Hask}$ is a \mynameref{def:cartesian_closed_category}
 then by \cref{thm:ccc} it is a \mynameref{def:distributive_category}
 i.e. one can conclude that
@@ -619,7 +619,7 @@ Either (a, b) (a, c)
 \end{minted}
 \end{example}
 
-\begin{example}[Exponential][\textbf{Hask}]
+\begin{example}[Exponential][$\cat{Hask}$]
 \label{ex:exponential_hask}
 It's not surprisingly that the \mynameref{def:exponential} in
 $\cat{Hask}$ is a function object i.e. $b^a$ can be written as  
@@ -825,27 +825,27 @@ i.e. you can create only one element of the type.
 TBD
 
 \section{Quantum mechanics}
-\begin{example}[Initial object][\textbf{FdHilb}]
+\begin{example}[Initial object][$\cat{FdHilb}$]
 \label{ex:quant_initial_object}
 We will use a Hilber space of dimensional 0 as the
 \mynameref{def:initial_object}. I.e. the set that does not have any
 states in it.
 \end{example}
 
-\begin{example}[Terminal object][\textbf{FdHilb}]
+\begin{example}[Terminal object][$\cat{FdHilb}$]
   \label{ex:quant_terminal_object}
 We will use a Hilber space of dimensional 1 as the
 \mynameref{def:terminal_object}. I.e. the set of complex numbers
 $\mathbb{C}$.   
 \end{example}
 
-\begin{example}[Product][\textbf{FdHilb}]
+\begin{example}[Product][$\cat{FdHilb}$]
   \label{ex:quant_product}
   The \mynameref{def:product} in \mynameref{def:fdhilbcategory} is a
   \mynameref{def:fdhilb_direct_sum}.
 \end{example}
 
-\begin{example}[Sum][\textbf{FdHilb}]
+\begin{example}[Sum][$\cat{FdHilb}$]
   \label{ex:quant_sum}
   The \mynameref{def:sum} in \mynameref{def:fdhilbcategory} is a
   \mynameref{def:fdhilb_direct_sum}.

@@ -72,7 +72,7 @@ Programming languages can be considered as a good platform for the
 functor examples. 
 The functor can be defined in Haskell as follows
 \footnote{the real definition is quite different from the current one}
-\begin{example}[Functor][\textbf{Hask}]
+\begin{example}[Functor][$\cat{Hask}$]
   \label{ex:functor_haskell}
   \begin{minted}{haskell}
     class Functor f where
@@ -222,7 +222,7 @@ We can construct an extension of Cartesian product as follows
 \end{example}
 
 The good example can be found in $\cat{Hask}$ category.
-\begin{example}[Constant functor][\textbf{Hask}]
+\begin{example}[Constant functor][$\cat{Hask}$]
   \label{ex:const_functor_hask}
   \begin{minted}{haskell}
     data Const c a = Const c
@@ -239,7 +239,7 @@ The good example can be found in $\cat{Hask}$ category.
   \textit{contravariant functor}. 
 \end{definition}
 
-\begin{example}[Contravariant functor][\textbf{Hask}]
+\begin{example}[Contravariant functor][$\cat{Hask}$]
   \label{ex:contravariant_functor_hask}
   Function mapping inside a functor is made via \textbf{fmap} (see
   \cref{ex:functor_haskell}) but sometimes the function that has to be
@@ -296,7 +296,7 @@ The good example can be found in $\cat{Hask}$ category.
   \) is called \textit{bifunctor}.
 \end{definition}
 
-\begin{example}[Bifunctor][\textbf{Set}]
+\begin{example}[Bifunctor][$\cat{Set}$]
   \label{ex:product_bifunctor}
   Lets $A,B,C$ and $D$ are sets and $f: A \to C, g: B \to D$ are two
   \mynameref{def:function}s. Then the \mynameref{def:cartesian_product}
@@ -304,7 +304,7 @@ The good example can be found in $\cat{Hask}$ category.
   \mynameref{def:bifunctor} $\times$.
 \end{example}
 
-\begin{example}[Maybe as a bifunctor][\textbf{Hask}]
+\begin{example}[Maybe as a bifunctor][$\cat{Hask}$]
   \label{ex:maybe_functor}
   Lets show how the \textbf{Maybe a} type can be
   constructed from different 
@@ -327,7 +327,7 @@ The good example can be found in $\cat{Hask}$ category.
   \textit{profunctor}. 
 \end{definition}
 
-\begin{example}[Profunctor][\textbf{Hask}]
+\begin{example}[Profunctor][$\cat{Hask}$]
   \label{ex:contravariant_functor_hask}
   TBD
   \begin{minted}{haskell}
