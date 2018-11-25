@@ -206,18 +206,24 @@ We can construct an extension of Cartesian product as follows
   \end{itemize}
 \end{definition}
 
-\begin{definition}[Terminal object in \textbf{Cat} category]
-  \label{def:terminal_object_cat}
-  \index{Terminal object!\textbf{Cat} category}
-  Let consider $\Delta_c$ is a trivial functor from \mynameref{def:category}
+\begin{definition}[Constant functor]
+  \label{def:const_functor}
+  Let consider a trivial functor $\Delta_c$ from \mynameref{def:category}
   $\cat{A}$ to category $\cat{C}$ such that $\forall a \in \catob{A}:
   \Delta_c a = c$ -fixed object in $\cat{C}$ and 
-  $\forall f \in \cathom{A}: \Delta_c f = \idm{c}$.
+  $\forall f \in \cathom{A}: \Delta_c f = \idm{c}$. The trivial
+  functor is called \textit{constant functor}.
 \end{definition}
 
+\begin{example}[Terminal object][\textbf{Cat}]
+  \label{ex:terminal_object_cat}
+  \mynameref{def:const_functor} is the \mynameref{def:terminal_object}
+  in $\cat{Cat}$ category.
+\end{example}
+
 The good example can be found in $\cat{Hask}$ category.
-\begin{example}[Terminal object in \textbf{Cat} category][\textbf{Hask}]
-  \label{ex:terminal_object_cat_hask}
+\begin{example}[Constant functor][\textbf{Hask}]
+  \label{ex:const_functor_hask}
   \begin{minted}{haskell}
     data Const c a = Const c
     fmap :: (a -> b) -> Const c a -> Const c b
