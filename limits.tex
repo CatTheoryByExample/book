@@ -13,11 +13,11 @@
 
       % the texts
 
-      \node at (0,0) {$B$};        
+      \node at (0,0) {$I$};        
       \node at (0,3) {$C$};        
 
-      \node[ele,label=below:$a_i^{(B)}$] (ac) at (1,0) {};    
-      \node[ele,label=below:$a_j^{(B)}$] (bc) at (3,0) {};    
+      \node[ele,label=below:$a_i^{(I)}$] (ac) at (1,0) {};    
+      \node[ele,label=below:$a_j^{(I)}$] (bc) at (3,0) {};    
       \node[ele,label=above:$a_i^{(C)}$] (ad) at (1,3) {};
       \node[ele,label=above:$a_j^{(C)}$] (bd) at (3,3) {};
 
@@ -27,27 +27,33 @@
         height=2cm] {} ;
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[below]{$g_{ij}^{(B)}$} (bc);
+      node[below]{$g_{ij}^{(I)}$} (bc);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
       node[above]{$g_{ij}^{(C)}$} (bd);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[left]{$g_i^{(C)} = F(a_i^{(B)})$} (ad);
+      node[left]{$g_i^{(C)} = F(a_i^{(I)})$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
-      node[right]{$g_j^{(C)} = F(a_j^{(B)})$} (bd);
+      node[right]{$g_j^{(C)} = F(a_j^{(I)})$} (bd);
   \end{tikzpicture}
-  \caption{Diagram of shape $F: \cat{B} \tof \cat{C}$. Objects
-    $a_{i,j}^{(B)} \in \catob{B}$ are mapped to $a_{i,j}^{(C)} \in
-    \catob{C}$. Morphisms $g_{ij}^{(B)} \in \cathom{B}$ are mapped to
+  \caption{Diagram of shape $F: \cat{I} \tof \cat{C}$. Objects
+    $a_{i,j}^{(I)} \in \catob{I}$ are mapped to $a_{i,j}^{(C)} \in
+    \catob{C}$. Morphisms $g_{ij}^{(I)} \in \cathom{I}$ are mapped to
     $g_{ij}^{(C)} \in \cathom{C}$}  
   \label{fig:diagram_of_shape}
 \end{figure}
 
-Let $\cat{B}$ and $\cat{C}$ are 2 categories. The \textit{diagram of
-  shape} $\cat{B}$ in $\cat{C}$ is a \mynameref{def:functor}
+Let $\cat{I}$ and $\cat{C}$ are 2 categories. The \textit{diagram of
+  shape} $\cat{I}$ in $\cat{C}$ is a \mynameref{def:functor}
 (see \cref{fig:diagram_of_shape})
 \[
-F: \cat{B} \tof \cat{C}
+F: \cat{I} \tof \cat{C}
 \]
+\end{definition}
+
+\begin{definition}[Index category]
+\label{def:indexcategory}
+Category $\cat{I}$ in the \cref{def:diagram_of_shape} is called
+\textit{Index category}.
 \end{definition}
 
 \begin{definition}[Cone]
@@ -60,11 +66,11 @@ F: \cat{B} \tof \cat{C}
 
       % the texts
 
-      \node at (0,0) {$B$};        
+      \node at (0,0) {$I$};        
       \node at (0,3) {$C$};        
 
-      \node[ele,label=left:$a_i^{(B)}$] (ac) at (1.5,0) {};    
-      \node[ele,label=right:$a_j^{(B)}$] (bc) at (3.5,0) {};    
+      \node[ele,label=left:$a_i^{(I)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$a_j^{(I)}$] (bc) at (3.5,0) {};    
       \node[ele,label=left:$a_i^{(C)}$] (ad) at (1.5,3) {};
       \node[ele,label=right:$a_j^{(C)}$] (bd) at (3.5,3) {};
       \node[ele,label=above:$c$] (d) at (2.5,5) {};
@@ -80,32 +86,32 @@ F: \cat{B} \tof \cat{C}
       node[right]{$f^{(c)}_j$} (bd);
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[below]{$g_{ij}^{(B)}$} (bc);
+      node[below]{$g_{ij}^{(I)}$} (bc);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
       node[above]{$g_{ij}^{(C)}$} (bd);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[left]{$a_i^{(C)} = F(a_i^{(B)})$} (ad);
+      node[left]{$a_i^{(C)} = F(a_i^{(I)})$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
-      node[right]{$a_j^{(C)} = F(a_j^{(B)})$} (bd);
+      node[right]{$a_j^{(C)} = F(a_j^{(I)})$} (bd);
   \end{tikzpicture}
   \caption{Cone $\catcone{c}{f}$} 
   \label{fig:cone}
 \end{figure}
-Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{B}$ in $\cat{C}$.
+Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{I}$ in $\cat{C}$.
 A \textit{cone} to $F$ is an object $d \in \catob{C}$ with
 \mynameref{def:morphism}s $f^{c} = \left\{f_i^{c}: c \to
-a_i^{(C)}\right\}$, where $a_i^{(C)} = F(a_i^{(B)})$ 
+a_i^{(C)}\right\}$, where $a_i^{(C)} = F(a_i^{(I)})$ 
 indexed by objects from 
-$\cat{B}$. The cone is denoted as $\catcone{c}{f}$.
+$\cat{I}$. The cone is denoted as $\catcone{c}{f}$.
 \end{definition}
 
 \begin{remark}[Coin as natural transformation]
 The \mynameref{def:cone} can be considered as \mynameref{def:nt}.
-There are 2 functors between categories $\cat{B}$ and 
+There are 2 functors between categories $\cat{I}$ and 
 $\cat{C}$. The first one is the \mynameref{def:diagram_of_shape} $F:
-\cat{B} \tof \cat{C}$. The second one is the 
+\cat{I} \tof \cat{C}$. The second one is the 
 \mynameref{def:const_functor}: 
-$\Delta_c: \cat{B} \tof \cat{C}$. The \mynameref{def:nt} $\Delta_c
+$\Delta_c: \cat{I} \tof \cat{C}$. The \mynameref{def:nt} $\Delta_c
 \tont F$ is the set of \mynameref{def:morphism}s from $\cat{C}$ with
 additional relations that are same as conditions defined for
 \mynameref{def:cone} $\catcone{c}{f}$.
@@ -121,11 +127,11 @@ additional relations that are same as conditions defined for
 
       % the texts
 
-      \node at (0,0) {$B$};        
+      \node at (0,0) {$I$};        
       \node at (0,7) {$C$};        
 
-      \node[ele,label=left:$a_i^{(B)}$] (ac) at (1.5,0) {};    
-      \node[ele,label=right:$a_j^{(B)}$] (bc) at (5.5,0) {};    
+      \node[ele,label=left:$a_i^{(I)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$a_j^{(I)}$] (bc) at (5.5,0) {};    
       \node[ele,label=left:$a_i^{(C)}$] (ad) at (1.5,3) {};
       \node[ele,label=right:$a_j^{(C)}$] (bd) at (5.5,3) {};
       \node[ele,label=above:$c$] (d) at (3.5,7) {};
@@ -149,21 +155,21 @@ additional relations that are same as conditions defined for
       node[left]{$f^{(l)}_j$} (bd);
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[below]{$g_{ij}^{(B)}$} (bc);
+      node[below]{$g_{ij}^{(I)}$} (bc);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
       node[below]{$g_{ij}^{(C)}$} (bd);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[left]{$a_i^{(C)} = F(a_i^{(B)})$} (ad);
+      node[left]{$a_i^{(C)} = F(a_i^{(I)})$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
-      node[right]{$a_j^{(C)} = F(a_j^{(B)})$} (bd);
+      node[right]{$a_j^{(C)} = F(a_j^{(I)})$} (bd);
   \end{tikzpicture}
   \caption{Limit $\catcone{l}{f}$} 
   \label{fig:limit}
 \end{figure}
-\textit{Limit} of \mynameref{def:diagram_of_shape} $F: \cat{B} \tof
+\textit{Limit} of \mynameref{def:diagram_of_shape} $F: \cat{I} \tof
 \cat{C}$ is a \mynameref{def:cone} $\catcone{l}{f}$ to $F$ such that for 
 any other $\catcone{c}{f}$ to $F$ exists an unique morphism $u : c \to l$
-such that  $\forall a_i^{(B)} \in \catob{B}$ $f_i^{(l)} \circ u =
+such that  $\forall a_i^{(I)} \in \catob{I}$ $f_i^{(l)} \circ u =
 f_i^{(c)}$ i.e. diagram shown on \cref{fig:limit} commutes.
 \end{definition}
 
@@ -180,11 +186,11 @@ called as cone's morphisms.
 
       % the texts
 
-      \node at (0,0) {$B$};        
+      \node at (0,0) {$I$};        
       \node at (0,7) {$C$};        
 
-      \node[ele,label=left:$a_i^{(B)}$] (ac) at (1.5,0) {};    
-      \node[ele,label=right:$a_j^{(B)}$] (bc) at (5.5,0) {};    
+      \node[ele,label=left:$a_i^{(I)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$a_j^{(I)}$] (bc) at (5.5,0) {};    
       \node[ele,label=left:$a_i^{(C)}$] (ad) at (1.5,3) {};
       \node[ele,label=right:$a_j^{(C)}$] (bd) at (5.5,3) {};
       \node[ele,label=above:$c_1$] (d) at (3.5,7) {};
@@ -208,13 +214,13 @@ called as cone's morphisms.
       node[left]{$f^{(c_2)}_j$} (bd);
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[below]{$g_{ij}^{(B)}$} (bc);
+      node[below]{$g_{ij}^{(I)}$} (bc);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
       node[below]{$g_{ij}^{(C)}$} (bd);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
-      node[left]{$a_i^{(C)} = F(a_i^{(B)})$} (ad);
+      node[left]{$a_i^{(C)} = F(a_i^{(I)})$} (ad);
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
-      node[right]{$a_j^{(C)} = F(a_j^{(B)})$} (bd);
+      node[right]{$a_j^{(C)} = F(a_j^{(I)})$} (bd);
   \end{tikzpicture}
   \caption{Morphism $m$ between 2 cones $\catcone{c_1}{f}$ and $\catcone{c_2}{f}$} 
   \label{fig:conesmorphism}
@@ -231,7 +237,7 @@ i.e. the morphisms in \cref{fig:conesmorphism} commute.
 
 \begin{definition}[Category of cones]
 \label{def:category_of_cones}
-Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{B}$ in $\cat{C}$.
+Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{I}$ in $\cat{C}$.
 
 TBD
 
@@ -240,7 +246,7 @@ The category of cones is denoted as $\Delta \downarrow F$ \cite{wiki:cone}
 
 \begin{remark}[Category of cones]
 \label{rem:category_of_cones}
-Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{B}$ in $\cat{C}$
+Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{I}$ in $\cat{C}$
 and $\Delta \downarrow F$ is the \mynameref{def:category_of_cones}.
 Then \mynameref{def:limit} is \mynameref{def:terminal_object} in the
 category. ??? \mynameref{def:colimit} is \mynameref{def:initial_object} in the
@@ -263,7 +269,11 @@ TBD
 
 \section{Categorical constructions as limits}
 
-Different choice for category $\cat{B}$ gives different types of
+Different choice for category $\cat{I}$ gives different types of
 limits. The empty category will give us the terminal object. The
 \mynameref{def:discrete_category} with 2 elements produces
 \mynameref{def:product} as the \mynameref{def:limit}.
+
+\begin{example}[Limit][Terminal object]
+
+\end{example}
