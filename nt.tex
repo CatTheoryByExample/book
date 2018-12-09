@@ -191,8 +191,8 @@ functors $F$ and $G$: $\alpha: F \tont G$.
 
 \section{Operations with natural transformations}
 
-\begin{example}[$\cat{Fun}$ category]
-\label{ex:fun_category}
+\begin{definition}[$\cat{Fun}$ category]
+\label{def:funcategory}
 \index{Object!$\cat{Fun}$ example}
 \index{Morphism!$\cat{Fun}$ example}
 \index{Category!$\cat{Fun}$ example}
@@ -241,7 +241,6 @@ morphism and verify \mynameref{axm:associativity}.
   \caption{Natural transformation vertical composition: object mapping}
   \label{fig:nt_objects_mapping_composition}
 \end{figure}
-
 
 For the composition consider 2 \mynameref{def:nt}s $\alpha, \beta$ and
 consider how they act on an object $a \in \catob{C}$ (see
@@ -306,6 +305,12 @@ defined in such way is called \mynameref{def:vertical_composition}.
 The functor category between categories $\cat{C}$ and $\cat{D}$ is
 denoted as $[\cat{C}, \cat{D}]$.
 
+\end{definition}
+
+\begin{example}[Terminal object][$\cat{Fun}$]
+  \label{ex:terminal_object_fun}
+  \mynameref{def:const_functor} is the \mynameref{def:terminal_object}
+  in $\cat{Fun}$ category.
 \end{example}
 
 \begin{definition}[Vertical composition]
