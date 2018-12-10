@@ -189,13 +189,7 @@ We use the following notation (arrow with a dot) for the natural transformation 
 functors $F$ and $G$: $\alpha: F \tont G$. 
 \end{definition}
 
-\section{Operations with natural transformations}
-
-\begin{definition}[$\cat{Fun}$ category]
-\label{def:funcategory}
-\index{Object!$\cat{Fun}$ example}
-\index{Morphism!$\cat{Fun}$ example}
-\index{Category!$\cat{Fun}$ example}
+\section{Category of functors}
 
 The functors can be considered as objects in a special category
 $\cat{Fun}$. The morphisms in the category are \mynameref{def:nt}s.
@@ -301,18 +295,6 @@ morphism mapping. We will require that all morphisms shown on
 \cref{fig:nt_morphism_mapping_composition} commute. 
 The composition 
 defined in such way is called \mynameref{def:vertical_composition}.  
-
-The functor category between categories $\cat{C}$ and $\cat{D}$ is
-denoted as $[\cat{C}, \cat{D}]$.
-
-\end{definition}
-
-\begin{example}[Terminal object][$\cat{Fun}$]
-  \label{ex:terminal_object_fun}
-  \mynameref{def:const_functor} is the \mynameref{def:terminal_object}
-  in $\cat{Fun}$ category.
-\end{example}
-
 \begin{definition}[Vertical composition]
 \label{def:vertical_composition}
 \index{Natural transformation!Vertical composition}
@@ -326,6 +308,49 @@ as follows
 This composition
 is called \textit{vertical composition}.
 \end{definition}
+
+
+\begin{definition}[$\cat{Fun}$ category]
+\label{def:funcategory}
+\index{Object!$\cat{Fun}$ example}
+\index{Morphism!$\cat{Fun}$ example}
+\index{Category!$\cat{Fun}$ example}
+Let $\cat{C}$ and $\cat{D}$ are 2 categories. The category that
+contains functors $F: \cat{C} \tof \cat{D}$ as objects and
+\mynameref{def:nt} as morphisms is called as \textit{functor
+  category}. The morphism composition is the
+\mynameref{def:vertical_composition} in the category.  The \textit{functor
+category} between categories $\cat{C}$ and $\cat{D}$ is denoted as
+$[\cat{C}, \cat{D}]$. 
+\end{definition}
+
+\begin{example}[Terminal object][$\cat{Fun}$]
+  \label{ex:terminal_object_fun}
+  Let $[\cat{C}, \cat{D}]$ is the functor category between $\cat{C}$
+  and $\cat{D}$. If $t \in \catob{D}$ is the
+  \mynameref{def:terminal_object} in the category $\cat{D}$ then 
+  the 
+  \mynameref{def:const_functor} $\Delta_t$ is the
+  \mynameref{def:terminal_object} in the category $[\cat{C}, \cat{D}]$
+  \cite{bib:stackexchange:initial_terminal_in_fun_category}. 
+\end{example}
+
+\begin{example}[Initial object][$\cat{Fun}$]
+  \label{ex:initial_object_fun}
+  Let $[\cat{C}, \cat{D}]$ is the functor category between $\cat{C}$
+  and $\cat{D}$. If $i \in \catob{D}$ is the
+  \mynameref{def:initial_object} in the category $\cat{D}$ then 
+  the 
+  \mynameref{def:const_functor} $\Delta_i$ is the
+  \mynameref{def:initial_object} in the category $[\cat{C}, \cat{D}]$
+  \cite{bib:stackexchange:initial_terminal_in_fun_category}. 
+\end{example}
+
+
+\section{Operations with natural transformations}
+
+\mynameref{def:vertical_composition} is not the unique way to compose
+2 functors. Another option is also possible. 
 
 \begin{definition}[Horizontal composition]
 \label{def:horizontal_composition}
