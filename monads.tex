@@ -23,19 +23,21 @@ the $\mu$:
 If the $(M, \cdot)$ is monoid then the following 2 conditions have to
 be satisfied. The first one (associativity) declares that $\forall
 m_1, m_2, m_3 \in M$ 
-\[
+\begin{equation}
+\label{eq:monoid1}
 m_1 \cdot ( m_2 \cdot m_3) = ( m_1 \cdot
 m_2 ) \cdot m_3.
-\]
+\end{equation}
 The second one (identity presence) says that
 \(
 \exists e \in M
 \) such that $\forall m \in M$:
 \begin{equation}
-m \cdot e = e \cdot m = m.
 \label{eq:monoid2}
+m \cdot e = e \cdot m = m.
 \end{equation}
 
+Lets consider \eqref{eq:monoid1} in details. 
 We can define $\mu$ as a
 \mynameref{def:morphism} in the following way 
 \[
