@@ -272,12 +272,23 @@ TBD
 \section{Categorical constructions as limits}
 
 Different choice for category $\cat{I}$ gives different types of
-limits. The empty category will give us the terminal object. The
+limits. There are several examples of such constructions below
+
+The empty category will give us the terminal object. The
 \mynameref{def:discrete_category} with 2 elements produces
 \mynameref{def:product} as the \mynameref{def:limit}.
 
 \begin{example}[Limit][Terminal object]
 Lets choose \mynameref{def:empty_category} as the
-\mynameref{def:index_category} $\cat{I}$. The \mynameref{def:limit}
+\mynameref{def:indexcategory} $\cat{I}$. The \mynameref{def:limit}
 will be \mynameref{def:terminal_object} in the category $\cat{C}$.
+\end{example}
+
+\begin{example}[Limit][Product]
+Lets choose \mynameref{def:discrete_category} with 2 objects as the
+\mynameref{def:indexcategory} $\cat{I}$. The 
+\mynameref{def:diagram_of_shape} $F$ gives us the mapping into 2
+objects in the category $\cat{C}$. The \mynameref{def:limit} of the
+\mynameref{def:diagram_of_shape} is the \mynameref{def:product} of the
+2 objects in the category $\cat{C}$.
 \end{example}
