@@ -36,7 +36,7 @@ m \cdot e = e \cdot m = m.
 \label{eq:monoid2}
 \end{equation}
 
-With the first one we can define $\mu$ as a
+We can define $\mu$ as a
 \mynameref{def:morphism} in the following way 
 \[
 \mu: M\times M \to M,
@@ -54,27 +54,30 @@ the isomorphism $\alpha$ defined as
 Consider the action of \mynameref{def:product_of_morphisms} 
 $\idm{M} \times \mu$ on $A$:
 \[
-\idm{M} \times \mu \left(x,\left(y,z\right)\right) = 
+\left[\idm{M} \times \mu \right]\left(x,\left(y,z\right)\right) = 
 \left(\idm{M}(x),\mu\left(y,z\right)\right) = 
 \left(x, y \cdot z\right) \in M \times M
 \]
 i.e. $\idm{M} \times \mu: M \times \left( M \times M \right) \to M
 \times M$. If we act $\mu$ on the result then we can obtain:
 \begin{eqnarray}
-\mu \left(\idm{M} \times \mu \left(x,\left(y,z\right)\right)\right) = 
-\left(\idm{M}(x),\mu\left(y,z\right)\right) = 
+\mu \left(\left[\idm{M} \times \mu
+  \right]\left(x,\left(y,z\right)\right)\right) = 
+\nonumber \\
+=
+\mu \left(\idm{M}(x),\mu\left(y,z\right)\right) = 
 \nonumber \\
 =
 \mu\left(x, y \cdot z\right) = x \cdot (y\cdot z) \in M,
 \nonumber
 \end{eqnarray}
 i.e. 
-$\mu \circ \left(\idm{M} \times \mu\right): M \times \left( M \times M
+$\mu \circ \left[\idm{M} \times \mu\right]: M \times \left( M \times M
 \right) \to M$.
 
 For $A'$ we have the following one:
 \begin{eqnarray}
-\mu\circ\left(\mu \times \idm{M}\right)\left(\left(x,y\right),z\right)
+\mu\circ\left[\mu \times \idm{M}\right]\left(\left(x,y\right),z\right)
 = \mu\left(x \cdot y, z\right) = (x \cdot y) \cdot z.
 \nonumber
 \end{eqnarray}
@@ -83,11 +86,11 @@ Monoid associativity requires
 x \cdot (y\cdot z) = 
 (x \cdot y) \cdot z
 \]
-i.e. the morphisms is shown in \cref{fig:monoid_mu_alpha} commute:
+i.e. the morphisms are shown in \cref{fig:monoid_mu_alpha} commute:
 \begin{equation}
 \label{eq:monad_monoid_mu}
-\mu\circ\left(\mu \times \idm{M}\right) =
-\mu \circ \left(\idm{M} \times \mu\right) \circ \alpha.
+\mu\circ\left[\mu \times \idm{M}\right] =
+\mu \circ \left[\idm{M} \times \mu\right] \circ \alpha.
 \end{equation}
 
 \begin{figure}
@@ -115,8 +118,8 @@ i.e. the morphisms is shown in \cref{fig:monoid_mu_alpha} commute:
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (M21) to
     node[sloped,above]{$\mu$} (M);
   \end{tikzpicture}
-  \caption{Commutative diagram for $\mu\circ\left(\mu \times
-    \idm{M}\right) = \mu \circ \left(\idm{M} \times \mu\right) \circ
+  \caption{Commutative diagram for $\mu\circ\left[\mu \times
+    \idm{M}\right] = \mu \circ \left[\idm{M} \times \mu\right] \circ
     \alpha$.} 
   \label{fig:monoid_mu_alpha}
 \end{figure}
@@ -128,8 +131,8 @@ M\times\left(M \times M\right)
 and the morphism
 equality \eqref{eq:monad_monoid_mu} is written as follow
 \[
-\mu\circ\left(\mu \times \idm{M}\right) =
-\mu \circ \left(\idm{M} \times \mu\right).
+\mu\circ\left[\mu \times \idm{M}\right] =
+\mu \circ \left[\idm{M} \times \mu\right].
 \]
 The corresponding commutative diagram is shown in
 \cref{fig:monoid_mu}.
@@ -155,8 +158,8 @@ The corresponding commutative diagram is shown in
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (M21) to
     node[sloped,above]{$\mu$} (M);
   \end{tikzpicture}
-  \caption{Commutative diagram for $\mu\circ\left(\mu \times
-    \idm{M}\right) = \mu \circ \left(\idm{M} \times \mu\right)$.}
+  \caption{Commutative diagram for $\mu\circ\left[\mu \times
+    \idm{M}\right] = \mu \circ \left[\idm{M} \times \mu\right]$}
   \label{fig:monoid_mu}
 \end{figure}
 
