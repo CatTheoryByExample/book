@@ -185,20 +185,20 @@ and
 \rho(m) = m \times 0.
 \] 
 
-If we apply the products (see \mynameref{def:product_of_morphisms}) $\eta \times \mu$ and
-$\mu \times \eta$ on $B$ and $B'$ respectively then we get
+If we apply the products (see \mynameref{def:product_of_morphisms}) $\eta \times \idm{M}$ and
+$\idm{M} \times \eta$ on $B$ and $B'$ respectively then we get
 \begin{eqnarray}
-\eta \times \idm{M} \left(0 \times m\right) = e \times m,
+\left[\eta \times \idm{M} \right]\left(0 \times m\right) = e \times m,
 \nonumber \\
-\idm{M} \times \eta \left(m \times 0\right) = m \times e.
+\left[\idm{M} \times \eta \right]\left(m \times 0\right) = m \times e.
 \nonumber
 \end{eqnarray}
 After the application of $\mu$ on the result we obtain
 \begin{eqnarray}
-\mu \left(\eta \times \idm{M} \left(0 \times m\right) \right) 
+\mu \left(\left[\eta \times \idm{M}\right] \left(0 \times m\right) \right) 
 = \mu \left( e \times m \right) = e \cdot m,
 \nonumber \\
-\mu \left( \idm{M} \times \eta \left(m \times 0\right) \right) = 
+\mu \left(\left[ \idm{M} \times \eta \right]\left(m \times 0\right) \right) = 
 \mu \left(m \times e \right) = m \cdot e.
 \nonumber
 \end{eqnarray}
@@ -236,9 +236,9 @@ The \eqref{eq:monoid2} leads to the following equation for morphisms
 \mu \circ (\idm{M} \times \mu) \circ \lambda = 
 \idm{M}
 \]
-or the commutative diagram show on \cref{fig:monoid_eta_lambda_rho}.
+or the commutative diagram shown on \cref{fig:monoid_eta_lambda_rho}.
 
-\subsection{Monoid definition}
+\subsection{Categorical definition for monoid}
 Before given a formal definition lets look at the operations were used
 for the construction. The first one is the product of 2 objects:
 \[
