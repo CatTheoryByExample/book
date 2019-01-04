@@ -376,16 +376,17 @@ special symbol $\star$ for the composition.
  \label{rem:bifunctor_fun_cat}
 If we have the same pair of functors as in
 \cref{def:horizontal_composition} then we can consider the functors as
-objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
+\mynameref{def:object}s of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
   \cat{D}\right], \cat{\mathcal{B}} = \left[\cat{D},
   \cat{E}\right]$ and $\cat{\mathcal{C}} = \left[\cat{C},
   \cat{E}\right]$ 
 
-  Next we want to construct a \mynameref{def:bifunctor} 
+  We can construct a \mynameref{def:bifunctor} 
   $\otimes: \cat{\mathcal{A}} \times \cat{\mathcal{B}} \tof \cat{\mathcal{C}}$
   where for each pair of objects $F \in \catob{\mathcal{A}}, J \in
-  \catob{\mathcal{B}}$ we got another object from $\cat{\mathcal{C}}$.
-  The used operation is an ordinary functor's composition.
+  \catob{\mathcal{B}}$ we get another object from $\cat{\mathcal{C}}$.
+  We used the ordinary functor's composition as the operation for
+  objects mapping.
   I.e.
   \[
   \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
@@ -399,7 +400,7 @@ objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
   \otimes: \alpha \times \beta \to \alpha \star \beta \in \cathom{\mathcal{C}}.
   \]
   
-  As result we have the introduced mapping $\otimes$ as a bifunctor.
+  As result we have introduced mapping $\otimes$ as a bifunctor.
 \end{remark}
 
 \begin{definition}[Left whiskering]
