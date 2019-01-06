@@ -336,7 +336,26 @@ same requirements as morphisms in category theory. Moreover the monoid
 can be viewed as a \mynameref{def:category} (see
 \cref{sec:category_as_monoid}).  
 
-TBD  
+Monoid provides a closed collection of objects such that if you
+combine them you will get an object of the same type. This allows to
+create constructions which are more easy in maintenance. For instance
+there are 2 possible options to combine objects of type $A$ in
+software architecture \cite{bib:scalable_program_arch}:
+\begin{enumerate}
+\item \textbf{Conventional architecture} assumes that a combination of
+  several objects of type $A$ will produce a ``network'' of the objects
+  $A$ i.e. new type $B$
+\item \textbf{Haskell architecture} assumes that a combination of
+  several objects of type $A$ will produce a new object of the same
+  type $A$
+\end{enumerate}
+You can see that in the first case any modification of the base type
+$A$ will require changes in the upper-layer class $B$. This produce
+very complex structure of types if objects of type $B$ will be
+combined into new type $C$ etc.
+
+You will not get the problems in the second case because you will be
+always in a closed collection of objects with type $A$.
 
 \section{Monoidal category}
 As we saw in the categorical definition for monoid (see
