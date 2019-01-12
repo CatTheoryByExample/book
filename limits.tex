@@ -243,7 +243,8 @@ Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{I}$ in $\cat{C}$.
 
 TBD
 
-The category of cones is denoted as $\Delta \downarrow F$ \cite{wiki:cone}
+The category of \mynameref{def:cone}s is denoted as $\Delta \downarrow
+F$ \cite{wiki:cone} 
 \end{definition}
 
 \begin{remark}[Category of cones]
@@ -251,9 +252,7 @@ The category of cones is denoted as $\Delta \downarrow F$ \cite{wiki:cone}
 Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{I}$ in $\cat{C}$
 and $\Delta \downarrow F$ is the \mynameref{def:category_of_cones}.
 Then \mynameref{def:limit} is \mynameref{def:terminal_object} in the
-category. ??? \mynameref{def:colimit} is \mynameref{def:initial_object} in the
-category. 
-TBD
+category.
 \end{remark}
 
 \begin{definition}[Co-cone]
@@ -306,13 +305,80 @@ $\cat{I}$ (see \cref{fig:cocone}). The co-cone is denoted as
 $\catcocone{c}{f}$. 
 \end{definition}
 
-\begin{definition}[Colimit]
+\begin{definition}[Co-limit]
 \label{def:colimit}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,0) {$I$};        
+      \node at (0,7) {$C$};        
+
+      \node[ele,label=left:$a_i^{(I)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$a_j^{(I)}$] (bc) at (5.5,0) {};    
+      \node[ele,label=left:$a_i^{(C)}$] (ad) at (1.5,3) {};
+      \node[ele,label=right:$a_j^{(C)}$] (bd) at (5.5,3) {};
+      \node[ele,label=above:$c$] (d) at (3.5,7) {};
+      \node[ele,label=below:$l$] (l) at (3.5,5) {};
+
+      \node[draw,fit= (ac) (bc),minimum width=6cm, minimum
+        height=2.5cm] {} ;
+      \node[draw,fit= (ad) (bd) (d) (l),minimum width=5cm, minimum
+        height=5cm] {} ;
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[right]{$u$} (d);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
+      node[left]{$f^{(c)}_i$} (d);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (bd) to
+      node[right]{$f^{(c)}_j$} (d);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
+      node[right]{$f^{(l)}_i$} (l);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (bd) to
+      node[left]{$f^{(l)}_j$} (l);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[below]{$g_{ij}^{(I)}$} (bc);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
+      node[below]{$g_{ij}^{(C)}$} (bd);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[left]{$a_i^{(C)} = F(a_i^{(I)})$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
+      node[right]{$a_j^{(C)} = F(a_j^{(I)})$} (bd);
+  \end{tikzpicture}
+  \caption{Co-Limit $\catcocone{l}{f}$} 
+  \label{fig:colimit}
+\end{figure}
+\textit{Co-Limit} of \mynameref{def:diagram_of_shape} $F: \cat{I} \tof
+\cat{C}$ is a \mynameref{def:cocone} $\catcocone{l}{f}$ to $F$ such that for 
+any other $\catcocone{c}{f}$ to $F$ exists an unique morphism $u : l \to c$
+such that  $\forall a_i^{(I)} \in \catob{I}$ $u \circ f_i^{(c)} =
+f_i^{(l)}$ i.e. diagram shown on \cref{fig:colimit} commutes.
+\end{definition}
+
+\begin{definition}[Category of co-cones]
+\label{def:category_of_cocones}
+Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{I}$ in $\cat{C}$.
+
 TBD
+
+The category of \mynameref{def:cocone}s is denoted as $\Delta
+\downarrow F$ \cite{wiki:cone} 
 \end{definition}
 
 
-TBD
+\begin{remark}[Category of co-cones]
+\label{rem:category_of_cocones}
+Let $F$ is a \mynameref{def:diagram_of_shape} $\cat{I}$ in $\cat{C}$
+and $\Delta \uparrow F$ is the \mynameref{def:category_of_cocones}.
+Then \mynameref{def:colimit} is \mynameref{def:initial_object} in the
+category. 
+\end{remark}
 
 \section{Categorical constructions as limits}
 
