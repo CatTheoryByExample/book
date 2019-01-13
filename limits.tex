@@ -423,7 +423,51 @@ as \mynameref{def:limit} and \mynameref{def:sum} as
 \begin{example}[Limit][Product]
 \index{Product!Limit example}
 Lets choose \mynameref{def:discrete_category} with 2 objects as the
-\mynameref{def:indexcategory} $\cat{I}$. The 
+\mynameref{def:indexcategory} $\cat{I}$. 
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,0) {$I$};        
+      \node at (0,7) {$C$};        
+
+      \node[ele,label=left:$a^{(I)}$] (ac) at (1.5,0) {};    
+      \node[ele,label=right:$b^{(I)}$] (bc) at (5.5,0) {};    
+      \node[ele,label=left:$a$] (ad) at (1.5,3) {};
+      \node[ele,label=right:$b$] (bd) at (5.5,3) {};
+      \node[ele,label=above:$c$] (d) at (3.5,7) {};
+      \node[ele,label=below:$a \times b$] (l) at (3.5,4) {};
+
+      \node[draw,fit= (ac) (bc),minimum width=6cm, minimum
+        height=2.5cm] {} ;
+      \node[draw,fit= (ad) (bd) (d) (l),minimum width=7cm, minimum
+        height=7cm] {} ;
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[right]{$u$} (l);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[left]{$f^{(c)}_a$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+      node[right]{$f^{(c)}_b$} (bd);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[above]{$f^{(l)}_a$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[above]{$f^{(l)}_b$} (bd);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+      node[left]{$a = F(a^{(I)})$} (ad);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
+      node[right]{$b = F(b^{(I)})$} (bd);
+  \end{tikzpicture}
+  \caption{Product as a limit} 
+  \label{fig:limit_product}
+\end{figure}
+The 
 \mynameref{def:diagram_of_shape} $F$ gives us the mapping into 2
 objects in the category $\cat{C}$. The \mynameref{def:limit} of the
 \mynameref{def:diagram_of_shape} is the \mynameref{def:product} of the
