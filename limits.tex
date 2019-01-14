@@ -472,9 +472,39 @@ will be \mynameref{def:initial_object} in the category $\cat{C}$.
 \subsection{Product and sum}
 
 If choose \mynameref{def:discrete_category} with 2 objects as the
-\mynameref{def:indexcategory} then we can get \mynameref{def:product}
+\mynameref{def:indexcategory} (see
+\cref{fig:limit_product_index_category}) then we can get
+\mynameref{def:product} 
 as \mynameref{def:limit} and \mynameref{def:sum} as
 \mynameref{def:colimit}. 
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,0) {$I$};        
+
+      \node[ele,label=left:$a^{(I)}$] (a) at (2,0) {};    
+      \node[ele,label=right:$b^{(I)}$] (b) at (4,0) {};    
+
+      \draw (a) to [out=-45,in=-135,looseness=20] node[below]
+            {$\idm{a^{(I)}}$} (a); 
+      \draw (b) to [out=-45,in=-135,looseness=20] node[below]
+            {$\idm{b^{(I)}}$} (b);
+
+
+      \node[draw,fit= (a) (b),minimum width=5cm, minimum
+        height=2.5cm] {} ;
+  \end{tikzpicture}
+  \caption{Index category $I$ for product and sum as limits. It
+    consists of 2 objects $a^{(I)}, b^{(I)}$ and 2 trivial (identity)
+    morphisms $\idm{a^{(I)}}, \idm{b^{(I)}}$}   
+  \label{fig:limit_product_index_category}
+\end{figure}
 
 \begin{example}[Limit][Product]
 \index{Product!Limit example}
