@@ -395,9 +395,28 @@ The empty category will give us the terminal object. The
 \subsection{Initial and terminal objects}
 
 If we choose \mynameref{def:empty_category} as the
-\mynameref{def:indexcategory} then we can get
+\mynameref{def:indexcategory} 
+(see \cref{fig:initial_terminal_object_index_category})
+then we can get
 \mynameref{def:terminal_object} as \mynameref{def:limit} and
 \mynameref{def:initial_object} as \mynameref{def:colimit}. 
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,0) {$I$};        
+      \node [draw, thick, circle, minimum width=2.5cm]  at (1.8,0) {};
+
+  \end{tikzpicture}
+  \caption{Index category $I$ for initial and terminal objects. The
+    category is empty} 
+  \label{fig:initial_terminal_object_index_category}
+\end{figure}
 
 \begin{example}[Limit][Terminal object]
 \index{Terminal object!Limit example}
