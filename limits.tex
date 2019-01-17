@@ -637,4 +637,54 @@ objects in the category $\cat{C}$ (see \cref{fig:colimit_sum}). The
 
 \subsection{Equalizer}
 
+If choose \mynameref{def:discrete_category} with 2 objects as the
+\mynameref{def:indexcategory} (see
+\cref{fig:limit_equlizer_index_category}) and 2 \mynameref{def:morphism}s
+connecting one object with another then we can get equalizer 
+as \mynameref{def:limit}. 
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,0) {$I$};        
+
+      \node[ele,label=left:$a^{(I)}$] (a) at (2,0) {};    
+      \node[ele,label=right:$b^{(I)}$] (b) at (4,0) {};    
+
+      \draw (a) to [out=45,in=135,looseness=1] node[above]
+            {$f^{(I)}$} (b); 
+      \draw (a) to [out=-45,in=-135,looseness=1] node[above]
+            {$g^{(I)}$} (b); 
+
+
+      \draw (a) to [out=-45,in=-135,looseness=20] node[below]
+            {$\idm{a^{(I)}}$} (a); 
+      \draw (b) to [out=-45,in=-135,looseness=20] node[below]
+            {$\idm{b^{(I)}}$} (b);
+
+
+      \node[draw,fit= (a) (b),minimum width=5cm, minimum
+        height=2.5cm] {} ;
+  \end{tikzpicture}
+  \caption{Index category $I$ for equalizer. It
+    consists of 2 objects $a^{(I)}, b^{(I)}$, 2 trivial (identity)
+    morphisms $\idm{a^{(I)}}, \idm{b^{(I)}}$ and 2 additional morphisms
+   $f^{(I)}, g^{(I)} \in \hom_{\cat{I}}(a^{(I)}, b^{(I)})$}   
+  \label{fig:limit_equlizer_index_category}
+\end{figure}
+
+
+In the \mynameref{def:setcategory} equalizer determines a solution for the
+following equation 
+\[
+f(x) = g(x)
+\]
+
+We consider a
+
 TBD
