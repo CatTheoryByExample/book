@@ -656,10 +656,10 @@ as \mynameref{def:limit}.
       \node[ele,label=left:$a^{(I)}$] (a) at (2,0) {};    
       \node[ele,label=right:$b^{(I)}$] (b) at (4,0) {};    
 
-      \draw (a) to [out=45,in=135,looseness=1] node[above]
-            {$f^{(I)}$} (b); 
-      \draw (a) to [out=-45,in=-135,looseness=1] node[above]
-            {$g^{(I)}$} (b); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=45,in=135,looseness=1] node[above] {$f^{(I)}$} (b); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=-45,in=-135,looseness=1] node[above] {$g^{(I)}$} (b); 
 
 
       \draw (a) to [out=-45,in=-135,looseness=20] node[below]
@@ -678,6 +678,55 @@ as \mynameref{def:limit}.
   \label{fig:limit_equlizer_index_category}
 \end{figure}
 
+\begin{definition}[Equalizer]
+\label{def:equalizer}
+Lets choose \mynameref{def:discrete_category} with 2 objects $a^{(I)},
+b^{(I)}$ and 2 additional morphisms
+   $f^{(I)}, g^{(I)} \in \hom_{\cat{I}}(a^{(I)}, b^{(I)})$ as the
+\mynameref{def:indexcategory} $\cat{I}$ (see
+\cref{fig:limit_equlizer_index_category}).    
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+
+      \node at (0,0) {$I$};        
+      \node at (0,7) {$C$};        
+
+      \node[ele,label=left:$a$] (a) at (1.5,3) {};
+      \node[ele,label=right:$b$] (b) at (5.5,3) {};
+      \node[ele,label=above:$c$] (c) at (3.5,7) {};
+      \node[ele,label=below:$eq$] (l) at (3.5,4) {};
+
+      \node[draw,fit= (a) (b) (c) (l),minimum width=7cm, minimum
+        height=7cm] {} ;
+
+      \node[ele,label=left:$a^{(I)}$] (ai) at (1.5,0) {};    
+      \node[ele,label=right:$b^{(I)}$] (bi) at (5.5,0) {};    
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ai) to
+           [out=45,in=135,looseness=0.5] node[above] {$f^{(I)}$} (bi); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ai) to
+           [out=-45,in=-135,looseness=0.5] node[above] {$g^{(I)}$}
+           (bi);  
+
+
+      \node[draw,fit= (ai) (bi),minimum width=6cm, minimum
+        height=2.5cm] {} ;
+  \end{tikzpicture}
+  \caption{Equalizer}   
+  \label{fig:equlizer}
+\end{figure}
+The 
+\mynameref{def:diagram_of_shape} $F$ gives us the mapping into 2
+objects and 2 morphisms in the category $\cat{C}$. The
+\mynameref{def:limit} of the 
+\mynameref{def:diagram_of_shape} (see \cref{fig:equlizer}) is the
+\textit{equalizer}. 
+\end{definition}
 
 In the \mynameref{def:setcategory} equalizer determines a solution for the
 following equation 
