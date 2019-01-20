@@ -699,7 +699,27 @@ b^{(I)}$ and 2 additional morphisms
       \node[ele,label=left:$a$] (a) at (1.5,3) {};
       \node[ele,label=right:$b$] (b) at (5.5,3) {};
       \node[ele,label=above:$c$] (c) at (3.5,7) {};
-      \node[ele,label=below:$eq$] (l) at (3.5,4) {};
+      \node[ele,label=below:$eq$] (l) at (3.5,4.5) {};
+
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=45,in=135,looseness=0.5] node[above] {$f$} (b); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=-45,in=-135,looseness=0.5] node[above] {$g$}
+           (b);  
+
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+      node[left]{$f^{(c)}_a$} (a);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+      node[right]{$f^{(c)}_b$} (b);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[above]{$f^{(l)}_a$} (a);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (l) to
+      node[above]{$f^{(l)}_b$} (b);
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+      node[right]{$u$} (l);
 
       \node[draw,fit= (a) (b) (c) (l),minimum width=7cm, minimum
         height=7cm] {} ;
@@ -716,6 +736,13 @@ b^{(I)}$ and 2 additional morphisms
 
       \node[draw,fit= (ai) (bi),minimum width=6cm, minimum
         height=2.5cm] {} ;
+
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (ai) to
+      node[left]{$a = F(a^{(I)})$} (a);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (bi) to
+      node[right]{$b = F(b^{(I)})$} (b);
+
   \end{tikzpicture}
   \caption{Equalizer}   
   \label{fig:equlizer}
