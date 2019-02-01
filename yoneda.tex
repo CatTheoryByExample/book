@@ -14,7 +14,8 @@ Let $\cat{C}$ is a \mynameref{def:localy_small_category} and $a \in
 \item $\forall x \in \catob{C}$ define an object in the set category:
   $Hom_c(a, x) \in \catob{Set}$ 
 \item $\forall f: x \to y \in \cathom{C}$ define a function in the set category
-  $Hom_c(a, f): Hom_c(a, x) \to Hom_c(a, y)$.
+  $Hom_c(a, f): Hom_c(a, x) \to Hom_c(a, y)$ as follows
+  $Hom_c(a, f) = \{f \circ g | g \in Hom_c(a, x)\}$.
 \end{itemize}  
 The \textit{covariant Hom functor} is denoted as $Hom_c(a, -)$.
 \end{definition}
