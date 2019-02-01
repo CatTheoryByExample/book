@@ -34,7 +34,40 @@ The \textit{covariant Hom functor} is denoted as $Hom_c(a, -)$.
 
 \begin{example}[Covariant Hom functor]
 \label{ex:cov_hom_functor}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
 
+      % the texts
+      \node at (-2,4) {$C$};        
+
+      \node[ele,label=below:$a$] (a) at (0,2) {};    
+      \node[ele,label=below:$b$] (b) at (0,4) {};    
+      \node[ele,label=below:$c$] (c) at (0,0) {};
+      \node[ele,label=below:$d$] (d) at (1,2) {};
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=135,in=-135,looseness=0.5] node[left] {$f^{(b)}_1$}
+           (b); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=45,in=-45,looseness=0.5] node[right] {$f^{(b)}_2$} (b); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=-135,in=135,looseness=0.5] node[left] {$f^{(c)}_1$}
+           (c); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=-45,in=45,looseness=0.5] node[right] {$f^{(c)}_2$} (c); 
+
+
+      \node[draw,fit= (a) (b) (c) (d),minimum width=4.5cm, minimum
+        height=4.5cm] {} ;
+
+    \end{tikzpicture}
+    \caption{Covariant Hom functor example. Category $\cat{C}$}
+    \label{fig:cov_hom_functor}
+  \end{figure}
 TBD
 \end{example}
 
