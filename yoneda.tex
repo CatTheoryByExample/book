@@ -43,10 +43,14 @@ The \textit{covariant Hom functor} is denoted as $Hom_c(a, -)$.
       % the texts
       \node at (-2,4) {$C$};        
 
-      \node[ele,label=below:$a$] (a) at (0,2) {};    
+      \node[ele,label=right:$a$] (a) at (0,2) {};    
       \node[ele,label=below:$b$] (b) at (0,4) {};    
-      \node[ele,label=below:$c$] (c) at (0,0) {};
-      \node[ele,label=below:$d$] (d) at (1,2) {};
+      \node[ele,label=above:$c$] (c) at (0,0) {};
+      \node[ele,label=right:$d$] (d) at (1,2) {};
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=135,in=-135,looseness=20] node[left] {$\idm{a}$}
+           (a); 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
            [out=135,in=-135,looseness=0.5] node[left] {$f^{(b)}_1$}
