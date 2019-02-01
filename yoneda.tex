@@ -43,14 +43,22 @@ The \textit{covariant Hom functor} is denoted as $Hom_c(a, -)$.
       % the texts
       \node at (-2,4) {$C$};        
 
-      \node[ele,label=right:$a$] (a) at (0,2) {};    
-      \node[ele,label=below:$b$] (b) at (0,4) {};    
+      \node[ele,label=right:$a$] (a) at (0,1.5) {};    
+      \node[ele,label=below:$b$] (b) at (0,3) {};    
       \node[ele,label=above:$c$] (c) at (0,0) {};
-      \node[ele,label=right:$d$] (d) at (1,2) {};
+      \node[ele,label=right:$d$] (d) at (1,1.5) {};
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
            [out=135,in=-135,looseness=20] node[left] {$\idm{a}$}
            (a); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=45,in=135,looseness=20] node[above] {$\idm{b}$}
+           (b); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+           [out=-45,in=-135,looseness=20] node[below] {$\idm{c}$}
+           (c); 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
            [out=135,in=-135,looseness=0.5] node[left] {$f^{(b)}_1$}
@@ -65,8 +73,8 @@ The \textit{covariant Hom functor} is denoted as $Hom_c(a, -)$.
            [out=-45,in=45,looseness=0.5] node[right] {$f^{(c)}_2$} (c); 
 
 
-      \node[draw,fit= (a) (b) (c) (d),minimum width=4.5cm, minimum
-        height=4.5cm] {} ;
+      \node[draw,fit= (a) (b) (c) (d),minimum width=5.5cm, minimum
+        height=5.5cm] {} ;
 
     \end{tikzpicture}
     \caption{Covariant Hom functor example. Category $\cat{C}$}
