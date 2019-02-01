@@ -46,19 +46,23 @@ The \textit{covariant Hom functor} is denoted as $Hom_c(a, -)$.
       \node[ele,label=right:$a$] (a) at (0,1.5) {};    
       \node[ele,label=below:$b$] (b) at (0,3) {};    
       \node[ele,label=above:$c$] (c) at (0,0) {};
-      \node[ele,label=right:$d$] (d) at (1,1.5) {};
+      \node[ele,label=left:$d$] (d) at (1.5,3) {};
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
            [out=135,in=-135,looseness=20] node[left] {$\idm{a}$}
            (a); 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
-           [out=45,in=135,looseness=20] node[above] {$\idm{b}$}
+           [out=135,in=45,looseness=20] node[above] {$\idm{b}$}
            (b); 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
-           [out=-45,in=-135,looseness=20] node[below] {$\idm{c}$}
+           [out=-135,in=-45,looseness=20] node[below] {$\idm{c}$}
            (c); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+           [out=45,in=-45,looseness=20] node[right] {$\idm{d}$}
+           (d); 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
            [out=135,in=-135,looseness=0.5] node[left] {$f^{(b)}_1$}
@@ -70,10 +74,22 @@ The \textit{covariant Hom functor} is denoted as $Hom_c(a, -)$.
            [out=-135,in=135,looseness=0.5] node[left] {$f^{(c)}_1$}
            (c); 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-           [out=-45,in=45,looseness=0.5] node[right] {$f^{(c)}_2$} (c); 
+           [out=-45,in=45,looseness=0.5] node[right] {$f^{(c)}_2$}
+           (c); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=190,in=-190,looseness=2] node[left] {$f$} (c); 
 
 
-      \node[draw,fit= (a) (b) (c) (d),minimum width=5.5cm, minimum
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=10,in=-10,looseness=3] node[right] {$g_1$}
+           (c); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=10,in=-10,looseness=5] node[right] {$g_2$}
+           (c); 
+
+
+      \node[draw,fit= (a) (b) (c) (d),minimum width=6cm, minimum
         height=5.5cm] {} ;
 
     \end{tikzpicture}
