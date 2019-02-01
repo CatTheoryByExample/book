@@ -239,12 +239,25 @@ The good example can be found in $\cat{Hask}$ category.
 \end{example}
 
 \section{Contravariant functor}
+Ordinary functor preserves the direction of morphisms and often called
+as \mynameref{def:covariant_functor}. The functor that reverses the
+direction of morphisms is called as
+\mynameref{def:contravariant_functor}. 
+
+\begin{definition}[Covariant functor]
+  \label{def:covariant_functor}
+  If we have categories $\cat{C}$ and $\cat{D}$ then the
+  ordinary \mynameref{def:functor} $\cat{C} \tof \cat{D}$ is called
+  \textit{convariant functor}. 
+\end{definition}
+
 \begin{definition}[Contravariant functor]
   \label{def:contravariant_functor}
   If we have categories $\cat{C}$ and $\cat{D}$ then the
   \mynameref{def:functor} $\cat{C^{op}} \tof \cat{D}$ is called
   \textit{contravariant functor}. 
 \end{definition}
+
 
 \begin{example}[Contravariant functor][$\cat{Hask}$]
   \label{ex:contravariant_functor_hask}
