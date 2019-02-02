@@ -313,6 +313,16 @@
   \mathrm{cocone}(#1, #2^{(#1)})%
 }
 
+% Covariant Hom functor
+\newcommand {\catcovhom} [2] {%
+  \mathrm{Hom}_{#1}\left(#2, -\right)%
+}
+
+% Contravariant Hom functor
+\newcommand {\catconhom} [2] {%
+  \mathrm{Hom}_{#1}\left(-, #2\right)%
+}
+
 
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\cod}{cod}
