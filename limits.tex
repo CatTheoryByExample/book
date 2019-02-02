@@ -164,8 +164,9 @@ f_i^{(c)}$ i.e. diagram shown on \cref{fig:limit} commutes.
 \end{definition}
 
 If we have 2 objects from $\cat{C}$ ($c_1, c_2 \in \catob{C}$) then we can have a lot of
-morphisms between the objects which form a set: $\hom_{\cat{C}}(c_1,
-c_2)$. There is a subset of $\catmset[C]{c_1}{c_2}$ that can be
+morphisms between the objects which form a set:
+$\catmset[C]{c_1}{c_2}$. There is a subset of $\catmset[C]{c_1}{c_2}$
+that can be 
 called as cone's morphisms.
 \begin{definition}[Morphisms of cones]
 \begin{figure}
@@ -217,7 +218,7 @@ called as cone's morphisms.
 \end{figure}
 Let $c_1, c_2 \in \catob{C}$ are 2 objects from category $\cat{C}$ and 
 $\catcone{c_1}{f}, \catcone{c_2}{f}$ are 2 \mynameref{def:cone}s.
-The morphism $m \in \hom_{\cat{C}}(c_1, c_2)$ is called as morphism of
+The morphism $m \in \catmset[C]{c_1}{c_2}$ is called as morphism of
 cones if $\forall i$
 \[
 f_i^{(c_1)} = f_i^{(c_2)} \circ m, 
@@ -674,7 +675,7 @@ as \mynameref{def:limit}.
   \caption{Index category $I$ for equalizer. It
     consists of 2 objects $a^{(I)}, b^{(I)}$, 2 trivial (identity)
     morphisms $\idm{a^{(I)}}, \idm{b^{(I)}}$ and 2 additional morphisms
-   $f^{(I)}, g^{(I)} \in \hom_{\cat{I}}(a^{(I)}, b^{(I)})$}   
+   $f^{(I)}, g^{(I)} \in \catmset[I]{a^{(I)}}{b^{(I)}}$}   
   \label{fig:limit_equlizer_index_category}
 \end{figure}
 
@@ -682,7 +683,7 @@ as \mynameref{def:limit}.
 \label{def:equalizer}
 Lets choose a \mynameref{def:category} with 2 objects $a^{(I)},
 b^{(I)}$ and 2 additional morphisms
-   $f^{(I)}, g^{(I)} \in \hom_{\cat{I}}(a^{(I)}, b^{(I)})$ as the
+   $f^{(I)}, g^{(I)} \in \catmset[I]{a^{(I)}}{b^{(I)}}$ as the
 \mynameref{def:indexcategory} $\cat{I}$ (see
 \cref{fig:limit_equlizer_index_category}).    
 \begin{figure}[H]
