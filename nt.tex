@@ -51,7 +51,7 @@ category $\cat{D}$: $a_F = F(a), a_G = G(a) \in \catob{D}$ (see
 \begin{enumerate}
 \item There is not  any \mynameref{def:morphism} that connects $a_F$
   and $a_G$.
-\item $\exists \alpha_a \in \hom\left(a_F, a_G\right) \subset
+\item $\exists \alpha_a \in \catmset{a_F}{a_G} \subset
   \cathom{D}$. 
 \end{enumerate}
 We can of course to create an artificial morphism that connects the
@@ -120,7 +120,7 @@ each other.
 
 The functor is not just the object mapping but also the morphisms
 mapping. If we have 2 objects $a$ and $b$ in the category $\cat{C}$
-then we potentially can have a morphism $f \in \hom_{\cat{C}}(a, b)$. In this
+then we potentially can have a morphism $f \in \catmset[C]{a}{b}$. In this
 case the morphism is mapped by the functors $F$ and $G$ into 2
 morphisms $f_f$ and $f_G$ in the category $\cat{D}$. 
 As result we have 4 morphisms: $\alpha_a, \alpha_b, f_F, f_G \in
@@ -165,7 +165,7 @@ set of \mynameref{def:morphism}s $\alpha \subset \cathom{D}$ which
 satisfy the following conditions:
 \begin{itemize}
 \item For every \mynameref{def:object} $a \in \catob{C}$ $\exists
-\alpha_a \in \hom\left(a_F, a_G\right)$
+\alpha_a \in \catmset{a_F}{a_G}$
 \footnote{
 $a_F = F(a), a_G = G(a)$
 }
@@ -173,7 +173,7 @@ $a_F = F(a), a_G = G(a)$
 in category $\cat{D}$. The morphism $\alpha_a$ is called the component of
 the natural transformation.
 \item For every morphism $f \in \cathom{C}$ that connects 2 objects
-  $a$ and $b$, i.e. $f \in \hom_{\cat{C}}(a,b)$ the corresponding components of
+  $a$ and $b$, i.e. $f \in \catmset[C]{a}{b}$ the corresponding components of
   the natural transformation $\alpha_a, \alpha_b \in \alpha$ should
   satisfy the following conditions
   \begin{equation}
