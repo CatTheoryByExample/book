@@ -313,9 +313,19 @@
   \mathrm{cocone}(#1, #2^{(#1)})%
 }
 
+% Hom set
+\NewDocumentCommand{\catmset}{o m m}{%
+\IfNoValueTF{#1}{%
+  \mathrm{hom}\left(#2, #3\right)%
+}{%
+  \mathrm{hom}_{\cat{#1}}\left(#2, #3\right)%
+}%
+}
+
+
 % Covariant Hom functor
 \newcommand {\catcovhom} [2] {%
-  \mathrm{Hom}_{#1}\left(#2, -\right)%
+  \mathrm{Hom}_{\cat{#1}}\left(#2, -\right)%
 }
 
 % Contravariant Hom functor
