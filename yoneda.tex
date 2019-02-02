@@ -41,7 +41,7 @@ The \textit{covariant Hom functor} is denoted as $\catcovhom{C}{a}$.
           sep=-2pt}]
 
       % the texts
-      \node at (-2,4) {$C$};        
+      \node at (-2,4) {$\cat{C}$};        
 
       \node[ele,label=right:$a$] (a) at (0,1.5) {};    
       \node[ele,label=below:$b$] (b) at (0,3) {};    
@@ -96,8 +96,68 @@ The \textit{covariant Hom functor} is denoted as $\catcovhom{C}{a}$.
     \caption{Covariant Hom functor $\catcovhom{C}{a}$ example. Category $\cat{C}$}
     \label{fig:cov_hom_functor}
   \end{figure}
-Consider category $\cat{C}$ in the \cref{fig:cov_hom_functor}
+Consider category $\cat{C}$ in the \cref{fig:cov_hom_functor}. It
+consists of 4 objects: 
+\[
+\catob{C} = \{a,b,c,d\}.
+\]
+We are
+going to construct $\catcovhom{C}{a}$ functor and therefore are
+interested in the following sets of morphisms: 
+\begin{eqnarray}
+\catmset[C]{a}{a} = \{\idm{a}\},
+\nonumber \\
+\catmset[C]{a}{b} = \{f_1^{(b)}, f_2^{(b)}\}, 
+\nonumber \\
+\catmset[C]{a}{c} = \{f_1^{(c)}, f_2^{(c)}, g_1, g_2\}, 
+\nonumber \\
+\catmset[C]{a}{d} = \emptyset.
+\nonumber
+\end{eqnarray}
+
+The corresponding
+objects in the \mynameref{def:setcategory} is described in the \cref{fig:cov_hom_functor_set}
 TBD
+
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+      \node at (-2,4) {$\cat{Set}$};        
+
+      \node[ele,label=right:$a'$] (a) at (0,1.5) {};    
+      \node[ele,label=below:$b'$] (b) at (0,3) {};    
+      \node[ele,label=above:$c'$] (c) at (0,0) {};
+      \node[ele,label=right:$\emptyset$] (d) at (1.5,1.5) {};
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=135,in=-135,looseness=20] node[left] {$\idm{a'}$}
+           (a); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=135,in=45,looseness=20] node[above] {$\idm{b'}$}
+           (b); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+           [out=-135,in=-45,looseness=20] node[below] {$\idm{c'}$}
+           (c); 
+
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=190,in=-190,looseness=2] node[left] {$f'$} (c); 
+
+
+      \node[draw,fit= (a) (b) (c) (d),minimum width=6cm, minimum
+        height=5.5cm] {} ;
+
+    \end{tikzpicture}
+    \caption{Covariant Hom functor $\catcovhom{C}{a}$ example. Category $\cat{Set}$}
+    \label{fig:cov_hom_functor_set}
+  \end{figure}
+
 \end{example}
 
 \begin{definition}[Contravariant Hom functor]
