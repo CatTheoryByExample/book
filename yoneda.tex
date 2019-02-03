@@ -168,9 +168,43 @@ c' = \catmset[C]{a}{c} = \{f_1^{(c)}, f_2^{(c)}, g_1, g_2\},
 d' = \catmset[C]{a}{d} = \emptyset.
 \nonumber
 \end{eqnarray}
-TBD
 
-
+The $\catcovhom{C}{a}$ does the following mapping between objects:
+\begin{eqnarray}
+a \tof \catmset[C]{a}{a} = a',
+\nonumber \\
+b \tof \catmset[C]{a}{b} = b', 
+\nonumber \\
+c \tof \catmset[C]{a}{c} = c', 
+\nonumber \\
+d \tof \catmset[C]{a}{d} = \emptyset.
+\nonumber
+\end{eqnarray}
+The functor maps morphisms in addition to objects. There are mapping
+for trivial \mynameref{def:id}s: 
+\begin{eqnarray}
+\idm{a} \tof \idm{a'},
+\nonumber \\
+\idm{b} \tof \idm{b'},
+\nonumber \\
+\idm{c} \tof \idm{c'},
+\nonumber \\
+\idm{d} \tof \idm{\emptyset},
+\nonumber
+\end{eqnarray}
+and for a single non trivial morphism $f \tof f'$ that is defined by
+the following rules:
+\begin{eqnarray}
+f'(f_1^{(b)}) = g_1,
+\nonumber \\
+f'(f_2^{(b)}) = g_2,
+\nonumber
+\end{eqnarray}
+i.e. the \mynameref{def:function_image} of $f'$ is a subset of
+$\catmset[C]{a}{c}$:
+\[
+\Ima{f'} \subsetneq \catmset[C]{a}{c}.
+\]
 \end{example}
 
 \begin{definition}[Contravariant Hom functor]
