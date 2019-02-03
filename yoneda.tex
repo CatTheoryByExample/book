@@ -114,7 +114,7 @@ interested in the following sets of morphisms:
 \catmset[C]{a}{d} = \emptyset.
 \nonumber
 \end{eqnarray}
-There is also a single \mynameref{def:morphism} $f$ between $b$ and $a$.
+There is also a single \mynameref{def:morphism} $f$ between $b$ and $c$.
 
   \begin{figure}
     \centering
@@ -233,11 +233,11 @@ The \textit{contravariant Hom functor} is denoted as $\catconhom{C}{a}$.
           sep=-2pt}]
 
       % the texts
-      \node at (-2,4) {$\cat{C}$};        
+      \node at (-2,4) {$\cat{D}$};        
 
       \node[ele,label=right:$a$] (a) at (0,1.5) {};    
-      \node[ele,label=below:$b$] (b) at (0,3) {};    
-      \node[ele,label=above:$c$] (c) at (0,0) {};
+      \node[ele,label=above:$b$] (b) at (0,0) {};    
+      \node[ele,label=below:$c$] (c) at (0,3) {};
       \node[ele,label=left:$d$] (d) at (1.5,0) {};
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
@@ -245,11 +245,11 @@ The \textit{contravariant Hom functor} is denoted as $\catconhom{C}{a}$.
            (a); 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
-           [out=135,in=45,looseness=20] node[above] {$\idm{b}$}
+           [out=-135,in=-45,looseness=20] node[below] {$\idm{b}$}
            (b); 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
-           [out=-135,in=-45,looseness=20] node[below] {$\idm{c}$}
+           [out=135,in=45,looseness=20] node[above] {$\idm{c}$}
            (c); 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
@@ -269,14 +269,14 @@ The \textit{contravariant Hom functor} is denoted as $\catconhom{C}{a}$.
            [out=-45,in=45,looseness=0.5] node[right] {$h^{(c)}_2$}
            (a); 
 
-      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
-           [out=190,in=-190,looseness=2] node[left] {$h$} (c); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+           [out=190,in=-190,looseness=2] node[left] {$h$} (b); 
 
 
-      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
            [out=10,in=-10,looseness=3] node[right] {$g_1$}
            (a); 
-      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
            [out=10,in=-10,looseness=5] node[right] {$g_2$}
            (a); 
 
@@ -285,29 +285,30 @@ The \textit{contravariant Hom functor} is denoted as $\catconhom{C}{a}$.
         height=5.5cm] {} ;
 
     \end{tikzpicture}
-    \caption{Contravariant Hom functor $\catconhom{C}{a}$ example. Category $\cat{C}$}
+    \caption{Contravariant Hom functor $\catconhom{D}{a}$ example. Category $\cat{D}$}
     \label{fig:con_hom_functor}
   \end{figure}
-Consider category $\cat{C}$ in the \cref{fig:con_hom_functor}. It is
-similar to the category $\cat{C}$ from \cref{ex:cov_hom_functor} and also 
-consists of 4 objects: 
+Consider category $\cat{D}$ in the \cref{fig:con_hom_functor}. It is
+similar to the category $\cat{C}$ from \cref{ex:cov_hom_functor} and
+has the same set of objects and morphisms but all morphisms are
+reverted i.e. $D = \cat{C}^{op}$. Therefore the category consists of 4 objects: 
 \[
-\catob{C} = \{a,b,c,d\}.
+\catob{D} = \{a,b,c,d\}.
 \]
 We are
-going to construct $\catconhom{C}{a}$ functor and therefore are
+going to construct $\catconhom{D}{a}$ functor and therefore are
 interested in the following sets of morphisms: 
 \begin{eqnarray}
-\catmset[C]{a}{a} = \{\idm{a}\},
+\catmset[D]{a}{a} = \{\idm{a}\},
 \nonumber \\
-\catmset[C]{b}{a} = \{h_1^{(b)}, h_2^{(b)}\}, 
+\catmset[D]{b}{a} = \{h_1^{(b)}, h_2^{(b)}\}, 
 \nonumber \\
-\catmset[C]{c}{a} = \{h_1^{(c)}, h_2^{(c)}, g_1, g_2\}, 
+\catmset[D]{c}{a} = \{h_1^{(c)}, h_2^{(c)}, g_1, g_2\}, 
 \nonumber \\
-\catmset[C]{d}{a} = \emptyset.
+\catmset[D]{d}{a} = \emptyset.
 \nonumber
 \end{eqnarray}
-There is also a single \mynameref{def:morphism} $f$ between $b$ and $a$.
+There is also a single \mynameref{def:morphism} $h$ between $c$ and $b$.
 
   \begin{figure}
     \centering
@@ -337,14 +338,14 @@ There is also a single \mynameref{def:morphism} $f$ between $b$ and $a$.
 
 
       \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
-           [out=190,in=-190,looseness=2] node[left] {$f'$} (c); 
+           [out=190,in=-190,looseness=2] node[left] {$h'$} (c); 
 
 
       \node[draw,fit= (a) (b) (c) (d),minimum width=6cm, minimum
         height=5.5cm] {} ;
 
     \end{tikzpicture}
-    \caption{Covariant Hom functor $\catconhom{C}{a}$ example. Category $\cat{Set}$}
+    \caption{Contravariant Hom functor $\catconhom{D}{a}$ example. Category $\cat{Set}$}
     \label{fig:con_hom_functor_set}
   \end{figure}
 
@@ -352,25 +353,25 @@ The corresponding
 objects in the \mynameref{def:setcategory} is described in the
 \cref{fig:con_hom_functor_set}: 
 \begin{eqnarray}
-a' = \catmset[C]{a}{a} = \{\idm{a}\},
+a' = \catmset[D]{a}{a} = \{\idm{a}\},
 \nonumber \\
-b' = \catmset[C]{a}{b} = \{f_1^{(b)}, f_2^{(b)}\}, 
+b' = \catmset[D]{b}{a} = \{f_1^{(b)}, f_2^{(b)}\}, 
 \nonumber \\
-c' = \catmset[C]{a}{c} = \{f_1^{(c)}, f_2^{(c)}, g_1, g_2\}, 
+c' = \catmset[D]{c}{a} = \{f_1^{(c)}, f_2^{(c)}, g_1, g_2\}, 
 \nonumber \\
-d' = \catmset[C]{a}{d} = \emptyset.
+d' = \catmset[D]{d}{a} = \emptyset.
 \nonumber
 \end{eqnarray}
 
-The $\catconhom{C}{a}$ does the following mapping between objects:
+The $\catconhom{D}{a}$ does the following mapping between objects:
 \begin{eqnarray}
-a \tof \catmset[C]{a}{a} = a',
+a \tof \catmset[D]{a}{a} = a',
 \nonumber \\
-b \tof \catmset[C]{a}{b} = b', 
+b \tof \catmset[D]{b}{a} = b', 
 \nonumber \\
-c \tof \catmset[C]{a}{c} = c', 
+c \tof \catmset[D]{c}{a} = c', 
 \nonumber \\
-d \tof \catmset[C]{a}{d} = \emptyset.
+d \tof \catmset[D]{d}{a} = \emptyset.
 \nonumber
 \end{eqnarray}
 The functor maps morphisms in addition to objects. There are mapping
@@ -385,18 +386,18 @@ for trivial \mynameref{def:id}s:
 \idm{d} \tof \idm{\emptyset},
 \nonumber
 \end{eqnarray}
-and for a single non trivial morphism $f \tof f'$ that is defined by
+and for a single non trivial morphism $h \tof h'$ that is defined by
 the following rules:
 \begin{eqnarray}
-f'(f_1^{(b)}) = g_1,
+h'(h_1^{(b)}) = g_1,
 \nonumber \\
-f'(f_2^{(b)}) = g_2,
+h'(h_2^{(b)}) = g_2,
 \nonumber
 \end{eqnarray}
-i.e. the \mynameref{def:function_image} of $f'$ is a subset of
-$\catmset[C]{a}{c}$:
+i.e. the \mynameref{def:function_image} of $h'$ is a subset of
+$\catmset[D]{c}{a}$:
 \[
-\Ima{f'} \subsetneq \catmset[C]{a}{c}.
+\Ima{h'} \subsetneq \catmset[D]{c}{a}.
 \]
 \end{example}
 
