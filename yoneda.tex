@@ -207,16 +207,198 @@ $\catmset[C]{a}{c}$:
 \]
 \end{example}
 
+If we revert arrows in the \cref{def:cov_hom_functor} then we can get
+a definition for \mynameref{def:contravariant_functor} as follows.
 \begin{definition}[Contravariant Hom functor]
 \label{def:con_hom_functor}
-Let $\cat{C}$ is a \mynameref{def:localy_small_category}
-TBD
-
+Let $\cat{C}$ is a \mynameref{def:localy_small_category} and $a \in
+\catob{C}$. Consider \mynameref{def:functor} from $\cat{C}$ to the
+\mynameref{def:setcategory} defined by the following rules
+\begin{itemize}
+\item $\forall x \in \catob{C}$ define an object in the set category:
+  $\catmset[C]{x}{a} \in \catob{Set}$ 
+\item $\forall h: x \to y \in \cathom{C}$ define a function in the set category
+  $\catmset[C]{h}{a}: \catmset[C]{y}{a} \to \catmset[C]{x}{a}$ as follows
+  $\catmset[C]{h}{a} = \{g \circ h | g \in \catmset[C]{y}{a}\}$.
+\end{itemize}  
 The \textit{contravariant Hom functor} is denoted as $\catconhom{C}{a}$.
 \end{definition}
 
+\begin{example}[Contravariant Hom functor]
+\label{ex:con_hom_functor}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
 
-TBD
+      % the texts
+      \node at (-2,4) {$\cat{C}$};        
+
+      \node[ele,label=right:$a$] (a) at (0,1.5) {};    
+      \node[ele,label=below:$b$] (b) at (0,3) {};    
+      \node[ele,label=above:$c$] (c) at (0,0) {};
+      \node[ele,label=left:$d$] (d) at (1.5,0) {};
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=135,in=-135,looseness=20] node[left] {$\idm{a}$}
+           (a); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=135,in=45,looseness=20] node[above] {$\idm{b}$}
+           (b); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+           [out=-135,in=-45,looseness=20] node[below] {$\idm{c}$}
+           (c); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (d) to
+           [out=45,in=-45,looseness=20] node[right] {$\idm{d}$}
+           (d); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=135,in=-135,looseness=0.5] node[left] {$h^{(b)}_1$}
+           (a); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=45,in=-45,looseness=0.5] node[right] {$h^{(b)}_2$} (a); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+           [out=-135,in=135,looseness=0.5] node[left] {$h^{(c)}_1$}
+           (a); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+           [out=-45,in=45,looseness=0.5] node[right] {$h^{(c)}_2$}
+           (a); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=190,in=-190,looseness=2] node[left] {$h$} (c); 
+
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=10,in=-10,looseness=3] node[right] {$g_1$}
+           (a); 
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=10,in=-10,looseness=5] node[right] {$g_2$}
+           (a); 
+
+
+      \node[draw,fit= (a) (b) (c) (d),minimum width=6cm, minimum
+        height=5.5cm] {} ;
+
+    \end{tikzpicture}
+    \caption{Contravariant Hom functor $\catconhom{C}{a}$ example. Category $\cat{C}$}
+    \label{fig:con_hom_functor}
+  \end{figure}
+Consider category $\cat{C}$ in the \cref{fig:con_hom_functor}. It is
+similar to the category $\cat{C}$ from \cref{ex:cov_hom_functor} and also 
+consists of 4 objects: 
+\[
+\catob{C} = \{a,b,c,d\}.
+\]
+We are
+going to construct $\catconhom{C}{a}$ functor and therefore are
+interested in the following sets of morphisms: 
+\begin{eqnarray}
+\catmset[C]{a}{a} = \{\idm{a}\},
+\nonumber \\
+\catmset[C]{b}{a} = \{h_1^{(b)}, h_2^{(b)}\}, 
+\nonumber \\
+\catmset[C]{c}{a} = \{h_1^{(c)}, h_2^{(c)}, g_1, g_2\}, 
+\nonumber \\
+\catmset[C]{d}{a} = \emptyset.
+\nonumber
+\end{eqnarray}
+There is also a single \mynameref{def:morphism} $f$ between $b$ and $a$.
+
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+
+      % the texts
+      \node at (-2,4) {$\cat{Set}$};        
+
+      \node[ele,label=right:$a'$] (a) at (0,1.5) {};    
+      \node[ele,label=below:$b'$] (b) at (0,3) {};    
+      \node[ele,label=above:$c'$] (c) at (0,0) {};
+      \node[ele,label=right:$\emptyset$] (d) at (1.5,1.5) {};
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+           [out=135,in=-135,looseness=20] node[left] {$\idm{a'}$}
+           (a); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=135,in=45,looseness=20] node[above] {$\idm{b'}$}
+           (b); 
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+           [out=-135,in=-45,looseness=20] node[below] {$\idm{c'}$}
+           (c); 
+
+
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+           [out=190,in=-190,looseness=2] node[left] {$f'$} (c); 
+
+
+      \node[draw,fit= (a) (b) (c) (d),minimum width=6cm, minimum
+        height=5.5cm] {} ;
+
+    \end{tikzpicture}
+    \caption{Covariant Hom functor $\catconhom{C}{a}$ example. Category $\cat{Set}$}
+    \label{fig:con_hom_functor_set}
+  \end{figure}
+
+The corresponding
+objects in the \mynameref{def:setcategory} is described in the
+\cref{fig:con_hom_functor_set}: 
+\begin{eqnarray}
+a' = \catmset[C]{a}{a} = \{\idm{a}\},
+\nonumber \\
+b' = \catmset[C]{a}{b} = \{f_1^{(b)}, f_2^{(b)}\}, 
+\nonumber \\
+c' = \catmset[C]{a}{c} = \{f_1^{(c)}, f_2^{(c)}, g_1, g_2\}, 
+\nonumber \\
+d' = \catmset[C]{a}{d} = \emptyset.
+\nonumber
+\end{eqnarray}
+
+The $\catconhom{C}{a}$ does the following mapping between objects:
+\begin{eqnarray}
+a \tof \catmset[C]{a}{a} = a',
+\nonumber \\
+b \tof \catmset[C]{a}{b} = b', 
+\nonumber \\
+c \tof \catmset[C]{a}{c} = c', 
+\nonumber \\
+d \tof \catmset[C]{a}{d} = \emptyset.
+\nonumber
+\end{eqnarray}
+The functor maps morphisms in addition to objects. There are mapping
+for trivial \mynameref{def:id}s: 
+\begin{eqnarray}
+\idm{a} \tof \idm{a'},
+\nonumber \\
+\idm{b} \tof \idm{b'},
+\nonumber \\
+\idm{c} \tof \idm{c'},
+\nonumber \\
+\idm{d} \tof \idm{\emptyset},
+\nonumber
+\end{eqnarray}
+and for a single non trivial morphism $f \tof f'$ that is defined by
+the following rules:
+\begin{eqnarray}
+f'(f_1^{(b)}) = g_1,
+\nonumber \\
+f'(f_2^{(b)}) = g_2,
+\nonumber
+\end{eqnarray}
+i.e. the \mynameref{def:function_image} of $f'$ is a subset of
+$\catmset[C]{a}{c}$:
+\[
+\Ima{f'} \subsetneq \catmset[C]{a}{c}.
+\]
+\end{example}
 
 \section{Yoneda's lemma}
 
