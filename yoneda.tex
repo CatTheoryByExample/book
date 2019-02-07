@@ -418,6 +418,22 @@ $\catmset[D]{c}{a}$:
 \]
 \end{example}
 
+\subsection{Representable functor}
+\begin{definition}[Representable functor]
+\label{def:representable_functor}
+Let $\cat{C}$ is a \mynameref{def:localy_small_category}.
+The functor $F: \cat{C} \tof \cat{Set}$ is called
+\textit{representable} if it is naturally isomorphic (see
+\mynameref{def:ni}) to $\catcovhom{C}{a}$ for some object $a \in
+\catob{C}$. 
+
+\textit{Representation} of $F$ is a pair $(a, \phi)$ where
+\[
+\phi: \catcovhom{C}{a} \tont F
+\]
+is a \mynameref{def:ni}.
+\end{definition}
+
 \section{Yoneda's lemma}
 
 TBD
