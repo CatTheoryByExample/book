@@ -1,8 +1,13 @@
 %% -*- coding:utf-8 -*-
 \chapter{Yoneda's lemma}
 \label{sec:yoneda}
-We will assume that the category $\cat{C}$ to be a
+Yoneda lemma is a fact about so called Hom functors. We will start
+with the definition and examples for both
+\mynameref{def:cov_hom_functor} and \mynameref{def:con_hom_functor}. The
+definition and examples for Yoneda lemma will be provided after that. 
+In the chapter we will assume that the category $\cat{C}$ to be a
 \mynameref{def:localy_small_category}.
+
 \section{Hom functors}
 
 We are going to define the Hom functors. There are 2 hom functors:
@@ -12,11 +17,16 @@ We are going to define the Hom functors. There are 2 hom functors:
 $\cat{C}$ and consider the collection of morphisms from $a$ to an
 arbitrary object $x$ from the category. The collection is a
 \mynameref{def:set} as soon as $\cat{C}$ is a
-\mynameref{def:localy_small_category}. 
+\mynameref{def:localy_small_category}. Therefore we can associate a
+set (object from \mynameref{def:setcategory}) with the object $x$ from the
+category $C$. 
 
-TBD
+The same approach is used for 
+\mynameref{def:con_hom_functor}. But in the case we consider set of
+morphisms from an arbitrary object $x$ to the picked object $a$ i.e.
+we revert arrows in the case.
 
-
+\subsection{Covariant Hom functor}
 \begin{definition}[Covariant Hom functor]
 \label{def:cov_hom_functor}
 Let $\cat{C}$ is a \mynameref{def:localy_small_category} and $a \in
@@ -209,6 +219,7 @@ $\catmset[C]{a}{c}$:
 \]
 \end{example}
 
+\subsection{Contravariant Hom functor}
 If we revert arrows in the \cref{def:cov_hom_functor} then we can get
 a definition for \mynameref{def:contravariant_functor} as follows.
 \begin{definition}[Contravariant Hom functor]
