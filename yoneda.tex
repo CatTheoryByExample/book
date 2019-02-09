@@ -29,6 +29,7 @@ we revert arrows in the case.
 \subsection{Covariant Hom functor}
 \begin{definition}[Covariant Hom functor]
 \label{def:cov_hom_functor}
+\index{Hom Functor!definition}
 Let $\cat{C}$ is a \mynameref{def:localy_small_category} and $a \in
 \catob{C}$. Consider \mynameref{def:functor} from $\cat{C}$ to the
 \mynameref{def:setcategory} defined by the following rules
@@ -433,6 +434,18 @@ The functor $F: \cat{C} \tof \cat{Set}$ is called
 \]
 is a \mynameref{def:ni}.
 \end{definition}
+
+\begin{example}[Representable functor][$\cat{Hask}$]
+\label{ex:representable_functor_hask}
+We can define a \mynameref{def:representable_functor} in
+\mynameref{def:haskcategory} as follows
+\begin{minted}{haskell}
+    class Representable f where 
+        type Rep f :: *
+        tabulate :: (Rep f -> x) -> f x
+        index :: f x -> Rep f -> x
+\end{minted} 
+\end{example}
 
 \section{Yoneda's lemma}
 
