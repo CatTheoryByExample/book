@@ -437,14 +437,65 @@ is a \mynameref{def:ni}.
 
 \begin{example}[Representable functor][$\cat{Hask}$]
 \label{ex:representable_functor_hask}
-We can define a \mynameref{def:representable_functor} in
-\mynameref{def:haskcategory} as follows
+Consider a \mynameref{def:representable_functor} $F$. We will mark it as a small
+letter \textbf{f} in the example. 
+\footnote{There is a requirement from Haskell to use small but not
+  capital letter for it.}
+\mynameref{def:representable_functor} is defined by a pair: $(a,
+\alpha)$ where $a$ is the object from $\cat{C}$ and $\alpha$ is a
+\mynameref{def:ni}. 
+The first condition for $a$ can be written as follows in
+\mynameref{def:haskcategory} 
+\begin{minted}{haskell}
+        type Rep f :: *
+\end{minted} 
+where \textbf{Rep f} is the type $a$ that represent our functor $f$. 
+
+The second condition for \mynameref{def:ni} requires 2
+\mynameref{def:nt}s: 
+\begin{eqnarray}
+\mathrm{tabulate} : \catcovhom{C}{a} \tont F,
+\nonumber \\
+\mathrm{index} : F \tont \catcovhom{C}{a}.
+\nonumber
+\end{eqnarray}
+In Haskell the 2 functions can be written as follows
+\begin{minted}{haskell}
+        tabulate :: (Rep f -> x) -> f x
+        index :: f x -> Rep f -> x
+\end{minted} 
+From
+\mynameref{thm:reynolds} we know that such functions are
+\mynameref{def:nt}s and therefore can be 2 parts of the required
+\mynameref{def:ni} $\alpha$. Combining these conditions together we
+can obtain the following definition for \mynameref{def:representable_functor} in
+\mynameref{def:haskcategory}
 \begin{minted}{haskell}
     class Representable f where 
         type Rep f :: *
         tabulate :: (Rep f -> x) -> f x
         index :: f x -> Rep f -> x
 \end{minted} 
+
+Consider the following type as a concrete example of the
+\mynameref{def:representable_functor} 
+\begin{minted}{haskell}
+data Pair a = P a a
+\end{minted} 
+The representation type for \textbf{Pair} is \textbf{Bool}
+\begin{minted}{haskell}
+instance Representable Pair where
+  type Rep Pair = Bool
+
+  index :: Pair a -> (Bool -> a)
+  index (P x _) False = x
+  index (P _ y) True  = y
+
+  tabulate :: (Bool -> a) -> Pair a
+  tabulate generate = P (generate False) (generate True)
+\end{minted} 
+
+
 \end{example}
 
 \section{Yoneda's lemma}
