@@ -495,8 +495,30 @@ instance Representable Pair where
   tabulate generate = P (generate False) (generate True)
 \end{minted} 
 
-
 \end{example}
+
+\begin{remark}[Functor logarithm]
+\index{Functor!logarithm}
+Consider category $\cat{C}$. \mynameref{def:morphism_set}
+$\catmset[C]{a}{x}$ is the same as the \mynameref{def:exponential} 
+\footnote{TBD add the explanation for the fact}, i.e.
+\[
+\catmset[C]{a}{x} \cong x^a.
+\]
+Therefore, formally, we can write
+\[
+\catcovhom{C}{a} \cong \left(-\right)^a.
+\]
+If functor $F$ is a \mynameref{def:representable_functor} then
+\[
+F \cong \catcovhom{C}{a} \cong \left(-\right)^a.
+\]
+Thus we can define the logarithm operation for a
+\mynameref{def:representable_functor} as follows
+\[
+\log F = a.
+\]
+\end{remark}
 
 \section{Yoneda's lemma}
 
