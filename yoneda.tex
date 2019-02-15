@@ -525,9 +525,18 @@ Thus we can define the logarithm operation for a
 \begin{lemma}[Yoneda]
 \label{lem:yoneda}
 Let $\cat{C}$ is a \mynameref{def:localy_small_category} and $F$ is a
-functor from $\cat{C}$ to $\cat{Set}$. Then
+functor from $\cat{C}$ to $\cat{Set}$ 
+i.e. 
 \[
-\catmset[\funcat{C}{Set}]{\catcovhom{c}{a}}{F} \cong F(a)
+F \in \catob{\funcat{C}{Set}}
+\]
+and also we have 
+\[
+\catcovhom{C}{a} \in \catob{\funcat{C}{Set}}.
+\]
+Then
+\[
+\catmset[\funcat{C}{Set}]{\catcovhom{C}{a}}{F} \cong F(a)
 \]
 \begin{proof}
 TBD
