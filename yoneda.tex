@@ -539,6 +539,76 @@ Then
 \catmset[\funcat{C}{Set}]{\catcovhom{C}{a}}{F} \cong F(a)
 \]
 \begin{proof}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    \node at (-2,2.5) {$\cat{C}$};        
+
+    % the texts
+    \node[ele,label=above:$x$] (x) at (0,2) {};
+    \node[ele,label=below:$y$] (y) at (0,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x) to
+    node[left]{$f$} (y);
+
+    \node[draw,fit= (x) (y),minimum width=4cm, minimum
+      height=4cm] {} ;
+  \end{tikzpicture}
+  \caption{Category $\cat{C}$. We look at 2 objects $x$ and $y$ and a
+    morphism $f$ between them}
+  \label{fig:yoneda_proof_c}
+\end{figure}
+
+Lets start with 2 objects $x, y$ from category $\cat{C}$ and a
+morphism $f$ between the 2 objects \cref{fig:yoneda_proof_c}. 
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node[ele,label=above:$\catmsetfig{C}{a}{x}$] (cx) at (0,3) {};
+    \node[ele,label=below:$F(x)$] (fx) at (0,0) {};
+    \node[ele,label=above:$\catmsetfig{C}{a}{y}$] (cy) at (3,3) {};
+    \node[ele,label=below:$F(y)$] (fy) at (3,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (cx) to
+    node[below]{$\catmset[C]{a}{f}$} (cy);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (fx) to
+    node[above]{$F(f)$} (fy);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (cx) to
+    node[left]{$\alpha_x$} (fx);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (cy) to
+    node[right]{$\alpha_y$} (fy);
+  \end{tikzpicture}
+  \caption{Commutative diagram for components of natural
+    transformation $\alpha_x$ and $\alpha_y$}
+  \label{fig:yoneda_proof_commutative_diagram}
+\end{figure}
+
+Functor
+$\catcovhom{C}{a}$ maps $x$ into $\catmset[C]{a}{x}$ and $y$ into 
+$\catmset[C]{a}{x}$. Functor $F$ maps the 2 objects into $F(x)$ and
+$F(y)$ respectively. There is a \mynameref{def:nt} $\alpha$ between
+the functors. I.e.  $\alpha \in
+\catmset[\funcat{C}{Set}]{\catcovhom{C}{a}}{F}$. We are interested in
+2 components of the natural transformations:
+\[
+\alpha_x : \catmset[C]{a}{x} \to F(x)
+\]
+and
+\[
+\alpha_y : \catmset[C]{a}{y} \to F(y).
+\]
+The components of natural transformation should satisfy the naturality
+conditions \eqref{eq:nt_definition} i.e. the commutative diagram
+\cref{fig:yoneda_proof_commutative_diagram} should commute.
+
 TBD
 \end{proof}
 \end{lemma}
