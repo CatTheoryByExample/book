@@ -24,7 +24,7 @@ category $C$.
 The same approach is used for 
 \mynameref{def:con_hom_functor}. But in the case we consider set of
 morphisms from an arbitrary object $x$ to the picked object $a$ i.e.
-we revert arrows in the case.
+we revert \mynameref{def:arrow}s in the case.
 
 \subsection{Covariant Hom functor}
 \begin{definition}[Covariant Hom functor]
@@ -221,7 +221,7 @@ $\catmset[C]{a}{c}$:
 \end{example}
 
 \subsection{Contravariant Hom functor}
-If we revert arrows in the \cref{def:cov_hom_functor} then we can get
+If we revert \mynameref{def:arrow}s in the \cref{def:cov_hom_functor} then we can get
 a definition for \mynameref{def:contravariant_functor} as follows.
 \begin{definition}[Contravariant Hom functor]
 \label{def:con_hom_functor}
@@ -239,7 +239,7 @@ The \textit{contravariant Hom functor} is denoted as $\catconhom{C}{a}$.
 \end{definition}
 
 From the definition of \mynameref{def:contravariant_functor} follows
-that we can get it simply reverting arrows in the initial category. 
+that we can get it simply reverting \mynameref{def:arrow}s in the initial category. 
 Lets do it for \cref{ex:cov_hom_functor} as follows
 \begin{example}[Contravariant Hom functor]
 \label{ex:con_hom_functor}
@@ -609,7 +609,63 @@ The components of natural transformation should satisfy the naturality
 conditions \eqref{eq:nt_definition} i.e. the commutative diagram
 \cref{fig:yoneda_proof_commutative_diagram} should commute.
 
-TBD
+We can replace object $x$ with $a$ in $\catmset[C]{a}{x}$. The result
+set $\catmset[C]{a}{a}$ should contain \mynameref{def:id} $\idm{a}$.
+Lets look how the morphism is mapped by the commutative diagram from
+\cref{fig:yoneda_proof_commutative_diagram}.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node[ele,label=above:$\idm{a}$] (cx) at (0,3) {};
+    \node[ele,label=below:$p$] (fx) at (0,0) {};
+    \node[ele,label=above:$f$] (cy) at (3,3) {};
+    \node[ele,label=below:$(F(f))(p)$] (fy) at (3,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (cx) to
+    node[below]{$\catmset[C]{a}{f}$} (cy);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (fx) to
+    node[above]{$F(f)$} (fy);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (cx) to
+    node[left]{$\alpha_a$} (fx);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (cy) to
+    node[right]{$\alpha_y$} (fy);
+  \end{tikzpicture}
+  \caption{Mapping for $\idm{a}$. The identity morphism is mapped into
+    $p \in F(a)$ i.e. $p = \alpha_a(\idm{a})$}
+  \label{fig:yoneda_proof_idm}
+\end{figure}
+
+As we can see in \cref{fig:yoneda_proof_idm}, morphism $\alpha_a$
+pick up an element $p$ of the set $F(a)$. There is an arbitrary
+element that is determined by $\alpha_a$. All others elements in
+\cref{fig:yoneda_proof_idm} is completely determined by the choice of
+$p$. From \cref{def:cov_hom_functor} we have
+\[
+\catmset[C]{a}{f} = \{f \circ g | g \in \catmset[C]{a}{x}\}
+\]
+i.e. if $g = \idm{a}$ then 
+\[
+\catmset[C]{a}{f}\left(\idm{a}\right) = f
+\circ \idm{a} = f.
+\]
+From other side we have mapping $F(f): p \to q$ where 
+$q = (F(f))(p)$. I.e. if we pick an arbitrary object $y \in \catob{C}$
+when we can pick a morphism $f: a \to y$. This leads to the definition
+for an arbitrary component $\alpha_y$ of \mynameref{def:nt} $\alpha$
+as soon as only one component $\alpha_a$ is defined:
+\[
+\alpha_y(f) = (F(f))(p).
+\]
+Therefore from only one element $p \in F(a)$ we can got the
+\mynameref{def:nt} $\alpha \in
+\catmset[\funcat{C}{Set}]{\catcovhom{C}{a}}{F}$. We also can go in
+other direction i.e. $\alpha_a(\idm{a})$ will gives as an element $p$
+from the set $F(a)$.
 \end{proof}
 \end{lemma}
 
