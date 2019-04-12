@@ -126,15 +126,14 @@ considered as the same functions.
   properties don't have any proof and postulated as axioms}
 \begin{axiom}[Composition]
   \label{axm:composition}
-  If we have 3 \mynameref{def:object}s $a, b$ and $c$ and 2
+  If we have 3 \mynameref{def:object}s $a, b, c$ and 2
   \mynameref{def:morphism}s 
-  \[
-  f_{ab} : a \rightarrow b
-  \]
-  and 
-  \[
+  \begin{eqnarray}
+  f_{ab} : a \rightarrow b,
+  \nonumber \\
   f_{bc} : b \rightarrow c
-  \]
+  \nonumber 
+  \end{eqnarray}
   then there exists \mynameref{def:morphism} 
   \[
   f_{ac} : a \rightarrow c
@@ -162,7 +161,7 @@ considered as the same functions.
 
 \begin{axiom}[Associativity]
   \label{axm:associativity}
-  The \mynameref{def:morphism}s \mynameref{axm:composition}s should
+  The \mynameref{def:morphism} \mynameref{axm:composition} should
   follow associativity property:
   \[
   f_{ce} \circ (f_{bc} \circ f_{ab}) = (f_{ce} \circ f_{bc}) \circ
@@ -193,7 +192,7 @@ Note that \mynameref{def:id} is unique, see
 
 \begin{definition}[Commutative diagram]
   A commutative diagram is a diagram of \mynameref{def:object}s (also known as
-  vertices) and \mynameref{def:morphism}s (also known as arrows or
+  vertices) and \mynameref{def:morphism}s (also known as \mynameref{def:arrow}s or
   edges) such that all directed paths in the diagram with the same
   start and endpoint lead to the same result by composition
   \label{def:commutative_diagram}
