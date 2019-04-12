@@ -198,7 +198,7 @@ Note that \mynameref{def:id} is unique, see
   \label{def:commutative_diagram}
 
   The following diagram commutes if $f_{ab} = f_{cb} \circ f_{ac}$.
-
+  \begin{figure}[H]
   \begin{center}
     \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
       \matrix (m) [matrix of math nodes, row sep=3em,
@@ -212,6 +212,7 @@ Note that \mynameref{def:id} is unique, see
               (m-2-2) edge node[description] {$  f_{cb} $} (m-1-3);
     \end{tikzpicture}
   \end{center}
+\end{figure}
 \end{definition}
 
 
