@@ -47,14 +47,38 @@
   \label{fig:class_of_objects}
 \end{figure}
 
-
 \subsection{Morphism}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,4) {$\cat{C}$};
+    
+    \node[ele,label=left:$a$] (a) at (1,1) {};    
+    \node[ele,label=right:$b$] (b) at (2,1) {};    
+    
+    \node[draw,fit= (a) (b),minimum width=4cm, minimum
+      height=4cm] {}  ;
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,above]{$f$} (b);
+
+  \end{tikzpicture}
+  \caption{\mynameref{def:morphism} (\mynameref{def:arrow}) $f: a \to b $}
+  \label{fig:morphism}
+\end{figure}
+
+
 Morphism is a kind of relation between 2 \mynameref{def:object}s. 
 \begin{definition}[Morphism]
   \label{def:morphism}
   A relation between two \mynameref{def:object}s $a$ and $b$ 
   \[
-  f_{ab}: a \rightarrow b
+  f: a \rightarrow b
   \]
   is called as \textit{morphism}. Morphism assumes a direction i.e. one
   \mynameref{def:object} 
@@ -67,7 +91,8 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
 
 \begin{definition}[Arrow]
   \label{def:arrow}
-  \mynameref{def:morphism}s are also called as \textit{Arrows}.
+  \mynameref{def:morphism}s are also called as \textit{Arrows} (see
+  \cref{fig:morphism}). 
 \end{definition}
 
 The important remark about morphisms is below
