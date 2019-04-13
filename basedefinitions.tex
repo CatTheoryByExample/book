@@ -288,10 +288,10 @@ The trivial example of \mynameref{def:commutative_diagram} is
     \node[ele,label=below:$b$] (b) at (4,0) {};    
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
     node[pos=0.5,above]{$f$} (b); 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] ([yshift=0.5] c.east) to         
-         node[pos=0.5,above]{$g_1$} ([yshift=0.5] a.west); 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] ([yshift=-0.5] c) to
-         node[pos=0.5,below]{$g_2$} ([yshift=-0.5] a); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] ([yshift=5pt] c.east) to         
+         node[pos=0.5,above]{$g_1$} ([yshift=5pt] a.west); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] ([yshift=-5pt]c.east) to
+         node[pos=0.5,below]{$g_2$} ([yshift=-5pt]a.west); 
 
 
   \end{tikzpicture}
@@ -325,12 +325,10 @@ The trivial example of \mynameref{def:commutative_diagram} is
     \node[ele,label=below:$b$] (b) at (2,0) {};    
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
     node[pos=0.5,above]{$f$} (b); 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
-         [out=45,in=135,looseness=2]
-         node[pos=0.5,above]{$g_1$} (c); 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
-         [out=-45,in=-135,looseness=2]
-         node[pos=0.5,below]{$g_2$} (c); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] ([yshift=5pt]b.east) to
+         node[pos=0.5,above]{$g_1$} ([yshift=5pt]c.west); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] ([yshift=-5pt]b.east) to
+         node[pos=0.5,below]{$g_2$} ([yshift=-5pt]c.west); 
 
 
   \end{tikzpicture}
@@ -373,8 +371,8 @@ can be treated as the same object.
   \end{itemize}
   For any \mynameref{def:object} $a$ there should be unique
   \mynameref{def:id} $\idm{a}$. Any morphism should satisfy
-  \mynameref{axm:composition} and \mynameref{axm:associativity}. See
-  \cref{fig:category}   
+  \mynameref{axm:composition} and \mynameref{axm:associativity} axioms
+  (see example in \cref{fig:category}).    
 \end{definition}
 
 \begin{figure}
@@ -415,9 +413,9 @@ can be treated as the same object.
 
 \begin{definition}[Set of morphisms]
 \label{def:morphism_set}
-  The set of morphisms between objects $a$ and $b$ in the $\cat{C}$
+  The set of morphisms between objects $a$ and $b$ in the category $\cat{C}$
   will be denoted as $\catmset[C]{a}{b}$. The set will be denoted
-  as $\catmset{a}{b}$ if the category does not matter 
+  as $\catmset{a}{b}$ if the exact category does not matter. 
 \end{definition}
 
 The \mynameref{def:category} can be considered as a way to represent a
