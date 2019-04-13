@@ -134,7 +134,7 @@ considered as the same functions.
   f_{bc} : b \rightarrow c
   \nonumber 
   \end{eqnarray}
-  then there exists \mynameref{def:morphism} 
+  then there exists \mynameref{def:morphism} (see \cref{fig:composition})
   \[
   f_{ac} : a \rightarrow c
   \]
@@ -191,29 +191,38 @@ Note that \mynameref{def:id} is unique, see
 \mynameref{thm:identity_unique} below.
 
 \begin{definition}[Commutative diagram]
+  \label{def:commutative_diagram}
   A commutative diagram is a diagram of \mynameref{def:object}s (also known as
   vertices) and \mynameref{def:morphism}s (also known as \mynameref{def:arrow}s or
   edges) such that all directed paths in the diagram with the same
-  start and endpoint lead to the same result by composition
-  \label{def:commutative_diagram}
-
-  The following diagram commutes if $f_{ab} = f_{cb} \circ f_{ac}$.
-  \begin{figure}[H]
-  \begin{center}
-    \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
-      \matrix (m) [matrix of math nodes, row sep=3em,
-        column sep=2.5em, text height=1.5ex, text depth=0.25ex]
-              { a& & b \\
-                & c & \\ };
-              %\draw[double,double distance=5pt] (m-1-1) – (m-1-3);
-              \path[->]
-              (m-1-1) edge node[description] {$ f_{ab} $} (m-1-3)
-              edge node[description] {$  f_{ac} $} (m-2-2)
-              (m-2-2) edge node[description] {$  f_{cb} $} (m-1-3);
-    \end{tikzpicture}
-  \end{center}
-\end{figure}
+  start and endpoint lead to the same result by composition.
 \end{definition}
+
+\begin{example}
+  \label{ex:commutative_diagram}
+The trivial example of \mynameref{def:commutative_diagram} is
+\mynameref{axm:composition} for $f_{ab} = f_{cb} \circ f_{ac}$:
+  \begin{figure}[H]
+\centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+    
+    \node[ele,label=left:$a$] (a) at (1,1) {};    
+    \node[ele,label=right:$b$] (b) at (3,1) {};    
+    \node[ele,label=right:$c$] (c) at (3,3) {};    
+    
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,above]{$f_{ac}$} (c);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+    node[pos=0.5,right]{$f_{cb}$} (b);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,below]{$f_{ab}$} (b);
+  \end{tikzpicture}
+  \caption{Commutative diagram for composition $f_{ab} = f_{cb} \circ f_{ac}$}
+  \label{fig:composition}
+\end{figure}
+\end{example}
 
 
 \begin{remark}[Class of Morphisms]
