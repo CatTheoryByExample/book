@@ -526,9 +526,19 @@ one \mynameref{def:morphism} (\mynameref{def:id})  is called
 \textit{Trivial category}.
 \end{definition}
 
-\section{$\cat{Set}$ category example}
+There are several examples of categories below that will also be used
+later:
+\begin{itemize}
+\item $\cat{Set}$ category example: see \cref{sec:setcategory_example}
+\item Programming languages (Haskell, C++, Scala) examples: see
+  \cref{sec:plcategory_example}
+\item Quantum mechanics example: see \cref{sec:qmcategory_example}
+\end{itemize}
 
-There are several examples of categories that will also be used later
+\section{$\cat{Set}$ category example}
+\label{sec:setcategory_example}
+The category of sets is the most important example because it will
+allow connect our usual knowledge about sets with the category theory. 
 
 \begin{definition}[Set]
   \label{def:set}
@@ -900,7 +910,7 @@ does not have any structure? The answer is
 \end{definition}
   
 \section{Programming languages examples}
-
+\label{sec:plcategory_example}
 In the programming languages we consider types as
 \mynameref{def:object}s and functions as
 \mynameref{def:morphism}s. The critical requirements for such
@@ -1156,6 +1166,7 @@ several functions between them (see \cref{fig:pl_example}).
 
 
 \section{Quantum mechanics examples}
+\label{sec:qmcategory_example}
 The most critical property of quantum system is the superposition
 principle. The \mynameref{def:setcategory} cannot be used for it
 because it does not satisfy the principle. but a simple modification
