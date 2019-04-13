@@ -435,20 +435,21 @@ homomorphisms as morphisms.
 We are going to talk about functions (aka morphisms) as
 \mynameref{def:object}s. 
 
-\begin{example}[Hom set]
+\begin{example}[Homset]
 \label{ex:homset}
 Consider 2 sets $A$ and $B$ the set of functions between the 2 sets
-form a new set that is called as \textit{Hom-set} and denoted as $A
-\to B$. Thus if $A,B \in \catob{Set}$ then the Hom-set will also $A
+form a new set that is called as \mynameref{def:homset} and denoted as $A
+\to B$. Thus if $A,B \in \catob{Set}$ then the \mynameref{def:homset} will also $A
 \to B \in \catob{Set}$. 
 \end{example}
 
-The construction of \mynameref{ex:homset} is applied to
+The construction of \mynameref{def:homset} is applied to
 \mynameref{def:setcategory} but not to an arbitrary category because
-the Hom-set is a set and therefore the object in the $\cat{Set}$
-category. I.e. if $\cat{C}$ is a category and $a, b \in \catob{C}$
-then the Hom-set $a \to b \in \catob{Set}$ but we now want to
-construct something like to the Home-set but that is an object in
+the \mynameref{def:homset} is a \mynameref{def:set} and therefore the
+object in the \mynameref{def:setcategory}. I.e. if $\cat{C}$ is a
+category and $a, b \in \catob{C}$ 
+then the \mynameref{def:homset} $a \to b \in \catob{Set}$ but we now want to
+construct something like to the \mynameref{def:homset} but that is an object in
 $\cat{C}$. This will be called as the function object. We will use the
 universal construction for the object definition.
 
@@ -499,8 +500,8 @@ e' = e \circ \left(h \times \idm{y} \right)
 Lets look at the \mynameref{def:exponential} in $\cat{Set}$. We want
 to show that the object corresponds to the function. Really if we want
 to define a function $f: X \to Y$ then we should look at the
-\mynameref{ex:homset} $F = X \to Y$. $f \in F$ - is an element of the
-Hom-set. For the function application we have to take the argument $x
+\mynameref{def:homset} $F = X \to Y$. $f \in F$ - is an element of the
+\mynameref{def:homset}. For the function application we have to take the argument $x
 \in X$ and the function we want to apply $f \in F$. Then we construct
 the pair $(f,x) \in F \times X$. For the function application we have
 to call a \mynameref{def:morphism} $e: F \times X \to Z$.
