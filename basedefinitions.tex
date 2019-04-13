@@ -272,13 +272,39 @@ The trivial example of \mynameref{def:commutative_diagram} is
   \[
   g_1 = g_2
   \]
-  then $f$ is called \textit{monomorphism}. The monomorphism between
-  $a$ and $b$ is denoted as $f: a \hookrightarrow b$
+  then $f$ is called \textit{monomorphism} (see
+  \cref{fig:monomorphism}). The monomorphism between 
+  $a$ and $b$ is denoted as $f: a \hookrightarrow b$ (see also
+  \mynameref{def:injection} or ``one-to-one'' functions). 
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    \node[ele,label=below:$c$] (c) at (0,0) {};
+    \node[ele,label=below:$a$] (a) at (2,0) {};    
+    \node[ele,label=below:$b$] (b) at (4,0) {};    
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,above]{$f$} (b); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] ([yshift=0.5] c.east) to         
+         node[pos=0.5,above]{$g_1$} ([yshift=0.5] a.west); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] ([yshift=-0.5] c) to
+         node[pos=0.5,below]{$g_2$} ([yshift=-0.5] a); 
+
+
+  \end{tikzpicture}
+  \caption{Monomorphism: $f \circ g_1 = f \circ g_2$ leads to $g_1 = g_2$}
+  \label{fig:monomorphism}
+\end{figure}
+
+
 \end{definition}
 
 \begin{definition}[Epimorphism]
   \label{def:epimorphism}
-  If $\forall g_1, g_2$ the equation 
+  If $\forall g_1, g_2$ the equation (see \cref{fig:epimorphism})
   \[
   g_1 \circ f = g_2 \circ f
   \]
@@ -286,7 +312,32 @@ The trivial example of \mynameref{def:commutative_diagram} is
   \[
   g_1 = g_2
   \]
-  then $f$ is called \textit{epimorphism}.
+  then $f$ is called \textit{epimorphism} (see also
+  \mynameref{def:surjection} or ``onto'' functions).
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    \node[ele,label=below:$c$] (c) at (4,0) {};
+    \node[ele,label=below:$a$] (a) at (0,0) {};    
+    \node[ele,label=below:$b$] (b) at (2,0) {};    
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,above]{$f$} (b); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+         [out=45,in=135,looseness=2]
+         node[pos=0.5,above]{$g_1$} (c); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+         [out=-45,in=-135,looseness=2]
+         node[pos=0.5,below]{$g_2$} (c); 
+
+
+  \end{tikzpicture}
+  \caption{Epimorphism: $g_1 \circ f = g_2 \circ f$ leads to $g_1 = g_2$}
+  \label{fig:epimorphism}
+\end{figure}
+
 \end{definition}
 
 \begin{definition}[Isomorphism]
