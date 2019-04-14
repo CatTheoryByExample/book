@@ -543,12 +543,24 @@ allow connect our usual knowledge about sets with the category theory.
 \begin{definition}[Set]
   \label{def:set}
   \textit{Set} is a collection of distinct objects. The objects are called as
-  the elements of the set.
+  the elements of the set. 
+
+  The set will be denoted by a capital letter in
+  the book, for instance $A$. The elements of a set will be denoted by
+  small letters: $a \in A$.
+\end{definition}
+
+\begin{definition}[Cartesian product]
+  \label{def:cartesian_product}
+  If $A$ and $B$ are two sets then we can define a new set $A \times B
+  = \left\{(a,b)|a \in A, b \in B\right\}$ that is called as the
+  \textit{cartesian product}.
 \end{definition}
 
 \begin{definition}[Binary relation]
   \label{def:binary_relation}
-  If $A$ and $B$ are 2 \mynameref{def:set}s then a subset of $A \times B$ is
+  If $A$ and $B$ are 2 \mynameref{def:set}s then a subset of the
+  \mynameref{def:cartesian_product} $A \times B$ is
   called as \textit{binary relation} $R$ between the 2 sets, i.e. $R
   \subset A \times B$. 
 \end{definition}
@@ -562,14 +574,6 @@ allow connect our usual knowledge about sets with the category theory.
   does not allow ``multi value''.
 \end{definition}
 
-\begin{definition}[Cartesian product]
-  \label{def:cartesian_product}
-  If $A$ and $B$ are two sets then we can define a new set $A \times B
-  = \left\{(a,b)|a \in A, b \in B\right\}$ that is called as the
-  \textit{cartesian product}.
-\end{definition}
-
-
 \begin{definition}[$\cat{Set}$ category]
   \label{def:setcategory}
   \index{Object!$\cat{Set}$ category}
@@ -579,11 +583,11 @@ allow connect our usual knowledge about sets with the category theory.
   \mynameref{def:set}s where 
   \mynameref{def:object}s are the \mynameref{def:set}s and
   \mynameref{def:morphism}s are \mynameref{def:function}s between the
-  sets.
-
-  The \mynameref{def:id} is trivial function such that $\forall x \in
+  sets.The \mynameref{def:id} is the trivial function such that $\forall x \in
   X: \idm{X}(x) = x$.
+\end{definition}
 
+\begin{remark}[$\cat{Set}$ category]
   In general case when we say $\cat{Set}$ category we assume the set
   of all sets. But the result is inconsistent because famous Russell's
   paradox \cite{wiki:russell_paradox} can be applied. To avoid such
@@ -593,7 +597,7 @@ allow connect our usual knowledge about sets with the category theory.
   all sets is not a set itself and as result the  $\cat{Set}$
   category is a \mynameref{def:large_category}
   \index{Category!large}
-\end{definition}
+\end{remark}
 
 \begin{remark}[Set vs Category]
   \label{rem:set_vs_category}
@@ -612,9 +616,8 @@ allow connect our usual knowledge about sets with the category theory.
 
 \begin{definition}[Categorical approach]
 \label{def:categorical_approach}
-The description of a system via its communications we will call as
-\textit{categorical approach}.
-
+The description of a system (object) via its relations with other
+systems (objects) we will call as  \textit{categorical approach}.
 This description is contrary to an ordinary system description via its
 internal structure.
 \end{definition}
