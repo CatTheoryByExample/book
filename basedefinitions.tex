@@ -662,7 +662,10 @@ subset:
   $f\left(x\right) = y$ (see \cref{fig:surjection,fig:bijection}).
 \end{definition}
 
-\begin{figure}
+\begin{example}[Surjection]
+An example of a surjective function is shown in \cref{fig:surjection}.
+Note that the function in the figure is not an \mynameref{def:injection}.
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
@@ -692,7 +695,7 @@ subset:
     codomain $Y$ }
   \label{fig:surjection}
 \end{figure}
-
+\end{example}
 
 \begin{remark}[Surjection vs Epimorphism]
   \label{rem:surjection_epimorphism}
@@ -771,9 +774,12 @@ subset:
   \cref{fig:injection,fig:bijection}).  
 \end{definition}
 
+\begin{example}[Injection]
 % https://tex.stackexchange.com/questions/19987/
 % drawing-a-bijective-map-with-tikz 
-\begin{figure}
+An example of an injective function is shown in \cref{fig:injection}.
+Note that the function in the figure is not a \mynameref{def:surjection}.
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
@@ -803,7 +809,7 @@ subset:
     codomain $Y$ }
   \label{fig:injection}
 \end{figure}
-
+\end{example}
 
 \begin{remark}[Injection vs Monomorphism]
   \label{rem:injection_monomorphism}
@@ -868,7 +874,7 @@ subset:
   \caption{A non-injective function $f$ from domain $X$ to
     codomain $Y$. $\exists g_1: A \rightarrow X, g_2: B
     \rightarrow X$ such that $g_1 \ne g_2$ but $f
-    \circ g_1 = f \circ g_2$. I.e. the function $f$ is not monomorphism. }
+    \circ g_1 = f \circ g_2$. I.e. the function $f$ is not a monomorphism. }
   \label{fig:injection_monomorphism}
 \end{figure}
 
