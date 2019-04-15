@@ -276,6 +276,7 @@ The trivial example of \mynameref{def:commutative_diagram} is
   \cref{fig:monomorphism}). The monomorphism between 
   $a$ and $b$ is denoted as $f: a \hookrightarrow b$ (see also
   \mynameref{def:injection} or ``one-to-one'' functions). 
+  \index{``one-to-one'' function}
 
 \begin{figure}[H]
   \centering
@@ -314,6 +315,7 @@ The trivial example of \mynameref{def:commutative_diagram} is
   \]
   then $f$ is called \textit{epimorphism} (see also
   \mynameref{def:surjection} or ``onto'' functions).
+  \index{``onto'' function}
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -653,7 +655,8 @@ subset:
 
 \begin{definition}[Surjection]
   \label{def:surjection}
-  The function $f: X \rightarrow Y$ is surjective (or onto) if
+  \index{``onto'' function}
+  The function $f: X \rightarrow Y$ is \textit{surjective} (or ``onto'') if
   $\forall y \in Y$, $\exists x \in X$ such that
   $f\left(x\right) = y$ (see \cref{fig:surjection,fig:bijection}).
 \end{definition}
@@ -756,7 +759,8 @@ subset:
 
 \begin{definition}[Injection]
   \label{def:injection}
-  The function $f: X \rightarrow Y$ is injective (or one-to-one function) if
+  \index{``one-to-one'' function}
+  The function $f: X \rightarrow Y$ is injective (or ``one-to-one'' function) if
   $\forall x_1, x_2 \in X$, such that $x_1 \ne x_2$ then
   $f\left(x_1\right) \ne f\left(x_2\right)$ (see
   \cref{fig:injection,fig:bijection}).  
@@ -896,7 +900,7 @@ subset:
 
 \begin{definition}[Bijection]
   \label{def:bijection}
-  The function $f: X \rightarrow Y$ is bijective (or one-to-one
+  The function $f: X \rightarrow Y$ is bijective (or ``one-to-one''
   correspondence) if it is an \mynameref{def:injection} and a
   \mynameref{def:surjection} (see \cref{fig:bijection}). 
 \end{definition}
