@@ -816,13 +816,13 @@ Note that the function in the figure is not a \mynameref{def:surjection}.
   \mynameref{def:injection} and \mynameref{def:monomorphism} are
   related each other. Consider a non-injective function $f: X
   \rightarrow Y$ (see \cref{fig:injection_monomorphism}). One can
-  conclude that it is not monomorphism because $\exists g_1, g_2$ such
-  that $g_1 \ne g_2$ and $f(g_1(a_1)) = y_3 = f(g_2(b_1))$.
-
-  As result we can say that an \mynameref{def:injection} is a
-  \mynameref{def:monomorphism} in $\cat{Set}$ category. Moreover
-  there is a proof 
-  \cite{bib:proofwiki:Injection_iff_Monomorphism_in_Category_of_Sets}
+  conclude that it is not a \mynameref{def:monomorphism} because
+  $\exists g_1, g_2$ such 
+  that $g_1 \ne g_2$ and $f(g_1(a_1)) = y_3 = f(g_2(b_1))$. As result
+  one can say that an \mynameref{def:injection} is a
+  \mynameref{def:monomorphism} in the $\cat{Set}$ category. Moreover there
+  is a proof
+  \cite{bib:proofwiki:Injection_iff_Monomorphism_in_Category_of_Sets} 
   of that fact.
 \end{remark}
 
@@ -873,7 +873,8 @@ Note that the function in the figure is not a \mynameref{def:surjection}.
   \end{tikzpicture}
   \caption{A non-injective function $f$ from domain $X$ to
     codomain $Y$. $\exists g_1: A \rightarrow X, g_2: B
-    \rightarrow X$ such that $g_1 \ne g_2$ but $f
+    \rightarrow X$ such that $g_1 \ne g_2$ (as soon as the functions
+    operate on different domains) but $f
     \circ g_1 = f \circ g_2$. I.e. the function $f$ is not a monomorphism. }
   \label{fig:injection_monomorphism}
 \end{figure}
@@ -918,9 +919,10 @@ Note that the function in the figure is not a \mynameref{def:surjection}.
 
 There is a question what is the categorical analog of a single
 \mynameref{def:set}. Main characteristic of a category is a structure
-but the set by definition does not have a structure. Which category
+but the \mynameref{def:set} by definition does not have a structure.
+Which category 
 does not have any structure? The answer is
-\mynameref{def:discrete_category}. 
+the \mynameref{def:discrete_category}. 
 
 \begin{definition}[Discrete category]
   \label{def:discrete_category}
