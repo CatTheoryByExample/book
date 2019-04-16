@@ -945,9 +945,6 @@ In the programming languages we consider types as
 consideration is that the functions have to be
 \mynameref{def:pure_function} (without side effects). This requirement
 mainly is satisfied by functional languages such as Haskell and Scala.
-From other side the functional languages use lazy evaluation to
-improve their performance. The laziness can also make category theory
-axiom invalid (see \mynameref{rem:hask_lazy_eval}). 
 
 \begin{definition}[Pure function]
 \label{def:pure_function}
@@ -955,11 +952,15 @@ The function is pure if it's execution give the same results
 independently from the environment. 
 \end{definition}
 
+From other side the functional languages use lazy evaluation to
+improve their performance. The laziness can also make category theory
+axiom invalid (see \mynameref{rem:hask_lazy_eval} below). 
+
 %http://math.andrej.com/2016/08/06/hask-is-not-a-category/
 \begin{remark}[Haskell lazy evaluation]
   \label{rem:hask_lazy_eval}
   Each Haskell type has a special value $\bot$. The fact that the
-  value and lazy evaluations are part of the language, make several
+  value and the lazy evaluations are parts of the language, make several
   category law invalid, for instance 
   \mynameref{def:id} behaviour become invalid in specific cases:
 
@@ -989,8 +990,9 @@ Strictly speaking neither Haskell (pure functional language) nor C\texttt{++}
 can be considered as a category in general. For the first approximation
 a functional language (Haskell, Scala) can be considered as a
 category if we avoid to use functions with side effects (mainly for
-Scala) and use strict (for both Haskell and Scala) evaluations. Take
-the fact into consideration and define categories for 3 languages
+Scala) and use strict, not lazy, evaluations (for both Haskell and
+Scala). Take the fact into consideration and define categories for 3
+languages 
 
 \begin{definition}[$\cat{Hask}$ category]
 \label{def:haskcategory}
@@ -1016,9 +1018,9 @@ a state in the category. I.e. the functions are
 
 In any case we can construct a simple toy category that can be easy
 implemented in any language. Particularly we will look into category
-with 3 objects that are types: \textbf{Int}, \textbf{Bool},
-\textbf{String}. There are also several functions between them (see
-\cref{fig:pl_example}).    
+with 3 \mynameref{def:object}s that are types: \textbf{Int}, \textbf{Bool},
+\textbf{String}. There are also several \mynameref{def:morphism}s
+(functions) between them (see \cref{fig:pl_example}).    
 
 \begin{figure}
   \centering
