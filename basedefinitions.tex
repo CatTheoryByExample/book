@@ -943,7 +943,7 @@ In the programming languages we consider types as
 \mynameref{def:object}s and functions as
 \mynameref{def:morphism}s. The critical requirements for such
 consideration is that the functions have to be
-\mynameref{def:pure_function} (without side effects). This requirement
+\mynameref{def:pure_function}s (without side effects). This requirement
 mainly is satisfied by functional languages such as Haskell and Scala.
 
 \begin{definition}[Pure function]
@@ -1092,6 +1092,54 @@ with 3 \mynameref{def:object}s that are types: \textbf{Int}, \textbf{Bool},
   %% \mynameref{axm:associativity} is also satisfied.
 \end{example}
 
+\subsection{$\cat{Scala}$ toy category}
+\begin{example}[$\cat{Scala}$ toy category]
+  \label{ex:scalacategory}
+  \index{Object!$\cat{Scala}$ example}
+  \index{Morphism!$\cat{Scala}$ example}
+
+  We will use the same trick as in \mynameref{ex:haskcategory} and
+  will assume 
+  types in Scala as \mynameref{def:object}s, 
+  functions as \mynameref{def:morphism}s.
+  We also are going to implement
+  \mynameref{def:category} from \cref{fig:pl_example}.
+
+  \begin{minted}{scala}
+    object Category {
+      def id[A]: A => A = a => a
+      def compose[A, B, C](g: B => C, f: A => B): 
+          A => C = g compose f 
+      
+      val isEven = (i: Int) => i % 2  == 0
+      val stringLength = (s: String) => s.length
+      val isStringLengthEven = (s: String) => 
+          compose(isEven, stringLength)(s)
+    }
+  \end{minted}
+
+  The usage example is below
+  \begin{minted}{scala}
+    
+    class CategorySpec extends Properties("Category") {
+      import Category._
+      import Prop.forAll
+      
+      property("composition") = forAll { (s: String) =>
+        isStringLengthEven(s)  == isEven(stringLength(s))
+      }
+      
+      property("right id") = forAll { (i: Int) =>
+        isEven(i)  == compose(isEven, id[Int])(i)
+      }
+      
+      property("left id") = forAll { (i: Int) =>
+        isEven(i)  == compose(id[Boolean], isEven)(i)
+      }
+    }
+  \end{minted}
+\end{example}
+
 \subsection{$\cat{C\texttt{++}}$ toy category}
 \begin{example}[$\cat{C\texttt{++}}$ toy category]
   \label{ex:cppcategory}
@@ -1146,54 +1194,6 @@ with 3 \mynameref{def:object}s that are types: \textbf{Int}, \textbf{Bool},
 
   Such construction will always provides us the category as soon as we
   use pure function (functions without effects).
-\end{example}
-
-\subsection{$\cat{Scala}$ toy category}
-\begin{example}[$\cat{Scala}$ toy category]
-  \label{ex:scalacategory}
-  \index{Object!$\cat{Scala}$ example}
-  \index{Morphism!$\cat{Scala}$ example}
-
-  We will use the same trick as in \mynameref{ex:haskcategory} and
-  will assume 
-  types in Scala as \mynameref{def:object}s, 
-  functions as \mynameref{def:morphism}s.
-  We also are going to implement
-  \mynameref{def:category} from \cref{fig:pl_example}.
-
-  \begin{minted}{scala}
-    object Category {
-      def id[A]: A => A = a => a
-      def compose[A, B, C](g: B => C, f: A => B): 
-          A => C = g compose f 
-      
-      val isEven = (i: Int) => i % 2  == 0
-      val stringLength = (s: String) => s.length
-      val isStringLengthEven = (s: String) => 
-          compose(isEven, stringLength)(s)
-    }
-  \end{minted}
-
-  The usage example is below
-  \begin{minted}{scala}
-    
-    class CategorySpec extends Properties("Category") {
-      import Category._
-      import Prop.forAll
-      
-      property("composition") = forAll { (s: String) =>
-        isStringLengthEven(s)  == isEven(stringLength(s))
-      }
-      
-      property("right id") = forAll { (i: Int) =>
-        isEven(i)  == compose(isEven, id[Int])(i)
-      }
-      
-      property("left id") = forAll { (i: Int) =>
-        isEven(i)  == compose(id[Boolean], isEven)(i)
-      }
-    }
-  \end{minted}
 \end{example}
 
 
