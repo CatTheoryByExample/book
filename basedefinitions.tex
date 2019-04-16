@@ -955,6 +955,36 @@ The function is pure if it's execution give the same results
 independently from the environment. 
 \end{definition}
 
+%http://math.andrej.com/2016/08/06/hask-is-not-a-category/
+\begin{remark}[Haskell lazy evaluation]
+  \label{rem:hask_lazy_eval}
+  Each Haskell type has a special value $\bot$. The fact that the
+  value and lazy evaluations are part of the language, make several
+  category law invalid, for instance 
+  \mynameref{def:id} behaviour become invalid in specific cases:
+
+  The following code
+  \begin{minted}{haskell}
+    seq undefined True
+  \end{minted}
+  produces \textit{undefined}
+  But the following
+  \begin{minted}{haskell}
+    seq (id.undefined) True
+    seq (undefined.id) True
+  \end{minted}
+  produces \textit{True} in both cases.
+  As result we have
+  \footnote{we cannot compare functions in Haskell, but if we
+  could we can get it}
+  \begin{minted}{haskell}
+    id . undefined /= undefined
+    undefined . id /= undefined,
+  \end{minted}
+  i.e. \eqref{eq:leftid} and
+  \eqref{eq:rightid} are not satisfied.  
+\end{remark}
+
 Strictly speaking neither Haskell (pure functional language) nor C\texttt{++}
 can be considered as a category in general. For the first approximation
 a functional language (Haskell, Scala) can be considered as a
@@ -986,8 +1016,9 @@ a state in the category. I.e. the functions are
 
 In any case we can construct a simple toy category that can be easy
 implemented in any language. Particularly we will look into category
-with 3 objects that are types: Int, Bool, String. There are also
-several functions between them (see \cref{fig:pl_example}).   
+with 3 objects that are types: \textbf{Int}, \textbf{Bool},
+\textbf{String}. There are also several functions between them (see
+\cref{fig:pl_example}).    
 
 \begin{figure}
   \centering
@@ -1031,8 +1062,8 @@ several functions between them (see \cref{fig:pl_example}).
   \cref{fig:pl_example}.
 
   The function \textbf{isEven}
-  converts\textbf{Int} type 
-  into Bool.
+  converts \textbf{Int} type 
+  into \textbf{Bool}.
   \begin{minted}{haskell}
     isEven :: Int -> Bool
     isEven x = x `mod` 2 == 0
@@ -1058,36 +1089,6 @@ several functions between them (see \cref{fig:pl_example}).
   %% If we consider pure (without effects) functions then
   %% \mynameref{axm:associativity} is also satisfied.
 \end{example}
-
-%http://math.andrej.com/2016/08/06/hask-is-not-a-category/
-\begin{remark}[Haskell lazy evaluation]
-  \label{rem:hask_lazy_eval}
-  Each Haskell type has a special value $\bot$. The fact that the
-  value and lazy evaluations are part of the language, make several
-  category law invalid, for instance 
-  \mynameref{def:id} behaviour become invalid in specific cases:
-
-  The following code
-  \begin{minted}{haskell}
-    seq undefined True
-  \end{minted}
-  produces \textit{undefined}
-  But the following
-  \begin{minted}{haskell}
-    seq (id.undefined) True
-    seq (undefined.id) True
-  \end{minted}
-  produces \textit{True} in both cases.
-  As result we have
-  (we cannot compare compare functions in Haskell, but if we
-  could we can get the following)
-  \begin{minted}{haskell}
-    id . undefined /= undefined
-    undefined . id /= undefined,
-  \end{minted}
-  i.e. \eqref{eq:leftid} and
-  \eqref{eq:rightid} are not satisfied.  
-\end{remark}
 
 \subsection{$\cat{C\texttt{++}}$ toy category}
 \begin{example}[$\cat{C\texttt{++}}$ toy category]
