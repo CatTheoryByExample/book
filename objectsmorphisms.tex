@@ -650,18 +650,18 @@ a^{b+c} = a^b a^c.
 This is also called as \textit{type algebra}.
 \end{example}
 
-\subsection{$\cat{C++}$ category}
-\begin{example}[Initial object][$\cat{C++}$]
+\subsection{$\cat{C\texttt{++}}$ category}
+\begin{example}[Initial object][$\cat{C\texttt{++}}$]
 \label{ex:cpp_initial_object}
-In C++ exists a special type that does not hold any values and as
+In C\texttt{++} exists a special type that does not hold any values and as
 result cannot be created: \textbf{void}.
 You cannot create an object of that type i.e. you will get a compiler
 error if you try.
 \end{example}
 
-\begin{example}[Terminal object][$\cat{C++}$]
+\begin{example}[Terminal object][$\cat{C\texttt{++}}$]
 \label{ex:cpp_terminal_object}
-C++ 17 introduced a special type that keeps only one value -
+C\texttt{++} 17 introduced a special type that keeps only one value -
 \textbf{std::monostate}:  
 \begin{minted}{c++}
 namespace std {
@@ -670,7 +670,7 @@ namespace std {
 \end{minted}
 \end{example}
 
-\begin{example}[Product][$\cat{C++}$]
+\begin{example}[Product][$\cat{C\texttt{++}}$]
 \label{ex:cpp_product}
 The \mynameref{def:product} in \mynameref{def:cppcategory} keeps a
 pair and the constructor defined as follows
@@ -695,11 +695,11 @@ Really any \textbf{struct} or \textbf{class} can be
 considered as a product. 
 \end{example}
 
-\begin{example}[Sum][$\cat{C++}$]
+\begin{example}[Sum][$\cat{C\texttt{++}}$]
   \label{ex:cpp_sum}
   If we consider \mynameref{def:object}s as types then
   \mynameref{def:sum} is an object that can be either one or another
-  type. The corresponding C/C++ construction that provides an ability
+  type. The corresponding C/C\texttt{++} construction that provides an ability
   to keep one of two types is \textbf{union}. 
 
   %% There is an \textbf{Either} implementation from
@@ -774,7 +774,7 @@ considered as a product.
   %%   factor<>(stringLength, id, i) << std::endl;
   %% \end{minted}
 
-  C++17 suggests \textbf{std:variant} as a safe replacement
+  C\texttt{++}17 suggests \textbf{std:variant} as a safe replacement
   for \textbf{union}. The example of the \textbf{factor}
   function is below
   \begin{minted}{c++}
