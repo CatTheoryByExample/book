@@ -532,7 +532,7 @@ There are several examples of categories below that will also be used
 later:
 \begin{itemize}
 \item $\cat{Set}$ category example: see \cref{sec:setcategory_example}
-\item Programming languages (Haskell, C++, Scala) examples: see
+\item Programming languages (Haskell, C\texttt{++}, Scala) examples: see
   \cref{sec:plcategory_example}
 \item Quantum mechanics example: see \cref{sec:qmcategory_example}
 \end{itemize}
@@ -942,14 +942,20 @@ the \mynameref{def:discrete_category}.
 In the programming languages we consider types as
 \mynameref{def:object}s and functions as
 \mynameref{def:morphism}s. The critical requirements for such
-consideration is that the functions have to be pure functions (without
-side effects). This requirement mainly is satisfied by functional
-languages such as Haskell and Scala. From other side the functional
-languages use lazy evaluation to improve their performance. The laziness
-can also make category theory axiom invalid (see
-\mynameref{rem:hask_lazy_eval}). 
+consideration is that the functions have to be
+\mynameref{def:pure_function} (without side effects). This requirement
+mainly is satisfied by functional languages such as Haskell and Scala.
+From other side the functional languages use lazy evaluation to
+improve their performance. The laziness can also make category theory
+axiom invalid (see \mynameref{rem:hask_lazy_eval}). 
 
-Strictly speaking neither Haskell (pure functional language) nor C++
+\begin{definition}[Pure function]
+\label{def:pure_function}
+The function is pure if it's execution give the same results
+independently from the environment. 
+\end{definition}
+
+Strictly speaking neither Haskell (pure functional language) nor C\texttt{++}
 can be considered as a category in general. For the first approximation
 a functional language (Haskell, Scala) can be considered as a
 category if we avoid to use functions with side effects (mainly for
@@ -962,12 +968,6 @@ The objects in the $\cat{Hask}$ category are Haskell types and
 morphisms are functions
 \end{definition}
 
-\begin{definition}[Pure function]
-\label{def:pure_function}
-The function is pure if it's execution give the same results
-independently from the environment. 
-\end{definition}
-
 \begin{definition}[$\cat{Scala}$ category]
 \label{def:scalacategory}
 The objects in the $\cat{Scala}$ category are Scala types and
@@ -975,11 +975,12 @@ morphisms are functions. We don't define functions that have a state
 in the category. I.e. the functions are \mynameref{def:pure_function}s. 
 \end{definition}
 
-\begin{definition}[$\cat{C++}$ category]
+\begin{definition}[$\cat{C\texttt{++}}$ category]
 \label{def:cppcategory}
-The objects in the $\cat{C++}$ category are Scala types and
-morphisms are functions. We don't define functions that have a state
-in the category. I.e. the functions are \mynameref{def:pure_function}s. 
+The objects in the $\cat{C\texttt{++}}$ category are C\texttt{++}
+types and morphisms are functions. We don't define functions that have
+a state in the category. I.e. the functions are
+\mynameref{def:pure_function}s.  
 \end{definition}
 
 
@@ -1088,14 +1089,14 @@ several functions between them (see \cref{fig:pl_example}).
   \eqref{eq:rightid} are not satisfied.  
 \end{remark}
 
-\subsection{$\cat{C++}$ toy category}
-\begin{example}[$\cat{C++}$ toy category]
+\subsection{$\cat{C\texttt{++}}$ toy category}
+\begin{example}[$\cat{C\texttt{++}}$ toy category]
   \label{ex:cppcategory}
-  \index{Object!$\cat{C++}$ example}
-  \index{Morphism!$\cat{C++}$ example}
+  \index{Object!$\cat{C\texttt{++}}$ example}
+  \index{Morphism!$\cat{C\texttt{++}}$ example}
   We will use the same trick as in \mynameref{ex:haskcategory} and
   will assume 
-  types in C++ as \mynameref{def:object}s, 
+  types in C\texttt{++} as \mynameref{def:object}s, 
   functions as \mynameref{def:morphism}s.
   We also are going to implement
   \mynameref{def:category} from \cref{fig:pl_example}.
