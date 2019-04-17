@@ -939,18 +939,25 @@ the \mynameref{def:discrete_category}.
   
 \section{Programming languages examples}
 \label{sec:plcategory_example}
-In the programming languages we consider types as
-\mynameref{def:object}s and functions as
-\mynameref{def:morphism}s. The critical requirements for such
-consideration is that the functions have to be
-\mynameref{def:pure_function}s (without side effects). This requirement
-mainly is satisfied by functional languages such as Haskell and Scala.
+Functions are the most important
+constructions in programming languages. They allow to convert elements 
+\footnote{
+We consider variables as the elements in Scala, C\texttt{++} and 
+CAF (Constant applicative form) as the elements in Haskell
+} of one type into elements of another one. 
 
 \begin{definition}[Pure function]
 \label{def:pure_function}
 The function is pure if it's execution give the same results
 independently from the environment. 
 \end{definition}
+
+Categorical view to programming languages assumes types as
+\mynameref{def:object}s and functions as
+\mynameref{def:morphism}s. The critical requirements for such
+consideration is that the functions have to be
+\mynameref{def:pure_function}s (without side effects). This requirement
+mainly is satisfied by functional languages such as Haskell and Scala.
 
 From other side the functional languages use lazy evaluation to
 improve their performance. The laziness can also make category theory
