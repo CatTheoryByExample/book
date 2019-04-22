@@ -998,27 +998,31 @@ can be considered as a category in general. For the first approximation
 a functional language (Haskell, Scala) can be considered as a
 category if we avoid to use functions with side effects (mainly for
 Scala) and use strict, not lazy, evaluations (for both Haskell and
-Scala). Take the fact into consideration and define categories for 3
+Scala). Lets take the fact into consideration and define categories for 3
 languages 
 
 \begin{definition}[$\cat{Hask}$ category]
 \label{def:haskcategory}
 The objects in the $\cat{Hask}$ category are Haskell types and
-morphisms are functions
+morphisms are functions. We use only strict (not lazy) evaluations for
+functions in the category.
 \end{definition}
 
 \begin{definition}[$\cat{Scala}$ category]
 \label{def:scalacategory}
 The objects in the $\cat{Scala}$ category are Scala types and
-morphisms are functions. We don't define functions that have a state
-in the category. I.e. the functions are \mynameref{def:pure_function}s. 
+morphisms are functions. We don't define functions that have side effects
+in the category. I.e. the functions are
+\mynameref{def:pure_function}s. 
+We also use only strict (not lazy) evaluations for
+functions in the category.
 \end{definition}
 
 \begin{definition}[$\cat{C\texttt{++}}$ category]
 \label{def:cppcategory}
 The objects in the $\cat{C\texttt{++}}$ category are C\texttt{++}
 types and morphisms are functions. We don't define functions that have
-a state in the category. I.e. the functions are
+side effects in the category. I.e. the functions are
 \mynameref{def:pure_function}s.  
 \end{definition}
 
