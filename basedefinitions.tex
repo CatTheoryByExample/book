@@ -969,7 +969,7 @@ axiom invalid (see \mynameref{rem:hask_lazy_eval} below).
   Each Haskell type has a special value $\bot$. The fact that the
   value and the lazy evaluations are parts of the language, make several
   category law invalid, for instance 
-  \mynameref{def:id} behaviour become invalid in specific cases:
+  \mynameref{def:id} behaviour become invalid in specific cases.
 
   The following code
   \begin{minted}{haskell}
@@ -981,7 +981,7 @@ axiom invalid (see \mynameref{rem:hask_lazy_eval} below).
     seq (id.undefined) True
     seq (undefined.id) True
   \end{minted}
-  produces \textit{True} in both cases.
+  produces \textbf{True} in both cases.
   As result we have
   \footnote{we cannot compare functions in Haskell, but if we
   could we can get it}
@@ -991,6 +991,20 @@ axiom invalid (see \mynameref{rem:hask_lazy_eval} below).
   \end{minted}
   i.e. \eqref{eq:leftid} and
   \eqref{eq:rightid} are not satisfied.  
+
+  In the example we used the \textbf{seq} function that has the
+  following signature 
+  \begin{minted}{haskell}
+    seq :: a -> b -> b
+  \end{minted}  
+  i.e. it takes two arguments and returns the second one. It also
+  evaluates the first argument:
+  \begin{eqnarray}
+    seq(\bot, b) = \bot,
+    \nonumber \\
+    seq(a, b) = b.
+    \nonumber
+  \end{eqnarray}
 \end{remark}
 
 Strictly speaking neither Haskell (pure functional language) nor C\texttt{++}
@@ -1159,12 +1173,11 @@ with 3 \mynameref{def:object}s that are types: \textbf{Int}, \textbf{Bool},
   We will use the same trick as in \mynameref{ex:haskcategory} and
   will assume 
   types in C\texttt{++} as \mynameref{def:object}s, 
-  functions as \mynameref{def:morphism}s.
-  We also are going to implement
+  functions as \mynameref{def:morphism}s. We will implement
   \mynameref{def:category} from \cref{fig:pl_example}.
 
 
-  We  also define 2 functions:
+  Lets define 2 functions as follows:
   \begin{minted}{c++}
     auto isEven = [](int x) { 
       return x % 2 == 0; 
@@ -1175,7 +1188,7 @@ with 3 \mynameref{def:object}s that are types: \textbf{Int}, \textbf{Bool},
     };
   \end{minted}
 
-  Composition can be defined as follows:
+  Then we can define composition:
   \begin{minted}{c++}
     // h = g . f
     template <typename A, typename B> 
@@ -1203,7 +1216,7 @@ with 3 \mynameref{def:object}s that are types: \textbf{Int}, \textbf{Bool},
     auto isStringLengthEvenR = compose<>(isStringLengthEven, id);  
   \end{minted}
 
-  Such construction will always provides us the category as soon as we
+  Such construction will always provides us a category until we
   use pure function (functions without effects).
 \end{example}
 
