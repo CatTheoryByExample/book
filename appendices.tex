@@ -1,0 +1,127 @@
+%% -*- coding:utf-8 -*-
+\begin{appendices}
+
+\chapter{Abstract algebra}
+
+\section{Groups}
+
+\begin{definition}[Group]
+  \label{def:group}
+  Let we have a set of elements $G$ with a defined binary operation
+  $\circ$ that satisfied the following properties.
+  \begin{enumerate}
+  \item Closure: $\forall a, b \in G$: $a \circ b \in G$
+  \item Associativity: $\forall a, b, c \in G$:
+    $a \circ \left( b \circ c \right) =
+    \left( a \circ b \right) \circ c$
+  \item Identity element: $\exists e \in G$ such that
+    $\forall a \in G$: $e \circ a = a \circ e = a$
+  \item Inverse element: $\forall a \in G$ $\exists a^{-1} \in G$ such that
+    $a \circ a^{-1} = e$
+  \end{enumerate}
+  In this case $\left(G, \circ\right)$ is called as group.
+\end{definition}
+Therefore the group is a \mynameref{def:monoid} with inverse element
+property. 
+
+\begin{example}[Group $\mathbb{Z}/2\mathbb{Z}$]
+  Consider a set of 2 elements: $G = \left\{0, 1\right\}$ with the
+  operation $\circ$ defined by the table \ref{tab:CayleyZ2Z}.
+  \begin{table}
+    \centering
+    \caption{Cayley table for $\mathbb{Z}/2\mathbb{Z}$}
+    \label{tab:CayleyZ2Z}
+    \begin{tabular}{l|ll}
+      \toprule
+      $\circ$ & 0 & 1 \\
+      \midrule
+      0 & 0 & 1 \\
+      1 & 1 & 0 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  The identity element is $0$ i.e. $e = 0$.
+  Inverse element is the element itself
+  because $\forall a \in G$: $a \circ a = 0 = e$.
+
+  See also example \ref{ex:quotientgroup}
+  \label{ex:groupZ2}
+\end{example}
+
+\begin{definition}[Abelian group]
+  Let we have a \mynameref{def:group} $\left(G, \circ\right)$.
+  The group is called an Abelian or commutative if
+  $\forall a, b \in G$ it holds $a \circ b = b \circ a$.
+  \label{def:abeliangroup}
+\end{definition}
+
+
+\section{Rings and Fields}
+
+\subsection{Rings}
+
+\begin{definition}[Ring]
+  Consider a set $R$ with 2 binary operations defined. The first one
+  $\oplus$ (addition) and elements of $R$ forms an
+  \mynameref{def:abeliangroup}
+  under this operation. The second one is $\odot$ (multiplication) and
+  the elements of $R$ forms a \mynameref{def:monoid} under 
+  the operation. The two binary operations are connected each other
+  via the following distributive law
+  \begin{itemize}
+  \item Left distributivity:
+    $\forall a,b,c \in R$:
+    $a \odot \left(b \oplus c\right) =
+    a \odot b \oplus a \odot c$
+  \item Right distributivity:
+    $\forall a,b,c \in R$:
+    $\left( a \oplus b \right) \odot c =
+    a \odot c \oplus b \odot c$
+    
+  The identity element for $\left(R, \oplus\right)$ is denoted as $0$
+  (additive identity).
+  The identity element for $\left(R, \odot\right)$ is denoted as $1$
+  (multiplicative identity).
+
+  The inverse element to $a$ in $\left(R, \oplus\right)$ is denoted as $-a$
+  \end{itemize}
+
+  In this case $\left(R, \oplus, \odot\right)$ is called as ring.
+  \label{def:ring}
+\end{definition}
+
+The \mynameref{def:ring} is a generalization of integer numbers conception.
+\begin{example}[Ring of integers $\mathbb{Z}$]
+  The set of integer numbers $\mathbb{Z}$ forms a \mynameref{def:ring}
+  under $+$ and $\cdot$ operations i.e. addition $\oplus$ is
+  $+$ and multiplication $\odot$ is $\cdot$. Thus for integer
+  numbers we have the following \mynameref{def:ring}:
+  $\left(\mathbb{Z}, +, \cdot\right)$
+  \label{ex:ring}
+\end{example}
+
+\subsection{Fields}
+
+\begin{definition}[Field]
+  The ring $\left(R, \oplus, \odot\right)$ is called as a field if
+  $\left(R \setminus \{0\}, \odot\right)$ is an \mynameref{def:abeliangroup}.
+
+  The inverse element to $a$ in
+  $\left(R \setminus\{0\}, \odot\right)$ is denoted as $a^{-1}$
+  \label{def:field}
+\end{definition}
+
+\begin{example}[Field $\mathbb{Q}$]
+  Note that $\mathbb{Z}$ is not a field because not for every integer
+  number an inverse exists. But if we consider a set of fractions
+  $\mathbb{Q} = \left\{a/b \mid a \in \mathbb{Z}, b \in
+  \mathbb{Z}\setminus\{0\}\right\}$ when it will be a field.
+
+  The
+  inverse element to $a/b$  in
+  $\left(\mathbb{Q}\setminus\{0\}, \cdot\right)$  will be $b/a$.
+  \label{ex:field}
+\end{example}
+
+\end{appendices}
