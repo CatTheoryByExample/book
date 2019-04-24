@@ -3,6 +3,8 @@
 
 \chapter{Abstract algebra}
 
+\label{sec:abstractalgebra}
+
 \section{Groups}
 
 \begin{definition}[Group]
@@ -44,8 +46,6 @@ property.
   The identity element is $0$ i.e. $e = 0$.
   Inverse element is the element itself
   because $\forall a \in G$: $a \circ a = 0 = e$.
-
-  See also example \ref{ex:quotientgroup}
   \label{ex:groupZ2}
 \end{example}
 
@@ -123,5 +123,37 @@ The \mynameref{def:ring} is a generalization of integer numbers conception.
   $\left(\mathbb{Q}\setminus\{0\}, \cdot\right)$  will be $b/a$.
   \label{ex:field}
 \end{example}
+
+\section{Linear algebra}
+
+\begin{definition}[Vector space]
+  \label{def:vectorspace}
+  Let $F$ is a \mynameref{def:field}. The set $V$ is called as vector
+  space under $F$ if the following conditions are satisfied
+  \begin{enumerate}
+  \item We have a binary operation $V \times V \rightarrow V$
+    (addition): $(x,y) \rightarrow x + y$ with the following
+    properties:
+    \begin{enumerate}
+    \item $x + y = y + x$
+    \item $(x + y) + z = x + ( y + z )$
+    \item $\exists 0 \in V$ such that $\forall x \in V: x + 0 = x$
+    \item $\forall x \in V \exists -x \in V$ such that $x + (-x) = x -
+      x = 0$ 
+    \end{enumerate}    
+  \item We have a binary operation $F \times V \rightarrow V$ (scalar
+    multiplication) with the following properties
+    \begin{enumerate}
+    \item $1_F \cdot x = x$
+    \item $\forall a,b \in F, x \in V$: $a\cdot\left(b \cdot x\right)
+      = \left(a b\right) \cdot x$.
+    \item $\forall a,b \in F, x \in V$:
+      $(a+b)\cdot x = a \cdot x + b \cdot x$
+    \item $\forall a \in F, x, y \in V$:
+      $a\cdot(x+y) = a\cdot x + a \cdot y$
+    \end{enumerate}        
+  \end{enumerate}
+\end{definition}
+
 
 \end{appendices}
