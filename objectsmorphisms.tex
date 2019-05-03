@@ -208,6 +208,8 @@ In our toy example \cref{fig:pl_example} the type String is
 \end{example}
 
 \section{Product and sum}
+
+\subsection{Product}
 The pair of 2 objects is defined via the universal property in
 the following way:
 \begin{definition}[Product]
@@ -258,6 +260,56 @@ The \mynameref{def:product} of two sets $A$ and $B$ in
 \mynameref{def:setcategory} is defined 
 as a \mynameref{def:cartesian_product}: $A \times B = \{(a,b)| a \in A, b \in B\}$. 
 \end{example}
+
+The \mynameref{def:product} of objects will provide also a definition
+for product of morphisms
+\begin{definition}[Product of morphisms]
+\label{def:product_of_morphisms}
+Let $\cat{C}$ is a category and $a,a' \in \catob{C}$ and 
+$b, b' \in \catob{C}$ are 2 pairs of \mynameref{def:object}s that admit
+\cref{def:product}. Consider 2 morphisms that connects the objects: 
+$f: a \to b, f': a' \to b'$ then we can create a new unique morphism that
+connects the products: $f \times f': a \times a' \to b \times b'$ and
+makes the diagram commute (see \cref{fig:product_of_morphisms}). 
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=above:$a$] (a) at (0,2) {};    
+    \node[ele,label=above:$a \times a'$] (aa') at (2,2) {};    
+    \node[ele,label=above:$a'$] (a') at (4,2) {};    
+    \node[ele,label=below:$b$] (b) at (0,0) {};    
+    \node[ele,label=below:$b \times b'$] (bb') at (2,0) {};    
+    \node[ele,label=below:$b'$] (b') at (4,0) {};    
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[sloped,above]{$f$} (b);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a') to
+    node[sloped,above]{$f'$} (b');
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (aa') to
+    node[sloped,above]{$f \times f'$} (bb');
+
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (aa') to
+    node[sloped,above]{$\pi_a$} (a);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (aa') to
+    node[sloped,above]{$\pi_{a'}$} (a'); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bb') to
+    node[sloped,above]{$\pi_b$} (b);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (bb') to
+    node[sloped,above]{$\pi_{b'}$} (b'); 
+  \end{tikzpicture}
+  \caption{Product of morphisms.}
+  \label{fig:product_of_morphisms}
+\end{figure}
+\end{definition} 
+
+\subsection{Sum}
 
 If we invert \mynameref{def:arrow}s in \mynameref{def:product} we will
 got another 
@@ -328,53 +380,6 @@ In other words $h$ factorizes $i'_{1,2}$.
   \mynameref{def:disjoint_union}.  
 \end{example}
 
-The \mynameref{def:product} of objects will provide also a definition
-for product of morphisms
-\begin{definition}[Product of morphisms]
-\label{def:product_of_morphisms}
-Let $\cat{C}$ is a category and $a,a' \in \catob{C}$ and 
-$b, b' \in \catob{C}$ are 2 pairs of \mynameref{def:object}s that admit
-\cref{def:product}. Consider 2 morphisms that connects the objects: 
-$f: a \to b, f': a' \to b'$ then we can create a new unique morphism that
-connects the products: $f \times f': a \times a' \to b \times b'$ and
-makes the diagram commute (see \cref{fig:product_of_morphisms}). 
-
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
-        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
-        sep=-2pt}]
-
-    % the texts
-    
-    \node[ele,label=above:$a$] (a) at (0,2) {};    
-    \node[ele,label=above:$a \times a'$] (aa') at (2,2) {};    
-    \node[ele,label=above:$a'$] (a') at (4,2) {};    
-    \node[ele,label=below:$b$] (b) at (0,0) {};    
-    \node[ele,label=below:$b \times b'$] (bb') at (2,0) {};    
-    \node[ele,label=below:$b'$] (b') at (4,0) {};    
-
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-    node[sloped,above]{$f$} (b);
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a') to
-    node[sloped,above]{$f'$} (b');
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (aa') to
-    node[sloped,above]{$f \times f'$} (bb');
-
-
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (aa') to
-    node[sloped,above]{$\pi_a$} (a);
-    \draw[->,thick,shorten <=2pt,shorten >=2] (aa') to
-    node[sloped,above]{$\pi_{a'}$} (a'); 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bb') to
-    node[sloped,above]{$\pi_b$} (b);
-    \draw[->,thick,shorten <=2pt,shorten >=2] (bb') to
-    node[sloped,above]{$\pi_{b'}$} (b'); 
-  \end{tikzpicture}
-  \caption{Product of morphisms.}
-  \label{fig:product_of_morphisms}
-\end{figure}
-\end{definition} 
 
 \section{Category as a monoid}
 \label{sec:category_as_monoid}
