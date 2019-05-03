@@ -72,6 +72,9 @@ $f = \idm{a}$.
 \end{theorem}
 
 \section{Initial and terminal objects}
+
+\subsection{Initial object}
+
 \begin{definition}[Initial object]
 \label{def:initial_object}
 Let $\cat{C}$ is a \mynameref{def:category}, the
@@ -86,25 +89,6 @@ Note that there is only one function from empty set to any other sets
 \cite{bib:proofwiki:Empty_Mapping_is_Unique} that makes the empty set
 as the \mynameref{def:initial_object} in \mynameref{def:setcategory}. 
 \end{example}
-
-\begin{definition}[Terminal object]
-\label{def:terminal_object}
-Let $\cat{C}$ is a \mynameref{def:category}, the
-\mynameref{def:object} $t \in \catob{C}$ is called
-\textit{terminal object} if $\forall x \in \catob{C}
-\exists! g_x: x \to t \in \cathom{C}$.
-\end{definition}
-
-\begin{example}[Terminal object][$\cat{Set}$]
-\label{ex:set_terminal_object}
-\mynameref{def:terminal_object} in \mynameref{def:setcategory} is a set
-with one element i.e \mynameref{def:singleton_set}. 
-\end{example}
-
-As you can see the initial and terminal objects are opposite each
-other. I.e. if $i$ is an \mynameref{def:initial_object} in $\cat{C}$
-then it will be \mynameref{def:terminal_object} in
-the \mynameref{def:op_category} $\cat{C^{op}}$.
 
 \begin{theorem}[Initial object is unique]
 \label{thm:initial_object_unique}
@@ -153,6 +137,27 @@ These complete the commutative diagram build and finishes the proof.
 \end{proof}
 \end{theorem}
 
+\subsection{Terminal object}
+
+\begin{definition}[Terminal object]
+\label{def:terminal_object}
+Let $\cat{C}$ is a \mynameref{def:category}, the
+\mynameref{def:object} $t \in \catob{C}$ is called
+\textit{terminal object} if $\forall x \in \catob{C}
+\exists! g_x: x \to t \in \cathom{C}$.
+\end{definition}
+
+\begin{example}[Terminal object][$\cat{Set}$]
+\label{ex:set_terminal_object}
+\mynameref{def:terminal_object} in \mynameref{def:setcategory} is a set
+with one element i.e \mynameref{def:singleton_set}. 
+\end{example}
+
+As you can see the initial and terminal objects are opposite each
+other. I.e. if $i$ is an \mynameref{def:initial_object} in $\cat{C}$
+then it will be \mynameref{def:terminal_object} in
+the \mynameref{def:op_category} $\cat{C^{op}}$.
+
 \begin{theorem}[Terminal object is unique]
 \label{thm:terminal_object_unique}
 Let $\cat{C}$ is a category and $t, t' \in \catob{C}$ two
@@ -193,6 +198,8 @@ Just got to the \mynameref{def:op_category} and revert
 \end{figure}
 \end{proof}
 \end{theorem}
+
+\subsection{Toy example}
 
 \begin{example}[Toy example]
 In our toy example \cref{fig:pl_example} the type String is
