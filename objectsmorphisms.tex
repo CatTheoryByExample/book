@@ -222,7 +222,13 @@ c_2 = \pi(c)$ and the
 following universal property is satisfied: $\forall c' \in \catob{C}$
 and morphisms $\pi'_1: c' \to c_1, \pi'_2: c' \to c_2$, exists unique
 morphism $h$ such that the following diagram (see \cref{fig:product})
-commutes, i.e. $\pi'_1 = \pi_1 \circ h, \pi'_2 = \pi_2 \circ h$.
+commutes, i.e. 
+\begin{eqnarray}
+\pi'_1 = \pi_1 \circ h, 
+\nonumber \\
+\pi'_2 = \pi_2 \circ h.
+\label{eq:product}
+\end{eqnarray}
 \begin{figure}
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -258,7 +264,34 @@ In other words $h$ factorizes $\pi'_{1,2}$.
 \label{ex:set_product}
 The \mynameref{def:product} of two sets $A$ and $B$ in
 \mynameref{def:setcategory} is defined 
-as a \mynameref{def:cartesian_product}: $A \times B = \{(a,b)| a \in A, b \in B\}$. 
+as a \mynameref{def:cartesian_product}: $C = A \times B = \{(a,b)| a \in
+A, b \in B\}$. 
+We have only one option for $\pi_{1,2}$:
+\begin{eqnarray}
+\pi_1 : (a,b) \to a \in A,
+\nonumber \\
+\pi_2 : (a,b) \to b \in B.
+\nonumber
+\end{eqnarray}
+Consider also another candidate: $C' = A \times A
+\times B \times B =
+\{(a_1,a_2,b_1, b_2)| a_{1,2} \in A, b_{1,2} \in B\}$.
+There are different options for $\pi'_1$ and $\pi'_2$. Lets choose the
+  following ones:
+\begin{eqnarray}
+\pi'_1 : (a_1,a_2,b_1, b_2) \to a_1 \in A,
+\nonumber \\
+\pi'_2 : (a_1,a_2,b_1, b_2) \to b_2 \in B.
+\nonumber
+\end{eqnarray}
+We can only one morphism $h$ that satisfied conditions
+\eqref{eq:product}:
+\[
+h: (a_1,a_2,b_1, b_2) \to (a_1, b_2) \in A \times B.
+\]
+
+
+ There is not a product TBD
 \end{example}
 
 The \mynameref{def:product} of objects will provide also a definition
