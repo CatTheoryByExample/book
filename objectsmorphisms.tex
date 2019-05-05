@@ -229,7 +229,7 @@ commutes, i.e.
 \pi'_2 = \pi_2 \circ h.
 \label{eq:product}
 \end{eqnarray}
-\begin{figure}
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
@@ -262,10 +262,9 @@ In other words $h$ factorizes $\pi'_{1,2}$.
 
 \begin{example}[Product][$\cat{Set}$]
 \label{ex:set_product}
-The \mynameref{def:product} of two sets $A$ and $B$ in
-\mynameref{def:setcategory} is defined 
-as a \mynameref{def:cartesian_product}: $C = A \times B = \{(a,b)| a \in
-A, b \in B\}$. 
+\mynameref{def:cartesian_product}: $C = A \times B = \{(a,b)| a \in
+A, b \in B\}$ is the \mynameref{def:product} of two sets $A$ and $B$ in
+\mynameref{def:setcategory}. 
 We have only one option for $\pi_{1,2}$:
 \begin{eqnarray}
 \pi_1 : (a,b) \to a \in A,
@@ -322,7 +321,7 @@ $f: a \to b, f': a' \to b'$ then we can create a new unique morphism that
 connects the products: $f \times f': a \times a' \to b \times b'$ and
 makes the diagram commute (see \cref{fig:product_of_morphisms}). 
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
@@ -376,7 +375,7 @@ following universal property is satisfied: $\forall c' \in \catob{C}$
 and morphisms $i'_1: c_1 \to c', i'_2: c_2 \to c'$, exists unique
 morphism $h$ such that the following diagram (see \cref{fig:sum})
 commutes, i.e. $i'_1 = h \circ i_1, i'_2 = h \circ i_2$.
-\begin{figure}
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
@@ -425,9 +424,8 @@ In other words $h$ factorizes $i'_{1,2}$.
 
 \begin{example}[Sum][$\cat{Set}$]
   \label{ex:set_sum}
-  The \mynameref{def:sum} of two sets $A$ and $B$ in
-  \mynameref{def:setcategory} is defined as
-  \mynameref{def:disjoint_union}.  
+  \mynameref{def:disjoint_union} is the \mynameref{def:sum} of two sets $A$ and $B$ in
+  \mynameref{def:setcategory}.  
 \end{example}
 
 
