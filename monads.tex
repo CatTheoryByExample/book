@@ -8,7 +8,12 @@ monad and
 will finish with programming languages examples later.
 
 \section{Monoid in $\cat{Set}$ category}
-We are going to consider \mynameref{def:monoid} in the terms of Set theory and
+In the \cref{sec:category_as_monoid} we considered definition and
+importance of \mynameref{def:monoid} concept. The definition was given
+in the terms of internal structure i.e. the ordinary and not
+\mynameref{def:categorical_approach} was used.
+Now we are going to consider \mynameref{def:monoid} in the terms of
+\mynameref{def:set} theory but 
 will try to give the definition that is based rather on morphisms then
 on internal set structure i.e. we will use
 \mynameref{def:categorical_approach}. Let $M$ is a set and by the
@@ -239,6 +244,7 @@ The \eqref{eq:monoid2} leads to the following equation for morphisms
 or the commutative diagram shown on \cref{fig:monoid_eta_lambda_rho}.
 
 \subsection{Categorical definition for monoid}
+\label{ch:monoid_categorically}
 Before given a formal definition lets look at the operations were used
 for the construction. The first one is the product of 2 objects:
 \[
@@ -325,6 +331,8 @@ m \cong_\rho m \times t
 \end{definition}
 
 \subsection{Monoid importance}
+\index{Monoid!importance}
+\label{ch:monoid_importance_monad}
 \index{Group}
 \index{Ring}
 \index{Field}
@@ -344,7 +352,7 @@ Monoid provides a closed collection of objects such that if you
 combine them you will get an object of the same type. This allows to
 create constructions which are more easy in maintenance. For instance
 there are 2 possible options to combine objects of type $A$ in
-software architecture \cite{bib:scalable_program_arch}:
+software architecture \cite{bib:scalable_program_arch, quora:monoidimportance}:
 \begin{enumerate}
 \item \textbf{Conventional architecture} assumes that a combination of
   several objects of type $A$ will produce a ``network'' of the objects
@@ -360,6 +368,15 @@ combined into new type $C$ etc.
 
 You will not get the problems in the second case because you will be
 always in a closed collection of objects with the same type $A$.
+
+%% The 3 properties of monoid are important if we want to combine a set
+%% of items into the single one. I.e. the rules allow to write a reduction
+%% function or in other words it allows to simplify calculations in math.
+%% The monoids are also used to solve large computations because they
+%% allow to break a computation into pieces. As result we can run small
+%% computations in separate cores or on separate servers and combine the
+%% results into the single one using monoid rules
+%% \cite{quora:monoidimportance}.  
 
 \section{Monoidal category}
 As we saw in the categorical definition for monoid (see
