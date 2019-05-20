@@ -1412,23 +1412,30 @@ direct sum.
 \end{example}
 
 \section{Categorical approach}
+\label{ch:categorical_approach}
 
-\begin{remark}[Set vs Category]
-  \label{rem:set_vs_category}
-  There is an interesting relation between sets and categories. In both
-  we consider objects(sets) and relations between
-  them(morphisms/functions). 
+There is an interesting relation between sets and categories. In both
+we consider objects(sets) and relations between them(morphisms/functions). 
 
-  In the set theory we can get info about functions by looking inside
-  the objects(sets) aka use ``microscope'' \cite{bib:milewski2018category} 
+In the set theory we can get info about functions by looking inside
+the objects(sets) aka use ``microscope''
+\cite{bib:milewski2018category}. For instance the definitions for  
+\mynameref{def:injection} and  \mynameref{def:surjection} are given in
+the terms of internal objects (sets) structure.
 
-  Contrary in the category theory we initially don't have any info about object
-  internal structure but can get it using the relation between the
-  objects i.e. using \mynameref{def:morphism}s. In other words we can use
-  ``telescope'' \cite{bib:milewski2018category}  there.
-\end{remark}
+Contrary in the category theory we initially don't have any info about object
+internal structure but can get it using the relation between the
+objects i.e. using \mynameref{def:morphism}s. In other words we can use
+``telescope'' \cite{bib:milewski2018category}  there. For the instance 
+in the \cref{rem:surjection_epimorphism} we concluded that
+\mynameref{def:epimorphism} is a categorical definition for
+\mynameref{def:surjection}. The same conclusion for relation between
+\mynameref{def:injection} and \mynameref{def:monomorphism} was made in
+\cref{rem:injection_monomorphism}.
 
-
+Many constructions can be defined in the 2 different ways: via
+local (via ``microscope'') or global (via ``telescope'') approach.
+This gives us the following definitions. 
 \begin{definition}[Categorical approach]
 \label{def:categorical_approach}
 The description of a system (object) via its relations with other
@@ -1436,7 +1443,6 @@ systems (objects) will be called as  \textit{categorical approach} in
 the book. This description is an alternative one to an ordinary system
 description via its internal structure.
 \end{definition}
-
 \begin{definition}[Non-categorical approach]
 \label{def:non_categorical_approach}
 The opposite to \mynameref{def:categorical_approach} will be called as
