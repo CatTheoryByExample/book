@@ -1458,12 +1458,60 @@ TBD imperative vs declarative
 
 \subsection{Physics}
 
-TBD Optics law
-
-\subsubsection{Mechanics}
+\subsubsection{Classical mechanics}
+\index{Lagrangian}
+Equation of classical mechanics can be written in different forms. We will
+consider Lagrangian form and least action form there. The key point
+for both is Lagrangian that can be written \footnote{non-relativistic case}
+as 
+\[
+L = T - U,
+\]
+where $T$ is kinetic energy and $U$ is the potential energy. The
+Lagrangian is the function of particles positions $\{q_i\}$,
+velocities $\{\dot{q}_i\}$ and
+time $t$. For the case of $n$ particles we can get the following form
+of Lagrangian:
+\[
+L = L\left(q_1, \dots, q_n, \dot{q}_1, \dots, \dot{q}_n, t\right).
+\]
+The motion equation can be written in the following form:
+\begin{equation}
+\label{eq:lagrange_mechanics}
+\frac{d}{dt}\left(
+\frac{\partial L}{\partial \dot{q}_i} \right)
+= \frac{\partial L}{\partial q_i}
+\end{equation}
+\begin{example}[Newton's second law for single particle]
+Lets consider a single particle motion on the force field $F = -
+\frac{d U}{d x}$.
+The kinetic energy is
+\[
+T = \frac{m \dot{x}^2}{2}
+\]
+and Lagrangian
+\[
+L = T - U = \frac{m \dot{x}^2}{2} - U(x).
+\]
+Thus \eqref{eq:lagrange_mechanics} gives us
+\[
+\frac{d}{dt}\left(
+\frac{\partial L}{\partial \dot{x}} \right)
+= \frac{\partial L}{\partial x}
+\]
+or
+\[
+\frac{d}{dt}\left(m \dot{x}\right) = m \ddot{x} 
+- \frac{d U}{d x} = F
+\]
+that is the famous Newton's second law for single particle. 
+\end{example}
 
 TBD Newton mechanics vs least action principle
 
+\subsubsection{Optics}
+
+TBD Optics law
 
 \subsection{Quantum mechanics}
 
