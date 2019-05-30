@@ -1459,10 +1459,16 @@ TBD imperative vs declarative
 \subsection{Physics}
 
 \subsubsection{Classical mechanics}
+We will consider a motion of a classical mechanical system there. The
+system consists of $n$ particles. Each particle with number $i \in {1,
+  \dots, n}$ has coordinate $q_i \in \mathbb{R}^3$ that changes with
+time. The set ${q_1(t), \dots, q_n(t)}$ defines the trajectory.
 \index{Lagrangian}
-Equation of classical mechanics can be written in different forms. We will
+Equations of classical mechanics, that define the trajectory, can be
+written in different forms. We will 
 consider Lagrangian form and least action form there. The key point
-for both is Lagrangian that can be written \footnote{non-relativistic case}
+for both is \textit{Lagrangian} that can be
+written \footnote{non-relativistic case} 
 as 
 \[
 L = T - U,
@@ -1506,11 +1512,69 @@ or
 \]
 that is the famous Newton's second law for a particle. 
 \end{example}
+
 The \eqref{eq:lagrange_mechanics} is an example of local approach when
 the knowledge about local properties (this knowledge leads to the
-differential equation) gives us the motion equation.
+differential equation) gives us the motion equation i.e. the equation
+has been got using a ``microscope'' there.
 
-TBD Newton mechanics vs least action principle
+Another way to investigate the motion is the principle of least
+action. \index{principle of least action} In the principle we consider
+all possible trajectories of our system between time points $t_1$ and
+$t_2$. For each trajectory ${\bf q}(t) = {q_1(t), \dots, q_n(t)}, t
+\in [t_1, t_2]$ we can define the following integral
+\[
+S\left({\bf q}, t_1, t_2\right) = \int_{t_1}^{t_2}L\left({\bf q}(t), 
+\dot{\bf q}(t), t\right) dt,
+\] 
+that is called as \textit{Action}. The principle of least action
+states that the trajectory taken by the system between times $t_1$ and
+$t_2$ is the one for which the action is stationary (no change) to
+first order \cite{wiki:least_action_principle} i.e.
+\[
+\delta S = 0.
+\]
+We can rewrite the principle as follows
+\begin{eqnarray}
+\delta S = 
+\int_{t_1}^{t_2} \delta L\left({\bf q}(t), 
+\dot{\bf q}(t), t\right) dt = 
+\nonumber \\
+=
+\int_{t_1}^{t_2} \left[L\left({\bf q} + \delta {\bf q} , 
+\dot{\bf q} + \delta \dot{\bf q}, t\right) - L\left({\bf q}, 
+\dot{\bf q}, t\right)\right] dt = 
+\nonumber \\
+= 
+\int_{t_1}^{t_2} \left[\frac{\partial L}{\partial {\bf q}} \delta {\bf
+    q} + \frac{\partial L}{\partial \dot{\bf q}} \delta \dot{\bf
+    q}\right] dt =  
+\int_{t_1}^{t_2} \frac{\partial L}{\partial {\bf q}} \delta {\bf
+    q} dt 
++
+\left. \frac{\partial L}{\partial \dot{\bf q}} \delta {\bf q} \right|_{t_1}^{t_2} - 
+\int_{t_1}^{t_2} \frac{d}{d t} \left( \frac{\partial L}{\partial
+  \dot{\bf q}} \delta {\bf q}\right) dt = 
+\nonumber \\
+= \int_{t_1}^{t_2} \left[
+\frac{\partial L}{\partial {\bf q}} -
+\frac{d}{d t} \left( \frac{\partial L}{\partial
+  \dot{\bf q}} \right)
+\right] \delta {\bf q} dt = 0,
+\nonumber
+\end{eqnarray}
+that leads to \eqref{eq:lagrange_mechanics}. Therefore the same motion
+equation can be used using global approach (via integral over all
+possible trajectories). or in other words the ``telescope'' was used
+there. 
+
+\begin{remark}[Universal property]
+\label{rem:universalproperty}
+The principle of least action can be treated as an universal property
+that will allow to pick up one object (trajectory there) among the set
+of the similar objects. The same universal properties will appear
+during the book in a lot of places.
+\end{remark}
 
 \subsubsection{Optics}
 
