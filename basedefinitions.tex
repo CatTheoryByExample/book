@@ -1470,12 +1470,11 @@ another one gives you a formal definition for the function:
 n! = n \cdot \left(n-1\right)!, 
 \nonumber \\
 0! = 1
-\nonumber
+\label{eq:factorial_declarative}
 \end{eqnarray}
 
 Straightforward approach to resolve the task is demonstrated by
 C\texttt{++} language in implementing \eqref{eq:factorial_imperative}: 
-
 \begin{minted}{c++}
 int f(int n) {
   int res = 1;
@@ -1485,16 +1484,20 @@ int f(int n) {
   return res;
 }
 \end{minted}
+The solution requires provide all details about the internal structure
+of the solution i.e. which variables to be used and how to calculate
+result using them. Thus the approach can be considered as a variation
+of \mynameref{def:non_categorical_approach}.
 
-
+Another case assume that the formal definition of the function is
+provided without any internal details about the implementation. 
+I.e. the \eqref{eq:factorial_declarative} is used. A functional
+language such as Haskell is a good candidate for the implementation:
 \begin{minted}{haskell}
 -- Factorial
 f 0 = 1
 f n = n * f (n - 1)
 \end{minted}
-
-
-TBD imperative vs declarative
 
 \subsection{Physics}
 
