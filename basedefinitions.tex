@@ -1477,6 +1477,10 @@ Straightforward approach to resolve the task is demonstrated by
 C\texttt{++} language in implementing \eqref{eq:factorial_imperative}: 
 \begin{minted}{c++}
 int f(int n) {
+  if (n < 0) {
+    throw std::invalid_argument(
+      "the argument has to be greater or equal 0");
+  }
   int res = 1;
   for (int i = 1; i <= n; ++i) {
     res *= i;
