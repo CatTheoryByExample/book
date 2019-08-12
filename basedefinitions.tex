@@ -1463,7 +1463,7 @@ The factorial can be defined in 2 forms. The first one assumes direct
 instruction on how to calculate it:
 \begin{equation}
 n! = \prod_{i = 1}^n i,
-\nonumber
+\label{eq:factorial_imperative}
 \end{equation}
 another one gives you a formal definition for the function:
 \begin{eqnarray}
@@ -1472,6 +1472,9 @@ n! = n \cdot \left(n-1\right)!,
 0! = 1
 \nonumber
 \end{eqnarray}
+
+Straightforward approach to resolve the task is demonstrated by
+C\texttt{++} language in implementing \eqref{eq:factorial_imperative}: 
 
 TBD imperative vs declarative
 
