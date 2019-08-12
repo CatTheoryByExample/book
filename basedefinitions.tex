@@ -1476,6 +1476,24 @@ n! = n \cdot \left(n-1\right)!,
 Straightforward approach to resolve the task is demonstrated by
 C\texttt{++} language in implementing \eqref{eq:factorial_imperative}: 
 
+\begin{minted}{c++}
+int f(int n) {
+  int res = 1;
+  for (int i = 1; i <= n; ++i) {
+    res *= i;
+  }
+  return res;
+}
+\end{minted}
+
+
+\begin{minted}{haskell}
+-- Factorial
+f 0 = 1
+f n = n * f (n - 1)
+\end{minted}
+
+
 TBD imperative vs declarative
 
 \subsection{Physics}
