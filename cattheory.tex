@@ -42,6 +42,14 @@
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usetikzlibrary{calc,trees,positioning,arrows,fit,shapes,matrix}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+\tikzstyle arrowstyle=[scale=1]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+\tikzstyle reverse directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]
+
 \usepackage{mathtools}
 
 % https://stackoverflow.com/questions/1673942/latex-table-positioning

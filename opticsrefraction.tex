@@ -1,0 +1,29 @@
+%% -*- coding:utf-8 -*-
+% Refraction
+% Author: Jimi Oke
+\begin{tikzpicture}
+
+    % define coordinates
+    \coordinate (O) at (0,0) ;
+    \coordinate (A) at (0,4) ;
+    \coordinate (B) at (0,-4) ;
+    
+    % media
+    \fill[blue!25!,opacity=.3] (-4,0) rectangle (4,4);
+    \fill[blue!60!,opacity=.3] (-4,0) rectangle (4,-4);
+    \node[right] at (2,2) {Air};
+    \node[left] at (-2,-2) {Water};
+
+    % axis
+    \draw[dash pattern=on5pt off3pt] (A) -- (B) ;
+
+    % rays
+    \draw[red,ultra thick,reverse directed] (O) -- (130:5.2);
+    \draw[blue,directed,ultra thick] (O) -- (-70:4.24);
+
+    % angles
+    \draw (0,1) arc (90:130:1);
+    \draw (0,-1.4) arc (270:290:1.4) ;
+    \node[] at (280:1.8)  {$\theta_{2}$};
+    \node[] at (110:1.4)  {$\theta_{1}$};
+\end{tikzpicture}
