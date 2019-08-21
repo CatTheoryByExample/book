@@ -160,13 +160,17 @@
 \aliascntresetthe{remark}
 \providecommand*{\remarkautorefname}{Remark}
 \NewDocumentEnvironment{remark}{oo}
-                       {\IfNoValueTF{#1}
-                         % no optional argument to remark
-                         {\begin{xremark}}
-                         {\begin{xremark}[#1]\index{#1!remark}}
+                       {\IfNoValueTF{#2}
+                         {\IfNoValueTF{#1}
+                           % no optional argument to remark
+                           {\begin{xremark}}
+                           {\begin{xremark}[#1]\index{#1!remark}}
+                         }%
+                         {\begin{xremark}[#1][#2]\index{#1!#2 remark}}
                        }%
                        {\end{xremark}}
-                       
+
+
 \theoremstyle{lemma}
 \newaliascnt{lemma}{xtheorem}
 \newtheorem{xlemma}[lemma]{Lemma}
