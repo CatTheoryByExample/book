@@ -1468,11 +1468,13 @@ Typical examples of the universal property application are
 find the definitions later in the book (see
 \cref{sec:product_and_sum}). The \mynameref{def:universalproperty}
 seems to be broadly used in different areas. There are several examples of
-such \mynameref{def:universalproperty} usage and
-\mynameref{def:categorical_approach} below. 
+such \mynameref{def:universalproperty} usage (see
+\cref{sec:caapproach_physics}) and
+\mynameref{def:categorical_approach} (see
+\cref{sec:caapproach_programming_langs}) below.   
 
 \subsection{Programming languages}
-
+\label{sec:caapproach_programming_langs}
 There are two basic options possible in programming language. You can
 use an imperative approach to implement requested functionality or
 declarative (functional) one. Lets illustrate it on the factorial
@@ -1523,12 +1525,43 @@ f n = n * f (n - 1)
 \end{minted}
 
 \subsection{Physics}
-
+\label{sec:caapproach_physics}
 Many physical concepts (may be every one) can be formulated in 2 ways.
 The first one uses differential equations (aka local approach). The
 second one uses integral equations (aka global approach). The first
 case is similar to the ``microscope'' usage. The second one is the
 similar to ``telescope'' approach.
+
+\subsubsection{Optics}
+
+Optics is another good example of \mynameref{def:universalproperty} in
+physics. In optics it can be reformulated as follows
+\begin{remark}[Universal property][Optics]
+\label{rem:universalpropertyoptics}
+A light beam chooses a path that requires the minimal amount of time to
+path through it.
+\end{remark}
+
+\begin{figure}
+  \centering
+  \input ./opticsrefraction.tex
+  \caption{Optics refraction as an example of Universal property in optics}
+  \label{fig:opticsrefraction}
+\end{figure}
+
+Good example of the property is shown in \cref{fig:opticsrefraction}.
+When the light traverse from point $A$ to point $B$ it does not use
+the shortest path because a big part of the path will be in water
+where speed of the light ($v_2$) is smaller than in air ($v_1$):
+\[
+v_2 < v_1
+\]
+Thus if it follows
+the \mynameref{def:universalproperty} then it should minimize the path
+in water that leads to well known Snell's law \cite{wiki:snellslaw}:
+\[
+\frac{\sin \theta_2}{\sin \theta_1} = \frac{v_2}{v_1} = \frac{n_1}{n_2}.
+\]
 
 \subsubsection{Classical mechanics}
 We will consider a motion of a classical mechanical system there. The
@@ -1650,37 +1683,9 @@ of the similar objects. The same universal properties will appear
 during the book in a lot of places.
 \end{remark}
 
-\subsubsection{Optics}
-
-Optics is another good example of \mynameref{def:universalproperty} in
-physics. In optics it can be reformulated as follows
-\begin{remark}[Universal property][Optics]
-\label{rem:universalpropertyoptics}
-A light beam chooses a path that requires the minimal amount of time to
-path through it.
-\end{remark}
-
-\begin{figure}
-  \centering
-  \input ./opticsrefraction.tex
-  \caption{Optics refraction as an example of Universal property in optics}
-  \label{fig:opticsrefraction}
-\end{figure}
-
-Good example of the property is shown in \cref{fig:opticsrefraction}.
-When the light traverse from point $A$ to point $B$ it does not use
-the shortest path because a big part of the path will be in water
-where speed of the light ($v_2$) is smaller than in air ($v_1$):
-\[
-v_2 < v_1
-\]
-Thus if it follows
-the \mynameref{def:universalproperty} then it should minimize the path
-in water that leads to well known Snell's law \cite{wiki:snellslaw}:
-\[
-\frac{\sin \theta_2}{\sin \theta_1} = \frac{v_2}{v_1} = \frac{n_1}{n_2}.
-\]
-
 \subsection{Quantum mechanics}
+
+Very interesting example of \mynameref{def:categorical_approach} is provided us by
+quantum mechanics via path integrals \cite{feynman2010quantum}.
 
 TBD Path integral
