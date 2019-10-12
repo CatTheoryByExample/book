@@ -1628,10 +1628,11 @@ action. \index{principle of least action} In the principle we consider
 all possible trajectories of our system between time points $t_1$ and
 $t_2$. For each trajectory ${\bf q}(t) = {q_1(t), \dots, q_n(t)}, t
 \in [t_1, t_2]$ we can define the following integral
-\[
+\begin{equation}
 S\left({\bf q}, t_1, t_2\right) = \int_{t_1}^{t_2}L\left({\bf q}(t), 
 \dot{\bf q}(t), t\right) dt,
-\] 
+\label{eq:action}
+\end{equation}
 that is called as \textit{Action}. The principle of least action
 states that the trajectory taken by the system between times $t_1$ and
 $t_2$ is the one for which the action is stationary (no change) to
@@ -1691,9 +1692,16 @@ question that is asked is the following. If we have 2 points $a$ and
 $b$, what's probability $P(a, b)$ that a particle moves from $a$ to
 $b$? The probability is defined as follows \cite{feynman2010quantum}:
 \[
-P(a,b) = \left|K(a,b)\right|,
+P(a,b) = \left|K(a,b)\right|^2,
 \]
 where $K(a,b)$ is a special function defined by all possible paths
-from $a$ to $b$
-
-TBD Path integral
+from $a$ to $b$ as follows
+\[
+K(a,b) = \frac{1}{Z} \int_x e^{\frac{i}{\hbar}S(x)} \mathcal{D}x,
+\]
+where $x$ is a trajectory from $a$ to $b$, and $S$ is the action
+defined by \eqref{eq:action}. Trajectories in the range
+$\delta S(x) > \hbar$ will cancel each other. From other hand the paths which
+have $\delta S = 0$ will not cancel each other and will produce an
+outcome. This is in direct connection with the classical least action
+principle \cite{wiki:least_action_principle}. 
