@@ -1697,11 +1697,17 @@ P(a,b) = \left|K(a,b)\right|^2,
 where $K(a,b)$ is a special function defined by all possible paths
 from $a$ to $b$ as follows
 \[
-K(a,b) = \frac{1}{Z} \int_x e^{\frac{i}{\hbar}S(x)} \mathcal{D}x,
+K(a,b) = \frac{1}{Z} \int_{\bf q} e^{\frac{i}{\hbar}S({\bf q})} \mathcal{D}{\bf q},
 \]
-where $x$ is a trajectory from $a$ to $b$, and $S$ is the action
-defined by \eqref{eq:action}. Trajectories in the range
-$\delta S(x) > \hbar$ will cancel each other. From other hand the paths which
-have $\delta S = 0$ will not cancel each other and will produce an
-outcome. This is in direct connection with the classical least action
-principle \cite{wiki:least_action_principle}. 
+where ${\bf q}$ is a trajectory from $a$ to $b$, and $S$ is the action
+defined by \eqref{eq:action}. For a path $x$ such that $\delta S({\bf q}) >
+\hbar$ we will have that a trajectory ${\bf q} + \delta {\bf q}$ that is similar
+to ${\bf q}$ but gives a completely different action and as result such
+trajectories will cancel each other.   
+
+From other hand the path ${\bf q}_0$ such that
+$\delta S({\bf q}_0) = 0$ will have all other similar trajectories ${\bf q}_0 +
+\delta {\bf q}$ will increase each other and as result the ${\bf q}_0$ will define
+the real trajectory for the particle. This is in direct connection
+with the classical least action principle
+\cite{wiki:least_action_principle}.  
