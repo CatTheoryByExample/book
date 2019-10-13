@@ -1686,6 +1686,28 @@ during the book in a lot of places.
 
 \subsection{Quantum mechanics}
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node[ele,label=right:$b$] (b) at (3,3) {};    
+    \node[ele,label=left:$a$] (a) at (0,1) {};    
+    \draw[-,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,above]{${\bf q}_0$} (b);
+    \draw [xshift=1cm] plot [smooth,
+      tension=0.5] coordinates { (a) (1,0) (1,2) (b)}; 
+    \node at (2.5,1.5) {${\bf q}$};
+
+  \end{tikzpicture}
+  \caption{Different paths between points $a$ and $b$. There are a possible
+    trajectory ${\bf q}$ and the real one ${\bf q}_0$}
+  \label{fig:pathintegral}
+\end{figure}
+
+
 Very interesting example of \mynameref{def:categorical_approach} is provided us by
 quantum mechanics via path integrals \cite{feynman2010quantum}. The
 question that is asked is the following. If we have 2 points $a$ and
@@ -1699,7 +1721,8 @@ from $a$ to $b$ as follows
 \[
 K(a,b) = \frac{1}{Z} \int_{\bf q} e^{\frac{i}{\hbar}S({\bf q})} \mathcal{D}{\bf q},
 \]
-where ${\bf q}$ is a trajectory from $a$ to $b$, and $S$ is the action
+where ${\bf q}$ is a trajectory from $a$ to $b$ (see
+\cref{fig:pathintegral}), and $S$ is the action 
 defined by \eqref{eq:action}. For a path $x$ such that $\delta S({\bf q}) >
 \hbar$ we will have that a trajectory ${\bf q} + \delta {\bf q}$ that is similar
 to ${\bf q}$ but gives a completely different action and as result such
