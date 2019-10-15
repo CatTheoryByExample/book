@@ -3,8 +3,8 @@
 
 \section{Equality}
 
-The important question is how can we decide whenever an
-object/morphism is equal to another object/morphism? The trivial
+The important question is how we can decide whenever an
+object/morphism is equal to another object/morphism. The trivial
 answer is possible if the \mynameref{def:object} is a
 \mynameref{def:set}. In the case we can say that 2 objects are equal
 if they contain the equivalent collection of elements. Unfortunately
@@ -448,11 +448,17 @@ Consider the following definition from abstract algebra
   as a monoid if the following conditions are satisfied.
   \begin{enumerate}
   \item Closure: $\forall a, b \in M$: $a \circ b \in M$
-  \item Associativity: $\forall a, b, c \in M$:
-    $a \circ \left( b \circ c \right) =
-    \left( a \circ b \right) \circ c$
-  \item Identity element: $\exists e \in M$ such that
-    $\forall a \in M$: $e \circ a = a \circ e = a$
+  \item Associativity: $\forall a, b, c \in M:$ 
+    \begin{equation}
+      \label{eq:monoid_associativity}
+      a \circ \left( b \circ c \right) =
+      \left( a \circ b \right) \circ c
+    \end{equation}
+  \item Identity element: $\exists e \in M$ such that $\forall a \in M$:
+    \begin{equation}
+      \label{eq:monoid_identity_element}
+      e \circ a = a \circ e = a
+    \end{equation}    
   \end{enumerate}
 \end{definition}
 
@@ -463,6 +469,29 @@ form another monoid under multiplication operation. The element
 \textbf{0} is used as identity in summation and \textbf{1} is used as
 the identity in multiplication. 
 \end{example}
+
+\begin{example}[Monoid][$\cat{Hask}$]
+There is an declaration of Monoid in $\cat{Hask}$ category
+\begin{minted}{haskell}
+class Monoid m where
+    mappend :: m -> m -> m
+    mempty :: m
+\end{minted}
+There is a binary operation \textbf{mappend} and the identity
+\textbf{mempty}. As it was mentioned in the \mynameref{def:monoid}
+definition (see \cref{def:monoid}), the binary operation should
+satisfy the associativity \eqref{eq:monoid_associativity} and identity
+element \eqref{eq:monoid_identity_element} properties. This is a
+responsibility of a particular implementation to satisfy the
+properties. For instance the standard list implementation satisfies
+them:
+\begin{minted}{haskell}
+instance Monoid [a] where
+    mappend = (++)
+    mempty = []
+\end{minted}
+\end{example}
+
 
 \begin{remark}[Monoid]
 The given definition of monoid is based on its internal structure i.
