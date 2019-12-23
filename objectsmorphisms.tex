@@ -582,16 +582,16 @@ object definition.
 
     % the texts
     
-    \node[ele,label=above:$z'$] (z1) at (0,3) {};    
-    \node[ele,label=below:$z^y$] (zy) at (0,0) {};    
-    \node[ele,label=above:$z' \times y$] (z1y) at (3,3) {};
-    \node[ele,label=below:$z^y \times y$] (zyy) at (3,0) {};
-    \node[ele,label=below:$z$] (z) at (6,0) {};
+    \node[ele,label=above:$y'$] (z1) at (0,3) {};    
+    \node[ele,label=below:$y^x$] (zy) at (0,0) {};    
+    \node[ele,label=above:$y' \times x$] (z1y) at (3,3) {};
+    \node[ele,label=below:$y^x \times x$] (zyy) at (3,0) {};
+    \node[ele,label=below:$y$] (z) at (6,0) {};
 
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (z1) to
     node[left]{$h$} (zy);
     \draw[->,thick,shorten <=2pt,shorten >=2] (z1y) to
-    node[left]{$h \times \idm{y}$} (zyy); 
+    node[left]{$h \times \idm{x}$} (zyy); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (z1y) to
     node[sloped,above]{$e'$} (z); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (zyy) to
@@ -600,17 +600,17 @@ object definition.
   \caption{Exponential object}
   \label{fig:exponential}
 \end{figure}
-Let $\cat{C}$ is a category and $z, y \in \catob{C}$. We also assume
-that $\cat{C}$ allows all \mynameref{def:product}s with $y$, i.e.
-$\forall z' \in \catob{C}, \exists z' \times y$. An object $z^y$
-together with a \mynameref{def:morphism} $e: z^y \times y \to z$ is 
+Let $\cat{C}$ is a category and $x, y \in \catob{C}$. We also assume
+that $\cat{C}$ allows all \mynameref{def:product}s with $x$, i.e.
+$\forall y' \in \catob{C}, \exists y' \times x$. An object $y^x$
+together with a \mynameref{def:morphism} $e: y^x \times x \to y$ is 
 an \textit{exponential object} if $\forall e' \in \cathom{C}$ and
-$\forall z' \in \catob{C}$ exists an
-unique morphism $h: z' \to z$ such that the
+$\forall y' \in \catob{C}$ exists an
+unique morphism $h: y' \to y$ such that the
 \mynameref{def:commutative_diagram} shown in \cref{fig:exponential}
 commutes:
 \[
-e' = e \circ \left(h \times \idm{y} \right)
+e' = e \circ \left(h \times \idm{x} \right)
 \]
 \end{definition}
 
@@ -623,12 +623,35 @@ to define a function $f: X \to Y$ then we should look at the
 \mynameref{def:homset}. For the function application we have to take the argument $x
 \in X$ and the function we want to apply $f \in F$. Then we construct
 the pair $(f,x) \in F \times X$. For the function application we have
-to call a \mynameref{def:morphism} $e: F \times X \to Z$.
+to call a \mynameref{def:morphism} $e: F \times X \to Y$.
 \footnote{$e$ from the word ``eval''}
 I.e. the
 application $e(f, x)$ gives us $e(f, x) = y \in Y$ - the function
 value. 
 \end{example}
+
+\begin{remark}[Exponential notation]
+If there are 2 sets $X, Y$ and there is a morphism
+$f: X \to Y$ then the object (set) $Y^X$ is identical to the morphism
+$f$. Why do we use so strange 
+notation (exponential)? Consider a function from a set with only one
+element (\mynameref{def:terminal_object}) $X$ to a set with 2
+elements $Y$. How many such functions do we have? There are really 2
+functions. One of them return the first element from $Y$ and the other
+returns the second one. The number of functions can be written as
+$2^1$. I.e. one can write
+\begin{equation}
+\label{eq:exponential_size}
+\left|Y^X\right| = \left|Y\right|^{\left|X\right|},
+\end{equation}
+where $\left|X\right| = 1$ - the number of elements in $X$, 
+$\left|Y\right| = 2$ - the number of elements in $Y$.
+
+Otherwise if we consider a function $g: Y \to X$ then we have only one
+possible choice for it: just return the only possible element from
+$X$. I.e. $\left|X^Y\right| = 1$ that correlates with
+\eqref{eq:exponential_size}. 
+\end{remark}
 
 \begin{definition}[Cartesian closed category]
 \label{def:cartesian_closed_category}
