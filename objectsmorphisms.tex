@@ -553,6 +553,7 @@ considered as objects and group homomorphisms as morphisms.
 We are going to talk about functions (aka morphisms) as
 \mynameref{def:object}s. 
 
+\subsection{Definition and examples}
 \begin{example}[Homset]
 \label{ex:homset}
 Consider 2 sets $A$ and $B$ the set of functions between the 2 sets
@@ -660,6 +661,28 @@ $X$. I.e. $\left|X^Y\right| = 1$ that correlates with
 \eqref{eq:exponential_size}. 
 \end{remark}
 
+\subsection{Currying}
+The definition of \mynameref{def:exponential} object is closely
+related to notion of currying that is defined as follows.
+\begin{definition}[Currying]
+\label{def:currying}
+Consider a function of 2 arguments:
+\[
+f:(X\times Y) \to Z
+\]
+\textit{currying} constructs a new function
+\[
+h : X \to (Y \to Z)
+\]
+such that the following equation holds
+\[
+h(x)(y) = f(x,y), 
+\]
+where $x \in X, y \in Y$. The \textit{currying} will be denoted as 
+$h = curry(f)$.
+\end{definition}
+
+\subsection{Cartesian closed category}
 \begin{definition}[Cartesian closed category]
 \label{def:cartesian_closed_category}
 If a category $\cat{C}$ satisfies the following conditions then it is
