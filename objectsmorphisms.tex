@@ -682,6 +682,22 @@ where $x \in X, y \in Y$. The \textit{currying} will be denoted as
 $h = curry(f)$.
 \end{definition}
 
+\begin{remark}[Currying and Sets]
+If we consider $Y^X$ is a set of functions $f : X \to Y$ then the
+currying is the \mynameref{def:bijection}
+\[
+Y^{X_1 \times X_2} \cong \left(Y^{X_1}\right)^{X_2}.
+\] 
+\end{remark}
+\begin{remark}[Currying and Exponential]
+If we look in \cref{fig:exponential} then we can notice that 
+\[
+curry(e): y^x \to (x \to y),
+\]
+i.e. currying is used to construct a morphisms from exponential
+object. 
+\end{remark}
+
 \subsection{Cartesian closed category}
 \begin{definition}[Cartesian closed category]
 \label{def:cartesian_closed_category}
