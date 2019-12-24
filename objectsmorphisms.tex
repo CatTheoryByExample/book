@@ -630,22 +630,29 @@ application $e(f, x)$ gives us $e(f, x) = y \in Y$ - the function
 value. 
 \end{example}
 
+The notation is used for ``morphisms (functions) as objects'' in the
+category theory has an explanation provided in the following remark.
 \begin{remark}[Exponential notation]
-If there are 2 sets $X, Y$ and there is a morphism
-$f: X \to Y$ then the object (set) $Y^X$ is identical to the morphism
-$f$. Why do we use so strange 
-notation (exponential)? Consider a function from a set with only one
-element (\mynameref{def:terminal_object}) $X$ to a set with 2
-elements $Y$. How many such functions do we have? There are really 2
-functions. One of them return the first element from $Y$ and the other
-returns the second one. The number of functions can be written as
-$2^1$. I.e. one can write
+For our example consider 2 \mynameref{def:set}s $X, Y$ and there is a
+function (morphism) $f: X \to Y$. Our claim was that the function $f$ can
+be associated with another object (set)  $Y^X$. 
+
+Why do we use so strange notation (exponential)? Lets $X$ has only 2
+elements, i.e. its \mynameref{def:cardinality} is $2$: 
+$\left|X\right|= 2$. 
+The set $Y$ is \mynameref{def:singleton_set} i.e. its
+\mynameref{def:cardinality} is $1$: $\left|Y\right| = 1$. 
+
+Consider a function $f: X \to Y$. How many such functions do we have?
+There are really 2 functions. One of them return the first element
+from $Y$ and the other returns the second one. The number of functions
+can be written as 
+$2^1$. I.e. one can write for \mynameref{def:cardinality} of a set of
+all functions between $X$ and $Y$ as follows
 \begin{equation}
 \label{eq:exponential_size}
-\left|Y^X\right| = \left|Y\right|^{\left|X\right|},
+\left|Y^X\right| = \left|Y\right|^{\left|X\right|}.
 \end{equation}
-where $\left|X\right| = 1$ - the number of elements in $X$, 
-$\left|Y\right| = 2$ - the number of elements in $Y$.
 
 Otherwise if we consider a function $g: Y \to X$ then we have only one
 possible choice for it: just return the only possible element from
