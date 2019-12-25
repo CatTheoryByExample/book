@@ -711,16 +711,20 @@ $X$. I.e. $\left|X^Y\right| = 1$ that correlates with
 \end{figure}
 \end{remark}
 
-\subsection{Currying}
+\subsection{Currying in $\cat{Set}$}
+In the section we will be in the \mynameref{def:setcategory}. 
 The definition of \mynameref{def:exponential} object is closely
-related to notion of currying that is defined as follows.
+related to notion of currying that is defined for \mynameref{def:set}s
+as follows. 
 \begin{definition}[Currying]
-\label{def:currying}
+\label{def:currying_set}
 Consider a function of 2 arguments:
 \[
 f:(X\times Y) \to Z
 \]
-\textit{currying} constructs a new function
+that maps a pair (\mynameref{def:product}) of 2 sets $X$ and $Y$ into
+another set $Z$.
+The \textit{currying} constructs a new function
 \[
 h : X \to (Y \to Z)
 \]
@@ -732,7 +736,7 @@ where $x \in X, y \in Y$. The \textit{currying} will be denoted as
 $h = curry(f)$.
 \end{definition}
 
-\begin{remark}[Currying and Sets]
+\begin{remark}[Currying]
 If we consider $Y^X$ is a set of functions $f : X \to Y$ then the
 currying is the \mynameref{def:bijection}
 \[
