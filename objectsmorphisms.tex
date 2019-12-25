@@ -620,8 +620,9 @@ e' = e \circ \left(h \times \idm{x} \right)
 Lets look at the \mynameref{def:exponential} in $\cat{Set}$. We want
 to show that the object corresponds to the function. Really if we want
 to define a function $f: X \to Y$ then we should look at the
-\mynameref{def:homset} $F = X \to Y$. $f \in F$ - is an element of the
-\mynameref{def:homset}. For the function application we have to take the argument $x
+\mynameref{def:homset} $F = \catmset{X}{Y}$. $f \in F$ - is an element of the
+\mynameref{def:homset}. For the function application we have to take
+the argument $x 
 \in X$ and the function we want to apply $f \in F$. Then we construct
 the pair $(f,x) \in F \times X$. For the function application we have
 to call a \mynameref{def:morphism} $e: F \times X \to Y$.
@@ -634,14 +635,11 @@ value.
 The notation is used for ``morphisms (functions) as objects'' in the
 category theory has an explanation provided in the following remark.
 \begin{remark}[Exponential notation]
-For our example consider 2 \mynameref{def:set}s $X, Y$ and there is a
-function (morphism) $f: X \to Y$. Our claim was that the function $f$ can
-be associated with another object (set)  $Y^X$. 
-
-Why do we use so strange notation (exponential)? Lets $X$ has only 2
+The \mynameref{def:homset} $\catmset{X}{Y}$ is often denoted as $Y^X$.
+Why the strange notation is used? Lets $X$ has only 2
 elements, i.e. its \mynameref{def:cardinality} is $2$: 
 $\left|X\right|= 2$. 
-The set $Y$ is \mynameref{def:singleton_set} i.e. its
+The set $Y$ is a \mynameref{def:singleton_set} i.e. its
 \mynameref{def:cardinality} is $1$: $\left|Y\right| = 1$. 
 
 Consider a function $f: X \to Y$. How many such functions do we have?
