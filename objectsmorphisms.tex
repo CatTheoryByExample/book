@@ -644,20 +644,71 @@ elements, i.e. its \mynameref{def:cardinality} is $2$:
 $\left|Y\right|= 2$. 
 
 Consider a function $f: X \to Y$. How many such functions do we have?
-There are really 2 functions. One of them return the first element
-from $Y$ and the other returns the second one. The number of functions
-can be written as 
+There are really 2 functions (see \cref{fig:exponential_set_remark_x_y}).
+One of them $f_1$ return the first element 
+from $Y$ ($y_1$) and the other $f_2$ returns the second one ($y_2$).
+The number of functions can be written as 
 $2^1$. I.e. one can write for \mynameref{def:cardinality} of a set of
 all functions between $X$ and $Y$ as follows
 \begin{equation}
 \label{eq:exponential_size}
 \left|Y^X\right| = \left|Y\right|^{\left|X\right|}.
 \end{equation}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,5) {$X$};
+    \node at (4,5) {$Y$};
+    
+    \node[ele,label=left:$x$] (x) at (0,4) {};    
+
+    \node[ele,,label=right:$y_1$] (y1) at (4,4) {};
+    \node[ele,,label=right:$y_2$] (y2) at (4,3) {};
+
+    \node[draw,fit= (x),minimum width=1.5cm, minimum height= 1.5cm] {} ;
+    \node[draw,fit= (y1) (y2),minimum width=2cm, minimum height= 2cm] {} ;  
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x) to
+    node[sloped,above]{$f_1$} (y1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x) to
+    node[sloped,below]{$f_2$} (y2);
+  \end{tikzpicture}
+  \caption{$\catmset{X}{Y}$ consists of 2 elements: $\{f_1, f_2\}$.
+    Thus the cardinality of the homset is $2$}
+  \label{fig:exponential_set_remark_x_y}
+\end{figure}
+
 
 Otherwise if we consider a function $g: Y \to X$ then we have only one
-possible choice for it: just return the only possible element from
+possible choice for it (see \cref{fig:exponential_set_remark_y_x}) : just return the only possible element from
 $X$. I.e. $\left|X^Y\right| = 1$ that correlates with
 \eqref{eq:exponential_size}. 
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,5) {$X$};
+    \node at (4,5) {$Y$};
+    
+    \node[ele,label=left:$x$] (x) at (0,4) {};    
+
+    \node[ele,label=right:$y_{1,2}$] (y) at (4,4) {};
+
+    \node[draw,fit= (x),minimum width=1.5cm, minimum height= 1.5cm] {} ;
+    \node[draw,fit= (y),minimum width=1.5cm, minimum height= 1.5cm] {} ;  
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (y) to
+    node[sloped,above]{$g$} (x);
+  \end{tikzpicture}
+  \caption{$\catmset{Y}{X}$ consists of 1 element: $\{g\}$.
+    Thus the cardinality of the homset is $1$}
+  \label{fig:exponential_set_remark_y_x}
+\end{figure}
 \end{remark}
 
 \subsection{Currying}
