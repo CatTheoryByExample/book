@@ -735,7 +735,27 @@ the bind operator \textbf{>>=} can be implemented as follows
 (>>=)  :: m a -> (a -> m b) -> m b
 ma >>= f = join ( fmap f ma )
 \end{minted} 
+\end{example}
 
+As an application of the last example lets consider the next one
+
+\begin{example}[Monad][$\cat{Hask}$]
+\begin{minted}{haskell}
+joinHeads :: [[a]] -> [a]
+joinHeads ys = ys >>= \xs -> [head xs]
+\end{minted}
+The usage example is the following
+\begin{minted}{haskell}
+> joinHeads ["a123", "b123", "c123"]
+"abc"
+\end{minted}
+As one can see the fmap was appliyed first with the result
+\begin{minted}{haskell}
+> fmap (\xs -> [head xs]) ["a123", "b123", "c123"]
+["a","b","c"]
+\end{minted}
+and finally the join will get us the required result - the list
+contained the first elements of internal lists. 
 \end{example}
 
 \subsection{C\texttt{++}}
