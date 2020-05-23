@@ -489,7 +489,8 @@ structured data. \mynameref{def:object}s are the data and
 If $\cat{C}$ is a \mynameref{def:category} then opposite (or dual) category
 $\cat{C}^{op}$ is constructed in the following way: \mynameref{def:object}s
 are the same, but the \mynameref{def:morphism}s are inverted i.e. 
-if $f \in \cathom{C}$ and $\dom f = a, \cod f = b$, then the
+if $f \in \cathom{C}$ and $\dom f = a, \cod f = b$ (see
+\mynameref{def:domain}, \mynameref{def:codomain}), then the
 corresponding morphism $f^{op} \in \cathom{C^{op}}$ has $\dom f^{op} =
 b, \cod f^{op} = a$ (see \cref{fig:op_category})
 \end{definition}
@@ -586,8 +587,8 @@ one \mynameref{def:morphism} (\mynameref{def:id})  is called
 \textit{Trivial category}.
 \end{definition}
 
-There are several examples of categories below that will also be used
-later:
+There are several examples of categories below that will also be
+actively used later in the book:
 \begin{itemize}
 \item $\cat{Set}$ category example: see \cref{sec:setcategory_example}
 \item Programming languages (Haskell, C\texttt{++}, Scala) examples: see
@@ -597,12 +598,12 @@ later:
 
 \section{$\cat{Set}$ category example}
 \label{sec:setcategory_example}
-The category of sets is the most important example because it will
-allow connect our usual knowledge about sets with the category theory. 
+The category of sets is the most important example because it
+connects our usual knowledge about sets with the category theory. 
 
 \begin{definition}[Set]
   \label{def:set}
-  \textit{Set} is a collection of distinct objects. The objects are called as
+  \textit{Set} is a collection of distinct objects. The objects are called
   the elements of the set. 
 
   The set will be denoted by a capital letter in
@@ -628,17 +629,58 @@ The number of elements in the \mynameref{def:set} $A$ is called
   If $A$ and $B$ are 2 \mynameref{def:set}s then a subset of the
   \mynameref{def:cartesian_product} $A \times B$ is
   called as \textit{binary relation} $R$ between the 2 sets, i.e. $R
-  \subset A \times B$. 
+  \subset A \times B$.
 \end{definition}
+
+\begin{example}[Binary relation]
+  Example of binary relation is shown on
+  \cref{fig:binary_relation}. There is a relation $R$ between 2 sets
+  $A$ and $B$. The relation maps $a_1$ into two different values
+  $b_1$ and $b_2$.
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+      
+      % the texts
+      \node at (0,5) {$A$};
+      \node at (4,5) {$B$};
+      
+      \node[ele,label=left:$a_1$] (a1) at (0,3.5) {};    
+      \node[ele,label=left:$a_2$] (a2) at (0,2.5) {};    
+      
+      \node[ele,,label=right:$b_1$] (b1) at (4,4) {};
+      \node[ele,,label=right:$b_2$] (b2) at (4,3) {};
+      \node[ele,,label=right:$b_3$] (b3) at (4,2) {};
+      
+      \node[draw,fit= (a1) (a2) ,minimum height=3cm, minimum width=2cm] {} ;
+      \node[draw,fit= (b1) (b2) (b3),minimum width=2cm] {} ;  
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a1) -- (b2);
+      \draw[->,thick,shorten <=2pt,shorten >=2] (a1) -- (b1);
+      \draw[->,thick,shorten <=2pt,shorten >=2] (a2) -- (b3);
+    \end{tikzpicture}
+    \caption{Binary relation $R$ between 2 sets $A$ and $B$. $a_1$ is
+      mapped into 2 values $b_1, b_2$}
+    \label{fig:binary_relation}
+  \end{figure}
+\end{example}
 
 \begin{definition}[Function]
   \label{def:function}
   \textit{Function} $f$ is a special type of \mynameref{def:binary_relation}. I.e.
   if $A$ and $B$ are 2 \mynameref{def:set}s then a subset of $A \times B$ is
   called function $f$ between the 2 sets if $\forall a \in A \, \exists!
-  b \in B$ such that $(a,b) \in f$. In other words function definition
-  does not allow ``multi value''.
+  b \in B$ such that $(a,b) \in f$.
 \end{definition}
+
+\begin{remark}[Function vs Binary relation]
+  The main difference between \mynameref{def:function} and
+  \mynameref{def:binary_relation} is that
+  \mynameref{def:binary_relation} allows mapping an argument into
+  more than one value (see \cref{fig:binary_relation}). From other side \mynameref{def:function}
+  definition does not allow such ``multi value''.
+\end{remark}
 
 \begin{definition}[$\cat{Set}$ category]
   \label{def:setcategory}
