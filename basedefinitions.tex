@@ -354,7 +354,7 @@ Note that \mynameref{def:id} is unique, see
 
 
   \end{tikzpicture}
-  \caption{Monomorphism: $f \circ g_1 = f \circ g_2$ leads to $g_1 = g_2$}
+  \caption{Monomorphism $f: a \hookrightarrow b$: $\forall g_1, g_2$: $f \circ g_1 = f \circ g_2$ leads to $g_1 = g_2$}
   \label{fig:monomorphism}
 \end{figure}
 
@@ -392,7 +392,7 @@ Note that \mynameref{def:id} is unique, see
 
 
   \end{tikzpicture}
-  \caption{Epimorphism: $g_1 \circ f = g_2 \circ f$ leads to $g_1 = g_2$}
+  \caption{Epimorphism $f$: $g_1 \circ f = g_2 \circ f$ leads to $g_1 = g_2$}
   \label{fig:epimorphism}
 \end{figure}
 
@@ -401,19 +401,19 @@ Note that \mynameref{def:id} is unique, see
 \begin{definition}[Isomorphism]
 \label{def:isomorphism} 
 A \mynameref{def:morphism} $f: a \to b$ is called \textit{isomorphism} if
-$\exists g: b \to a$ such that $f \circ g = \idm{a}$ 
-and $g \circ f = \idm{b}$.  
+$\exists g: b \to a$ such that $f \circ g = \idm{b}$ 
+and $g \circ f = \idm{a}$.  
 If there is an isomorphism $f$ between objects $a$ and $b$
-then it is denoted as $a \cong_f b$. 
+then it is denoted by $a \cong_f b$. 
 \end{definition}
 
 \begin{remark}[Isomorphism]
 \label{rem:isomorphism}
-There are can be many different \mynameref{def:isomorphism}s between 2
+There can be many different \mynameref{def:isomorphism}s between 2
 \mynameref{def:object}s. 
 
-If there is an unique isomorphism between 2 objects then the objects
-can be treated as the same object.
+If there is an unique isomorphism between 2 objects $a$ and $b$ then the objects
+can be treated as the same object i.e. $a = b$.
 \end{remark}
 
 \subsection{Category}
@@ -479,8 +479,8 @@ can be treated as the same object.
 \end{definition}
 
 The \mynameref{def:category} can be considered as a way to represent a
-structured data. \mynameref{def:morphism}s are the ones which form the
-structure. 
+structured data. \mynameref{def:object}s are the data and
+\mynameref{def:morphism}s form the structure that connects the data. 
 
 \begin{definition}[Opposite category]
 \label{def:op_category}
