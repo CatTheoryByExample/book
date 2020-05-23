@@ -194,22 +194,60 @@ considered as the same \mynameref{def:morphism}s.
   \label{def:id}
   For every \mynameref{def:object} $a$ we define a special
   \mynameref{def:morphism} $\idm{a} : a \rightarrow a$ with the
-  following properties: $\forall f_{ba} : b \rightarrow a$
+  following properties: $\forall f_{ba} : b \rightarrow a$ (see \cref{fig:left_idm})
   \begin{equation}
     \idm{a} \circ f_{ba} = f_{ba}
     \label{eq:leftid}
   \end{equation}
   and
-  $\forall f_{ab} : a \rightarrow b$
+  $\forall f_{ab} : a \rightarrow b$ (see \cref{fig:right_idm})
   \begin{equation}
     f_{ab} \circ \idm{a}  = f_{ab}.
     \label{eq:rightid}
   \end{equation}
-  This morphism is called as \textit{identity morphism}.
+  This morphism is referred to as \textit{identity morphism}.
 \end{definition}
 
 Note that \mynameref{def:id} is unique, see
 \mynameref{thm:identity_unique} below.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    \node[ele,label=below:$a$] (a) at (0,0) {};    
+    \node[ele,label=below:$b$] (b) at (2,0) {};    
+    
+    \draw[->] (b) to node[pos=0.5,above]{$f_{ba}$} (a); 
+
+    \draw[->] (a) to [out=45,in=135,looseness=20] node[above] {$\idm{a}$} (a);
+
+  \end{tikzpicture}
+  \caption{Identity morphism: $\idm{a} \circ f_{ba} = f_{ba}$}
+  \label{fig:left_idm}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    \node[ele,label=below:$a$] (a) at (2,0) {};    
+    \node[ele,label=below:$b$] (b) at (0,0) {};    
+    
+    \draw[->] (a) to node[pos=0.5,above]{$f_{ab}$} (b); 
+
+    \draw[->] (a) to [out=45,in=135,looseness=20] node[above] {$\idm{a}$} (a);
+
+  \end{tikzpicture}
+  \caption{Identity morphism: $f_{ab} \circ \idm{a}  = f_{ab}$}
+  \label{fig:right_idm}
+\end{figure}
+
 
 \begin{definition}[Commutative diagram]
   \label{def:commutative_diagram}
