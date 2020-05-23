@@ -82,8 +82,8 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
   \]
   is called as \textit{morphism}. Morphism assumes a direction i.e. one
   \mynameref{def:object} 
-  ($a$) is called \textit{source} and another one ($b$)
-  \textit{target}.
+  ($a$) is called \textit{source} or \mynameref{def:domain} and another one ($b$)
+  \textit{target} or \mynameref{def:codomain}.
 
   The \mynameref{def:set} of all morphisms between objects $a$ and $b$
   is denoted as $\catmset{a}{b}$.
@@ -107,7 +107,7 @@ b$ leads to incorrect conclusion that $f_1 = f_2$.
 For instance if $a
 = b = \mathbb{R}$ then two functions $f_1(x) = x, f_2(x) = -x$ define two
 different ordering on $\mathbb{R}$ and as result have not to be
-considered as the same functions.
+considered as the same \mynameref{def:morphism}s.
 \end{remark}
 
 \begin{definition}[Domain]
@@ -122,6 +122,27 @@ considered as the same functions.
   \mynameref{def:object} $b$ is called \textit{codomain} and denoted as $\cod f$.
 \end{definition}
 
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+    
+    \node[ele,label=left:$a$] (a) at (1,1) {};    
+    \node[ele,label=right:$b$] (b) at (3,1) {};    
+    \node[ele,label=right:$c$] (c) at (3,3) {};    
+    
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,below]{$f_{ab}$} (b);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    node[pos=0.5,right]{$f_{bc}$} (c);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,above]{$f_{ac}$} (c);
+  \end{tikzpicture}
+  \caption{Composition $f_{ac} = f_{bc} \circ f_{ab}$}
+  \label{fig:composition}
+\end{figure}
+
 \mynameref{def:morphism}s have several properties. \footnote{The
   properties don't have any proof and postulated as axioms}
 \begin{axiom}[Composition]
@@ -134,7 +155,7 @@ considered as the same functions.
   f_{bc} : b \rightarrow c
   \nonumber 
   \end{eqnarray}
-  then there exists \mynameref{def:morphism} (see \cref{fig:composition})
+  then there exists a \mynameref{def:morphism} (see \cref{fig:composition})
   \[
   f_{ac} : a \rightarrow c
   \]
@@ -173,15 +194,15 @@ considered as the same functions.
   \label{def:id}
   For every \mynameref{def:object} $a$ we define a special
   \mynameref{def:morphism} $\idm{a} : a \rightarrow a$ with the
-  following properties: $\forall f_{ab} : a \rightarrow b$
+  following properties: $\forall f_{ba} : b \rightarrow a$
   \begin{equation}
-    \idm{a} \circ f_{ab} = f_{ab}
+    \idm{a} \circ f_{ba} = f_{ba}
     \label{eq:leftid}
   \end{equation}
   and
-  $\forall f_{ba} : b \rightarrow a$
+  $\forall f_{ab} : a \rightarrow b$
   \begin{equation}
-    f_{ba} \circ \idm{a}  = f_{ba}.
+    f_{ab} \circ \idm{a}  = f_{ab}.
     \label{eq:rightid}
   \end{equation}
   This morphism is called as \textit{identity morphism}.
@@ -200,30 +221,29 @@ Note that \mynameref{def:id} is unique, see
 
 \begin{example}
   \label{ex:commutative_diagram}
-The trivial example of \mynameref{def:commutative_diagram} is
-\mynameref{axm:composition} for $f_{ab} = f_{cb} \circ f_{ac}$:
+  The trivial example of \mynameref{def:commutative_diagram} is
+  \mynameref{axm:composition} for $f_{ab} = f_{cb} \circ f_{ac}$:
   \begin{figure}[H]
-\centering
-  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
-        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
-        sep=-2pt}]
-    
-    \node[ele,label=left:$a$] (a) at (1,1) {};    
-    \node[ele,label=right:$b$] (b) at (3,1) {};    
-    \node[ele,label=right:$c$] (c) at (3,3) {};    
-    
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-    node[pos=0.5,above]{$f_{ac}$} (c);
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
-    node[pos=0.5,right]{$f_{cb}$} (b);
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-    node[pos=0.5,below]{$f_{ab}$} (b);
-  \end{tikzpicture}
-  \caption{Commutative diagram for composition $f_{ab} = f_{cb} \circ f_{ac}$}
-  \label{fig:composition}
-\end{figure}
+    \centering
+    \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+      
+      \node[ele,label=left:$a$] (a) at (1,1) {};    
+      \node[ele,label=right:$b$] (b) at (3,1) {};    
+      \node[ele,label=right:$c$] (c) at (3,3) {};    
+      
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+      node[pos=0.5,above]{$f_{ac}$} (c);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+      node[pos=0.5,right]{$f_{cb}$} (b);
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+      node[pos=0.5,below]{$f_{ab}$} (b);
+    \end{tikzpicture}
+    \caption{Commutative diagram for composition $f_{ab} = f_{cb} \circ f_{ac}$}
+    \label{fig:composition_commutative_diagramm}
+  \end{figure}
 \end{example}
-
 
 \begin{remark}[Class of Morphisms]
   \label{rem:morphclass}
