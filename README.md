@@ -2,7 +2,7 @@ The Category Theory by Example
 ==============================
 
 [![Build Status](https://travis-ci.org/CatTheoryByExample/book.svg?branch=master)](https://travis-ci.org/CatTheoryByExample/book)
-[![Release (0.0.6)](https://img.shields.io/badge/Latest-release-orange.svg)](https://github.com/CatTheoryByExample/book/releases/download/release-0.0.6/cattheory.pdf)
+[![Release (0.0.7)](https://img.shields.io/badge/Latest-release-orange.svg)](https://github.com/CatTheoryByExample/book/releases/download/release-0.0.7/cattheory.pdf)
 
 Build:
 - build cattheory.pdf file: make
