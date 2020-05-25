@@ -819,12 +819,9 @@ is \mynameref{def:surjection} as well as \mynameref{def:injection} (aka
   \cite{bib:proofwiki:Surjection_iff_Epimorphism_in_Category_of_Sets}
   of that fact.
 
-\end{remark}
-
-
-% https://tex.stackexchange.com/questions/19987/
+  % https://tex.stackexchange.com/questions/19987/
 % drawing-a-bijective-map-with-tikz 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
@@ -853,7 +850,7 @@ is \mynameref{def:surjection} as well as \mynameref{def:injection} (aka
     \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y3);
 
   \end{tikzpicture}
-  \caption{A non-surjective function $f$ from domain $X$ to
+  \caption{Surjection vs epimorphism: A non-surjective function $f$ from domain $X$ to
     codomain $Y' \subset Y$.
     $\exists g_1: Y' \rightarrow Y', g_2: Y \rightarrow Y$ such that
     $g_1(y) = g_2(y), \forall y \in Y'$, but as soon as $Y' 
@@ -862,6 +859,7 @@ is \mynameref{def:surjection} as well as \mynameref{def:injection} (aka
     I.e. the function $f$ is not epimorphism. }
   \label{fig:surjection_epimorphism}
 \end{figure}
+\end{remark}
 
 
 \begin{definition}[Injection]
