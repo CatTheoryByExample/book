@@ -706,8 +706,54 @@ The number of elements in the \mynameref{def:set} $A$ is called
   \mynameref{def:morphism}s are \mynameref{def:function}s between the
   sets.The \mynameref{def:id} is the trivial function such that $\forall x \in
   X: \idm{X}(x) = x$.
+  \mynameref{axm:composition} is the functions composition (see \cref{fig:function_composition}) 
 \end{definition}
 
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,5) {$X$};
+    \node at (3,5) {$Y$};
+    \node at (6,5) {$Z$};
+    
+    \node[ele,label=left:$x_1$] (x1) at (0,4) {};    
+    \node[ele,label=left:$x_2$] (x2) at (0,3) {};    
+    \node[ele,label=left:$x_3$] (x3) at (0,2) {};
+    \node[ele,label=left:$x_4$] (x4) at (0,1) {};
+
+    \node[ele,label=above:$y_1$] (y1) at (3,4) {};    
+    \node[ele,label=above:$y_2$] (y2) at (3,3) {};    
+    \node[ele,label=above:$y_3$] (y3) at (3,2) {};
+    \node[ele,label=above:$y_4$] (y4) at (3,1) {};
+
+    \node[ele,,label=right:$z_1$] (z1) at (6,4) {};
+    \node[ele,,label=right:$z_2$] (z2) at (6,3) {};
+    \node[ele,,label=right:$z_3$] (z3) at (6,2) {};
+
+    \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
+    \node[draw,fit= (y1) (y2) (y3) (y4),minimum width=2cm] {} ;  
+    \node[draw,fit= (z1) (z2) (z3),minimum width=2cm] {} ;  
+    
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y4);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x4) -- (y3);
+    
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (y1) -- (z2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (y2) -- (z1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (y3) -- (z3);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (y4) -- (z3);
+  \end{tikzpicture}
+  \caption{Function composition. The function $f_{X \to Z}: X \to Z$ is the
+    composition of 2 functions $f_{X \to Y} : X \to Y$ and $f_{Y \to
+      Z}: Y \to Z$ }
+  \label{fig:function_composition}
+\end{figure}
+  
 \begin{remark}[$\cat{Set}$ category]
   In general case when we say $\cat{Set}$ category we assume the set
   of all sets. But the result is inconsistent because famous Russell's
