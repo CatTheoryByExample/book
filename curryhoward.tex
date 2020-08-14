@@ -193,4 +193,39 @@ Different modifications of logic rules give us new computational
 models. One of example is the quantum computations. The quantum logic
 differs from Boolean one in the missing distributive law
 \eqref{eq:distributive_law_boolean}. 
-TBD
+
+We can use the Heisenberg inequality to illustrate the violation of
+the law. Consider a particle with 2 possible positions range and 1
+possible momentum range. The event $P$ is that momentum has
+range $\Delta p$. The event $Q_{1,2}$ is that position is in the
+corresponding range $\Delta q_{1,2}$.
+
+Heisenberg inequality says
+\[
+\Delta p \Delta q_{1,2} \geq \frac{\hbar}{2}
+\]
+i.e. the following 2 events $P\land Q_{1,2}$ are not forbidden:
+\[
+\Delta p \Delta q_1 = \frac{\hbar}{3}
+\]
+and
+\[
+\Delta p \Delta q_2 = \frac{\hbar}{3}
+\]
+i.e.
+\[
+P \land Q_1 = P \land Q_2 = \mbox{False}
+\]
+from other side the event $P \land (Q_1 \lor Q_2)$ can be
+$\mbox{True}$ as soon as
+\[
+\Delta p (\Delta q_1 + \Delta q_1) = \frac{2\hbar}{3} >
+\frac{\hbar}{2}.
+\]
+Therefore we have distributive law
+\eqref{eq:distributive_law_boolean} violation
+\[
+P \land (Q_1 \lor Q_2) \ne (P \land Q_1 ) \lor (P \land Q_2).
+\]
+
+
