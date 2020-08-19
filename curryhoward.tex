@@ -198,7 +198,33 @@ We can use the Heisenberg inequality to illustrate the violation of
 the law. Consider a particle with 2 possible positions range and 1
 possible momentum range. The event $P$ is that momentum has
 range $\Delta p$. The event $Q_{1,2}$ is that position is in the
-corresponding range $\Delta q_{1,2}$.
+corresponding range $\Delta q_{1,2}$ (see \cref{fig:heisenberg}).
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt}]
+      \node[ele,label=left:$0$] (a) at (0,0) {};
+      \node[ele,label=above:$\frac{\hbar}{3 \Delta p}$] (b) at (2,0) {};
+      \node[ele,label=right:$\frac{2 \hbar}{3 \Delta p}$] (c) at (4,0) {};
+      \draw[-,thick,shorten <=2pt,shorten >=2pt] (a) to node[above]
+           {$\Delta q_1$} (b);
+      \draw[-,thick,shorten <=2pt,shorten >=2pt] (b) to node[above]
+           {$\Delta q_2$} (c);  
+  \end{tikzpicture}
+  \caption{Heisenberg inequality. The event $P$ is that momentum has
+    uncertainty $\Delta p$ Event $P \land Q_1$ is that particle's
+    position is between $0$ and $\frac{\hbar}{3 \Delta p}$. Event
+    $P \land Q_2$ is that particle's
+    position is between $\frac{\hbar}{3 \Delta p}$ and
+    $\frac{2\hbar}{3 \Delta p}$. Particle's position for event $P
+    \land Q = (P \land Q_1)
+    \lor (P \land Q_2)$ is between $0$ and $\frac{2\hbar}{3 \Delta p}$. The
+    events $P \land Q_1$ and $P \land Q_2$ are forbidden by the Heisenberg
+    inequality. From other side the event $P \land Q = (P \land Q_1)
+    \lor (P \land Q_2)$ is possible}   
+  \label{fig:heisenberg}
+\end{figure}
 
 Heisenberg inequality says
 \[
