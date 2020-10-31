@@ -254,8 +254,28 @@ Note that \mynameref{def:id} is unique, see
   A \textit{diagram} in a category $\cat{C}$ is a collection of
   vertices and directed edges where the vertices correspond to the
   category $\cat{C}$ objects and edges consistently correspond to the
-  morphisms.
+  morphisms (see \ref{fig:diagramm}).
 
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+          width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+          sep=-2pt}]
+      
+      \node[ele,label=left:$a$] (a) at (1,1) {};    
+      \node[ele,label=right:$b$] (b) at (3,1) {};    
+      
+      \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+      node[pos=0.5,above]{$f$} (b);
+      \draw[thick,dashed] (a) -- (1,3);
+      \draw[thick,dashed] (b) -- (3,3);
+    \end{tikzpicture}
+    \caption{Diagram in category $\cat{C}$. Vertexes $a$ and $b$ are
+      objects in the category $\cat{C}$, $f$ is a morphism from the category.}
+   \label{fig:diagramm}
+  \end{figure}
+
+  
   Consistently means that for an edge named as $f$ has endpoints
   labeled $a$ and $b$. Where $f$ is a morphism of $\cat{C}$, $a$ is \mynameref{def:domain} of $f$ and
   $b$ is \mynameref{def:codomain} of $f$. 
