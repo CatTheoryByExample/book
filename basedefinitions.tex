@@ -249,11 +249,22 @@ Note that \mynameref{def:id} is unique, see
 \end{figure}
 
 
+\begin{definition}[Diagram]
+  \label{def:diagram}
+  A \textit{diagram} in a category $\cat{C}$ is a collection of
+  vertices and directed edges where the vertices correspond to the
+  category $\cat{C}$ objects and edges consistently correspond to the
+  morphisms.
+
+  Consistently means that for an edge named as $f$ has endpoints
+  labeled $a$ and $b$. Where $f$ is a morphism of $\cat{C}$, $a$ is \mynameref{def:domain} of $f$ and
+  $b$ is \mynameref{def:codomain} of $f$. 
+\end{definition}
+
 \begin{definition}[Commutative diagram]
   \label{def:commutative_diagram}
-  A commutative diagram is a diagram of \mynameref{def:object}s (also known as
-  vertices) and \mynameref{def:morphism}s (also known as \mynameref{def:arrow}s or
-  edges) such that all directed paths in the diagram with the same
+  A \mynameref{def:diagram} of category $\cat{C}$ is said to
+  \textit{commute} if all directed paths in the diagram with the same
   start and endpoint lead to the same result by composition.
 \end{definition}
 
