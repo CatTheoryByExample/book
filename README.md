@@ -19,6 +19,9 @@ Build:
 Branches:
 - master - the main upstream
 
+Note: the builds are not possible now since Travis CI requires payment for it
+
+Previous instruction for build/release is following:
 To start release publishing:
 - commit and push your changes
 - set release tag: for instance git tag release-0.0.123
