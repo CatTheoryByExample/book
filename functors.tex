@@ -5,7 +5,7 @@
 
 \begin{definition}[Functor]
   \label{def:functor}
-  Let $\cat{C}$ and $\cat{D}$ are 2 categories. A mapping $F: \cat{C}
+  Let $\cat{C}$ and $\cat{D}$ be 2 categories. A mapping $F: \cat{C}
   \tof \cat{D}$ between the categories is called \textit{functor} if it
   preserves the internal structure (see \cref{fig:functor}): 
   \begin{itemize}
@@ -59,18 +59,18 @@
 \end{definition}
 
 \begin{remark}[Functor]
-  When we say that functor preserve internal structure we assume that
+  When we say that a functor preserves internal structure we assume that
   the functor is not just mapping between \mynameref{def:object}s but
   also between \mynameref{def:morphism}s.  
 
-  Thus functor is something that allows map one category into another.
+  Thus a functor is something that allows us to map one category into another.
   The initial category can be considered as a pattern thus the mapping
-  is some kind of searching of the pattern inside another category.
+  is some kind of search for the pattern inside another category.
 \end{remark}
 
 Programming languages can be considered as a good platform for the
 functor examples. 
-The functor can be defined in Haskell as follows
+The functor can be defined in Haskell as follows.
 \footnote{the real definition is quite different from the current one}
 \begin{example}[Functor][$\cat{Hask}$]
   \label{ex:functor_haskell}
@@ -80,7 +80,7 @@ The functor can be defined in Haskell as follows
   \end{minted} 
 \end{example}
 
-In Scala it can be defined in the same way
+In Scala it can be defined in the same way.
 \begin{example}[Functor][$\cat{Scala}$]
   \label{ex:functor_scala}
   \begin{minted}{scala}
@@ -89,12 +89,12 @@ In Scala it can be defined in the same way
   }\end{minted} 
 \end{example}
 
-In C\texttt{++} the definition differs
+In C\texttt{++} the definition differs.
 \begin{example}[Functor][$\cat{C\texttt{++}}$]
   \label{ex:functor_cpp}
   In C\texttt{++} templates can be considered as type constructors in Haskell
-  and therefore can convert one type for another. For instance the
-  list of strings can be got with the following construction:
+  and therefore can convert one type to another. For instance the
+  list of strings can be obtained with the following construction:
 
   \begin{minted}{c++}
     using StringList = std::list<std::string>;
@@ -104,13 +104,13 @@ In C\texttt{++} the definition differs
   Therefore we need to define fmap
   operation for \mynameref{def:morphism}s mapping to complete the
   \mynameref{def:functor} definition. It can be declared as 
-  follows 
+  follows:
   \begin{minted}{c++}
     template < template< class ...> class F, class A, class B> 
     F<B> fmap(std::function<B(A)>, F<A>);
   \end{minted}
   The template specialization for the \textbf{std::list} can be
-  written as follows
+  written as follows.
   \begin{minted}{c++}
     // file: functor.h
     template <class A, class B>
@@ -121,7 +121,7 @@ In C\texttt{++} the definition differs
     }
   \end{minted} 
 
-  The simple usage example is the following
+  The simple usage example is the following.
   \begin{minted}{c++}
     StringList a = {"1", "2", "3"};
     std::function<int(std::string)> f = [](std::string s) {
@@ -134,7 +134,7 @@ In C\texttt{++} the definition differs
 
 \begin{definition}[Endofunctor]
   \label{def:endofunctor}
-  Let $\cat{C}$ is a \mynameref{def:category}. The
+  Let $\cat{C}$ be a \mynameref{def:category}. The
   \mynameref{def:functor} $E: \cat{C} \tof \cat{C}$ i.e. 
   the functor from a category to the same category is called
   \textit{endofunctor}. 
@@ -357,7 +357,6 @@ direction of morphisms is called as
     dimap f g h = g . h . f
   \end{minted}
 \end{example}
-
 
 
 
