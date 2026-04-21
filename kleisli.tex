@@ -3,7 +3,7 @@
 
 \begin{definition}[Kleisli category]
 \label{def:kleisli_category}
-Let $\cat{C}$ is a category, $M$ is an \mynameref{def:endofunctor} and
+Let $\cat{C}$ be a category, $M$ be an \mynameref{def:endofunctor} and
 $\left<M, \mu, \eta\right>$ is a \mynameref{def:monad}. Then we can
 construct a new category $\cat{C_M}$ as follows:
 \begin{eqnarray}
@@ -15,7 +15,7 @@ construct a new category $\cat{C_M}$ as follows:
 \end{eqnarray}
 i.e. objects of categories $\cat{C}$ and $\cat{C_M}$ are the same but
 morphisms from $\cat{C_M}$ form a subset of morphisms $\cat{C}$:
-$\cathom{C_M} \subset \cathom{C}$. The category is called as
+$\cathom{C_M} \subset \cathom{C}$. The category is called
 \textit{Kleisli category}. 
 
 The identity morphism in the Kleisli category is the
@@ -27,7 +27,7 @@ $\left<M, \mu, \eta\right>$:
 \end{definition}
 
 \begin{remark}[Kleisli category composition]
-\mynameref{def:kleisli_category} has a non trivial composition rules.
+\mynameref{def:kleisli_category} has non-trivial composition rules.
 If we have 2 \mynameref{def:morphism}s from $\cathom{C_M}$:
 \[
 f_M: a \to b
@@ -52,22 +52,22 @@ The corresponding one from $\cat{C}$ is
 \[
 h: a \to M(c).
 \]
-It has to be pointed that the compositions in $\cat{C}$ and
+It has to be pointed out that the compositions in $\cat{C}$ and
 $\cat{C_M}$ are not the same:
 \[
 g_M \circ f_M \ne g \circ f.
 \]
 \end{remark}
 
-\mynameref{def:kleisli_category} widely spread in programming
+\mynameref{def:kleisli_category} is widely spread in programming,
 especially it provides good description for different types of
-computations, for instance \cite{bib:Moggi91, bib:milewski2018category} 
+computations, for instance \cite{bib:Moggi91, bib:milewski2018category}:
 \begin{itemize}
-\item \textbf{Partiality} i.e. then a function not defined for each input, for
+\item \textbf{Partiality} i.e. when a function is not defined for each input, for
   instance the following expression is undefined (or partially
   defined) for $x = 0$: $f(x) = \frac{1}{x}$
-\item \textbf{Non-Determinism} i.e. then multiply output are possible
-\item \textbf{Side-effects} i.e. then a function communicates with
+\item \textbf{Non-Determinism} i.e. when multiple outputs are possible
+\item \textbf{Side-effects} i.e. when a function communicates with
   an environment
 \item \textbf{Exception} i.e. when some input is incorrect and can
   produce an abnormal result. Therefore it is the same as
@@ -83,8 +83,8 @@ an output device (monitor etc.)
 
 \section{Partiality and Exception}
 
-Partial functions and exceptions can be processed via monad be called
-as Maybe. There will be implementations in different languages below.
+Partial functions and exceptions can be processed via a monad called
+Maybe. There will be implementations in different languages below.
 And the usage example for the following function implementation
 \[
 h(x) = \frac{1}{2 \sqrt{x}}.
@@ -98,13 +98,13 @@ f_2(x) = 2 \cdot x,
 f_3(x) = \frac{1}{x}
 \label{eq:monadmaybe_ex_f}
 \end{eqnarray}
-and as result the goal can be implemented as the following
+and as a result the goal can be implemented as the following
 composition:
 \begin{equation}
 h = f_3 \circ f_2 \circ f_1.
 \label{eq:monadmaybe_ex_h}
 \end{equation}
-$f_2$ is a \mynameref{def:pure_function} and defined $\forall x \in \mathbb{R}$. The
+$f_2$ is a \mynameref{def:pure_function} and is defined $\forall x \in \mathbb{R}$. The
 functions $f_1, f_3$ are partially defined.
 
 \subsection{Haskell example}
@@ -242,4 +242,3 @@ TBD
 \section{Continuation}
 
 TBD
-
