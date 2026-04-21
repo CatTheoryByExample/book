@@ -7,7 +7,7 @@ via a standard tool.
 
 \section{Definitions}
 
-The natural transformation is not an easy concept compare other ones
+The natural transformation is not an easy concept compared to other ones
 and requires some additional preparations before we can give the
 formal definition.
 
@@ -47,21 +47,21 @@ Consider 2 categories $\cat{C}, \cat{D}$ and 2
 \cat{C} \tof \cat{D}$. If we have an \mynameref{def:object} $a \in \catob{C}$ then
 it will be translated by different functors into different objects of
 category $\cat{D}$: $a_F = F(a), a_G = G(a) \in \catob{D}$ (see
-\cref{fig:nt_objects_mapping}). There are 2 options possible
+\cref{fig:nt_objects_mapping}). There are 2 possible options:
 \begin{enumerate}
-\item There is not  any \mynameref{def:morphism} that connects $a_F$
+\item There is not any \mynameref{def:morphism} that connects $a_F$
   and $a_G$.
 \item $\exists \alpha_a \in \catmset{a_F}{a_G} \subset
   \cathom{D}$. 
 \end{enumerate}
-We can of course to create an artificial morphism that connects the
+We can of course create an artificial morphism that connects the
 objects but if we use \textit{natural} morphisms 
 \footnote{the word natural means that already existent morphisms from
   category $\cat{D}$ are used}
 then we can get a
 special characteristic of the considered functors and categories. For
 instance if we have such morphisms then we can say that the
-considered functors are related each other. Opposite example if there
+considered functors are related to each other. As an opposite example, if there
 are no such morphisms then the functors can be considered as unrelated
 each other. 
 %% Another example if the
@@ -122,13 +122,13 @@ The functor is not just the object mapping but also the morphisms
 mapping. If we have 2 objects $a$ and $b$ in the category $\cat{C}$
 then we potentially can have a morphism $f \in \catmset[C]{a}{b}$. In this
 case the morphism is mapped by the functors $F$ and $G$ into 2
-morphisms $f_f$ and $f_G$ in the category $\cat{D}$. 
+morphisms $f_F$ and $f_G$ in the category $\cat{D}$. 
 As result we have 4 morphisms: $\alpha_a, \alpha_b, f_F, f_G \in
 \cathom{D}$. It is natural to impose additional conditions on the
 morphisms especially that they form a
 \mynameref{def:commutative_diagram} (see \cref{fig:nt_def}): 
 \[
-f_f \circ \alpha_b = \alpha_a \circ f_G.
+f_F \circ \alpha_b = \alpha_a \circ f_G.
 \]
 
 \begin{definition}[Natural transformation]
