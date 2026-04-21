@@ -4,19 +4,19 @@
 Monads are very important for pure functional programming languages
 such as Haskell. We shall start with \mynameref{def:monoid}
 consideration, continue with the formal mathematical definition for
-monad and
+the monad and
 will finish with programming languages examples later.
 
 \section{Monoid in $\cat{Set}$ category}
-In the \cref{sec:category_as_monoid} we considered definition and
-importance of \mynameref{def:monoid} concept. The definition was given
-in the terms of internal structure i.e. the ordinary and not
+In the \cref{sec:category_as_monoid} we considered the definition and
+importance of the \mynameref{def:monoid} concept. The definition was given
+in terms of internal structure i.e. the ordinary and not
 \mynameref{def:categorical_approach} was used.
-Now we are going to consider \mynameref{def:monoid} in the terms of
+Now we are going to consider \mynameref{def:monoid} in terms of
 \mynameref{def:set} theory but 
-will try to give the definition that is based rather on morphisms then
+will try to give the definition that is based rather on morphisms than
 on internal set structure i.e. we shall use
-\mynameref{def:categorical_approach}. Let $M$ is a set and by the
+\mynameref{def:categorical_approach}. Let $M$ be a set and by the
 monoid 
 definition (\cref{def:monoid})
 $\forall m_1, m_2 \in M$ we can define a new element of the set
@@ -25,7 +25,7 @@ the $\mu$:
 \[
 \mu(m_1, m_2) \equiv m_1 \cdot m_2.
 \]
-If the $(M, \cdot)$ is monoid then the following 2 conditions have to
+If $(M, \cdot)$ is a monoid then the following 2 conditions have to
 be satisfied. The first one (associativity) declares that $\forall
 m_1, m_2, m_3 \in M$ 
 \begin{equation}
@@ -43,7 +43,7 @@ m \cdot e = e \cdot m = m.
 \end{equation}
 
 \subsection{Associativity}
-Lets consider \eqref{eq:monoid1} in details. 
+Let's consider \eqref{eq:monoid1} in detail.
 We can define $\mu$ as a
 \mynameref{def:morphism} in the following way 
 \[
@@ -55,7 +55,7 @@ $\mu \in \cathom{Set}$.  Consider other objects of $\cat{Set}$: $A =
 M \times \left( M \times M \right)$ and $A' = \left( M \times M \right)
 \times M$. They are not the same but there is a trivial
 \mynameref{def:isomorphism} between them $A \cong_\alpha A'$, where
-the isomorphism $\alpha$ defined as
+the isomorphism $\alpha$ is defined as
 \[
 \alpha(x,(y,z)) = ((x,y),z).
 \]
@@ -94,7 +94,7 @@ Monoid associativity requires
 x \cdot (y\cdot z) = 
 (x \cdot y) \cdot z
 \]
-i.e. the morphisms are shown in \cref{fig:monoid_mu_alpha} commute:
+i.e. the morphisms shown in \cref{fig:monoid_mu_alpha} commute:
 \begin{equation}
 \label{eq:monad_monoid_mu}
 \mu\circ\left[\mu \times \idm{M}\right] =
@@ -802,4 +802,3 @@ I.e. \textbf{flatMap} can be considered as $\mu$ and
 \end{example}
 
 TBD
-
