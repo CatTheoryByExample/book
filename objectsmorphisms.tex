@@ -3,24 +3,24 @@
 
 \section{Equality}
 
-The important question is how we can decide whenever an
+The important question is how we can decide whether an
 object/morphism is equal to another object/morphism. The trivial
 answer is possible if the \mynameref{def:object} is a
 \mynameref{def:set}. In the case we can say that 2 objects are equal
 if they contain the equivalent collection of elements. Unfortunately
 we cannot do the same trick for categorical \mynameref{def:object}s as
 soon as they don't have any internal 
-structure but can use a \mynameref{def:categorical_approach} (see \cref{ch:categorical_approach}) i.e. if we cannot use a ``microscope'' lets
+structure, but can use a \mynameref{def:categorical_approach} (see \cref{ch:categorical_approach}) i.e. if we cannot use a ``microscope'' let's
 use a ``telescope'' and define the equality of objects and morphisms of
-a category $\cat{C}$ in the terms of whole $\cathom{C}$.
+a category $\cat{C}$ in terms of the whole $\cathom{C}$.
 
 \begin{definition}[Objects equality]
 \label{def:object_equality}
 Two \mynameref{def:object}s $a$ and $b$ in \mynameref{def:category}
-$\cat{C}$ are equal if there exists an unique
+$\cat{C}$ are equal if there exists a unique
 \mynameref{def:isomorphism} $a \cong_f b$. This also means that
-there exists an unique isomorphism $b \cong_g a$. These two
-\mynameref{def:morphism}s ($f$ and $g$) are related each other via 
+there exists a unique isomorphism $b \cong_g a$. These two
+\mynameref{def:morphism}s ($f$ and $g$) are related to each other via
 the following equations: $f \circ g = \idm{a}$ and $g \circ f
 = \idm{b}$. 
 \end{definition}
@@ -34,7 +34,7 @@ are connected by the considered functions
 about \mynameref{def:morphism}s except
 category theory axioms which the morphisms satisfy 
 \cite{bib:stackexchange:morphism:equality}. This leads us to the
-following definition of morphims equality:
+following definition of morphism equality:
 \begin{definition}[Morphisms equality]
 \label{def:morphism_equality}
 Two \mynameref{def:morphism}s $f$ and $g$ in \mynameref{def:category}
@@ -44,20 +44,20 @@ $\cat{C}$ are equal if the equality can be derived from the base axioms:
 \item \mynameref{axm:associativity}
 \item \mynameref{def:id}: \eqref{eq:leftid}, \eqref{eq:rightid}
 \end{itemize}
-or \mynameref{def:commutative_diagram}s which postulate the equality.
+or \mynameref{def:commutative_diagram}s that postulate the equality.
 \end{definition}
-As an example lets proof the following theorem
+As an example let's prove the following theorem.
 \begin{theorem}[Identity is unique]
 \label{thm:identity_unique}
 The \mynameref{def:id} is unique.
 \begin{proof}
-Consider an \mynameref{def:object} $a$ and it's \mynameref{def:id} 
+Consider an \mynameref{def:object} $a$ and its \mynameref{def:id}
 $\idm{a}$. Assume existence of a function $f: a \to a$ such that $f$ is also
 identity. \eqref{eq:leftid}, for $f$ as identity, gives us
 \[
 f \circ \idm{a} = \idm{a}.
 \]
-From other side \eqref{eq:rightid} for $\idm{a}$ satisfied
+On the other hand \eqref{eq:rightid} for $\idm{a}$ is satisfied:
 \[
 f \circ \idm{a} = f
 \]
@@ -76,7 +76,7 @@ $f = \idm{a}$.
 
 \begin{definition}[Initial object]
 \label{def:initial_object}
-Let $\cat{C}$ is a \mynameref{def:category}, the
+Let $\cat{C}$ be a \mynameref{def:category}. The
 \mynameref{def:object} $i \in \catob{C}$ is called
 \textit{initial object} if $\forall x \in \catob{C}
 \exists! f_x: i \to x \in \cathom{C}$.
@@ -84,28 +84,28 @@ Let $\cat{C}$ is a \mynameref{def:category}, the
 
 \begin{example}[Initial object][$\cat{Set}$]
 \label{ex:set_initial_object}
-Note that there is only one function from empty set to any other sets
+Note that there is only one function from the empty set to any other set
 \cite{bib:proofwiki:Empty_Mapping_is_Unique} that makes the empty set
-as the \mynameref{def:initial_object} in \mynameref{def:setcategory}. 
+the \mynameref{def:initial_object} in \mynameref{def:setcategory}.
 \end{example}
 
 \begin{theorem}[Initial object is unique]
 \label{thm:initial_object_unique}
-Let $\cat{C}$ is a category and $i, i' \in \catob{C}$ two
-\mynameref{def:initial_object}s then there exists an unique
+Let $\cat{C}$ be a category and let $i, i' \in \catob{C}$ be two
+\mynameref{def:initial_object}s. Then there exists a unique
 \mynameref{def:isomorphism} $u: i \to i'$ (see
-\mynameref{def:object_equality}) 
+\mynameref{def:object_equality}).
 \begin{proof}
 Consider the following \mynameref{def:commutative_diagram} (see
-\cref{fig:initial_object_unique}). As soon as $i$ initial object
-$\exists! \, u: i \to i'$. From other side $i'$ is also initial object
+\cref{fig:initial_object_unique}). Since $i$ is an initial object,
+$\exists! \, u: i \to i'$. On the other hand $i'$ is also an initial object
 and therefore $\exists! \, u^{-1}: i' \to i$. Combining them together
 via composition we can get $u^{-1} \circ u: i \to i$ and $u \circ
 u^{-1}: i' \to i'$. From the fact that $i$ is initial object one can
 get that there exists
-only one morphism $\idm{i}: i \to i$. The same is the truth for $i'$.
+only one morphism $\idm{i}: i \to i$. The same is true for $i'$.
 Therefore $u^{-1} \circ u = \idm{i}$ and $u \circ u^{-1} = \idm{i'}$.
-These complete the commutative diagram build and finishes the proof. 
+This completes the commutative diagram and finishes the proof.
 \begin{figure}
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -1098,4 +1098,3 @@ $\mathbb{C}$.
 \end{example}
 
 TBD
-
