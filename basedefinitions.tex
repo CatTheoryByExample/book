@@ -593,12 +593,15 @@ $\cathom{C}$ are \nameref{def:set}s
 \index{Category!locally small}
 
 A category $\cat{C}$ is called \textit{locally small} if 
-$\cathom{C}$ is a \nameref{def:set}. The set is called \mynameref{def:homset}.
+for every 2 \mynameref{def:object}s $a,b \in \catob{C}$ the collection
+$\catmset[C]{a}{b}$ of all \mynameref{def:morphism}s from $a$ to $b$ is
+a \nameref{def:set}. The set is called \mynameref{def:homset}.
 \end{definition}
 
 \begin{definition}[Homset]
 \label{def:homset}
-The \textit{homset} is the \mynameref{def:set} of morphisms in a
+The \textit{homset} $\catmset[C]{a}{b}$ is the \mynameref{def:set} of
+\mynameref{def:morphism}s from $a$ to $b$ in a
 \mynameref{def:localy_small_category}. 
 \end{definition}
 
