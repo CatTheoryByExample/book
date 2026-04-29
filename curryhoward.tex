@@ -33,9 +33,12 @@ There is an example of correct (true) proposition
 
 There is an example of incorrect (false) proposition
 \[
-\forall n \in \mathbb{C}: n^2 \ge 0,
+\exists n \in \mathbb{R}: n^2 < 0.
 \]
-for instance $i \in \mathbb{C}$ gives $i^2 = -1$.
+
+The expression $\forall n \in \mathbb{C}: n^2 \ge 0$ is not a good
+example of a false proposition in standard math because $\mathbb{C}$ has
+no standard order for the comparison $\ge$.
 
 \end{example}
 
@@ -128,8 +131,9 @@ theory from the categorical point of view
 \begin{example}[Initial object][$\cat{Proof}$]
 \label{ex:proof_initial_object}
 The \textit{false} statement can be considered as the initial object
-because for any other statement exists only one proof from the false
-statement to that one.
+because for any other statement there is a proof from the false
+statement to that one. If we identify proofs with the same entailment
+or work in a proof-irrelevant setting, this proof is unique.
 \end{example}
 
 \begin{example}[Terminal object][$\cat{Proof}$]
@@ -255,5 +259,4 @@ Therefore we have distributive law
 \[
 P \land (Q_1 \lor Q_2) \ne (P \land Q_1 ) \lor (P \land Q_2).
 \]
-
 

@@ -501,13 +501,15 @@ instance Representable Pair where
 
 \begin{remark}[Functor logarithm]
 \index{Functor!logarithm}
-Consider category $\cat{C}$. \mynameref{def:morphism_set}
-$\catmset[C]{a}{x}$ is the same as the \mynameref{def:exponential} 
-\footnote{TBD add the explanation for the fact}, i.e.
+Consider the category $\cat{Set}$. \mynameref{def:morphism_set}
+$\catmset[Set]{a}{x}$ is the same as the \mynameref{def:exponential}
+object $x^a$, i.e.
 \[
-\catmset[C]{a}{x} \cong x^a.
+\catmset[Set]{a}{x} \cong x^a.
 \]
-Therefore, formally, we can write
+More generally, the same notation makes sense in a category where the
+exponential object $x^a$ is defined and interpreted as the object of
+morphisms from $a$ to $x$. Therefore, in such context, formally, we can write
 \[
 \catcovhom{C}{a} \cong \left(-\right)^a.
 \]
@@ -595,7 +597,7 @@ morphism $f$ between the 2 objects \cref{fig:yoneda_proof_c}.
 
 Functor
 $\catcovhom{C}{a}$ maps $x$ into $\catmset[C]{a}{x}$ and $y$ into 
-$\catmset[C]{a}{x}$. Functor $F$ maps the 2 objects into $F(x)$ and
+$\catmset[C]{a}{y}$. Functor $F$ maps the 2 objects into $F(x)$ and
 $F(y)$ respectively. There is a \mynameref{def:nt} $\alpha$ between
 the functors. I.e.  $\alpha \in
 \catmset[\funcat{C}{Set}]{\catcovhom{C}{a}}{F}$. We are interested in
