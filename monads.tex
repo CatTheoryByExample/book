@@ -231,14 +231,14 @@ After the application of $\mu$ on the result we obtain
     node[sloped,above]{$\mu$} (M);
   \end{tikzpicture}
   \caption{Commutative diagram for $\mu \circ (\eta \times \idm{M})
-    \circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
+    \circ \lambda = \mu \circ (\idm{M} \times \eta) \circ \rho =
     \idm{M}$ .} 
   \label{fig:monoid_eta_lambda_rho}
 \end{figure}
 The \eqref{eq:monoid2} leads to the following equation for morphisms
 \[
-\mu \circ (\eta \times \idm{M}) \circ \rho = 
-\mu \circ (\idm{M} \times \mu) \circ \lambda = 
+\mu \circ (\eta \times \idm{M}) \circ \lambda = 
+\mu \circ (\idm{M} \times \eta) \circ \rho = 
 \idm{M}
 \]
 or the commutative diagram shown on \cref{fig:monoid_eta_lambda_rho}.
@@ -313,7 +313,7 @@ conditions satisfied:
 \end{equation}
 \begin{equation}
 \mu \circ (\eta \times \idm{M})
-\circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
+\circ \lambda = \mu \circ (\idm{M} \times \eta) \circ \rho =
 \idm{M}
 \label{eq:monoid_def_eta}
 \end{equation}
@@ -454,7 +454,7 @@ a \mynameref{def:bifunctor}.
   \[
   f: m \times n \to a
   \]
-  exists only one morphism $\tilde{f}: m \times n \to a$ such that
+  exists only one morphism $\tilde{f}: m \otimes n \to a$ such that
   \[
   f = \tilde{f} \circ \phi
   \]
@@ -656,12 +656,12 @@ morphisms $\idm{M}, \rho, \lambda$ with identity natural transformation
 $\idnt{M}$. Thus the equation
 \[
 \mu \circ (\eta \times \idm{M})
-\circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
+\circ \lambda = \mu \circ (\idm{M} \times \eta) \circ \rho =
 \idm{M}
 \]
 will be replaced with
 \[
-\mu \circ (\eta \star \idnt{M}) = \mu \circ (\idnt{M} \star \mu) =
+\mu \circ (\eta \star \idnt{M}) = \mu \circ (\idnt{M} \star \eta) =
 \idnt{M}
 \]
 that is the exact we want to get (see second equation of
