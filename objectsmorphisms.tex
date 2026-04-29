@@ -223,9 +223,8 @@ the following way:
 Let we have a category $\cat{C}$ and $c_1, c_2 \in \catob{C}$ -two
 \mynameref{def:object}s then the product of the objects $c_1, c_2$ is
 another object in $\cat{C}$ $c = c_1 \times c_2$ with 2
-\mynameref{def:morphism}s $\pi_1, \pi_2$ such that $c_1 = \pi_1(c),
-c_2 = \pi(c)$ and the  
-following universal property is satisfied: $\forall c' \in \catob{C}$
+\mynameref{def:morphism}s $\pi_1: c \to c_1, \pi_2: c \to c_2$ such
+that the following universal property is satisfied: $\forall c' \in \catob{C}$
 and morphisms $\pi'_1: c' \to c_1, \pi'_2: c' \to c_2$, exists unique
 morphism $h$ such that the following diagram (see \cref{fig:product})
 commutes, i.e. 
@@ -375,10 +374,9 @@ object definition that is called sum
 Let we have a category $\cat{C}$ and $c_1, c_2 \in \catob{C}$ -two
 \mynameref{def:object}s then the sum of the objects $c_1, c_2$ is
 another object in $\cat{C}$ $c = c_1 \oplus c_2$ with 2
-\mynameref{def:morphism}s $i_1, i_2$ such that $c = i_1(c_1), c = i_2
-(c_2)$ and the 
-following \mynameref{def:universalproperty} is satisfied: $\forall c'
-\in \catob{C}$ 
+\mynameref{def:morphism}s $i_1: c_1 \to c, i_2: c_2 \to c$ such that
+the following \mynameref{def:universalproperty} is satisfied: $\forall c'
+\in \catob{C}$
 and morphisms $i'_1: c_1 \to c', i'_2: c_2 \to c'$, exists unique
 morphism $h$ such that the following diagram (see \cref{fig:sum})
 commutes, i.e. $i'_1 = h \circ i_1, i'_2 = h \circ i_2$.
