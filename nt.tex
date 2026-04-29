@@ -312,7 +312,7 @@ Also we have $\alpha : F \tont G, \beta: G \tont
 H$ - natural transformations. We can compose the $\alpha$ and $\beta$
 as follows 
 \[
-\alpha \circ \beta: F \tont H.
+\beta \circ \alpha: F \tont H.
 \]
 This composition
 is called \textit{vertical composition}.
@@ -375,7 +375,7 @@ natural transformation between each pair: $\alpha : F \tont
 G$ for the first one and $\beta : J \tont
 K$ for the second one. We can create a new transformation
 \[
-\alpha \star \beta: F \circ J \tont G \circ K
+\alpha \star \beta: J \circ F \tont K \circ G
 \] 
 that is called \textit{horizontal composition}. Note that we use a
 special symbol $\star$ for the composition.
@@ -398,7 +398,7 @@ If we have the same pair of functors as in
   objects mapping.
   I.e.
   \[
-  \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
+  \otimes: F \times J \to J \circ F \in \catob{\mathcal{C}}.
   \]
   
   The bifunctor is not just a map for objects. There is also a map
@@ -457,13 +457,13 @@ With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
 For left whiskering:
 \begin{equation}
 \label{eq:lw}
-\alpha H = \alpha \star \idnt{H}
+\alpha H = \idnt{H} \star \alpha
 \end{equation}
 
 For right whiskering:
 \begin{equation}
 \label{eq:rw}
-H \alpha = \idnt{H} \star \alpha
+H \alpha = \alpha \star \idnt{H}
 \end{equation}
 \end{remark}
 
